@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cognizant.ams.dao.SmApplistMapper">
+	<resultMap id="BaseResultMap"
+		type="com.cognizant.ams.bean.SmApplist">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="app_id" jdbcType="VARCHAR" property="appId" />
+		<result column="app_name" jdbcType="VARCHAR" property="appName" />
+		<result column="app_describ" jdbcType="VARCHAR"
+			property="appDescrib" />
+		<result column="app_owner" jdbcType="VARCHAR"
+			property="appOwner" />
+		<result column="owner_email" jdbcType="VARCHAR"
+			property="ownerEmail" />
+		<result column="app_maintenance" jdbcType="VARCHAR"
+			property="appMaintenance" />
+		<result column="maintenance_email" jdbcType="VARCHAR"
+			property="maintenanceEmail" />
+		<result column="app_url1" jdbcType="VARCHAR" property="appUrl1" />
+		<result column="app_url2" jdbcType="VARCHAR" property="appUrl2" />
+		<result column="app_url3" jdbcType="VARCHAR" property="appUrl3" />
+		<result column="is_deleted" jdbcType="CHAR"
+			property="isDeleted" />
+		<result column="create_time" jdbcType="CHAR"
+			property="createTime" />
+		<result column="update_time" jdbcType="CHAR"
+			property="updateTime" />
+		<result column="chk" jdbcType="CHAR" property="chk" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value"
+										item="listItem" open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value"
+										item="listItem" open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		id, app_id, app_name, app_describ, app_owner, owner_email,
+		app_maintenance, maintenance_email,
+		app_url1, app_url2, app_url3, is_deleted, create_time, update_time, chk
+	</sql>
+	<select id="selectByExample"
+		parameterType="com.cognizant.ams.bean.SmApplistExample"
+		resultMap="BaseResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from sm_applist
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<delete id="deleteByExample"
+		parameterType="com.cognizant.ams.bean.SmApplistExample">
+		delete from sm_applist
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert"
+		parameterType="com.cognizant.ams.bean.SmApplist">
+		insert into sm_applist (id, app_id, app_name,
+		app_describ, app_owner, owner_email,
+		app_maintenance, maintenance_email, app_url1,
+		app_url2, app_url3, is_deleted,
+		create_time, update_time, chk)
+		values (#{id,jdbcType=INTEGER}, #{appId,jdbcType=VARCHAR},
+		#{appName,jdbcType=VARCHAR},
+		#{appDescrib,jdbcType=VARCHAR}, #{appOwner,jdbcType=VARCHAR}, #{ownerEmail,jdbcType=VARCHAR},
+		#{appMaintenance,jdbcType=VARCHAR},
+		#{maintenanceEmail,jdbcType=VARCHAR}, #{appUrl1,jdbcType=VARCHAR},
+		#{appUrl2,jdbcType=VARCHAR}, #{appUrl3,jdbcType=VARCHAR},
+		#{isDeleted,jdbcType=CHAR},
+		#{createTime,jdbcType=CHAR}, #{updateTime,jdbcType=CHAR}, #{chk,jdbcType=CHAR})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.cognizant.ams.bean.SmApplist">
+		insert into sm_applist
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="appId != null">
+				app_id,
+			</if>
+			<if test="appName != null">
+				app_name,
+			</if>
+			<if test="appDescrib != null">
+				app_describ,
+			</if>
+			<if test="appOwner != null">
+				app_owner,
+			</if>
+			<if test="ownerEmail != null">
+				owner_email,
+			</if>
+			<if test="appMaintenance != null">
+				app_maintenance,
+			</if>
+			<if test="maintenanceEmail != null">
+				maintenance_email,
+			</if>
+			<if test="appUrl1 != null">
+				app_url1,
+			</if>
+			<if test="appUrl2 != null">
+				app_url2,
+			</if>
+			<if test="appUrl3 != null">
+				app_url3,
+			</if>
+			<if test="isDeleted != null">
+				is_deleted,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="chk != null">
+				chk,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="appId != null">
+				#{appId,jdbcType=VARCHAR},
+			</if>
+			<if test="appName != null">
+				#{appName,jdbcType=VARCHAR},
+			</if>
+			<if test="appDescrib != null">
+				#{appDescrib,jdbcType=VARCHAR},
+			</if>
+			<if test="appOwner != null">
+				#{appOwner,jdbcType=VARCHAR},
+			</if>
+			<if test="ownerEmail != null">
+				#{ownerEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="appMaintenance != null">
+				#{appMaintenance,jdbcType=VARCHAR},
+			</if>
+			<if test="maintenanceEmail != null">
+				#{maintenanceEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="appUrl1 != null">
+				#{appUrl1,jdbcType=VARCHAR},
+			</if>
+			<if test="appUrl2 != null">
+				#{appUrl2,jdbcType=VARCHAR},
+			</if>
+			<if test="appUrl3 != null">
+				#{appUrl3,jdbcType=VARCHAR},
+			</if>
+			<if test="isDeleted != null">
+				#{isDeleted,jdbcType=CHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=CHAR},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=CHAR},
+			</if>
+			<if test="chk != null">
+				#{chk,jdbcType=CHAR},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample"
+		parameterType="com.cognizant.ams.bean.SmApplistExample"
+		resultType="java.lang.Long">
+		select count(*) from sm_applist
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update sm_applist
+		<set>
+			<if test="record.id != null">
+				id = #{record.id,jdbcType=INTEGER},
+			</if>
+			<if test="record.appId != null">
+				app_id = #{record.appId,jdbcType=VARCHAR},
+			</if>
+			<if test="record.appName != null">
+				app_name = #{record.appName,jdbcType=VARCHAR},
+			</if>
+			<if test="record.appDescrib != null">
+				app_describ = #{record.appDescrib,jdbcType=VARCHAR},
+			</if>
+			<if test="record.appOwner != null">
+				app_owner = #{record.appOwner,jdbcType=VARCHAR},
+			</if>
+			<if test="record.ownerEmail != null">
+				owner_email = #{record.ownerEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="record.appMaintenance != null">
+				app_maintenance = #{record.appMaintenance,jdbcType=VARCHAR},
+			</if>
+			<if test="record.maintenanceEmail != null">
+				maintenance_email = #{record.maintenanceEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="record.appUrl1 != null">
+				app_url1 = #{record.appUrl1,jdbcType=VARCHAR},
+			</if>
+			<if test="record.appUrl2 != null">
+				app_url2 = #{record.appUrl2,jdbcType=VARCHAR},
+			</if>
+			<if test="record.appUrl3 != null">
+				app_url3 = #{record.appUrl3,jdbcType=VARCHAR},
+			</if>
+			<if test="record.isDeleted != null">
+				is_deleted = #{record.isDeleted,jdbcType=CHAR},
+			</if>
+			<if test="record.createTime != null">
+				create_time = #{record.createTime,jdbcType=CHAR},
+			</if>
+			<if test="record.updateTime != null">
+				update_time = #{record.updateTime,jdbcType=CHAR},
+			</if>
+			<if test="record.chk != null">
+				chk = #{record.chk,jdbcType=CHAR},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update sm_applist
+		set id = #{record.id,jdbcType=INTEGER},
+		app_id = #{record.appId,jdbcType=VARCHAR},
+		app_name = #{record.appName,jdbcType=VARCHAR},
+		app_describ = #{record.appDescrib,jdbcType=VARCHAR},
+		app_owner = #{record.appOwner,jdbcType=VARCHAR},
+		owner_email = #{record.ownerEmail,jdbcType=VARCHAR},
+		app_maintenance = #{record.appMaintenance,jdbcType=VARCHAR},
+		maintenance_email = #{record.maintenanceEmail,jdbcType=VARCHAR},
+		app_url1 = #{record.appUrl1,jdbcType=VARCHAR},
+		app_url2 = #{record.appUrl2,jdbcType=VARCHAR},
+		app_url3 = #{record.appUrl3,jdbcType=VARCHAR},
+		is_deleted = #{record.isDeleted,jdbcType=CHAR},
+		create_time = #{record.createTime,jdbcType=CHAR},
+		update_time = #{record.updateTime,jdbcType=CHAR},
+		chk = #{record.chk,jdbcType=CHAR}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+
+	<select id="queryAppConfig"
+		parameterType="com.cognizant.ams.bean.SmApplist"
+		resultMap="BaseResultMap">
+		select * from sm_applist
+		<where>
+			<if test="id != null  and id !='' ">
+				and id = #{id}
+			</if>
+			<if test="appId != null  and appId !='' ">
+				and app_id = #{appId}
+			</if>
+			<if test="appName != null  and appName !='' ">
+				and app_name = #{appName}
+			</if>
+			<if test="appDescrib != null  and appDescrib !='' ">
+				and app_describ = #{appDescrib}
+			</if>
+			<if test="appOwner != null  and appOwner !='' ">
+				and app_owner = #{appOwner}
+			</if>
+			<if test="ownerEmail != null  and ownerEmail !='' ">
+				and owner_email = #{ownerEmail}
+			</if>
+			<if test="appMaintenance != null  and appMaintenance !='' ">
+				and app_maintenance = #{appMaintenance}
+			</if>
+			<if test="maintenanceEmail != null  and maintenanceEmail !='' ">
+				and maintenance_email = #{maintenanceEmail}
+			</if>
+			<if test="appUrl1 != null  and appUrl1 !='' ">
+				and app_url1 = #{appUrl1}
+			</if>
+			<if test="appUrl2 != null  and appUrl2 !='' ">
+				and app_url2 = #{appUrl2}
+			</if>
+			<if test="appUrl3 != null  and appUrl3 !='' ">
+				and app_url3 = #{appUrl3}
+			</if>
+		</where>
+	</select>
+
+	<insert id="addConfig"
+		parameterType="com.cognizant.ams.bean.SmApplist">
+		insert into sm_applist
+		values(#{appId},#{appName},#{appDescrib},#{appOwner},#{ownerEmail},#{appMaintenance},#{maintenanceEmail},#{appUrl1},#{appUrl2},#{appUrl3},'0',(select
+		CONVERT(varchar(100), GETDATE(), 120)) ,(select CONVERT(varchar(100),
+		GETDATE(), 120)),'false' );
+	</insert>
+
+	<update id="updateConfig" parameterType='list'>
+		<foreach collection="list" item="app" open="" close="" separator=";">
+			 update  sm_applist  set app_id=#{app.appId} ,app_name=#{app.appName},app_owner=#{app.appOwner},owner_email=#{app.ownerEmail},app_maintenance=#{app.appMaintenance},maintenance_email=#{app.maintenanceEmail},app_url1=#{app.appUrl1},app_url2=#{app.appUrl2},app_url3=#{app.appUrl3},is_deleted=#{app.isDeleted},update_time=(select CONVERT(varchar(100), GETDATE(), 120)) where id = #{app.id}
+		</foreach>
+	</update>
+	
+   <delete id='deleteConfig' parameterType='list'>
+  				delete from sm_applist where id in
+  				<foreach collection="list" item="item" separator=","   open="("  close=")">
+  							#{item}
+  				</foreach>
+  </delete>
+</mapper>

@@ -1,0 +1,29 @@
+[INFO ] 2019-09-16 09:40:28 [main] [c.m.ams.CheckfsApplicationTests] ====message: Starting CheckfsApplicationTests on CNSZIDCXD0108 with PID 4756 (started by ChanGe in D:\JavaDevelopment\eclipse\workspace\checkfs)
+[INFO ] 2019-09-16 09:40:28 [main] [c.m.ams.CheckfsApplicationTests] ====message: The following profiles are active: prod
+[INFO ] 2019-09-16 09:40:28 [main] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2019-09-16 09:40:28 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2019-09-16 09:40:28 [main] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2019-09-16 09:40:28 [main] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.1 created.
+[INFO ] 2019-09-16 09:40:28 [main] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2019-09-16 09:40:28 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2019-09-16 09:40:28 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2019-09-16 09:40:28 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.1
+[INFO ] 2019-09-16 09:40:28 [main] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@10cb5a1
+[INFO ] 2019-09-16 09:40:28 [main] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Initializing ExecutorService 'taskScheduler'
+[INFO ] 2019-09-16 09:40:28 [main] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2019-09-16 09:40:28 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2019-09-16 09:40:28 [main] [c.m.ams.CheckfsApplicationTests] ====message: Started CheckfsApplicationTests in 10.233 seconds (JVM running for 13.944)
+[INFO ] 2019-09-16 09:40:28 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2019-09-16 09:40:28 [Thread-2] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Shutting down ExecutorService 'taskScheduler'
+[INFO ] 2019-09-16 09:40:28 [Thread-2] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2019-09-16 09:40:28 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2019-09-16 09:40:28 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2019-09-16 09:40:28 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2019-09-16 09:40:28 [Thread-2] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'

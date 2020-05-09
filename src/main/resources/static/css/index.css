@@ -1,0 +1,188 @@
+.header {
+	height: 55px;
+	background-image: url('/images/logo.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 151px 44px;
+	border-bottom: 1px solid lightgray;
+
+}
+
+.dropdown {
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	margin: 0;
+	padding: 0;
+
+	box-shadow: none;
+}
+
+#accordion span,
+.submenu,
+.card-link {
+	cursor: pointer;
+}
+
+#btn {
+	font-size: 20px;
+	border: 0;
+	background: none;
+	margin: 0;
+	padding: 0;
+	color: #a6a6a6;
+	outline: none;
+	box-shadow: none;
+}
+
+#btn :hover {
+	color: gray;
+}
+
+.content {
+	position: absolute;
+	height: calc(100% - 55px);
+	width: 100%;
+
+}
+
+.lefter {
+	position: absolute;
+	float: left;
+	width: 230px;
+	height: 100%;
+	overflow-x: hidden;
+
+}
+
+.righter {
+	height: 100%;
+	margin-left: 230px;
+}
+
+#ifra {
+	position: absolute;
+	border: 0;
+	width: calc(100% - 230px);
+	height: 100%;
+
+}
+
+.card-link {
+	display: block;
+	padding: 10px;
+	background-color: white;
+	color: #0061a0;
+	border: 0;
+}
+
+.card-header :hover {
+	background-color: #0093d6;
+	color: white;
+
+}
+
+.card {
+	border-bottom: 0;
+	border-radius: 0;
+	padding: 0;
+	border: 0;
+
+	margin: 0;
+
+}
+
+.card-header {
+	border-radius: 0;
+	padding: 0;
+	font-size: 12px;
+	border: 0;
+}
+
+#accordion {
+	height: calc(100% - 52px);
+	width: 250px;
+	overflow-x: hidden;
+	border: 0;
+}
+
+.myfooter {
+	position: absolute;
+	background-color: #0061a0;
+	color: white;
+	padding: 10px 10px 10px 5px;
+	bottom: 0;
+	border: 0;
+	width: 100%;
+	font-size: 12px;
+
+}
+
+.myheader,
+.myheader a {
+	background-color: #0061a0;
+	color: white;
+	padding: 10px 10px 10px 5px;
+
+
+}
+
+.myheader {
+	border-bottom: 1px solid lightgray;
+}
+
+.collapse {
+	background-color: #e5f4fb;
+	border: 0;
+}
+
+.card-body {
+	color: #0061a0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 12px;
+}
+
+.icon-yuandianxiao {
+	font-size: 12px;
+}
+
+.collapse :hover {
+	color: #4eb2e5;
+
+}
+
+.jj {
+	position: absolute;
+	right: 30px;
+}
+
+.icon-wenjianjiaguanbi {
+	font-size: 14px;
+}
+
+.icon-ic_folder {
+	font-size: 14px;
+}
+
+.icon-wenjianjia {
+	font-size: 14px;
+
+}
+
+.card-body div {
+	display: block;
+	text-decoration: none;
+	padding: 10px 0px 10px 25px;
+	width: 100%;
+	color: rgb(0, 134, 206);
+	border: 0;
+}
+
+.side-scroll {
+	position: relative;
+	width: 300px;
+	height: 100%;
+	overflow-x: hidden;
+}

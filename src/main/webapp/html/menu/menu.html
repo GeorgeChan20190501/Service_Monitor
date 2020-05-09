@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>菜单管理</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/bootstrap-all.css">
+	<script src="/js/bootstrap-all.js"></script>
+	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+	<!-- 系统CSS或JS -->
+	<link rel="stylesheet" href="/css/system.css">
+
+	<style>
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="row">
+			<div class="col-3">
+				<h4>菜单管理</h4>
+			</div>
+		</div>
+		<div class="bh2"></div>
+		<div class="bg-content">
+
+
+			<div class="row">
+				<div class="col-sm-2">
+					节点编码：<input type="text" name="nodeCode" v-model="menuobj.nodeCode"
+						style="width: 150px; height: 25px;" />
+				</div>
+
+				<div class="col-sm-2">
+					父节编码：<input type="text" name="parentNodeCode" v-model="menuobj.parentNodeCode"
+						style="width: 150px; height: 25px;" />
+
+				</div>
+				<div class="col-sm-2">
+					节点名称：<input type="text" name="nodeName" v-model="menuobj.nodeName"
+						style="width: 150px; height: 25px;" />
+				</div>
+				<div class="col-sm-2">
+					子节点数：<input type="text" name="childNum" v-model="menuobj.childNum"
+						style="width: 150px; height: 25px;" />
+
+				</div>
+			</div>
+			<div class="bh1"></div>
+			<div class="row">
+				<div class="col-sm-2">
+					节点地址：<input type="text" name="pageUrl" v-model="menuobj.pageUrl"
+						style="width: 150px; height: 25px;" />
+				</div>
+
+				<div class="col-sm-2">
+					节点描述：<input type="text" name="nodeDescription" v-model="menuobj.nodeDescription"
+						style="width: 150px; height: 25px;" />
+				</div>
+				<div class="col-sm-2">节点生效：
+					<select name="isDeleted" style="width: 150px; height: 25px;" v-model="menuobj.isDeleted">
+						<option value="">请选择</option>
+						<option value="1">1-有效</option>
+						<option value="0">0-无效</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row" style="padding: 15px;">
+				<button class="bg-primary mybtn" @click="fenye(1)">查询菜单</button>
+				<button class="mybtn bg-primary" style="margin-left: 45px;" data-toggle="modal" data-target="#myModal"
+					@click="addMenu()">新增菜单</button>
+
+			</div>
+
+		</div>
+		<div class="bh5"></div>
+
+		<div class="bg-content">
+			<div>菜单表结果：</div>
+			<div class="bh2"></div>
+			<div>
+				<table class="table  table-bordered   table-sm">
+					<thead>
+						<tr>
+							<th width="50px;" ><input type="checkbox" class=" batch" disabled /></th>
+							<th>菜单编号</th>
+							<th>节点编码</th>
+							<th>节点名称</th>
+							<th>父级编码</th>
+							<th>子节点数</th>
+							<th>URL</th>
+							<th>描述</th>
+							<th>是否失效</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="item in menus">
+							<td width=" 50px;"><input type="checkbox" class="batch" @click=" chk(item.id,$event)" /></td>
+							<td >{{item.id}}</td>
+							<td><input class="tableinput" :value="item.nodeCode" v-model="item.nodeCode"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.nodeName" v-model="item.nodeName"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.parentNodeCode" v-model="item.parentNodeCode"
+								:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.childNum" v-model="item.childNum"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.pageUrl" v-model="item.pageUrl"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.nodeDescription" v-model="item.nodeDescription"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.isDeleted" v-model="item.isDeleted"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><button class="bg-danger table-btn" @click="change()">{{edit}}</button></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row"></div>
+				<button data-toggle="modal" data-target="#myModal" class="bg-danger table-btn a-btn text-white"
+					@click="deleteMenu()">删除菜单</button>
+				<button class="bg-danger a-btn myleft-2 text-white" data-toggle="modal" data-target="#myModal"
+					@click="updateMenu()">修改菜单</button>
+
+			</div>
+			<!-- 分页模板（修改URL及参数） -->
+			<div class="row" v-if="pageTotal>1">
+				<ul class="pagination pagination-sm offset-sm-4">
+					<li class="page-item"><a class="page-link" @click="fenye(1)">首 页</a></li>
+					<li class="page-item"><a class="page-link" @click="fenye(currentPage-1)">上一页</a></li>
+					<li v-for = "n in pageTotal" class="page-item" >
+							<a class="page-link" @click="fenye(n)"  v-if="pageTotal<6"  >{{n}}</a>
+							<a class="page-link" @click="fenye(n)"  v-if="pageTotal>5 && currentPage <4 && n<6">{{n}}</a>
+							<a  class="page-link" @click="fenye(currentPage+(n-3))"  v-if="(pageTotal-currentPage)>1 && pageTotal>5 && currentPage >3 && n<6">{{currentPage+(n-3)}}</a>
+							<a  class="page-link" @click="fenye(pageTotal+(n-5))"  v-if="(pageTotal-currentPage)<2 && pageTotal>5 && currentPage >3 && n<6">{{pageTotal+(n-5)}}</a>
+					</li>
+					<li class="page-item"><a class="page-link" @click="fenye(currentPage+1)">下一页</a></li>
+					<li class="page-item"><a class="page-link" @click="fenye(pageTotal)">尾 页</a></li>
+				</ul><div style="margin-left: 15px;margin-top: 10px;;">共 {{pageTotal}} 页</div>
+			</div>
+		</div>
+
+		<!-- 模态框2 -->
+		<div class="modal fade myalert" id="myModal">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<!-- 模态框头部 -->
+					<div class="modal-header">
+						<span class="modal-title">系统提示：</span>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<!-- 模态框主体 -->
+					<div class="modal-body">{{info2}}
+						<select id="username'" v-model="roleName" v-show="flag" style="width: 150px; height: 25px;">
+							<option value="">请选择</option>
+							<option :value="item.roleName" v-for="item in role">{{ item.roleName }}</option>
+						</select></div>
+					<!-- 模态框底部 -->
+					<div class="modal-footer">
+						<button class="btn btn-success btn-sm" data-dismiss="modal" id="modal-1"
+							@click="confirmbtn(info2)">确 认</button>
+						<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" @click="cancle()">取
+							消</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div id="ss"></div>
+</body>
+<script>
+	var vm = new Vue({
+		el: '#container',
+		data: {
+			menuobj: { id: null, nodeCode: '', parentNodeCode: '', nodeName: '', childNum: '', pageUrl: '', nodeDescription: '', isDeleted: '' },
+			info: [],
+			role: [],
+			account: '',
+			account1: '',
+			roleName: '',
+			roleName1: '',
+			orgname: null,
+			status: false,
+			check: true,
+			edit: '启用编辑',
+			info2: '',
+			menus: [],
+			checkGrp: [],
+			ids: [],
+			flag: false,
+			currentPage:1,
+			pageTotal:1,
+			pageSize:5
+		},
+		methods: {
+			queryMenu() {
+				axios({
+					method: 'post',
+					url: '/queryMenu',
+					data: {
+						msg: this.menuobj
+					},
+				}).then(res => {
+					this.menus = res.data
+				}, error => {
+				});
+			},
+			fenye(targetPage){
+				//参数为点击的页码
+				//alert("调用分页，去往第"+targetPage+"页")
+				axios({
+					method: 'post',
+					url: '/fenyeQueryMenu',
+					data: {
+						msg: this.menuobj,
+						msg1: targetPage,
+						msg2: this.pageSize
+					},
+				}).then(res => {
+					this.menus = res.data.fenyeMenus;
+					this.pageTotal=res.data.pageTotal;
+					this.currentPage=targetPage;
+				}, error => {
+				});
+			},
+			addMenu() {
+				if ((this.menuobj.nodeCode == '' || this.menuobj.nodeCode == null) || (this.menuobj.parentNodeCode == '' || this.menuobj.parentNodeCode == null) || (this.menuobj.nodeName == '' || this.menuobj.nodeName == null)
+					|| (this.menuobj.childNum == '' || this.menuobj.childNum == null) || (this.menuobj.pageUrl == '' || this.menuobj.pageUrl == null) || (this.menuobj.nodeDescription == '' || this.menuobj.nodeDescription == null) || (this.menuobj.isDeleted == '' || this.menuobj.isDeleted == null)) {
+					this.info2 = '添加菜单七要素必须同时填写!';
+					return false;
+				}
+				axios({
+					method: 'put',
+					url: '/addMenu',
+					data: {
+						msg: this.menuobj
+					},
+				}).then(res => {
+					this.info2=res.data	
+				}, error => {
+				});
+			},
+			confirmbtn(info) {
+				if (info.indexOf('确定要删除所选记录吗') != -1) {
+					axios({
+						method: 'delete',
+						url: '/deleteMenu',
+						data: {
+							msg: this.checkGrp
+						},
+					}).then(resrm => {
+						ams_alert(resrm.data);
+						this.checkGrp = [];
+						this.fenye(this.currentPage);
+					}, error => {
+					});
+				}
+
+				if (info.indexOf('确定修改记录') != -1) {
+					var checkGrp = this.checkGrp;
+					var menus = this.menus;
+					var myarr = [];
+					for (x in menus) {
+						for (y in checkGrp) {
+							if (menus[x].id == checkGrp[y]) {
+								var param = '{"id":"' + menus[x].id + '","nodeCode":"' + menus[x].nodeCode + '","parentNodeCode":"' + menus[x].parentNodeCode + '","nodeName":"' + menus[x].nodeName + '","childNum":"' + menus[x].childNum + '","pageUrl":"' + menus[x].pageUrl + '","nodeDescription":"' + menus[x].nodeDescription + '","isDeleted":"' + menus[x].isDeleted + '"}';
+								myarr.push(param);
+							}
+						}
+					}
+					axios({
+						method: 'post',
+						url: '/updateMenu',
+						data: {
+							msg: myarr
+						},
+					}).then(resrm => {
+						ams_alert(resrm.data);
+						this.checkGrp = [];
+						this.flag = false;
+						this.fenye(this.currentPage);
+
+					}, error => {
+					});
+				}
+				return;
+			},
+			chk(id, e) {
+				if (e.target.checked) {
+					this.checkGrp.push(id);
+				}
+				else {
+					this.checkGrp.splice(this.checkGrp.indexOf(id), 1);
+				}
+			},
+			deleteMenu() {
+				if (this.checkGrp == '') {
+					this.info2 = "请先选择要操作的记录";
+					return;
+				}
+				this.info2 = "确定要删除所选记录吗：{" + this.checkGrp + "}";
+			},
+
+			cancle() {
+				this.flag = false;
+			},
+			updateMenu() {
+				if (this.checkGrp == '') {
+					this.info2 = "请先选择要操作的记录";
+					return false;
+				}
+				this.info2 = "确定修改记录：{" + this.checkGrp+"}";
+			},
+			change() {
+				this.status = !this.status;
+				if (this.status == true) {
+					this.edit = '关闭编辑';
+				}
+				else {
+					this.edit = '启用编辑';
+				}
+			}
+
+		}
+	})
+
+</script>
+
+</html>

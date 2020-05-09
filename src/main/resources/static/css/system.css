@@ -1,0 +1,340 @@
+.page-item{
+	cursor: pointer;
+}
+.abtn{
+	width:32px;
+	height:15px;
+	border:none;
+	outline:none;
+	background: #0061a0;
+	border-radius: 10px;
+	padding: 5px;
+	color:white
+}
+.tipsbtn{
+	width:32px;
+	height:15px;
+	border:none;
+	outline:none;
+	border-radius: 10px;
+}
+.tableinput{
+	border:none;
+	outline:none;
+	background:white;
+}
+
+.header-bg {
+	background-image: url('/images/metlifelogo.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 151px 44px;
+	border-bottom: 1px solid #0061a0;
+}
+
+.user {
+	color: gray
+}
+
+body {
+	background: rgb(242, 242, 242);
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.bg-content {
+	background: white;
+	padding: 15px;
+}
+
+.theme-bgcolor {
+	background-color: #0061a0;
+}
+
+.theme-color {
+	color: #0061a0;
+}
+
+.mybtn {
+	margin-top: 30px;
+	background-color: #4eb2e5;
+	color: white;
+	border: 0;
+	border-radius: 0;
+	cursor:pointer;
+}
+
+.table-btn {
+	color: white;
+	border: 0;
+	border-radius: 0;
+}
+
+.a-btn {
+	color: white;
+	border: 0;
+	border-radius: 0;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.myleft-2 {
+	margin-left: 20px;
+}
+
+.mytips {
+	position: absolute;
+	width: auto;
+	top: 35%;
+	left: 40%;
+}
+
+.myalert {
+	top: 25%;
+	font-size: 14px;
+}
+
+.mytips-none {
+	display: none;
+}
+
+.myalert-active {
+	display: block;
+}
+
+.mybtn:hover {
+	background-color: #0061a0;
+}
+
+.bh3 {
+	height: 30px;
+	width: 100%;
+}
+
+.bh4 {
+	height: 40px;
+	width: 100%;
+}
+
+.bh5 {
+	height: 50px;
+	width: 100%;
+}
+.bh1 {
+	height: 10px;
+	width: 100%;
+}
+.bh2 {
+	height: 20px;
+	width: 100%;
+}
+
+#container {
+	padding: 20px 50px;;
+}
+
+.mybtn {
+	border: 0;
+	color: white;
+	padding: 10px 20px;
+	outline: none;
+}
+
+.checkbox_kg {
+	position: relative;
+	-webkit-appearance: none;
+	width: 56px;
+	height: 25px;
+	top: 10px;
+	border-radius: 30px;
+	border: 1px solid rgb(210, 210, 210);
+	outline: none;
+}
+
+.checkbox_kg:before {
+	position: absolute;
+	top: 3px;
+	left: 5px;
+	font-size: 10px;
+	content: '';
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: rgb(210, 210, 210);
+	transition: all 0.1s linear;
+}
+
+.checkbox_kg:after {
+	position: absolute;
+	top: 2px;
+	left: 30px;
+	content: '关';
+	width: 20px;
+	height: 20px;
+	color: gray;
+	transition: all 0.1s linear;
+}
+
+.checkbox_kg:checked {
+	background: rgb(0, 123,255);
+}
+
+.checkbox_kg:checked {
+	background: rgb(0, 123,255);
+	border: 0;
+}
+
+.checkbox_kg:checked:before {
+	left: 35px;
+	top: 4px;
+	content: '';
+	background: white;
+	transition: all 0.1s linear;
+}
+
+.checkbox_kg:checked:after {
+	position: absolute;
+	top: 3px;
+	left: 15px;
+	content: '开';
+	width: 20px;
+	height: 20px;
+	color: white;
+	transition: all 0.1s linear;
+}
+
+.radio {
+	position: relative;
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	top: 5px;
+	border-radius: 30px;
+	border: 2px solid rgb(210, 210, 210);
+	outline: none;
+}
+
+.radio:checked {
+	border: 2px solid rgb(0, 123,255);
+}
+
+.radio:checked:before {
+	position: absolute;
+	content: '';
+	top: 4px;
+	left: 4px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: rgb(0, 123,255);
+	transition: all 0.1s linear;
+}
+
+.checkbox {
+	position: relative;
+	-webkit-appearance: none;
+	width: 18px;
+	height: 18px;
+	top: 7px;
+	border: 1px solid rgb(210, 210, 210);
+	outline: none;
+}
+.checkbox_c1 {
+	position: relative;
+	-webkit-appearance: none;
+	width: 14px;
+	height: 14px;
+	top: 7px;
+	border: 1px solid rgb(210, 210, 210);
+	outline: none;
+}
+
+.checkbox:checked {
+	background: rgb(0, 123,255);
+	border-radius: 3px;
+	border: 0;
+}
+.checkbox_c1:checked{
+	background: rgb(0, 123,255);
+	border-radius: 2px;
+	border: 0;
+}
+
+.checkbox:checked:after {
+	position: absolute;
+	top: 5px;
+	left: 4px;
+	content: '';
+	width: 10px;
+	height: 5px;
+	
+	border-left: 2px solid white;
+	border-bottom: 2px solid white;
+	transform: rotate(-45deg);
+	transition: all 0.1s linear;
+}
+.checkbox_c1:after {
+	position: absolute;
+	top: 3px;
+	left: 2px;
+	content: '';
+	width: 10px;
+	height: 5px;
+	
+	border-left: 2px solid white;
+	border-bottom: 2px solid white;
+	transform: rotate(-45deg);
+	transition: all 0.1s linear;
+}
+
+
+.tc{
+	position:absolute;
+	left:50%;
+	top:30%;
+	width:230px;
+	height:160px;
+ 
+	margin-left:-115px;
+	background:rgb(248,248,248);
+	box-shadow:1px 1px 10px  5px  rgba(0,0,0,0.1);
+	transition:all 1s;
+}
+
+.head{
+	padding:8px 20px;
+	
+}
+.clo{
+	position:absolute;
+	right:10px;
+	border:none;
+	background:rgb(248,248,248);
+	outline:none;
+	cursor:pointer;
+}
+.content{
+	padding:8px 20px;
+	background:white;	
+	height:125px;
+}
+.ans{
+	position:absolute;
+	bottom:15px;;
+	left:35%;
+	border:0;
+	outline:none;
+	background:rgb(68,175,255);
+	color:white;
+	padding:5px 20px;
+	font-size:16px;
+	cursor:pointer;
+}
+.batch{
+	top:3px;
+	margin-left:10px;
+}
+ 
+/*  html{
+    filter: grayscale(100%);
+} */

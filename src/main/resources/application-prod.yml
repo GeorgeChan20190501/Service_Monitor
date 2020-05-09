@@ -1,0 +1,6 @@
+jdbc:
+  driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  url: jdbc:sqlserver://10.164.1.150:1444;DatabaseName=CDR
+  username: CDR
+  password: Hello0123
+

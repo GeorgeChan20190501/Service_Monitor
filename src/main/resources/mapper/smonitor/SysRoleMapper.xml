@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cognizant.ams.dao.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.cognizant.ams.bean.SysRole">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="role_code" jdbcType="CHAR" property="roleCode" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="create_time" jdbcType="CHAR" property="createTime" />
+    <result column="update_time" jdbcType="CHAR" property="updateTime" />
+    <result column="chk" jdbcType="CHAR" property="chk" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, role_code, role_name, create_time, update_time, chk
+  </sql>
+  <select id="selectByExample" parameterType="com.cognizant.ams.bean.SysRoleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_role
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_role
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cognizant.ams.bean.SysRoleExample">
+    delete from sys_role
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cognizant.ams.bean.SysRole">
+    insert into sys_role (id, role_code, role_name, 
+      create_time, update_time, chk)
+    values (#{id,jdbcType=INTEGER}, #{roleCode,jdbcType=CHAR}, #{roleName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=CHAR}, #{updateTime,jdbcType=CHAR}, #{chk,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cognizant.ams.bean.SysRole">
+    insert into sys_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roleCode != null">
+        role_code,
+      </if>
+      <if test="roleName != null">
+        role_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="chk != null">
+        chk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roleCode != null">
+        #{roleCode,jdbcType=CHAR},
+      </if>
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=CHAR},
+      </if>
+      <if test="chk != null">
+        #{chk,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cognizant.ams.bean.SysRoleExample" resultType="java.lang.Long">
+    select count(*) from sys_role
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sys_role
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.roleCode != null">
+        role_code = #{record.roleCode,jdbcType=CHAR},
+      </if>
+      <if test="record.roleName != null">
+        role_name = #{record.roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=CHAR},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=CHAR},
+      </if>
+      <if test="record.chk != null">
+        chk = #{record.chk,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sys_role
+    set id = #{record.id,jdbcType=INTEGER},
+      role_code = #{record.roleCode,jdbcType=CHAR},
+      role_name = #{record.roleName,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=CHAR},
+      update_time = #{record.updateTime,jdbcType=CHAR},
+      chk = #{record.chk,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cognizant.ams.bean.SysRole">
+    update sys_role
+    <set>
+      <if test="roleCode != null">
+        role_code = #{roleCode,jdbcType=CHAR},
+      </if>
+      <if test="roleName != null">
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=CHAR},
+      </if>
+      <if test="chk != null">
+        chk = #{chk,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cognizant.ams.bean.SysRole">
+    update sys_role
+    set role_code = #{roleCode,jdbcType=CHAR},
+      role_name = #{roleName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=CHAR},
+      update_time = #{updateTime,jdbcType=CHAR},
+      chk = #{chk,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  
+  <select id="getUserRole"  resultMap="BaseResultMap" >
+  			select * from sys_role
+</select>
+
+  <insert id="addRole" parameterType="com.cognizant.ams.bean.SysRole">
+   				insert into sys_role values(#{roleCode},#{roleName},(select CONVERT(varchar(100), GETDATE(), 120)) ,(select CONVERT(varchar(100), GETDATE(), 120)) ,'false' );
+  </insert>
+  
+  
+    <select id="queryRole" parameterType="com.cognizant.ams.bean.SysRole" resultMap="BaseResultMap">
+  			select * from sys_role
+  			<where>
+  					<if test="id != null  and id !='' ">
+       					  and id = #{id}
+     			    </if>
+     			    <if test="roleCode != null  and roleCode !='' ">
+       					  and role_code = #{roleCode}
+     			    </if>
+     			    <if test="roleName != null  and roleName !='' ">
+       					  and role_name = #{roleName}
+     			    </if>
+  			</where>
+
+  </select>
+  
+   <delete id='deleteRole' parameterType='list'>
+  				delete from sys_role where id in
+  				<foreach collection="list" item="item" separator=","   open="("  close=")">
+  							#{item}
+  				</foreach>
+  </delete>
+  
+     <update id="updateRole" parameterType='list'>
+  		<foreach collection="list" item="role"  open=""  close=""  separator=";" >		
+					 update  sys_role  set role_code=#{role.roleCode} ,role_name=#{role.roleName},update_time=(select CONVERT(varchar(100), GETDATE(), 120)) where id = #{role.id}
+		</foreach>
+  </update>
+  <select id="getRoleCode"  parameterType='list'  resultType="string">
+  		 select role_code from sys_role where id in
+  		<foreach collection="list" item="id"  open="("  close=")"  separator="," >		
+					#{id}
+		</foreach>
+  			
+  </select>
+  
+  
+    <select id="roleGrant"  parameterType='list' >
+  		<foreach collection="list" item="roleMenu"  open=""  close=""  separator=";" >		
+					insert into sys_role_menu values(#{roleMenu.roleCode},#{roleMenu.nodeCode},(select CONVERT(varchar(100), GETDATE(), 120)) ,(select CONVERT(varchar(100), GETDATE(), 120)) );
+		</foreach>
+  			
+  </select>
+  
+</mapper>

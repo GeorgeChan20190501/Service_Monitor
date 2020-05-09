@@ -1,0 +1,33 @@
+[
+  {
+  "isSelect": true,
+  "menuCode": "1001",
+  "menuName": "系统管理",
+  "roleCode": "user88",
+  "roleDesc": "用户88"
+},  {
+  "isSelect": true,
+  "menuCode": "1002",
+  "menuName": "数据提取",
+  "roleCode": "user88",
+  "roleDesc": "用户88"
+},  {
+  "isSelect": true,
+  "menuCode": "1003",
+  "menuName": "数据审核",
+  "roleCode": "user88",
+  "roleDesc": "用户88"
+},  {
+  "isSelect": true,
+  "menuCode": "1004",
+  "menuName": "绩效管理",
+  "roleCode": "user88",
+  "roleDesc": "用户88"
+},  {
+  "isSelect": true,
+  "menuCode": "1005",
+  "menuName": "报表下载",
+  "roleCode": "user88",
+  "roleDesc": "用户88"
+}
+]

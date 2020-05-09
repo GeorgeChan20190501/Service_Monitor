@@ -1,0 +1,193 @@
+[INFO ] 2019-07-31 14:35:38 [main] [com.metlife.ams.CheckfsApplication] ====message: Starting CheckfsApplication on CNSZIDCXD0108 with PID 58132 (D:\JavaDevelopment\eclipse\workspace\checkfs\target\classes started by change in D:\JavaDevelopment\eclipse\workspace\checkfs)
+[INFO ] 2019-07-31 14:35:38 [main] [com.metlife.ams.CheckfsApplication] ====message: The following profiles are active: uat
+[INFO ] 2019-07-31 14:35:38 [main] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2019-07-31 14:35:38 [main] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2019-07-31 14:35:38 [main] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2019-07-31 14:35:38 [main] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.21]
+[INFO ] 2019-07-31 14:35:38 [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2019-07-31 14:35:38 [main] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 3903 ms
+[INFO ] 2019-07-31 14:35:38 [main] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2019-07-31 14:35:38 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2019-07-31 14:35:38 [main] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2019-07-31 14:35:38 [main] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.1 created.
+[INFO ] 2019-07-31 14:35:38 [main] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2019-07-31 14:35:38 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2019-07-31 14:35:38 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2019-07-31 14:35:38 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.1
+[INFO ] 2019-07-31 14:35:38 [main] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@19a4401
+[INFO ] 2019-07-31 14:35:38 [main] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Initializing ExecutorService 'taskScheduler'
+[INFO ] 2019-07-31 14:35:38 [main] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2019-07-31 14:35:38 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2019-07-31 14:35:38 [main] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2019-07-31 14:35:38 [main] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2019-07-31 14:35:38 [main] [com.metlife.ams.CheckfsApplication] ====message: Started CheckfsApplication in 8.304 seconds (JVM running for 15.331)
+[INFO ] 2019-07-31 14:35:38 [scheduling-1] [com.metlife.ams.service.FSService] ====message: select top 1 fssize,fileLocal from fsrecords(nolock) where makedate like '2019-07-31%'
+[INFO ] 2019-07-31 14:35:38 [scheduling-1] [com.metlife.ams.service.FSService] ====message: 应上传0条
+[INFO ] 2019-07-31 14:35:38 [scheduling-1] [com.metlife.ams.service.FSService] ====message: D:\FundSwitchFile\PORTINT2019073101REQ.txt
+[INFO ] 2019-07-31 14:35:38 [scheduling-1] [com.metlife.ams.service.FSService] ====message: 文件校验为空
+[INFO ] 2019-07-31 14:35:38 [RMI TCP Connection(9)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2019-07-31 14:35:38 [RMI TCP Connection(9)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2019-07-31 14:35:38 [RMI TCP Connection(9)-127.0.0.1] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Shutting down ExecutorService 'taskScheduler'
+[INFO ] 2019-07-31 14:35:38 [RMI TCP Connection(9)-127.0.0.1] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2019-07-31 14:35:38 [RMI TCP Connection(9)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2019-07-31 14:35:38 [RMI TCP Connection(9)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2019-07-31 14:35:38 [RMI TCP Connection(9)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2019-07-31 14:35:38 [RMI TCP Connection(9)-127.0.0.1] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2019-07-31 14:42:15 [main] [com.metlife.ams.CheckfsApplication] ====message: Starting CheckfsApplication on CNSZIDCXD0108 with PID 58244 (D:\JavaDevelopment\eclipse\workspace\checkfs\target\classes started by change in D:\JavaDevelopment\eclipse\workspace\checkfs)
+[INFO ] 2019-07-31 14:42:15 [main] [com.metlife.ams.CheckfsApplication] ====message: The following profiles are active: uat
+[INFO ] 2019-07-31 14:42:15 [main] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2019-07-31 14:42:15 [main] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2019-07-31 14:42:15 [main] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2019-07-31 14:42:15 [main] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.21]
+[INFO ] 2019-07-31 14:42:15 [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2019-07-31 14:42:15 [main] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 2569 ms
+[INFO ] 2019-07-31 14:42:15 [main] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2019-07-31 14:42:15 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2019-07-31 14:42:15 [main] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2019-07-31 14:42:15 [main] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.1 created.
+[INFO ] 2019-07-31 14:42:15 [main] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2019-07-31 14:42:15 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2019-07-31 14:42:15 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2019-07-31 14:42:15 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.1
+[INFO ] 2019-07-31 14:42:15 [main] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@dd838c
+[INFO ] 2019-07-31 14:42:15 [main] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Initializing ExecutorService 'taskScheduler'
+[INFO ] 2019-07-31 14:42:15 [main] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2019-07-31 14:42:15 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2019-07-31 14:42:15 [main] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2019-07-31 14:42:15 [main] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2019-07-31 14:42:15 [main] [com.metlife.ams.CheckfsApplication] ====message: Started CheckfsApplication in 5.118 seconds (JVM running for 6.532)
+[INFO ] 2019-07-31 14:42:15 [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2019-07-31 14:42:15 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2019-07-31 14:42:15 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 41 ms
+[INFO ] 2019-07-31 14:42:15 [http-nio-8080-exec-2] [com.metlife.ams.service.FSService] ====message: select top 1 fssize,fileLocal from fsrecords(nolock) where makedate like '2019-07-31%'
+[INFO ] 2019-07-31 14:42:15 [http-nio-8080-exec-2] [com.metlife.ams.service.FSService] ====message: 应上传2条
+[INFO ] 2019-07-31 14:42:15 [http-nio-8080-exec-2] [com.metlife.ams.service.FSService] ====message: D:\FundSwitchFile\PORTINT2019073101REQ.txt
+[INFO ] 2019-07-31 14:49:18 [main] [com.metlife.ams.CheckfsApplication] ====message: Starting CheckfsApplication on CNSZIDCXD0108 with PID 56636 (D:\JavaDevelopment\eclipse\workspace\checkfs\target\classes started by change in D:\JavaDevelopment\eclipse\workspace\checkfs)
+[INFO ] 2019-07-31 14:49:18 [main] [com.metlife.ams.CheckfsApplication] ====message: The following profiles are active: uat
+[INFO ] 2019-07-31 14:49:18 [main] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2019-07-31 14:49:18 [main] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2019-07-31 14:49:18 [main] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2019-07-31 14:49:18 [main] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.21]
+[INFO ] 2019-07-31 14:49:18 [main] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2019-07-31 14:49:18 [main] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 2081 ms
+[INFO ] 2019-07-31 14:49:18 [main] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2019-07-31 14:49:18 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2019-07-31 14:49:18 [main] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2019-07-31 14:49:18 [main] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.1 created.
+[INFO ] 2019-07-31 14:49:18 [main] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2019-07-31 14:49:18 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2019-07-31 14:49:18 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2019-07-31 14:49:18 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.1
+[INFO ] 2019-07-31 14:49:18 [main] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@ff7a73
+[INFO ] 2019-07-31 14:49:18 [main] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Initializing ExecutorService 'taskScheduler'
+[INFO ] 2019-07-31 14:49:18 [main] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2019-07-31 14:49:18 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2019-07-31 14:49:18 [main] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2019-07-31 14:49:18 [main] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2019-07-31 14:49:18 [main] [com.metlife.ams.CheckfsApplication] ====message: Started CheckfsApplication in 4.342 seconds (JVM running for 6.031)
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 11 ms
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: select top 1 fssize,fileLocal from fsrecords(nolock) where makedate like '2019-07-31%'
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: 应上传2条
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: D:\FundSwitchFile\PORTINT2019073101REQ.txt
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: select top 1 fssize,fileLocal from fsrecords(nolock) where makedate like '2019-07-31%'
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: 应上传2条
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: D:\FundSwitchFile\PORTINT2019073101REQ.txt
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: select top 1 fssize,fileLocal from fsrecords(nolock) where makedate like '2019-07-31%'
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: 应上传2条
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: D:\FundSwitchFile\PORTINT2019073101REQ.txt
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: select top 1 fssize,fileLocal from fsrecords(nolock) where makedate like '2019-07-31%'
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: 应上传2条
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: D:\FundSwitchFile\PORTINT2019073101REQ.txt
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: select top 1 fssize,fileLocal from fsrecords(nolock) where makedate like '2019-07-31%'
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: 应上传2条
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: D:\FundSwitchFile\PORTINT2019073101REQ.txt
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-1] [com.metlife.ams.service.FSService] ====message: 文件生成正常
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-4] [com.metlife.ams.service.FSService] ====message: select top 1 fssize,fileLocal from fsrecords(nolock) where makedate like '2019-07-31%'
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-4] [com.metlife.ams.service.FSService] ====message: 应上传2条
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-4] [com.metlife.ams.service.FSService] ====message: D:\FundSwitchFile\PORTINT2019073101REQ.txt
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-4] [com.metlife.ams.service.FSService] ====message: 文件校验为空
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-8] [com.metlife.ams.service.FSService] ====message: select top 1 fssize,fileLocal from fsrecords(nolock) where makedate like '2019-07-31%'
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-8] [com.metlife.ams.service.FSService] ====message: 应上传2条
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-8] [com.metlife.ams.service.FSService] ====message: D:\FundSwitchFile\PORTINT2019073101REQ.txt
+[INFO ] 2019-07-31 14:49:18 [http-nio-8080-exec-8] [com.metlife.ams.service.FSService] ====message: 文件校验为空
+[INFO ] 2019-07-31 15:21:56 [main] [c.m.ams.CheckfsApplicationTests] ====message: Starting CheckfsApplicationTests on CNSZIDCXD0108 with PID 60140 (started by change in D:\JavaDevelopment\eclipse\workspace\checkfs)
+[INFO ] 2019-07-31 15:21:56 [main] [c.m.ams.CheckfsApplicationTests] ====message: The following profiles are active: uat
+[INFO ] 2019-07-31 15:21:56 [main] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2019-07-31 15:21:56 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2019-07-31 15:21:56 [main] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2019-07-31 15:21:56 [main] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.1 created.
+[INFO ] 2019-07-31 15:21:56 [main] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2019-07-31 15:21:56 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2019-07-31 15:21:56 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2019-07-31 15:21:56 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.1
+[INFO ] 2019-07-31 15:21:56 [main] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1b5c5e3
+[INFO ] 2019-07-31 15:21:56 [main] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Initializing ExecutorService 'taskScheduler'
+[INFO ] 2019-07-31 15:21:56 [main] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2019-07-31 15:21:56 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2019-07-31 15:21:56 [main] [c.m.ams.CheckfsApplicationTests] ====message: Started CheckfsApplicationTests in 5.274 seconds (JVM running for 7.459)
+[INFO ] 2019-07-31 15:21:56 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2019-07-31 15:21:56 [Thread-2] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Shutting down ExecutorService 'taskScheduler'
+[INFO ] 2019-07-31 15:21:56 [Thread-2] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2019-07-31 15:21:56 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2019-07-31 15:21:56 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2019-07-31 15:21:56 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2019-07-31 15:21:56 [Thread-2] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2019-07-31 15:46:06 [main] [c.m.ams.CheckfsApplicationTests] ====message: Starting CheckfsApplicationTests on CNSZIDCXD0108 with PID 57380 (started by change in D:\JavaDevelopment\eclipse\workspace\checkfs)
+[INFO ] 2019-07-31 15:46:06 [main] [c.m.ams.CheckfsApplicationTests] ====message: The following profiles are active: uat
+[INFO ] 2019-07-31 15:46:06 [main] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2019-07-31 15:46:06 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2019-07-31 15:46:06 [main] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2019-07-31 15:46:06 [main] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.1 created.
+[INFO ] 2019-07-31 15:46:06 [main] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2019-07-31 15:46:06 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2019-07-31 15:46:06 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2019-07-31 15:46:06 [main] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.1
+[INFO ] 2019-07-31 15:46:06 [main] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@dcfd52
+[INFO ] 2019-07-31 15:46:06 [main] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Initializing ExecutorService 'taskScheduler'
+[INFO ] 2019-07-31 15:46:06 [main] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2019-07-31 15:46:06 [main] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2019-07-31 15:46:06 [main] [c.m.ams.CheckfsApplicationTests] ====message: Started CheckfsApplicationTests in 5.123 seconds (JVM running for 7.119)
+[INFO ] 2019-07-31 15:46:06 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2019-07-31 15:46:06 [Thread-2] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Shutting down ExecutorService 'taskScheduler'
+[INFO ] 2019-07-31 15:46:06 [Thread-2] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2019-07-31 15:46:06 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2019-07-31 15:46:06 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2019-07-31 15:46:06 [Thread-2] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2019-07-31 15:46:06 [Thread-2] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
