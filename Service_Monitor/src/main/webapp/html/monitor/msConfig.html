@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>应用监控配置</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/bootstrap-all.css">
+	<script src="/js/bootstrap-all.js"></script>
+	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+	<!-- 系统CSS或JS -->
+	<link rel="stylesheet" href="/css/system.css">
+
+	<style>
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div class="row">
+			<div class="col-3">
+				<h4>应用监控配置</h4>
+			</div>
+		</div>
+		<div class="bh2"></div>
+		<div class="bg-content">
+
+
+			<div class="row">
+				<div class="col-sm-2">
+					EAI Code：<input type="text" name="nodeCode" v-model="appConfigobj.appId"
+						style="width: 150px; height: 25px;" />
+				</div>
+
+				<div class="col-sm-2">
+					应用名称：<input type="text" name="parentNodeCode" v-model="appConfigobj.appName"
+						style="width: 150px; height: 25px;" />
+
+				</div>
+				<div class="col-sm-2">
+					应用描述：<input type="text" name="nodeName" v-model="appConfigobj.appDescrib"
+						style="width: 150px; height: 25px;" />
+				</div>
+				<div class="col-sm-2">
+					应用Owner：<input type="text" name="childNum" v-model="appConfigobj.appOwner"
+						style="width: 150px; height: 25px;" />
+
+				</div>
+				<div class="col-sm-2">
+					Owner邮箱：<input type="text" name="childNum" v-model="appConfigobj.ownerEmail"
+						style="width: 150px; height: 25px;" />
+				</div>
+			</div>
+			<div class="bh1"></div>
+			<div class="row">
+				<div class="col-sm-2">
+					运维人员：<input type="text" name="pageUrl" v-model="appConfigobj.appMaintenance"
+						style="width: 150px; height: 25px;" />
+				</div>
+
+				<div class="col-sm-2">
+					运维邮箱：<input type="text" name="nodeDescription" v-model="appConfigobj.maintenanceEmail"
+						style="width: 150px; height: 25px;" />
+				</div>
+				<div class="col-sm-2">
+					监控地址：<input type="text" name="nodeDescription" v-model="appConfigobj.appUrl1"
+						style="width: 150px; height: 25px;" />
+				</div>
+				<div class="col-sm-2">
+					监控地址二：<input type="text" name="nodeDescription" v-model="appConfigobj.appUrl2"
+						style="width: 150px; height: 25px;" />
+				</div>
+				<div class="col-sm-2">
+					监控地址三：<input type="text" name="nodeDescription" v-model="appConfigobj.appUrl3"
+						style="width: 150px; height: 25px;" />
+				</div>
+			</div>
+
+			<div class="row" style="padding: 15px;">
+				<button class="bg-primary mybtn" @click="fenye(1)">查询配置</button>
+				<button class="mybtn bg-primary" style="margin-left: 45px;" data-toggle="modal" data-target="#myModal"
+					@click="addConfig()">新增配置</button>
+
+			</div>
+
+		</div>
+		<div class="bh5"></div>
+
+		<div class="bg-content">
+			<div>配置表结果：</div>
+			<div class="bh2"></div>
+			<div>
+				<table class="table  table-bordered   table-sm">
+					<thead>
+						<tr>
+							<th width="50px;"><input type="checkbox" class=" batch checkbox" disabled /></th>
+							<th>配置编号</th>
+							<th>EAI Code</th>
+							<th>应用名称</th>
+							<th>应用Owner</th>
+							<th>运维人员</th>
+							<th>监控地址</th>
+							<th>监控地址二</th>
+							<th>监控地址三</th>
+							<th>是否失效</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="item in configs">
+							<td width=" 50px;"><input type="checkbox" class="batch checkbox" @click=" chk(item.id,$event)"  />
+							</td>
+							<td>{{item.id}}</td>
+							<td><input class="tableinput" :value="item.appId" v-model="item.appId"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.appName" v-model="item.appName"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.ownerEmail" v-model="item.ownerEmail"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.appMaintenance" v-model="item.appMaintenance"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.appUrl1" v-model="item.appUrl1"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.appUrl2" v-model="item.appUrl2"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.appUrl3" v-model="item.appUrl3"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.isDeleted" v-model="item.isDeleted"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><button class="bg-danger table-btn" @click="change()">{{edit}}</button></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row"></div>
+				<button data-toggle="modal" data-target="#myModal" class="bg-danger table-btn a-btn text-white"
+					@click="deleteConfig()">删除配置</button>
+				<button class="bg-danger a-btn myleft-2 text-white" data-toggle="modal" data-target="#myModal"
+					@click="updateConfig()">修改配置</button>
+
+			</div>
+			<!-- 分页模板（修改URL及参数） -->
+			<div class="row" v-if="pageTotal>1">
+				<ul class="pagination pagination-sm offset-sm-4">
+					<li class="page-item"><a class="page-link" @click="fenye(1)">首 页</a></li>
+					<li class="page-item"><a class="page-link" @click="fenye(currentPage-1)">上一页</a></li>
+					<li v-for="n in pageTotal" class="page-item">
+						<a class="page-link" @click="fenye(n)" v-if="pageTotal<6">{{n}}</a>
+						<a class="page-link" @click="fenye(n)" v-if="pageTotal>5 && currentPage <4 && n<6">{{n}}</a>
+						<a class="page-link" @click="fenye(currentPage+(n-3))"
+							v-if="(pageTotal-currentPage)>1 && pageTotal>5 && currentPage >3 && n<6">{{currentPage+(n-3)}}</a>
+						<a class="page-link" @click="fenye(pageTotal+(n-5))"
+							v-if="(pageTotal-currentPage)<2 && pageTotal>5 && currentPage >3 && n<6">{{pageTotal+(n-5)}}</a>
+					</li>
+					<li class="page-item"><a class="page-link" @click="fenye(currentPage+1)">下一页</a></li>
+					<li class="page-item"><a class="page-link" @click="fenye(pageTotal)">尾 页</a></li>
+				</ul>
+				<div style="margin-left: 15px;margin-top: 10px;;">共 {{pageTotal}} 页</div>
+			</div>
+		</div>
+
+		<!-- 模态框2 -->
+		<div class="modal fade myalert" id="myModal">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<!-- 模态框头部 -->
+					<div class="modal-header">
+						<span class="modal-title">系统提示：</span>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<!-- 模态框主体 -->
+					<div class="modal-body">{{info2}}
+						<select id="username'" v-model="roleName" v-show="flag" style="width: 150px; height: 25px;">
+							<option value="">请选择</option>
+							<option :value="item.roleName" v-for="item in role">{{ item.roleName }}</option>
+						</select></div>
+					<!-- 模态框底部 -->
+					<div class="modal-footer">
+						<button class="btn btn-success btn-sm" data-dismiss="modal" id="modal-1"
+							@click="confirmbtn(info2)">确 认</button>
+						<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" @click="cancle()">取
+							消</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div id="ss"></div>
+</body>
+<script>
+	var vm = new Vue({
+		el: '#container',
+		data: {
+			appConfigobj: { id: null, appId: '', appName: '', appDescrib: '', appOwner: '', ownerEmail: '', appMaintenance: '', maintenanceEmail: '', appUrl1: '', appUrl2: '', appUrl3: '',isDeleted:'' },
+			info: [],
+			role: [],
+			roleName: '',
+			status: false,
+			check: true,
+			edit: '启用编辑',
+			info2: '',
+			configs: [],
+			checkGrp: [],
+			ids: [],
+			flag: false,
+			currentPage: 1,
+			pageTotal: 1,
+			pageSize: 5
+		},
+		methods: {
+			queryMenu() {
+				axios({
+					method: 'post',
+					url: '/queryMenu',
+					data: {
+						msg: this.appConfigobj
+					},
+				}).then(res => {
+					this.configs = res.data
+				}, error => {
+				});
+			},
+			fenye(targetPage) {
+				//参数为点击的页码
+				//alert("调用分页，去往第"+targetPage+"页")
+				axios({
+					method: 'post',
+					url: '/fenyeQueryConfig',
+					data: {
+						msg: this.appConfigobj,
+						msg1: targetPage,
+						msg2: this.pageSize
+					},
+				}).then(res => {
+					this.configs = res.data.fenyeConfig;
+					this.pageTotal = res.data.pageTotal;
+					this.currentPage = targetPage;
+				}, error => {
+				});
+			},
+			addConfig() {
+				
+				if ((this.appConfigobj.appId == '' || this.appConfigobj.appId == null) || (this.appConfigobj.appName == '' || this.appConfigobj.appName == null) || (this.appConfigobj.appDescrib == '' || this.appConfigobj.appDescrib == null)|| (this.appConfigobj.appUrl1 == '' || this.appConfigobj.appUrl1 == null)|| (this.appConfigobj.appUrl2 == '' || this.appConfigobj.appUrl2 == null)|| (this.appConfigobj.appUrl3 == '' || this.appConfigobj.appUrl3 == null)
+					|| (this.appConfigobj.appOwner == '' || this.appConfigobj.appOwner == null) || (this.appConfigobj.ownerEmail == '' || this.appConfigobj.ownerEmail == null) || (this.appConfigobj.appMaintenance == '' || this.appConfigobj.appMaintenance == null) || (this.appConfigobj.maintenanceEmail == '' || this.appConfigobj.maintenanceEmail == null)) {
+					this.info2 = '添加菜单十要素必须同时填写!';
+					return false;
+				}
+				axios({
+					method: 'put',
+					url: '/addConfig',
+					data: {
+						msg: this.appConfigobj
+					},
+				}).then(res => {
+					this.info2 = res.data
+				}, error => {
+				});
+			},
+			confirmbtn(info) {
+				if (info.indexOf('确定要删除所选记录吗') != -1) {
+					axios({
+						method: 'delete',
+						url: '/deleteConfig',
+						data: {
+							msg: this.checkGrp
+						},
+					}).then(resrm => {
+						ams_alert(resrm.data);
+						
+						this.fenye(this.currentPage);
+						this.checkGrp = [];
+					}, error => {
+					});
+				}
+
+				if (info.indexOf('确定修改记录') != -1) {
+					var checkGrp = this.checkGrp;
+					var configs = this.configs;
+					var myarr = [];
+					for (x in configs) {
+						for (y in checkGrp) {
+							if (configs[x].id == checkGrp[y]) {
+								//appConfigobj: { id: null, appId: '', appName: '', appDescrib: '', appOwner: '', ownerEmail: '', appMaintenance: '', maintenanceEmail: '', appUrl1: '', appUrl2: '', appUrl3: '' },
+								var param = '{"id":"' + configs[x].id + '","appId":"' + configs[x].appId + '","appName":"' + configs[x].appName + '","appDescrib":"' + configs[x].appDescrib + '","appOwner":"' + configs[x].appOwner + '","ownerEmail":"' + configs[x].ownerEmail + '","appMaintenance":"' + configs[x].appMaintenance + '","maintenanceEmail":"' + configs[x].maintenanceEmail + '","appUrl1":"'+configs[x].appUrl1+'" ,"appUrl2":"'+configs[x].appUrl2+'","appUrl3":"'+configs[x].appUrl3+'","isDeleted":"'+configs[x].isDeleted+'"}'; 
+								myarr.push(param);
+							}
+						}
+					}
+					axios({
+						method: 'post',
+						url: '/updateConfig',
+						data: {
+							msg: myarr
+						},
+					}).then(resrm => {
+						ams_alert(resrm.data);
+						this.checkGrp = [];
+						this.flag = false;
+						this.fenye(this.currentPage);
+
+					}, error => {
+					});
+				}
+				return;
+			},
+			chk(id, e) {
+				if (e.target.checked) {
+					this.checkGrp.push(id);
+				}
+				else {
+					this.checkGrp.splice(this.checkGrp.indexOf(id), 1);
+				}
+			},
+			deleteConfig() {
+				if (this.checkGrp == '') {
+					this.info2 = "请先选择要操作的记录";
+					return;
+				}
+				this.info2 = "确定要删除所选记录吗：{" + this.checkGrp + "}";
+			},
+
+			cancle() {
+				this.flag = false;
+			},
+			updateConfig() {
+				if (this.checkGrp == '') {
+					this.info2 = "请先选择要操作的记录";
+					return false;
+				}
+				this.info2 = "确定修改记录：{" + this.checkGrp + "}";
+			},
+			change() {
+				this.status = !this.status;
+				if (this.status == true) {
+					this.edit = '关闭编辑';
+				}
+				else {
+					this.edit = '启用编辑';
+				}
+			}
+
+		}
+	})
+
+</script>
+
+</html>

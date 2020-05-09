@@ -1,0 +1,20 @@
+spring:
+  mail:
+    host: smtp.163.com
+    username: service_feibotech@163.com
+    password: GNLETOWFPTAIDLXC
+    default-encoding: utf-8
+  jackson:
+    serialization:
+      indent-output: true
+  profiles:
+    active: uat
+  thymeleaf:
+    prefix: html/
+    suffix: .html
+    cache: false    
+    
+mybatis:
+  mapper-locations: mapper/smonitor/*.xml    
+  
+ 

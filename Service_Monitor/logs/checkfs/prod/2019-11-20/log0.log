@@ -1,0 +1,9 @@
+[INFO ] 2019-11-19 14:45:40 [RMI TCP Connection(4)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2019-11-19 14:45:40 [RMI TCP Connection(3)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2019-11-19 14:45:40 [RMI TCP Connection(4)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2019-11-19 14:45:40 [RMI TCP Connection(4)-127.0.0.1] [o.s.s.c.ThreadPoolTaskScheduler] ====message: Shutting down ExecutorService 'taskScheduler'
+[INFO ] 2019-11-19 14:45:40 [RMI TCP Connection(4)-127.0.0.1] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2019-11-19 14:45:40 [RMI TCP Connection(4)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2019-11-19 14:45:40 [RMI TCP Connection(4)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2019-11-19 14:45:40 [RMI TCP Connection(4)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2019-11-19 14:45:40 [RMI TCP Connection(4)-127.0.0.1] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'

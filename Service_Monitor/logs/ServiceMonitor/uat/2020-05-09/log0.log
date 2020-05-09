@@ -1,0 +1,88 @@
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.28.13:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.com
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：22222,URL=55555555555
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 00:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://circ-new.metlife.com/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 00:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 00:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.28.13:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 00:00:00
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.28.13:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.com
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：22222,URL=55555555555
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 02:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 02:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://circ-new.metlife.com/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 02:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.28.13:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 02:00:00
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.28.13:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.com
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：22222,URL=55555555555
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 03:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 03:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://circ-new.metlife.com/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 03:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.28.13:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 03:00:00
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.28.13:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.com
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：22222,URL=55555555555
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 04:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 04:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://circ-new.metlife.com/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 04:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.28.13:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 04:00:00
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.28.13:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.com
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：22222,URL=55555555555
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 05:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 05:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://circ-new.metlife.com/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 05:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.28.13:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 05:00:00
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.28.13:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.com
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：22222,URL=55555555555
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 06:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 06:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://circ-new.metlife.com/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 06:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.28.13:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 06:00:00
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.28.13:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.com
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：22222,URL=55555555555
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 07:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 07:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://circ-new.metlife.com/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 07:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.28.13:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 07:00:00
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.28.13:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.com
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：22222,URL=55555555555
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 08:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 08:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://circ-new.metlife.com/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 08:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.28.13:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 08:00:00
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.28.13:8080/login.html
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.com
+[INFO ] 2020-05-08 17:27:22 [pool-19-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：22222,URL=55555555555
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 09:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-09 09:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://circ-new.metlife.com/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 09:00:00
+[INFO ] 2020-05-08 17:27:22 [OkHttp http://10.164.28.13:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-09 09:00:00
+[INFO ] 2020-05-08 17:27:22 [RMI TCP Connection(2)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2020-05-08 17:27:22 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-08 17:27:22 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-08 17:27:22 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-08 17:27:22 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-08 17:27:22 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-08 17:27:22 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'

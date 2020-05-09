@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns:th=”http://www.thymeleaf.org”>
+<head>
+
+<title>菜单管理</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/bootstrap-all.css">
+	<script src="/js/bootstrap-all.js"></script>
+	<!-- 系统CSS或JS -->
+	<link rel="stylesheet" href="/css/system.css">
+  <script>
+      $('#addmenu').click(function(){
+          var usercode= $("#usercode").val();
+          var username=$("#username").val();
+          var comcode=$("#comcode").val();
+          var op='addUser';
+          confirm("是否要添加用户"+usercode+'?')
+
+          var url="/getUser?op="+op+"&usercode="+usercode+"&username="+username+"&comcode="+comcode;
+          alert(url);
+          if(usercode!=null&&usercode!=''&&username!=null&&comcode!=null){
+              alert('111')
+              location.href=url;
+
+
+          }else{
+              alert("请输入参数！")
+          }
+
+
+      });
+
+
+  </script>
+</head>
+<style>
+
+</style>
+<body>
+
+		<div id="container">
+			<div class='row'>
+				<div class='col-3'>
+					<h4>菜单管理</h4>
+				</div>
+			</div>
+			<div class='bh2'></div>
+
+			<div class='bg-content'>
+				<form action="/getmenu?cur=1" method="get">
+						<div class='row'>
+							<div class="col-sm-2">菜单编码： <input name='nodecode' type='text'/></div>
+							<div class="col-sm-2">菜单名称： <input name='nodename' type='text'/></div>
+							<div class="col-sm-2">菜单标志：
+								<select name="nodesign" style='width: 150px; height: 25px;'>
+									<option value="1">请选择</option>
+									<option value="1">1-有效</option>
+									<option value="0">0-无效</option>
+								</select></div>
+						</div>
+					<button  class="bg-primary mybtn" type="submit">查询菜单</button> &nbsp;&nbsp;
+
+					<button  class="mybtn bg-primary" type="button" id="addmenu" data-toggle="modal" data-target="#addmenuModel">新增菜单</button>
+				</form>
+
+		</div>
+
+	<div class='bh5'></div>
+	<div class='bg-content'>
+		<div>菜单表结果：</div>
+		<div class='bh2'></div>
+		<div>
+			<table
+					class="table table-striped table-bordered table-hover  table-sm">
+				<thead>
+					<tr>
+						<th>菜单名称</th>
+						<th>菜单编码</th>
+						<th>父级编码</th>
+						<th>URL</th>
+						<th>是否有效</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="menu:${menuList}">
+						<td  th:text='${menu.nodename}'>-</td>
+						<td  th:text='${menu.nodecode}'>-</td>
+						<td  th:text='${menu.parentnodecode}'>-</td>
+						<td  th:text='${menu.runscript}'>-</td>
+						<td  th:text='${menu.nodesign}'>-</td>
+
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+		<!-- 分页模板（修改URL及参数） -->
+		<div class='row'>
+			<ul class="pagination pagination-sm offset-sm-4"  >
+				<li class="page-item" th:if='${cur!=1&&cur!=0}'><a  class="page-link" th:href="'/getmenu?cur=1&nodecode=' +${nodecode}+'&nodename=' +${nodename}+'&nodesign=' +${nodesign}">首 页</a></li>
+				<li class="page-item" th:if='${cur!=1&&cur!=0}'><a class="page-link" th:href="'/getmenu?cur='+${cur-1}+'&nodecode=' +${nodecode}+'&nodename=' +${nodename}+'&nodesign=' +${nodesign}">上一页</a></li>
+				<li class="page-item" th:if='${cur!=0&&pageCount>1}' th:each="i:${pageCount>5 ? #numbers.sequence(cur>3?cur<(pageCount-2)?cur-2:(pageCount-4):1,cur>3? cur<(pageCount-2)?cur+2:(pageCount):5) : #numbers.sequence(1,pageCount)}"><a class="page-link" th:href="'/getmenu?cur='+${i}+'&nodecode=' +${nodecode}+'&nodename=' +${nodename}+'&nodesign=' +${nodesign}" th:text='${i}'></a></li>
+				<li class="page-item" th:if='${cur!=(pageCount)}'><a class="page-link" th:href="'/getmenu?cur='+${cur+1}+'&nodecode=' +${nodecode}+'&nodename=' +${nodename}+'&nodesign=' +${nodesign}">下一页</a></li>
+				<li class="page-item" th:if='${cur!=(pageCount)}'><a class="page-link" th:href="'/getmenu?cur='+${pageCount}+'&nodecode=' +${nodecode}+'&nodename=' +${nodename}+'&nodesign=' +${nodesign}">尾 页</a></li>
+			</ul>
+		</div>
+
+
+			<!-- 模态框 -->
+			<div class="modal fade myalert" id="addmenuModel">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<!-- 模态框头部 -->
+						<div class="modal-header">
+							<span class="modal-title">系统提示：</span>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<!-- 模态框主体 -->
+						<div class="modal-body modal-body1">
+							<div class='bg-content'>
+
+								<form action="/addmenu">
+									<div class="row">
+										<div class="col-sm-4">
+											菜单编码：<input type="text" name='nodecode'
+													   style='width: 150px; height: 25px;'  /><br>
+										</div>
+										<div class="col-sm-4">
+											父级编码：<input type="text" name='parentnodecode'
+														style='width: 150px; height: 25px;'  /><br>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-4">
+											菜单名称：<input type="text" name='nodename'
+														style='width: 150px; height: 25px;'  /><br>
+										</div>
+										<div class="col-sm-4">
+										菜单描述：<input type="text" name='nodediscription'
+													style='width: 150px; height: 25px;'  /><br>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-4">
+											菜单URL：<input type="text" name='runscript'
+														style='width: 150px; height: 25px;'  /><br>
+										</div>
+
+										<div class="col-sm-4">
+											菜单顺序：<input type="text" name='nodeorder'
+														 style='width: 150px; height: 25px;'  /><br>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-4">
+											菜单标志：<select name='nodesign' style='width: 150px; height: 25px;'><br>
+											<option value="">请选择</option>
+											<option value="0">0-无效</option>
+											<option value="1">1-有效</option>
+										</select>
+										</div>
+
+
+									</div>
+
+									<div class='row' style='padding: 15px;'>
+										<button class="bg-primary mybtn " type="submit"  id="confirmAddmenu">确认新增</button>
+										<button class="mybtn bg-primary float-right" type="button" style='margin-left: 45px;'>取消</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						<!-- 模态框底部 -->
+					</div>
+				</div>
+
+
+			</div>
+
+			</div>
+			<!--隐藏，接收后台结果-->
+			<input id="mes" th:value="${code}" ></input>
+
+			<!--通用提示框-成功-->
+			<div class='row  mytips mytips-none' id="alertSuccess"   >
+				<div class="alert alert-success alert-dismissible fade show">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong><span th:text="${message}"></span></strong>
+				</div>
+			</div>
+
+			<!--通用提示框-成功-->
+			<div class='row  mytips mytips-none' id="alertFail"   >
+				<div class="alert alert-danger alert-dismissible fade show">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong><span th:text="${message}"></span></strong>
+				</div>
+			</div>
+		</div>
+</body>
+	<script >
+
+      /*************动态显示提示框**************************************/
+        var mes=$("#mes").val();
+        if (mes!=''&&mes!=null){
+            if (mes>0) {
+
+                $("#alertSuccess").removeClass("mytips-none");
+			}else{
+
+                $("#alertFail").removeClass("mytips-none");
+            }
+
+
+		}
+	/******************************************************************/
+
+	</script>
+</html>

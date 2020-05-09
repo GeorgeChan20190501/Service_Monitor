@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    type:  com.mchange.v2.c3p0.ComboPooledDataSource
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv
+    username: TestEnv
+    password: TestEnv
+  devtools:
+    restart:
+      enabled: true  
+
+

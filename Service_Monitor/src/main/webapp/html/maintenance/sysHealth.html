@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>系统健康</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/bootstrap-all.css">
+	<script src="/js/bootstrap-all.js"></script>
+	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+	<!-- 系统CSS或JS -->
+	<link rel="stylesheet" href="/css/system.css">
+
+	<style>
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div class="row">
+			<div class="col-3">
+				<h4>系统健康</h4>
+			</div>
+		</div>
+		<div class="bh2"></div>
+		<div class="bg-content">
+
+
+			<div class="row">
+				<div class="col-sm-2">
+					角色编码：<input type="text" name="roleCode" v-model="roleobj.roleCode"
+						style="width: 150px; height: 25px;" />
+				</div>
+
+				<div class="col-sm-2">
+					角色名称：<input type="text" name="roleName" v-model="roleobj.roleName"
+						style="width: 150px; height: 25px;" />
+				</div>
+			</div>
+			<div class="row" style="padding: 15px;">
+				<button class="bg-primary mybtn" @click="fenye(1)">查询角色</button>
+				<button class="mybtn bg-primary" style="margin-left: 45px;" data-toggle="modal" data-target="#myModal"
+					@click="addRole()">新增角色</button>
+				<button class="mybtn bg-danger" style="margin-left: 45px;" @click="grant()">角色授权</button>
+			</div>
+
+		</div>
+		<div class="bh5"></div>
+
+		<div class="bg-content" v-if="showResult">
+			<div>角色表结果：</div>
+			<div class="bh2"></div>
+			<div>
+				<table class="table  table-bordered   table-sm">
+					<thead>
+						<tr>
+							<th width="50px;"><input type="checkbox" class=" batch checkbox" v-model="isAll"
+									@click="getSelected()" /></th>
+							<th>角色标号</th>
+							<th>角色编码</th>
+							<th>角色名称</th>
+							<th>创建时间</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="item in Roles">
+							<td width=" 50px;"><input type="checkbox" class="batch checkbox"
+									@click=" chk(item.id,$event)" v-model="item.chk" /></td>
+							<td>{{item.id}}</td>
+							<td><input class="tableinput" :value="item.roleCode" v-model="item.roleCode"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.roleName" v-model="item.roleName"
+									:readonly="status ? false : 'readonly'" /></td>
+							<td>{{item.createTime}}</td>
+							<td><button class="bg-danger table-btn" @click="change()">{{edit}}</button></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row"></div>
+				<button data-toggle="modal" data-target="#myModal" class="bg-danger table-btn a-btn text-white"
+					@click="deleteRole()">删除角色</button>
+				<button class="bg-danger a-btn myleft-2 text-white" data-toggle="modal" data-target="#myModal"
+					@click="updateRole()">修改角色</button>
+
+			</div>
+			<!-- 分页模板（修改URL及参数） -->
+			<div class="row" v-if="pageTotal>1">
+				<ul class="pagination pagination-sm offset-sm-4">
+					<li class="page-item"><a class="page-link" @click="fenye(1)">首 页</a></li>
+					<li class="page-item"><a class="page-link" @click="fenye(currentPage-1)">上一页</a></li>
+					<li v-for="n in pageTotal" class="page-item">
+						<a class="page-link" @click="fenye(n)" v-if="pageTotal<6">{{n}}</a>
+						<a class="page-link" @click="fenye(n)" v-if="pageTotal>5 && currentPage <4 && n<6">{{n}}</a>
+						<a class="page-link" @click="fenye(currentPage+(n-3))"
+							v-if="(pageTotal-currentPage)>1 && pageTotal>5 && currentPage >3 && n<6">{{currentPage+(n-3)}}</a>
+						<a class="page-link" @click="fenye(pageTotal+(n-5))"
+							v-if="(pageTotal-currentPage)<2 && pageTotal>5 && currentPage >3 && n<6">{{pageTotal+(n-5)}}</a>
+					</li>
+					<li class="page-item"><a class="page-link" @click="fenye(currentPage+1)">下一页</a></li>
+					<li class="page-item"><a class="page-link" @click="fenye(pageTotal)">尾 页</a></li>
+				</ul>
+				<div style="margin-left: 15px;margin-top: 10px;;">共 {{pageTotal}} 页</div>
+			</div>
+		</div>
+
+		<div class="bg-content" v-else="showResult">
+			<div>权限列表： 正在为角色：{{checkGrp}} 赋菜单权限  <button class="bg-success table-btn"   style="position: absolute;left:530px"	@click="roleGrant()" >保存</button></div>
+			<div class="bh2"></div>
+			<div style="width:550px;height:482px;overflow-y: scroll;">
+				<div>
+					<div v-for="item in parentMenus" v-if="item.parentNodeCode==0"
+						style=" font-size: 14px;font-weight:900">
+						<input type="checkbox" class=" batch checkbox_c1" @click="isAllc(item.nodeCode,item.chk)"
+							v-model="item.chk" /> {{item.nodeName}}
+
+						<div style="text-indent:25px;font-weight:normal;font-size: 12px;line-height: 25px;"
+							v-for="item1 in menus" v-if="item1.parentNodeCode==item.nodeCode">
+							<input type="checkbox" class="batch checkbox_c1" v-model="item1.chk"
+								@click="notAllc(item.nodeCode,item1.nodeCode,item1.parentNodeCode,item1.chk)" />
+							{{item1.nodeName}}
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 模态框 -->
+	<div class="modal fade myalert" id="myModal">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<!-- 模态框头部 -->
+				<div class="modal-header">
+					<span class="modal-title">系统提示：</span>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- 模态框主体 -->
+				<div class="modal-body">{{info2}}
+				<!-- 模态框底部 -->
+				<div class="modal-footer">
+					<button class="btn btn-success btn-sm" data-dismiss="modal" id="modal-1"
+						@click="confirmbtn(info2)">确 认</button>
+					<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" @click="cancle()">取
+						消</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<div id="ss"></div>
+</body>
+<script>
+	var vm = new Vue({
+		el: '#container',
+		data: {
+			roleobj: { id: null, roleCode: '', roleName: '' },
+			info: [],
+			role:'',
+			menus: [],
+			parentMenus: [],
+			roleMenus:[],
+			status: false,
+			check: true,
+			edit: '启用编辑',
+			info2: '',
+			Roles: [],
+			checkGrp: [],
+			ids: [],
+			showResult: true,
+			flag: false,
+			currentPage: 1,
+			pageTotal: 1,
+			pageSize: 3
+
+		},
+		computed: {
+			isAll: {
+				get() {
+					return this.Roles.every(item => item.chk);
+				},
+				set(value) {
+					this.Roles.forEach(item => {
+						item.chk = value;
+					})
+				}
+			}
+		}
+		,
+		methods: {
+			roleGrant(){
+				axios({
+					method: 'post',
+					url: '/roleGrant',
+					data: {
+						msg: this.checkGrp,
+						msg1: this.roleMenus
+					}
+				}).then(res => {
+					ams_alert( res.data);
+					this.checkGrp = [];
+				}, error => {
+				});
+			},
+			isAllc(aaa, chk) {
+				if (chk) {
+					this.roleMenus.push(aaa);
+					this.menus.forEach(item => {
+						if (item.parentNodeCode == aaa) {
+							item.chk = true;
+							this.roleMenus.push(item.nodeCode);
+						}
+					})
+				}
+				else{
+					this.roleMenus.splice(this.roleMenus.indexOf(aaa),1);
+					
+					this.menus.forEach(item => {
+					if (item.parentNodeCode == aaa) {
+						item.chk = false;
+						this.roleMenus.splice(this.roleMenus.indexOf(item.nodeCode),1);
+					}})
+				}
+				 
+				//alert("即将为用户："+this.checkGrp+"添加"+this.roleMenus+"节点");
+			},
+			notAllc(nodeP, nodecode, parentcode, chk) {
+				if (chk) {
+				this.parentMenus.forEach(item => {
+						if (item.nodeCode == parentcode) {
+							item.chk = true;
+							this.roleMenus.push(parentcode);
+						}
+				})
+				this.roleMenus.push(nodecode);
+			  }
+				if (!chk) {
+					var count = 0;
+					this.menus.forEach(item => {
+						if (item.parentNodeCode == nodeP) {
+							if (item.chk != false) {
+								count++;
+							}
+						}
+					})
+					if (count == 0) {
+						this.parentMenus.forEach(item => {
+								if (item.nodeCode == parentcode) {
+									item.chk = false;
+								}
+						})
+					}
+					this.roleMenus.splice(this.roleMenus.indexOf(nodecode),1);
+				}
+					//alert("即将为用户："+this.checkGrp+"添加"+this.roleMenus+"节点");
+			}
+			,
+			grant() {
+				if (this.checkGrp == '') {
+					ams_alert("必须先选择要授权的用户");
+					return;
+				}
+				
+				this.showResult = false;
+				if(this.parentMenus!=''){return;}
+				axios({
+					method: 'post',
+					url: '/queryMenu',
+					data: {
+						msg: null,
+					}
+				}).then(res => {
+					this.menus = res.data;
+					this.menus.forEach(item => {
+						item.chk = false;
+						if (item.parentNodeCode == 0) {
+							this.parentMenus.push(item);
+						}
+					})
+				}, error => {
+				});
+			
+			},
+			getSelected() {
+				this.checkGrp = [];
+				this.Roles.forEach(item => {
+					if (item.chk) {
+						this.checkGrp.push(item.id);
+					}
+					else {
+						this.checkGrp.splice(this.checkGrp.indexOf(item.id), 1);
+					}
+				})
+			},
+			fenye(targetPage) {
+				//参数为点击的页码
+				//alert("调用分页，去往第"+targetPage+"页")
+				axios({
+					method: 'post',
+					url: '/fenyeQueryRole',
+					data: {
+						msg: this.roleobj,
+						msg1: targetPage,
+						msg2: this.pageSize
+					},
+				}).then(res => {
+					this.Roles = res.data.fenyeRoles;
+					this.Roles.forEach(item => {
+						item.chk = false;
+					})
+					this.pageTotal = res.data.pageTotal;
+					this.currentPage = targetPage;
+					this.checkGrp = [];
+				}, error => {
+				});
+			},
+			addRole() {
+				if ((this.roleobj.roleCode == '' || this.roleobj.roleCode == null) || (this.roleobj.roleName == '' || this.roleobj.roleName == null)) {
+					this.info2 = '添加角色二要素必须同时填写!';
+					return false;
+				}
+				axios({
+					method: 'put',
+					url: '/addRole',
+					data: {
+						msg: this.roleobj
+					},
+				}).then(res => {
+					this.info2 = res.data
+				}, error => {
+				});
+			},
+			confirmbtn(info) {
+				if (info.indexOf('确定要删除所选记录吗') != -1) {
+					axios({
+						method: 'delete',
+						url: '/deleteRole',
+						data: {
+							msg: this.checkGrp
+						},
+					}).then(resrm => {
+						ams_alert(resrm.data);
+						this.checkGrp = [];
+						this.fenye(this.currentPage);
+					}, error => {
+					});
+				}
+
+				if (info.indexOf('确定修改记录') != -1) {
+					var checkGrp = this.checkGrp;
+					var Roles = this.Roles;
+					var myarr = [];
+					for (x in Roles) {
+						for (y in checkGrp) {
+							if (Roles[x].id == checkGrp[y]) {
+								var param = '{"id":"' + Roles[x].id + '","roleCode":"' + Roles[x].roleCode + '","roleName":"' + Roles[x].roleName + '"}';
+								myarr.push(param);
+							}
+						}
+					}
+					axios({
+						method: 'post',
+						url: '/updateRole',
+						data: {
+							msg: myarr
+						},
+					}).then(resrm => {
+						ams_alert(resrm.data);
+						this.checkGrp = [];
+						this.flag = false;
+						this.fenye(this.currentPage);
+
+					}, error => {
+					});
+				}
+				return;
+			},
+			chk(id, e) {
+				if (e.target.checked) {
+					this.checkGrp.push(id);
+				}
+				else {
+					this.checkGrp.splice(this.checkGrp.indexOf(id), 1);
+				}
+			},
+			deleteRole() {
+				if (this.checkGrp == '') {
+					this.info2 = "请先选择要操作的记录";
+					return;
+				}
+				this.info2 = "确定要删除所选记录吗：{" + this.checkGrp + "}";
+			},
+
+			cancle() {
+				this.flag = false;
+			},
+			updateRole() {
+				if (this.checkGrp == '') {
+					this.info2 = "请先选择要操作的记录";
+					return false;
+				}
+				this.info2 = "确定修改记录：{" + this.checkGrp + "}";
+			},
+			change() {
+				this.status = !this.status;
+				if (this.status == true) {
+					this.edit = '关闭编辑';
+				}
+				else {
+					this.edit = '启用编辑';
+				}
+			}
+
+		}
+	})
+
+</script>
+
+</html>
