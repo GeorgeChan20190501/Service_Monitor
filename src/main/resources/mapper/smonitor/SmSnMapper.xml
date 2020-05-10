@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cognizant.ams.dao.SmSnMapper">
+  <resultMap id="BaseResultMap" type="com.cognizant.ams.bean.SmSn">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="ticket_no" jdbcType="VARCHAR" property="ticketNo" />
+    <result column="app_name" jdbcType="VARCHAR" property="appName" />
+    <result column="incident_state" jdbcType="VARCHAR" property="incidentState" />
+    <result column="assign_to" jdbcType="VARCHAR" property="assignTo" />
+    <result column="priority" jdbcType="VARCHAR" property="priority" />
+    <result column="caller" jdbcType="VARCHAR" property="caller" />
+    <result column="assignment_group" jdbcType="VARCHAR" property="assignmentGroup" />
+    <result column="create_time" jdbcType="CHAR" property="createTime" />
+    <result column="wip_time" jdbcType="VARCHAR" property="wipTime" />
+    <result column="pending_time" jdbcType="CHAR" property="pendingTime" />
+    <result column="resolved_time" jdbcType="VARCHAR" property="resolvedTime" />
+    <result column="SLA_Flag" jdbcType="CHAR" property="slaFlag" />
+    <result column="chk" jdbcType="CHAR" property="chk" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, ticket_no, app_name, incident_state, assign_to, priority, caller, assignment_group, 
+    create_time, wip_time, pending_time, resolved_time, SLA_Flag, chk
+  </sql>
+  <select id="selectByExample" parameterType="com.cognizant.ams.bean.SmSnExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sm_sn
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.cognizant.ams.bean.SmSnExample">
+    delete from sm_sn
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cognizant.ams.bean.SmSn">
+    insert into sm_sn (id, ticket_no, app_name, 
+      incident_state, assign_to, priority, 
+      caller, assignment_group, create_time, 
+      wip_time, pending_time, resolved_time, 
+      SLA_Flag, chk)
+    values (#{id,jdbcType=INTEGER}, #{ticketNo,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR}, 
+      #{incidentState,jdbcType=VARCHAR}, #{assignTo,jdbcType=VARCHAR}, #{priority,jdbcType=VARCHAR}, 
+      #{caller,jdbcType=VARCHAR}, #{assignmentGroup,jdbcType=VARCHAR}, #{createTime,jdbcType=CHAR}, 
+      #{wipTime,jdbcType=VARCHAR}, #{pendingTime,jdbcType=CHAR}, #{resolvedTime,jdbcType=VARCHAR}, 
+      #{slaFlag,jdbcType=CHAR}, #{chk,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cognizant.ams.bean.SmSn">
+    insert into sm_sn
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ticketNo != null">
+        ticket_no,
+      </if>
+      <if test="appName != null">
+        app_name,
+      </if>
+      <if test="incidentState != null">
+        incident_state,
+      </if>
+      <if test="assignTo != null">
+        assign_to,
+      </if>
+      <if test="priority != null">
+        priority,
+      </if>
+      <if test="caller != null">
+        caller,
+      </if>
+      <if test="assignmentGroup != null">
+        assignment_group,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="wipTime != null">
+        wip_time,
+      </if>
+      <if test="pendingTime != null">
+        pending_time,
+      </if>
+      <if test="resolvedTime != null">
+        resolved_time,
+      </if>
+      <if test="slaFlag != null">
+        SLA_Flag,
+      </if>
+      <if test="chk != null">
+        chk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ticketNo != null">
+        #{ticketNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="incidentState != null">
+        #{incidentState,jdbcType=VARCHAR},
+      </if>
+      <if test="assignTo != null">
+        #{assignTo,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=VARCHAR},
+      </if>
+      <if test="caller != null">
+        #{caller,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroup != null">
+        #{assignmentGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=CHAR},
+      </if>
+      <if test="wipTime != null">
+        #{wipTime,jdbcType=VARCHAR},
+      </if>
+      <if test="pendingTime != null">
+        #{pendingTime,jdbcType=CHAR},
+      </if>
+      <if test="resolvedTime != null">
+        #{resolvedTime,jdbcType=VARCHAR},
+      </if>
+      <if test="slaFlag != null">
+        #{slaFlag,jdbcType=CHAR},
+      </if>
+      <if test="chk != null">
+        #{chk,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cognizant.ams.bean.SmSnExample" resultType="java.lang.Long">
+    select count(*) from sm_sn
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sm_sn
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.ticketNo != null">
+        ticket_no = #{record.ticketNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appName != null">
+        app_name = #{record.appName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.incidentState != null">
+        incident_state = #{record.incidentState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assignTo != null">
+        assign_to = #{record.assignTo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priority != null">
+        priority = #{record.priority,jdbcType=VARCHAR},
+      </if>
+      <if test="record.caller != null">
+        caller = #{record.caller,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assignmentGroup != null">
+        assignment_group = #{record.assignmentGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=CHAR},
+      </if>
+      <if test="record.wipTime != null">
+        wip_time = #{record.wipTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pendingTime != null">
+        pending_time = #{record.pendingTime,jdbcType=CHAR},
+      </if>
+      <if test="record.resolvedTime != null">
+        resolved_time = #{record.resolvedTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.slaFlag != null">
+        SLA_Flag = #{record.slaFlag,jdbcType=CHAR},
+      </if>
+      <if test="record.chk != null">
+        chk = #{record.chk,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sm_sn
+    set id = #{record.id,jdbcType=INTEGER},
+      ticket_no = #{record.ticketNo,jdbcType=VARCHAR},
+      app_name = #{record.appName,jdbcType=VARCHAR},
+      incident_state = #{record.incidentState,jdbcType=VARCHAR},
+      assign_to = #{record.assignTo,jdbcType=VARCHAR},
+      priority = #{record.priority,jdbcType=VARCHAR},
+      caller = #{record.caller,jdbcType=VARCHAR},
+      assignment_group = #{record.assignmentGroup,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=CHAR},
+      wip_time = #{record.wipTime,jdbcType=VARCHAR},
+      pending_time = #{record.pendingTime,jdbcType=CHAR},
+      resolved_time = #{record.resolvedTime,jdbcType=VARCHAR},
+      SLA_Flag = #{record.slaFlag,jdbcType=CHAR},
+      chk = #{record.chk,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  <select id='getSNByTicketNo' parameterType='list' resultMap="BaseResultMap">
+  				select * from sm_sn where ticket_no in
+  				<foreach collection="list" item="item" separator=","   open="("  close=")">
+  							#{item.ticketNo}
+  				</foreach>
+  </select>
+  
+  <select id='insertNewSN' parameterType='list' >
+  		<foreach collection="list" item="smSn"  open=""  close=""  separator=";" >		
+					insert into sm_sn values(#{smSn.ticketNo},#{smSn.appName},#{smSn.incidentState},#{smSn.assignTo},#{smSn.priority},#{smSn.caller},#{smSn.assignmentGroup},#{smSn.createTime},#{smSn.wipTime},#{smSn.pendingTime},#{smSn.resolvedTime},#{smSn.slaFlag},'false');
+		</foreach>
+  </select>
+  
+  <update id='updateSN' parameterType='list' >
+  		<foreach collection="list" item="smSn"  open=""  close=""  separator=";" >	
+					update sm_sn  set app_name=#{smSn.appName},incident_state=#{smSn.incidentState},assign_to=#{smSn.assignTo},priority=#{smSn.priority},caller=#{smSn.caller},assignment_group=#{smSn.assignmentGroup},create_time=#{smSn.createTime},wip_time=#{smSn.wipTime},pending_time=#{smSn.pendingTime},resolved_time=#{smSn.resolvedTime},SLA_Flag=#{smSn.slaFlag},chk='false' where ticket_no= #{smSn.ticketNo};
+		</foreach>
+  </update>
+  
+  <select id="queryFenyeSN" parameterType="com.cognizant.ams.bean.SmSn" resultMap="BaseResultMap">
+		select * from sm_sn
+		<where>
+			<if test="ticketNo != null  and ticketNo !='' ">
+				and ticket_no = #{ticketNo}
+			</if>
+			<if test="appName != null  and appName !='' ">
+				and app_name like '%'+#{appName}+'%'
+			</if>
+		</where>
+	</select>
+</mapper>

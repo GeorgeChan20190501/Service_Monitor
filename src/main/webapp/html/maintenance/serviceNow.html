@@ -16,7 +16,7 @@
 	</style>
 </head>
 
-<body>
+<body onkeydown="keyDown();">
 	<div id="container">
 		<div class="row">
 			<div class="col-3">
@@ -29,7 +29,7 @@
 
 			<div class="row">
 				<div class="col-sm-2">
-					EAI Code：<input type="text" name="roleCode" v-model="resultobj.appId"
+					Ticket No：<input type="text" name="roleCode" v-model="resultobj.ticketNo"
 						style="width: 150px; height: 25px;" />
 				</div>
 
@@ -39,37 +39,49 @@
 				</div>
 			</div>
 			<div class="row" style="padding: 15px;">
-				<button class="bg-primary mybtn" @click="fenye(1)">系统查询</button>
+				<button class="bg-primary mybtn" @click="fenye(1)" id="btn">工单查询</button>
+				<form> 
+						<input style="margin-left: 45px;" class="bg-primary mybtn"  type="file" name="file"  @change="getFile($event)">
+						<button  style="margin-left: 45px;"  class="bg-primary mybtn"  type="submit" @click="upload()">工单上传</button>
+				</form>
 			</div>
-
 		</div>
 		<div class="bh5"></div>
 
 		<div class="bg-content" v-if="showResult">
-			<div>系统入口列表：</div>
+			<div>工单列表：</div>
 			<div class="bh2"></div>
 			<div>
 				<table class="table  table-bordered   table-sm  table-striped table-hover" style="overflow:hidden">
 					<thead>
 						<tr>
 							<th width="50px;"><input type="checkbox" class=" batch checkbox" v-model="isAll"
-									@click="getSelected()" /></th>
-							<th>系统编号</th>		
-							<th>EAI Code</th>
+									@click="getSelected()" /></th>		
+							<th>Ticket No</th>
 							<th>应用名称</th>
-							<th >应用描述</th>
-							<th >应用首页</th>
+							<th >Ticket 状态</th>
+							<th >分配到人</th>
+							<th >分配时间</th>
+							<th >响应时间</th>
+							<th >pending时间</th>
+							<th >解决时间</th>
+							<th >SLA情况</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr v-for="item in Results">
 							<td width=" 50px;"><input type="checkbox" class="batch checkbox"
 									@click=" chk(item.id,$event)" v-model="item.chk" /></td>
-							<td>{{item.id}}</td>		
-							<td>{{item.appId}}</td>
+						
+							<td>{{item.ticketNo}}</td>
 							<td>{{item.appName}}</td>
-							<td>{{item.appDescrib}}</td>
-							<td ><a :href="item.appUrl1"  style="text-decoration: none;" target="_top" @click.prevent="shouye(item.appUrl1)">进入首页</a></td>
+							<td>{{item.incidentState}}</td>
+							<td>{{item.assignTo}}</td>
+							<td>{{item.createTime}}</td>
+							<td>{{item.wipTime}}</td>
+							<td>{{item.pendingTime}}</td>
+							<td>{{item.resolvedTime}}</td>
+							<td :style="{color: item.slaFlag=='达标'? 'green' :   item.slaFlag=='0-3天内未解决'? 'CornflowerBlue' : item.slaFlag=='3-5天内未解决'? 'blue' : item.slaFlag=='5-8天内未解决'? 'Tomato' :'red'  }">{{item.slaFlag}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -133,7 +145,7 @@
 	var vm = new Vue({
 		el: '#container',
 		data: {
-			resultobj: { id: null, appId: '', appName: '' },
+			resultobj: { id: null, ticketNo: '', appName: '' },
 			info: [],
 			role:'',
 			menus: [],
@@ -143,6 +155,7 @@
 			check: true,
 			edit: '启用编辑',
 			info2: '',
+			file:'',
 			Results: [],
 			checkGrp: [],
 			ids: [],
@@ -237,14 +250,14 @@
 				//alert("调用分页，去往第"+targetPage+"页")
 				axios({
 					method: 'post',
-					url: '/fenyeQueryConfig',
+					url: '/fenyeQuerySN',
 					data: {
 						msg: this.resultobj,
 						msg1: targetPage,
 						msg2: this.pageSize
 					},
 				}).then(res => {
-					this.Results = res.data.fenyeConfig;
+					this.Results = res.data.fenyeSN;
 					this.Results.forEach(item => {
 						item.chk = false;
 					})
@@ -280,11 +293,32 @@
 			},
 			shouye(url){
 				window.open(url,"_blank");
-			}
+			},
+			upload(event){
+
+		        let formData = new FormData();
+		        formData.append('file', this.file);
+		        let config = {
+		          headers: {
+		            'Content-Type': 'multipart/form-data'
+		          }
+		        }
+		        axios.post("/upload", formData, config).then(function (res) {
+		            	ams_alert(res.data);
+		          })
+	 
+			},
+			getFile(event) {
+		        this.file = event.target.files[0];
+		        console.log(this.file);
+		      },
 
 		}
 	})
-
+	function keyDown(){
+		 if (event.keyCode==13)  //回车键的键值为13
+		   document.getElementById("btn").click(); //调用登录按钮的登录事件
+		}
 </script>
 
 </html>

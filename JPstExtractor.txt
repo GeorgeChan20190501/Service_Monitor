@@ -1,4 +1,0 @@
-Thank you for try out JPstExtractor. It is a tool to extract mail body and attachments from outlook pst file.
-This is a demo version, it only extracts first 200 mails from each folder of pst file.
-
-If you are interested in full version, please contact NetPstExtractor@163.com (http://blog.163.com/netpstextractor).

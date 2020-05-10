@@ -1,6 +1,13 @@
 .page-item{
 	cursor: pointer;
 }
+.gre{
+	color:green;
+}
+.red{
+	
+	color:red;
+}
 .abtn{
 	width:32px;
 	height:15px;
