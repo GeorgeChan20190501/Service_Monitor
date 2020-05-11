@@ -12,10 +12,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @MapperScan("com.cognizant.ams.dao")
 public class ServiceMonitorApplication extends SpringBootServletInitializer{
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return super.configure(builder);
-	}
+	
+	  @Override protected SpringApplicationBuilder
+	  configure(SpringApplicationBuilder builder) { return
+	  super.configure(builder); }
+	 
 	public static void main(String[] args) {
 		SpringApplication.run(ServiceMonitorApplication.class, args);
 	}

@@ -10,6 +10,7 @@
 	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
 	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
 	<!-- 系统CSS或JS -->
+	<link rel="stylesheet" href="/css/iconfont1.css">
 	<link rel="stylesheet" href="/css/system.css">
 
 	<style>
@@ -41,7 +42,7 @@
 			<div class="row" style="padding: 15px;">
 				<button class="bg-primary mybtn" @click="fenye(1)" id="btn">工单查询</button>
 				<form> 
-						<input style="margin-left: 45px;" class="bg-primary mybtn"  type="file" name="file"  @change="getFile($event)">
+						<button  id="filebtn" style="margin-left: 45px;" class="bg-primary mybtn iconfont  icon-ziyuanxcx"  ><input  type="file" name="file"  @change="getFile($event)"></button>
 						<button  style="margin-left: 45px;"  class="bg-primary mybtn"  type="submit" @click="upload()">工单上传</button>
 				</form>
 			</div>
@@ -137,9 +138,9 @@
 	</div>
 	
 	
+		<div id="ss"></div>
 	
-	
-	<div id="ss"></div>
+
 </body>
 <script>
 	var vm = new Vue({
@@ -295,7 +296,7 @@
 				window.open(url,"_blank");
 			},
 			upload(event){
-
+				
 		        let formData = new FormData();
 		        formData.append('file', this.file);
 		        let config = {
@@ -303,9 +304,22 @@
 		            'Content-Type': 'multipart/form-data'
 		          }
 		        }
-		        axios.post("/upload", formData, config).then(function (res) {
-		            	ams_alert(res.data);
-		          })
+		     /*    axios.post("/upload", formData, config).then(function (res) {
+		        		console(res.data)
+		          }) */
+		        axios({
+		        	  method: 'post',            //设置请求方式:Get
+		        	  url: '/upload',
+		        	  data: {					 //请求体，适合put ,post,patch
+		        	     file:formData,
+		        	     'Content-Type': 'multipart/form-data'
+		        	  },
+		        	 
+		        	  
+		       }).then(res=>{ 
+		    	  alert(res.data)
+		       } ,error=>{});
+
 	 
 			},
 			getFile(event) {

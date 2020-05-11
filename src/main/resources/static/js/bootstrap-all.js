@@ -18,7 +18,7 @@
 /*=======================alert自定义==开始=============================*/
 function ams_alert(message){
 	var time=new Date().getTime();
-   
+
 	$('#ss').after("<div onselectstart='return false' class='tc' id='divSlider"+time+"'><div class='head'>提示： <button class='clo' id='clo' onclick='closetips("+time+")'>&#10005;</button></div><div class='content' style='font-size:14px;'>"+message+"<br/><button class='ans' onclick='closetips("+time+")'>确定</button></div></div>")	 
 }	
 function closetips(time){
