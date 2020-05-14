@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cognizant.ams.dao.SmEffortsMapper">
+  <resultMap id="BaseResultMap" type="com.cognizant.ams.bean.SmEfforts">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="workday" jdbcType="VARCHAR" property="workday" />
+    <result column="tasktype" jdbcType="VARCHAR" property="tasktype" />
+    <result column="eai_code" jdbcType="VARCHAR" property="eaiCode" />
+    <result column="ticket_number" jdbcType="VARCHAR" property="ticketNumber" />
+    <result column="efforts_hours" jdbcType="DOUBLE" property="effortsHours" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="chk" jdbcType="CHAR" property="chk" />
+    <result column="chk1" jdbcType="CHAR" property="chk1" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, userid, workday, tasktype, eai_code, ticket_number, efforts_hours, create_time, 
+    chk, chk1
+  </sql>
+  <select id="selectByExample" parameterType="com.cognizant.ams.bean.SmEffortsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sm_efforts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.cognizant.ams.bean.SmEffortsExample">
+    delete from sm_efforts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cognizant.ams.bean.SmEfforts">
+    insert into sm_efforts (userid, workday, 
+      tasktype, eai_code, ticket_number, 
+      efforts_hours, create_time, chk, 
+      chk1)
+    values (#{userid,jdbcType=VARCHAR}, #{workday,jdbcType=VARCHAR}, 
+      #{tasktype,jdbcType=VARCHAR}, #{eaiCode,jdbcType=VARCHAR}, #{ticketNumber,jdbcType=VARCHAR}, 
+      #{effortsHours,jdbcType=DOUBLE}, #{createTime,jdbcType=VARCHAR}, #{chk,jdbcType=CHAR}, 
+      #{chk1,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cognizant.ams.bean.SmEfforts">
+    insert into sm_efforts
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="workday != null">
+        workday,
+      </if>
+      <if test="tasktype != null">
+        tasktype,
+      </if>
+      <if test="eaiCode != null">
+        eai_code,
+      </if>
+      <if test="ticketNumber != null">
+        ticket_number,
+      </if>
+      <if test="effortsHours != null">
+        efforts_hours,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="chk != null">
+        chk,
+      </if>
+      <if test="chk1 != null">
+        chk1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="workday != null">
+        #{workday,jdbcType=VARCHAR},
+      </if>
+      <if test="tasktype != null">
+        #{tasktype,jdbcType=VARCHAR},
+      </if>
+      <if test="eaiCode != null">
+        #{eaiCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ticketNumber != null">
+        #{ticketNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="effortsHours != null">
+        #{effortsHours,jdbcType=DOUBLE},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="chk != null">
+        #{chk,jdbcType=CHAR},
+      </if>
+      <if test="chk1 != null">
+        #{chk1,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cognizant.ams.bean.SmEffortsExample" resultType="java.lang.Long">
+    select count(*) from sm_efforts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sm_efforts
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null">
+        userid = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workday != null">
+        workday = #{record.workday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tasktype != null">
+        tasktype = #{record.tasktype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eaiCode != null">
+        eai_code = #{record.eaiCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ticketNumber != null">
+        ticket_number = #{record.ticketNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.effortsHours != null">
+        efforts_hours = #{record.effortsHours,jdbcType=DOUBLE},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chk != null">
+        chk = #{record.chk,jdbcType=CHAR},
+      </if>
+      <if test="record.chk1 != null">
+        chk1 = #{record.chk1,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sm_efforts
+    set id = #{record.id,jdbcType=INTEGER},
+      userid = #{record.userid,jdbcType=VARCHAR},
+      workday = #{record.workday,jdbcType=VARCHAR},
+      tasktype = #{record.tasktype,jdbcType=VARCHAR},
+      eai_code = #{record.eaiCode,jdbcType=VARCHAR},
+      ticket_number = #{record.ticketNumber,jdbcType=VARCHAR},
+      efforts_hours = #{record.effortsHours,jdbcType=DOUBLE},
+      create_time = #{record.createTime,jdbcType=VARCHAR},
+      chk = #{record.chk,jdbcType=CHAR},
+      chk1 = #{record.chk1,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

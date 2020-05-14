@@ -1,0 +1,52 @@
+[
+	{
+		"id":"1",
+		"type":"Production - Incident Management (AP)"
+	},
+	{
+		"id":"2",
+		"type":"Production - Service Management (DP / DR / UC)"
+	},
+	{
+		"id":"3",
+		"type":"Production - Minor Enhancements (CR)"
+	}
+	,
+	{
+		"id":"4",
+		"type":"Production - Problem Management (IAP)"
+	},
+	{
+		"id":"5",
+		"type":"Telephone Query & Discussion"
+	},
+	{
+		"id":"6",
+		"type":"Maintenance Document Preparation"
+	}
+	,
+	{
+		"id":"7",
+		"type":"Internal KT"
+	}
+	,
+	{
+		"id":"8",
+		"type":"Technology Research"
+	},
+	{
+		"id":"9",
+		"type":"Environment Preparation (DEV / Testing / Production)"
+	}
+	,
+	{
+		"id":"10",
+		"type":"Release Management"
+	}
+	,
+	{
+		"id":"11",
+		"type":"Vacation"
+	}
+	
+]
