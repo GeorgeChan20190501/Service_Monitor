@@ -43,7 +43,7 @@
 			<div class="row" style="padding: 15px;">
 				<button class="bg-primary mybtn" @click="query" id="btn">工单查询</button>
 				<form> 
-						<button  id="filebtn" style="margin-left: 45px;" class="bg-primary mybtn iconfont  icon-ziyuanxcx"  ><input  type="file" name="file"  @change="getFile($event)"></button>
+						<button  id="filebtn" style="margin-left: 45px;" class="bg-primary mybtn iconfont  icon-ziyuanxcx"  ><input  type="file" name="file"  @change="getFile($event)"><span style="font-size:10px; margin-left:5px;">{{fileName | format }}</span></button>
 						<button  style="margin-left: 45px;"  class="bg-primary mybtn"  type="submit" @click="upload()">工单上传</button>
 				</form>
 			</div>
@@ -146,6 +146,7 @@
 			edit: '启用编辑',
 			info2: '',
 			file:'',
+			fileName:'',
 			Results: [],
 			checkGrp: [],
 			ids: [],
@@ -153,6 +154,15 @@
 			flag: false,
 			dataShow:[] ,
 			url:'/fenyeQuerySN'
+		},
+		filters:{
+			format(data){
+				if(data!=null && data!=''){
+					data=data.substring(0,3)+".."+data.substring(data.length-6,data.length);
+					
+				}
+				return data;
+			}
 		},
 		computed: {
 			isAll: {
@@ -292,7 +302,8 @@
 			},
 			getFile(event) {
 		        this.file = event.target.files[0];
-		        console.log(this.file);
+		        this.fileName=this.file.name;
+		        
 		      },
 
 		}
