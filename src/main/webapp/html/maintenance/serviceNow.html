@@ -10,6 +10,7 @@
 	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
 	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
 	<!-- 系统CSS或JS -->
+	<script src="/js/page.js"></script>
 	<link rel="stylesheet" href="/css/iconfont1.css">
 	<link rel="stylesheet" href="/css/system.css">
 
@@ -40,7 +41,7 @@
 				</div>
 			</div>
 			<div class="row" style="padding: 15px;">
-				<button class="bg-primary mybtn" @click="fenye(1)" id="btn">工单查询</button>
+				<button class="bg-primary mybtn" @click="query" id="btn">工单查询</button>
 				<form> 
 						<button  id="filebtn" style="margin-left: 45px;" class="bg-primary mybtn iconfont  icon-ziyuanxcx"  ><input  type="file" name="file"  @change="getFile($event)"></button>
 						<button  style="margin-left: 45px;"  class="bg-primary mybtn"  type="submit" @click="upload()">工单上传</button>
@@ -70,7 +71,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="item in Results">
+						<tr v-for="item in dataShow">
 							<td width=" 50px;"><input type="checkbox" class="batch checkbox"
 									@click=" chk(item.id,$event)" v-model="item.chk" /></td>
 						
@@ -90,24 +91,12 @@
 				
 
 			</div>
-			<!-- 分页模板（修改URL及参数） -->
-			<div class="row" v-if="pageTotal>1">
-				<ul class="pagination pagination-sm offset-sm-4">
-					<li class="page-item"><a class="page-link" @click="fenye(1)">首 页</a></li>
-					<li class="page-item"><a class="page-link" @click="fenye(currentPage-1)">上一页</a></li>
-					<li v-for="n in pageTotal" class="page-item">
-						<a class="page-link" @click="fenye(n)" v-if="pageTotal<6">{{n}}</a>
-						<a class="page-link" @click="fenye(n)" v-if="pageTotal>5 && currentPage <4 && n<6">{{n}}</a>
-						<a class="page-link" @click="fenye(currentPage+(n-3))"
-							v-if="(pageTotal-currentPage)>1 && pageTotal>5 && currentPage >3 && n<6">{{currentPage+(n-3)}}</a>
-						<a class="page-link" @click="fenye(pageTotal+(n-5))"
-							v-if="(pageTotal-currentPage)<2 && pageTotal>5 && currentPage >3 && n<6">{{pageTotal+(n-5)}}</a>
-					</li>
-					<li class="page-item"><a class="page-link" @click="fenye(currentPage+1)">下一页</a></li>
-					<li class="page-item"><a class="page-link" @click="fenye(pageTotal)">尾 页</a></li>
-				</ul>
-				<div style="margin-left: 15px;margin-top: 10px;;">共 {{pageTotal}} 页</div>
-			</div>
+			<fenye v-bind:parentmsg="url"  @myfunc="dataDisplay"  ref="fenye"/>
+			
+			
+			
+			
+			
 		</div>
 
 
@@ -162,9 +151,8 @@
 			ids: [],
 			showResult: true,
 			flag: false,
-			currentPage: 1,
-			pageTotal: 1,
-			pageSize: 10
+			dataShow:[] ,
+			url:'/fenyeQuerySN'
 		},
 		computed: {
 			isAll: {
@@ -180,7 +168,7 @@
 		}
 		,
 		methods: {
-
+			dataDisplay(dataShow){		this.dataShow=dataShow	},
 			isAllc(aaa, chk) {
 				if (chk) {
 					this.roleMenus.push(aaa);
@@ -246,28 +234,7 @@
 					}
 				})
 			},
-			fenye(targetPage) {
-				//参数为点击的页码
-				//alert("调用分页，去往第"+targetPage+"页")
-				axios({
-					method: 'post',
-					url: '/fenyeQuerySN',
-					data: {
-						msg: this.resultobj,
-						msg1: targetPage,
-						msg2: this.pageSize
-					},
-				}).then(res => {
-					this.Results = res.data.fenyeSN;
-					this.Results.forEach(item => {
-						item.chk = false;
-					})
-					this.pageTotal = res.data.pageTotal;
-					this.currentPage = targetPage;
-					this.checkGrp = [];
-				}, error => {
-				});
-			},
+			query() {	this.$refs.fenye.condition(this.resultobj); },
 			 
 			chk(id, e) {
 				if (e.target.checked) {
@@ -310,9 +277,10 @@
 		        axios({
 		        	  method: 'post',            //设置请求方式:Get
 		        	  url: '/upload',
+		        	  
 		        	  data: {					 //请求体，适合put ,post,patch
-		        	     file:formData,
-		        	     'Content-Type': 'multipart/form-data'
+		        		  File: this.file,
+		        		  headers: {'Content-Type': 'multipart/form-data'},
 		        	  },
 		        	 
 		        	  

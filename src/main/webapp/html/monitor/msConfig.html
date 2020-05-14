@@ -9,6 +9,7 @@
 	<script src="/js/bootstrap-all.js"></script>
 	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
 	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+	<script src="/js/page.js"></script>
 	<!-- 系统CSS或JS -->
 	<link rel="stylesheet" href="/css/system.css">
 
@@ -78,7 +79,7 @@
 			</div>
 
 			<div class="row" style="padding: 15px;">
-				<button class="bg-primary mybtn" @click="fenye(1)">查询配置</button>
+				<button class="bg-primary mybtn" @click="query">查询配置</button>
 				<button class="mybtn bg-primary" style="margin-left: 45px;" data-toggle="modal" data-target="#myModal"
 					@click="addConfig()">新增配置</button>
 
@@ -108,7 +109,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="item in configs">
+						<tr v-for="item in dataShow">
 							<td width=" 50px;"><input type="checkbox" class="batch checkbox" @click=" chk(item.id,$event)"  />
 							</td>
 							<td>{{item.id}}</td>
@@ -139,24 +140,7 @@
 					@click="updateConfig()">修改配置</button>
 
 			</div>
-			<!-- 分页模板（修改URL及参数） -->
-			<div class="row" v-if="pageTotal>1">
-				<ul class="pagination pagination-sm offset-sm-4">
-					<li class="page-item"><a class="page-link" @click="fenye(1)">首 页</a></li>
-					<li class="page-item"><a class="page-link" @click="fenye(currentPage-1)">上一页</a></li>
-					<li v-for="n in pageTotal" class="page-item">
-						<a class="page-link" @click="fenye(n)" v-if="pageTotal<6">{{n}}</a>
-						<a class="page-link" @click="fenye(n)" v-if="pageTotal>5 && currentPage <4 && n<6">{{n}}</a>
-						<a class="page-link" @click="fenye(currentPage+(n-3))"
-							v-if="(pageTotal-currentPage)>1 && pageTotal>5 && currentPage >3 && n<6">{{currentPage+(n-3)}}</a>
-						<a class="page-link" @click="fenye(pageTotal+(n-5))"
-							v-if="(pageTotal-currentPage)<2 && pageTotal>5 && currentPage >3 && n<6">{{pageTotal+(n-5)}}</a>
-					</li>
-					<li class="page-item"><a class="page-link" @click="fenye(currentPage+1)">下一页</a></li>
-					<li class="page-item"><a class="page-link" @click="fenye(pageTotal)">尾 页</a></li>
-				</ul>
-				<div style="margin-left: 15px;margin-top: 10px;;">共 {{pageTotal}} 页</div>
-			</div>
+			<fenye v-bind:parentmsg="url"  @myfunc="dataDisplay"  ref="fenye"/>
 		</div>
 
 		<!-- 模态框2 -->
@@ -205,11 +189,12 @@
 			checkGrp: [],
 			ids: [],
 			flag: false,
-			currentPage: 1,
-			pageTotal: 1,
-			pageSize: 5
+			dataShow:[] ,  
+			url:'/fenyeQueryConfig' 
 		},
 		methods: {
+			dataDisplay(dataShow){		this.dataShow=dataShow	},
+			query() {	this.$refs.fenye.condition(this.appConfigobj); } ,
 			queryMenu() {
 				axios({
 					method: 'post',
@@ -222,24 +207,7 @@
 				}, error => {
 				});
 			},
-			fenye(targetPage) {
-				//参数为点击的页码
-				//alert("调用分页，去往第"+targetPage+"页")
-				axios({
-					method: 'post',
-					url: '/fenyeQueryConfig',
-					data: {
-						msg: this.appConfigobj,
-						msg1: targetPage,
-						msg2: this.pageSize
-					},
-				}).then(res => {
-					this.configs = res.data.fenyeConfig;
-					this.pageTotal = res.data.pageTotal;
-					this.currentPage = targetPage;
-				}, error => {
-				});
-			},
+			 
 			addConfig() {
 				
 				if ((this.appConfigobj.appId == '' || this.appConfigobj.appId == null) || (this.appConfigobj.appName == '' || this.appConfigobj.appName == null) || (this.appConfigobj.appDescrib == '' || this.appConfigobj.appDescrib == null)|| (this.appConfigobj.appUrl1 == '' || this.appConfigobj.appUrl1 == null)|| (this.appConfigobj.appUrl2 == '' || this.appConfigobj.appUrl2 == null)|| (this.appConfigobj.appUrl3 == '' || this.appConfigobj.appUrl3 == null)

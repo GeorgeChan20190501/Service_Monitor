@@ -9,6 +9,7 @@
 	<script src="/js/bootstrap-all.js"></script>
 	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
 	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+	<script src="/js/page.js"></script>
 	<!-- 系统CSS或JS -->
 	<link rel="stylesheet" href="/css/system.css">
 
@@ -61,14 +62,14 @@
 				<div class="col-sm-2">节点生效：
 					<select name="isDeleted" style="width: 150px; height: 25px;" v-model="menuobj.isDeleted">
 						<option value="">请选择</option>
-						<option value="1">1-有效</option>
-						<option value="0">0-无效</option>
+						<option value="1">无效</option>
+						<option value="0">有效</option>
 					</select>
 				</div>
 			</div>
 
 			<div class="row" style="padding: 15px;">
-				<button class="bg-primary mybtn" @click="fenye(1)">查询菜单</button>
+				<button class="bg-primary mybtn" @click="query">查询菜单</button>
 				<button class="mybtn bg-primary" style="margin-left: 45px;" data-toggle="modal" data-target="#myModal"
 					@click="addMenu()">新增菜单</button>
 
@@ -97,7 +98,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="item in menus">
+						<tr v-for="item in dataShow">
 							<td width=" 50px;"><input type="checkbox" class="batch" @click=" chk(item.id,$event)" /></td>
 							<td >{{item.id}}</td>
 							<td><input class="tableinput" :value="item.nodeCode" v-model="item.nodeCode"
@@ -125,21 +126,7 @@
 					@click="updateMenu()">修改菜单</button>
 
 			</div>
-			<!-- 分页模板（修改URL及参数） -->
-			<div class="row" v-if="pageTotal>1">
-				<ul class="pagination pagination-sm offset-sm-4">
-					<li class="page-item"><a class="page-link" @click="fenye(1)">首 页</a></li>
-					<li class="page-item"><a class="page-link" @click="fenye(currentPage-1)">上一页</a></li>
-					<li v-for = "n in pageTotal" class="page-item" >
-							<a class="page-link" @click="fenye(n)"  v-if="pageTotal<6"  >{{n}}</a>
-							<a class="page-link" @click="fenye(n)"  v-if="pageTotal>5 && currentPage <4 && n<6">{{n}}</a>
-							<a  class="page-link" @click="fenye(currentPage+(n-3))"  v-if="(pageTotal-currentPage)>1 && pageTotal>5 && currentPage >3 && n<6">{{currentPage+(n-3)}}</a>
-							<a  class="page-link" @click="fenye(pageTotal+(n-5))"  v-if="(pageTotal-currentPage)<2 && pageTotal>5 && currentPage >3 && n<6">{{pageTotal+(n-5)}}</a>
-					</li>
-					<li class="page-item"><a class="page-link" @click="fenye(currentPage+1)">下一页</a></li>
-					<li class="page-item"><a class="page-link" @click="fenye(pageTotal)">尾 页</a></li>
-				</ul><div style="margin-left: 15px;margin-top: 10px;;">共 {{pageTotal}} 页</div>
-			</div>
+			<fenye v-bind:parentmsg="url"  @myfunc="dataDisplay"  ref="fenye"/>
 		</div>
 
 		<!-- 模态框2 -->
@@ -192,11 +179,11 @@
 			checkGrp: [],
 			ids: [],
 			flag: false,
-			currentPage:1,
-			pageTotal:1,
-			pageSize:5
+			dataShow:[] ,  
+			url:'/fenyeQueryMenu'
 		},
 		methods: {
+			dataDisplay(dataShow){		this.dataShow=dataShow	},
 			queryMenu() {
 				axios({
 					method: 'post',
@@ -209,24 +196,8 @@
 				}, error => {
 				});
 			},
-			fenye(targetPage){
-				//参数为点击的页码
-				//alert("调用分页，去往第"+targetPage+"页")
-				axios({
-					method: 'post',
-					url: '/fenyeQueryMenu',
-					data: {
-						msg: this.menuobj,
-						msg1: targetPage,
-						msg2: this.pageSize
-					},
-				}).then(res => {
-					this.menus = res.data.fenyeMenus;
-					this.pageTotal=res.data.pageTotal;
-					this.currentPage=targetPage;
-				}, error => {
-				});
-			},
+			query() {	this.$refs.fenye.condition(this.menuobj); },
+ 
 			addMenu() {
 				if ((this.menuobj.nodeCode == '' || this.menuobj.nodeCode == null) || (this.menuobj.parentNodeCode == '' || this.menuobj.parentNodeCode == null) || (this.menuobj.nodeName == '' || this.menuobj.nodeName == null)
 					|| (this.menuobj.childNum == '' || this.menuobj.childNum == null) || (this.menuobj.pageUrl == '' || this.menuobj.pageUrl == null) || (this.menuobj.nodeDescription == '' || this.menuobj.nodeDescription == null) || (this.menuobj.isDeleted == '' || this.menuobj.isDeleted == null)) {

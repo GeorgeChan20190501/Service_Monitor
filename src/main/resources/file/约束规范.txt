@@ -1,0 +1,11 @@
+分页组件使用。
+
+引入页面中
+1.引进分页组件JS :   					<script src="/js/page.js"></script>
+2.添加数据遍历变量：  				dataShow:[] ,  url:'/fenyeQuerySN'        //记得改变table中遍历的对象为dataShow
+3.添加分页组件：				            <fenye v-bind:parentmsg="url"  @myfunc="dataDisplay"  ref="fenye"/>
+4.添加回显方法：							dataDisplay(dataShow){		this.dataShow=dataShow	},
+5:条件查询方法中调用子组件：	query() {	this.$refs.fenye.condition(this.resultobj); }        //this.resultobj条件查询
+
+提示：为了提升体验分页显示不超过100页，本程序规定最大页数99页。默认每页显示5条数据
+

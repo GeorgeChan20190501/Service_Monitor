@@ -1,13 +1,54 @@
+.pos{
+	margin-top:10px;
+}
+.myinnput{
+	outline:none;
+	width:40px;
+	height:22px;
+	padding:5px 5px 5px 2px
+}
+.mybtnprimary{
+	padding:1px 8px ;
+	font-size:12px;
+	margin-top:-5px;;
+	border-radius:0;
+	outline:none;
+}
+.mybtnprimary :focus{
+    outline: 0;
+}
+.pageFen{
+	 -webkit-user-select: none; /* for Chrome */
+}
+
 .page-item {
 	cursor: pointer;
 }
 
+.page-link {
+	width: 30px;
+	text-align: center;
+}
+
+.page-item {
+	margin: 0 4px;
+}
+
+.hid {
+	display: none;
+}
+
+.linkwid {
+	margin-left: 15px;
+
+}
+
 #filebtn {
 	position: relative;
-	display:inline-block;
+	display: inline-block;
 	cursor: pointer;
-	text-align:center;
-	width:100px;
+	text-align: center;
+	width: 100px;
 }
 
 #filebtn input {
@@ -19,7 +60,6 @@
 	height: 74px;
 	cursor: pointer;
 }
-
 
 .gre {
 	color: green;

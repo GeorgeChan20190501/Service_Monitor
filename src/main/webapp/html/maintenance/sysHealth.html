@@ -9,6 +9,7 @@
 	<script src="/js/bootstrap-all.js"></script>
 	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
 	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+	<script src="/js/page.js"></script>
 	<!-- 系统CSS或JS -->
 	<link rel="stylesheet" href="/css/system.css">
 
@@ -29,17 +30,17 @@
 
 			<div class="row">
 				<div class="col-sm-2">
-					EAI Code：<input type="text" name="roleCode" v-model="resultobj.appId"
+					EAI Code：<input type="text" name="roleCode" v-model="resultobj.appId" :value="resultobj.appId"
 						style="width: 150px; height: 25px;" />
 				</div>
 
 				<div class="col-sm-2">
-					系统名称：<input type="text" name="roleName" v-model="resultobj.appName"
+					系统名称：<input type="text" name="roleName" v-model="resultobj.appName" :value="resultobj.appName"
 						style="width: 150px; height: 25px;" />
 				</div>
 			</div>
 			<div class="row" style="padding: 15px;">
-				<button class="bg-primary mybtn" @click="fenye(1)">健康查询</button>
+				<button class="bg-primary mybtn" @click="query">健康查询</button>
 			</div>
 
 		</div>
@@ -64,7 +65,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="item in Results">
+						<tr v-for="item in dataShow">
 							<td width=" 50px;"><input type="checkbox" class="batch checkbox"
 									@click=" chk(item.id,$event)" v-model="item.chk" /></td>
 							<td>{{item.createTime}}</td>
@@ -81,24 +82,7 @@
 				
 
 			</div>
-			<!-- 分页模板（修改URL及参数） -->
-			<div class="row" v-if="pageTotal>1">
-				<ul class="pagination pagination-sm offset-sm-4">
-					<li class="page-item"><a class="page-link" @click="fenye(1)">首 页</a></li>
-					<li class="page-item"><a class="page-link" @click="fenye(currentPage-1)">上一页</a></li>
-					<li v-for="n in pageTotal" class="page-item">
-						<a class="page-link" @click="fenye(n)" v-if="pageTotal<6">{{n}}</a>
-						<a class="page-link" @click="fenye(n)" v-if="pageTotal>5 && currentPage <4 && n<6">{{n}}</a>
-						<a class="page-link" @click="fenye(currentPage+(n-3))"
-							v-if="(pageTotal-currentPage)>1 && pageTotal>5 && currentPage >3 && n<6">{{currentPage+(n-3)}}</a>
-						<a class="page-link" @click="fenye(pageTotal+(n-5))"
-							v-if="(pageTotal-currentPage)<2 && pageTotal>5 && currentPage >3 && n<6">{{pageTotal+(n-5)}}</a>
-					</li>
-					<li class="page-item"><a class="page-link" @click="fenye(currentPage+1)">下一页</a></li>
-					<li class="page-item"><a class="page-link" @click="fenye(pageTotal)">尾 页</a></li>
-				</ul>
-				<div style="margin-left: 15px;margin-top: 10px;;">共 {{pageTotal}} 页</div>
-			</div>
+			<fenye v-bind:parentmsg="url1"  @myfunc="dataDisplay"  ref="fenye"/>
 		</div>
 
 
@@ -147,22 +131,22 @@
 			check: true,
 			edit: '启用编辑',
 			info2: '',
-			Results: [],
+			dataList: [],
 			checkGrp: [],
 			ids: [],
 			showResult: true,
 			flag: false,
-			currentPage: 1,
-			pageTotal: 1,
-			pageSize: 10
+			dataShow:[],
+			url1: '/fenyeQueryHealth'
 		},
+
 		computed: {
 			isAll: {
 				get() {
-					return this.Results.every(item => item.chk);
+					return this.dataShow.every(item => item.chk);
 				},
 				set(value) {
-					this.Results.forEach(item => {
+					this.dataShow.forEach(item => {
 						item.chk = value;
 					})
 				}
@@ -229,10 +213,12 @@
 					//alert("即将为用户："+this.checkGrp+"添加"+this.roleMenus+"节点");
 			}
 			,
-		 
+			dataDisplay(aa){
+				this.dataShow=aa
+			},
 			getSelected() {
 				this.checkGrp = [];
-				this.Results.forEach(item => {
+				this.dataList.forEach(item => {
 					if (item.chk) {
 						this.checkGrp.push(item.id);
 					}
@@ -241,27 +227,8 @@
 					}
 				})
 			},
-			fenye(targetPage) {
-				//参数为点击的页码
-				//alert("调用分页，去往第"+targetPage+"页")
-				axios({
-					method: 'post',
-					url: '/fenyeQueryHealth',
-					data: {
-						msg: this.resultobj,
-						msg1: targetPage,
-						msg2: this.pageSize
-					},
-				}).then(res => {
-					this.Results = res.data.fenyeResults;
-					this.Results.forEach(item => {
-						item.chk = false;
-					})
-					this.pageTotal = res.data.pageTotal;
-					this.currentPage = targetPage;
-					this.checkGrp = [];
-				}, error => {
-				});
+			query() {
+				this.$refs.fenye.condition(this.resultobj);
 			},
 			 
 			chk(id, e) {

@@ -226,7 +226,7 @@
   
   
 	<select id="queryAppHealth" parameterType="com.cognizant.ams.bean.SmResult" resultMap="BaseResultMap">
-		select * from sm_result
+		select TOP 495 * from sm_result
 		<where>
 			<if test="id != null  and id !='' ">
 				and id = #{id}

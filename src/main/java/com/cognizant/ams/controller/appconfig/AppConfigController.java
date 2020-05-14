@@ -15,7 +15,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.cognizant.ams.bean.SmApplist;
 import com.cognizant.ams.bean.SmResult;
 import com.cognizant.ams.bean.common.JsonReqObject;
-import com.cognizant.ams.common.PageHelper;
 import com.cognizant.ams.service.AppConfigService;
 
 @RestController
@@ -122,57 +121,36 @@ public class AppConfigController {
 		return "菜单添加成功";
 	}
 
-	@SuppressWarnings("unchecked")
 	@PostMapping("/fenyeQueryConfig")
 	public Map<String, Object> fenyeQueryConfig(@RequestBody String param) {
 		System.out.println("分页查询参数===" + param);
 		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
 		String jsonParam = jsonReqObject.getMsg();
-		String currentPage = jsonReqObject.getMsg1();
-		String pageSize = jsonReqObject.getMsg2();
-		System.out.println(currentPage);
-		System.out.println("当前页为：" + currentPage + "，当前页面大小：" + pageSize);
+ 
+		  
 		SmApplist smApplist = JSONArray.parseObject(jsonParam, SmApplist.class);
 		// 查询配置
 		List<SmApplist> list = appConfigService.queryAppConfig(smApplist);
 
 		// 上述拿到完整list，现在进行分页返回当前页面数据。
 		System.out.println("总条数为===" + list.size());
-		List<SmApplist> fenyemenulist = PageHelper.getDataByFenye(list, currentPage, pageSize);
 		Map<String, Object> map = new HashMap<String, Object>();
-		int pageTotal = list.size() / Integer.parseInt(pageSize);
-		if (list.size() % Integer.parseInt(pageSize) != 0) {
-			pageTotal++;
-		}
-		map.put("fenyeConfig", fenyemenulist);
-		map.put("pageTotal", pageTotal);
+		map.put("list", list);
 		return map;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@PostMapping("/fenyeQueryHealth")
 	public Map<String, Object> fenyeQueryHealth(@RequestBody String param) {
 		System.out.println("分页查询参数===" + param);
 		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
 		String jsonParam = jsonReqObject.getMsg();
-		String currentPage = jsonReqObject.getMsg1();
-		String pageSize = jsonReqObject.getMsg2();
-		System.out.println(currentPage);
-		System.out.println("当前页为：" + currentPage + "，当前页面大小：" + pageSize);
 		SmResult smResultlist = JSONArray.parseObject(jsonParam, SmResult.class);
 		// 查询配置
 		List<SmResult> list = appConfigService.queryAppHealth(smResultlist);
-
 		// 上述拿到完整list，现在进行分页返回当前页面数据。
 		System.out.println("总条数为===" + list.size());
-		List<SmResult> fenyelist = PageHelper.getDataByFenye(list, currentPage, pageSize);
 		Map<String, Object> map = new HashMap<String, Object>();
-		int pageTotal = list.size() / Integer.parseInt(pageSize);
-		if (list.size() % Integer.parseInt(pageSize) != 0) {
-			pageTotal++;
-		}
-		map.put("fenyeResults", fenyelist);
-		map.put("pageTotal", pageTotal);
+		map.put("list", list);
 		return map;
 	}
 

@@ -8,6 +8,7 @@
 <script src="/js/bootstrap-all.js"></script>
 <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
 <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+<script src="/js/page.js"></script>
 <!-- 系统CSS或JS -->
 <link rel="stylesheet" href="/css/system.css">
 
@@ -26,19 +27,19 @@
 			<form action="">
 				<div class="row">
 					<div class="col-sm-2">
-						用户名：<input type="text" name='account' id='usercode'   v-model='account'
+						用户名：<input type="text" name='account' id='usercode'   v-model='userobj.account'
 							style='width: 150px; height: 25px;' />
 					</div>
 
 					<div class="col-sm-2">
-						用户角色：<select id='username'    v-model='roleName'
+						用户角色：<select id='username'    v-model='userobj.roleName'
 							style='width: 150px; height: 25px;'>
 							<option value="">请选择</option>
 							<option :value="item.roleName"  v-for="item in role">{{ item.roleName }}</option>
 						</select>
 					</div>
 						<div class="col-sm-2">
-						分公司： <select  v-model='orgname'
+						分公司： <select  v-model='userobj.orgname'
 							style='width: 160px; height: 25px;' >
 							<option value="">请选择</option>
 							<option :value="item.orgname"  v-for="item in info" >{{ item.orgname }}</option>
@@ -51,7 +52,7 @@
 				
 
 				<div class='row' style='padding: 15px;'>
-					<div class="bg-primary mybtn"  @click='queryUser'>查询用户</div>
+					<div class="bg-primary mybtn"  @click='query'>查询用户</div>
 					<div class="mybtn bg-primary" style='margin-left: 45px;'
 						type="button" @click='addUser()' data-toggle="modal" data-target="#myModal" >添加用户</div>
 				</div>
@@ -80,7 +81,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for='item1 in user1'>
+						<tr v-for='item1 in dataShow'>
 							<td width=50px;><input type='checkbox'  class='batch'  @click='chk(item1.id,item1.account ,$event)'  /></td>
 							<td>{{item1.id}}</td>
 							<td ><input class='tableinput'  :value='item1.account'  v-model='item1.account'   :disabled="status ? false : 'readonly'"  /></td>
@@ -104,7 +105,7 @@
 					data-toggle="modal" data-target="#myModal" @click='updateUser()'>修改用户</button>
 				<button class="bg-success table-btn myleft-2 a-btn text-white"  	data-toggle="modal" data-target="#myModal" @click='grantUser()'>添加权限</button>
 			</div>
-
+			<fenye v-bind:parentmsg="url"  @myfunc="dataDisplay"  ref="fenye"/>
 		</div>
 
 		<div class='row  mytips mytips-none'>
@@ -151,7 +152,7 @@
 var vm=new Vue({
   el: '#container',
   data : {
-    
+	  userobj:{account:'',roleName:'',orgname:''},
       info: [],
       role:[],
       account:'',
@@ -166,7 +167,9 @@ var vm=new Vue({
       user1:[],
       users:[],
       ids:[],
-      flag:false
+      flag:false,
+      dataShow:[] ,  
+      url:'/queryUser' 
     
   },
    mounted () {
@@ -184,25 +187,8 @@ var vm=new Vue({
       });
   }, 
   methods:{
-	  queryUser(){
-		if((this.account==''||this.account==null)&&(this.roleName==''||this.roleName==null)&&(this.orgname==''||this.orgname==null)){
-			alert('请选择查询条件')
-			return false;
-		}
-		  axios({
-			  method: 'post',           
-			  url: '/queryUser',  
-			  data: {		
-				      account:this.account,
-				      roleName:this.roleName,
-				      branch: this.orgname
-			  },
-			}).then(res=>{ 		
-				this.users=[];
-				this.user1=res.data				 
-			} ,error=>{				
-			}); 
-	  },
+	  dataDisplay(dataShow){		this.dataShow=dataShow	},
+	  query() {	this.$refs.fenye.condition(this.userobj); }  ,
 	  
 	  addUser(){
 		  if((this.account==''||this.account==null)||(this.roleName==''||this.roleName==null)||(this.orgname==''||this.orgname==null)){

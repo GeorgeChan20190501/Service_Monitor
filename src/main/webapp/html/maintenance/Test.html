@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>系统入口</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap-all.css">
+<script src="/js/bootstrap-all.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+<script src="/js/page.js"></script>
+<!-- 系统CSS或JS -->
+<link rel="stylesheet" href="/css/system.css">
+
+<style>
+</style>
+</head>
+
+<body>
+	<div id="container">
+
+
+		<table class="table  table-bordered   table-sm">
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>学历</th>
+				<th>电话</th>
+				<th>毕业院校</th>
+			</tr>
+			<tr v-for="(item, index) in dataShow">
+				<td>{{ item.name }}</td>
+				<td>{{ item.age }}</td>
+				<td>{{ item.edu }}</td>
+				<td>{{ item.phone }}</td>
+				<td>{{ item.school }}</td>
+			</tr>
+		</table>
+
+
+		<fenye v-bind:parentmsg="listArray"  @funct="check"></fenye>
+		
+		
+		
+	</div>
+
+
+
+
+
+
+
+<div id="ss"></div>
+</body>
+<script>
+	var vm = new Vue({
+		el: '#container',
+		data: {
+
+			listArray:[
+		          {
+		              'name':'赵*',
+		              'age':'21',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'河南农业大学'
+		          },
+		          {
+		              'name':'钱*',
+		              'age':'22',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'郑州大学'
+		          },
+		          {
+		              'name':'王*',
+		              'age':'23',
+		              'edu':'大专',
+		              'phone':'188****888888',
+		              'school':'河南工业大学'
+		          },
+		          {
+		              'name':'张*',
+		              'age':'25',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'河南农业大学'
+		          },
+		          {
+		              'name':'刘*',
+		              'age':'21',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'河南理工大学'
+		          } ,  {
+		              'name':'赵*',
+		              'age':'21',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'河南农业大学'
+		          },
+		          {
+		              'name':'钱*',
+		              'age':'22',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'郑州大学'
+		          },
+		          {
+		              'name':'王*',
+		              'age':'23',
+		              'edu':'大专',
+		              'phone':'188****888888',
+		              'school':'河南工业大学'
+		          },
+		          {
+		              'name':'张*',
+		              'age':'25',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'河南农业大学'
+		          },
+		          {
+		              'name':'刘*',
+		              'age':'21',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'河南理工大学'
+		          } ,
+		          {
+		              'name':'赵*',
+		              'age':'21',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'河南农业大学'
+		          },
+		          {
+		              'name':'钱*',
+		              'age':'22',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'郑州大学'
+		          },
+		          {
+		              'name':'王*',
+		              'age':'23',
+		              'edu':'大专',
+		              'phone':'188****888888',
+		              'school':'河南工业大学'
+		          },
+		          {
+		              'name':'张*',
+		              'age':'25',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'河南农业大学'
+		          },
+		          {
+		              'name':'刘*',
+		              'age':'21',
+		              'edu':'本科',
+		              'phone':'188****888888',
+		              'school':'河南理工大学'
+		          } 
+		        ],
+	
+		        dataShow:[]
+	
+			 
+		},
+		    
+		methods: {
+			check(aa){
+				this.dataShow=aa
+			}
+	
+
+		}
+	})
+
+</script>
+
+</html>

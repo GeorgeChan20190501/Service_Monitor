@@ -1,7 +1,10 @@
 package com.cognizant.ams.controller.user;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,13 +46,15 @@ public class UserController {
 	}
 
 	@PostMapping("/queryUser")
-	public List<SysUser> queryUser(@RequestBody String param) {
+	public Map<String, Object> queryUser(@RequestBody String param) {
 		System.out.println("查询用户参数===" + param);
 		SysUser sysUser = JSONArray.parseObject(param, SysUser.class);
 		// 查询用户
-		List<SysUser> userlist = userService.queryUser(sysUser);
-		System.out.println("查询用户个数===" + userlist.size());
-		return userlist;
+		List<SysUser> list = userService.queryUser(sysUser);
+		System.out.println("总条数为===" + list.size());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		return map;
 	}
 
 	@PutMapping("/addUser")

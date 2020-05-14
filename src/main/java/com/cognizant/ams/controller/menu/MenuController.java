@@ -95,30 +95,18 @@ public class MenuController {
 	}
 
 
-	@SuppressWarnings("unchecked")
 	@PostMapping("/fenyeQueryMenu")
 	public Map<String, Object> fenyeQueryMenu(@RequestBody String param) {
 		System.out.println("分页查询参数===" + param);
 		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
 		String jsonParam=jsonReqObject.getMsg();
-		String currentPage=jsonReqObject.getMsg1();
-		String pageSize=jsonReqObject.getMsg2();
-		System.out.println(currentPage);
-		System.out.println("当前页为："+currentPage+"，当前页面大小："+pageSize);
 		SysMenu sysMenu = JSONArray.parseObject(jsonParam, SysMenu.class);
 		// 查询菜单
-		List<SysMenu> menulist = menuService.queryMenu(sysMenu);
+		List<SysMenu> list = menuService.queryMenu(sysMenu);
 		
 		//上述拿到完整list，现在进行分页返回当前页面数据。
-		System.out.println("总条数为===" + menulist.size());
-		List<SysMenu> fenyemenulist =PageHelper.getDataByFenye(menulist, currentPage, pageSize);
 		Map<String, Object> map =new HashMap<String, Object>();
-		int pageTotal=menulist.size()/Integer.parseInt(pageSize);
-		if (menulist.size()%Integer.parseInt(pageSize)!=0) {
-			pageTotal++;
-		}
-		map.put("fenyeMenus", fenyemenulist);
-		map.put("pageTotal",  pageTotal);
+		map.put("list", list);
 		return map;
 	}
 	

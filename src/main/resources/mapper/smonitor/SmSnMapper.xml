@@ -299,7 +299,7 @@
   </update>
   
   <select id="queryFenyeSN" parameterType="com.cognizant.ams.bean.SmSn" resultMap="BaseResultMap">
-		select * from sm_sn
+		select top 495 * from sm_sn
 		<where>
 			<if test="ticketNo != null  and ticketNo !='' ">
 				and ticket_no = #{ticketNo}

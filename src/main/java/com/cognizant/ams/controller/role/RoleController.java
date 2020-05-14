@@ -82,29 +82,18 @@ public class RoleController {
 		return "角色更新成功";
 	}
 
-	@SuppressWarnings("unchecked")
 
 	@PostMapping("/fenyeQueryRole")
 	public Map<String, Object> fenyeQueryRole(@RequestBody String param) {
 		System.out.println("角色分页查询参数===" + param);
 		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
 		String jsonParam = jsonReqObject.getMsg();
-		String currentPage = jsonReqObject.getMsg1();
-		String pageSize = jsonReqObject.getMsg2();
-		System.out.println(currentPage);
-		System.out.println("当前页为：" + currentPage + "，当前页面大小：" + pageSize);
 		SysRole sysRole = JSONArray.parseObject(jsonParam, SysRole.class); // 查询菜单
-		List<SysRole> Rolelist = roleService.queryRole(sysRole);
+		List<SysRole> list = roleService.queryRole(sysRole);
 
 		// 上述拿到完整list，现在进行分页返回当前页面数据。 System.out.println("总条数为===" + Rolelist.size());
-		List<SysRole> fenyeRolelist = PageHelper.getDataByFenye(Rolelist, currentPage, pageSize);
 		Map<String, Object> map = new HashMap<String, Object>();
-		int pageTotal = Rolelist.size() / Integer.parseInt(pageSize);
-		if (Rolelist.size() % Integer.parseInt(pageSize) != 0) {
-			pageTotal++;
-		}
-		map.put("fenyeRoles", fenyeRolelist);
-		map.put("pageTotal", pageTotal);
+		map.put("list", list);
 		return map;
 	}
 	
