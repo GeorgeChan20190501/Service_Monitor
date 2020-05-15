@@ -2,6 +2,8 @@ package com.cognizant.ams.dao;
 
 import com.cognizant.ams.bean.SmEfforts;
 import com.cognizant.ams.bean.SmEffortsExample;
+import com.cognizant.ams.bean.SysRole;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -19,4 +21,8 @@ public interface SmEffortsMapper {
     int updateByExampleSelective(@Param("record") SmEfforts record, @Param("example") SmEffortsExample example);
 
     int updateByExample(@Param("record") SmEfforts record, @Param("example") SmEffortsExample example);
+    
+    int deleteEffort(List<String> list);
+
+ 	int updateEffort(List<SmEfforts> list);
 }

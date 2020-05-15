@@ -29,10 +29,14 @@
 
 
 			<div class="row">
-				<div class="col-sm-3 gztcandiv">
+				<!-- <div class="col-sm-3 gztcandiv">
 					<div style="width: 80px; height: 25px; float:left">Date ：</div><input type="text"   id='gztcan' name='candiv' onclick='ams_rl(this)' v-model="effortObj.workday"
 						style="width: 150px; height: 25px;" /><div id='candiv' class='gztcancontent'></div>
-				</div>
+				</div> -->
+				<div class="col-sm-3 gztcandiv">
+					<div style="width: 80px; height: 25px; float:left">Date ：</div><input type="date"  name='candiv' v-model="effortObj.workday"
+						style="width: 150px; height: 25px;" />
+				</div> 
 
 
 
@@ -76,7 +80,7 @@
 			<div class="row" style="padding: 15px;">
 				<button class="bg-primary mybtn" @click="query">查询</button>
 				<button class="mybtn bg-primary" style="margin-left: 45px;"
-					data-toggle="modal" data-target="#myModal" @click="addConfig()">Effort提交</button>
+				@click="addConfig()">Effort提交</button>
 
 			</div>
 
@@ -92,6 +96,7 @@
 						<tr>
 							<th width="50px;"><input type="checkbox"
 								class=" batch checkbox" disabled /></th>
+								<th>Effort ID</th>
 							<th>AD Owner</th>
 							<th>Date</th>
 							<th>Associate Name</th>
@@ -107,21 +112,23 @@
 						<tr v-for="item in dataShow">
 							<td width=" 50px;"><input type="checkbox"
 								class="batch checkbox" @click=" chk(item.id,$event)" /></td>
-							<td>{{item.id}}</td>
-							<td><input class="tableinput" :value="item.userid"
-								v-model="item.userid" :readonly="status ? false : 'readonly'" /></td>
+							<td>{{item.id}}</td>	
+							<td><input class="tableinput" :value="item.appower"
+								v-model="item.appower" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.workday"
+								v-model="item.workday" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.username"
+								v-model="item.username" :readonly="status ? false : 'readonly'" /></td>
 							<td><input class="tableinput" :value="item.tasktype"
 								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.tasktype"
-								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.tasktype"
-								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.tasktype"
-								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.tasktype"
-								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.tasktype"
-								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.eaiCode"
+								v-model="item.eaiCode" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.appname"
+								v-model="item.appname" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.ticketNumber"
+								v-model="item.ticketNumber" :readonly="status ? false : 'readonly'" /></td>
+								<td><input class="tableinput" :value="item.effortsHours"
+								v-model="item.effortsHours" :readonly="status ? false : 'readonly'" /></td>
 							<td><button class="bg-danger table-btn" @click="change()">{{edit}}</button></td>
 						</tr>
 					</tbody>
@@ -178,7 +185,7 @@
 			tasktypeList:[],
 			workday: '2020-05-20',
 			currUser:{usercode: 'likev', username: 'Kevin'},
-			effortObj: { id: null, userid: '', workday: '', eaicode:'',tasktype:'',ticketnumber:'',efforthours:'' },
+			effortObj: { id: null, userid: '', username:'', appower: '', appname: '', workday: '', eaicode:'',tasktype:'',ticketnumber:'',efforthours:'' },
 			info: [],
 			role: [],
 			roleName: '',
@@ -190,7 +197,20 @@
 			checkGrp: [],
 			ids: [],
 			flag: false,
-			dataShow:[] ,  
+			dataShow:[],
+			dataShow1:[{"id" : 6,
+				  "userid" : "likev",
+				  "username" : "Kevin",
+				  "workday" : "2020-05-15",
+				  "tasktype" : "Production - Incident Management (AP)",
+				  "eaiCode" : "10729",
+				  "appname" : "CDR-AV",
+				  "appower" : "Leo luo",
+				  "ticketNumber" : "INC4442313213",
+				  "effortsHours" : "2",
+				  "createTime" : "2020-5-15 14:22:03",
+				  "chk" : null,
+				  "chk1" : null}] ,  
 			url:'/efforts/query'
 		},
 		created() {
@@ -221,7 +241,7 @@
 				}, error => {
 				});
 		},
-			dataDisplay(dataShow){		this.dataShow=dataShow	},
+			dataDisplay(dataShow){	alert (666);console.log(dataShow);	this.dataShow=dataShow	},
 			query() {	this.$refs.fenye.condition(this.currUser.usercode);}  ,
 			queryMenu() {
 				axios({
@@ -260,14 +280,13 @@
 				if (info.indexOf('确定要删除所选记录吗') != -1) {
 					axios({
 						method: 'delete',
-						url: '/deleteConfig',
-						data: {
-							msg: this.checkGrp
-						},
+						url: '/efforts/delete',
+						data: { msg: this.checkGrp},
+						
 					}).then(resrm => {
 						ams_alert(resrm.data);
 						
-						this.fenye(this.currentPage);
+						this.query();
 						this.checkGrp = [];
 					}, error => {
 					});
@@ -275,20 +294,22 @@
 
 				if (info.indexOf('确定修改记录') != -1) {
 					var checkGrp = this.checkGrp;
-					var configs = this.configs;
+					var configs = this.dataShow;
 					var myarr = [];
 					for (x in configs) {
 						for (y in checkGrp) {
 							if (configs[x].id == checkGrp[y]) {
 								//effortObj: { id: null, appId: '', appName: '', appDescrib: '', appOwner: '', ownerEmail: '', appMaintenance: '', maintenanceEmail: '', appUrl1: '', appUrl2: '', appUrl3: '' },
-								var param = '{"id":"' + configs[x].id + '","appId":"' + configs[x].appId + '","appName":"' + configs[x].appName + '","appDescrib":"' + configs[x].appDescrib + '","appOwner":"' + configs[x].appOwner + '","ownerEmail":"' + configs[x].ownerEmail + '","appMaintenance":"' + configs[x].appMaintenance + '","maintenanceEmail":"' + configs[x].maintenanceEmail + '","appUrl1":"'+configs[x].appUrl1+'" ,"appUrl2":"'+configs[x].appUrl2+'","appUrl3":"'+configs[x].appUrl3+'","isDeleted":"'+configs[x].isDeleted+'"}'; 
+								var param = '{"id":"' + configs[x].id + '","userid":"' + configs[x].userid + '","username":"' + configs[x].username +
+									'","workday":"' + configs[x].workday + '","tasktype":"' + configs[x].tasktype + '","eaiCode":"' + configs[x].eaiCode + '","appname":"' + configs[x].appname +
+									'","appower":"' + configs[x].appower + '","ticketNumber":"'+configs[x].ticketNumber+'" ,"effortsHours":"'+configs[x].effortsHours+ '"}';
 								myarr.push(param);
 							}
 						}
 					}
 					axios({
 						method: 'post',
-						url: '/updateConfig',
+						url: '/efforts/update',
 						data: {
 							msg: myarr
 						},
@@ -296,8 +317,7 @@
 						ams_alert(resrm.data);
 						this.checkGrp = [];
 						this.flag = false;
-						this.fenye(this.currentPage);
-
+						this.query();
 					}, error => {
 					});
 				}

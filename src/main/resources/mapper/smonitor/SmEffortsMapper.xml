@@ -267,4 +267,30 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+     <delete id='deleteEffort' parameterType='list'>
+  				delete from sm_efforts where id in
+  				<foreach collection="list" item="item" separator=","   open="("  close=")">
+  							#{item}
+  				</foreach>
+  </delete>
+  
+     <update id="updateEffort" parameterType='list'>
+  		<foreach collection="list" item="record"  open=""  close=""  separator=";" >		
+					  update sm_efforts
+    set 
+      userid = #{record.userid,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
+      workday = #{record.workday,jdbcType=VARCHAR},
+      tasktype = #{record.tasktype,jdbcType=VARCHAR},
+      eai_code = #{record.eaiCode,jdbcType=VARCHAR},
+      appname = #{record.appname,jdbcType=VARCHAR},
+      appower = #{record.appower,jdbcType=VARCHAR},
+      ticket_number = #{record.ticketNumber,jdbcType=VARCHAR},
+      efforts_hours = #{record.effortsHours,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=VARCHAR},
+      chk = #{record.chk,jdbcType=CHAR},
+      chk1 = #{record.chk1,jdbcType=CHAR} where id = #{record.id}
+		</foreach>
+  </update>
+  
 </mapper>

@@ -44,16 +44,22 @@ public class EffortService {
 	}
 	
 	/**
-	 * Effort保存
+	 * Effort更新
 	 * @param effort
 	 * @return
 	 */
-	public int update(SmEfforts effort) {
-		effortsExample=new SmEffortsExample();
-		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
-		criteria.andWorkdayEqualTo(effort.getWorkday());
-		criteria.andUseridEqualTo(effort.getUserid());
-		int result=effortMapper.updateByExample(effort, effortsExample);
+	public int update(List<SmEfforts> efforts) {
+		int result=effortMapper.updateEffort(efforts);
+		return result;
+	}
+	
+	/**
+	 * Effort删除
+	 * @param effort
+	 * @return
+	 */
+	public int delete(List  efforts) {
+	    int result=effortMapper.deleteEffort(efforts);
 		return result;
 	}
 	
