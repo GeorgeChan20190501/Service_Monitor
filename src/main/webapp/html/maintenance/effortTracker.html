@@ -82,14 +82,17 @@
 				<button class="bg-primary mybtn" @click="query">查询</button>
 				<button class="mybtn bg-primary" style="margin-left: 45px;"
 				@click="addConfig()">Effort提交</button>
-
+			<form> 
+						<button  id="filebtn" style="margin-left: 45px;" class="bg-success mybtn iconfont  icon-ziyuanxcx"  ><input  type="file" name="file"  @change="getFile($event)"><span style="font-size:10px; margin-left:5px;">{{fileName | format }}</span></button>
+						<button  style="margin-left: 45px;"  class="bg-success mybtn"  type="submit" @click="upload()">本地上传</button>
+				</form>
 			</div>
 
 		</div>
 		<div class="bh5"></div>
 
 		<div class="bg-content">
-			<div>Effort Tracker 结果： <button class="bg-primary mybtn1 iconfont  icon-daochu"  @click="download()"></button></div>
+			<div>Effort Tracker 结果： <button class="bg-success mybtn1 iconfont  icon-daochu"  @click="download()"></button></div>
 			<div class="bh2"></div>
 			<div>
 				<table class="table  table-bordered   table-sm">
@@ -194,6 +197,7 @@
 			check: true,
 			edit: '启用编辑',
 			info2: '',
+			fileName:'',
 			configs: [],
 			checkGrp: [],
 			ids: [],
@@ -205,6 +209,15 @@
 			this.getAppInfo();
 			this.getType();
  		},
+ 		filters:{
+			format(data){
+				if(data!=null && data!=''){
+					data=data.substring(0,1)+".."+data.substring(data.length-4,data.length);
+					
+				}
+				return data;
+			}
+		},
 		methods: {
 			download(){
 				ams_alert("下载成功！");
@@ -352,7 +365,25 @@
 				else {
 					this.edit = '启用编辑';
 				}
-			}
+			},getFile(event) {
+		        this.file = event.target.files[0];
+		        this.fileName=this.file.name;
+		        
+		      },
+		      upload(event){
+					
+			        let formData = new FormData();
+			        formData.append('file', this.file);
+			        let config = {
+			          headers: {
+			            'Content-Type': 'multipart/form-data'
+			          }
+			        }
+			       axios.post("/?????", formData, config).then(function (res) {
+			        		console(res.data)
+			        }) 
+			   
+				},
 
 		}
 	})

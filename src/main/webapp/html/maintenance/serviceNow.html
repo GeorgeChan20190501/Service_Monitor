@@ -281,24 +281,9 @@
 		            'Content-Type': 'multipart/form-data'
 		          }
 		        }
-		     /*    axios.post("/upload", formData, config).then(function (res) {
+		      axios.post("/upload", formData, config).then(function (res) {
 		        		console(res.data)
-		          }) */
-		        axios({
-		        	  method: 'post',            //设置请求方式:Get
-		        	  url: '/upload',
-		        	  
-		        	  data: {					 //请求体，适合put ,post,patch
-		        		  File: this.file,
-		        		  headers: {'Content-Type': 'multipart/form-data'},
-		        	  },
-		        	 
-		        	  
-		       }).then(res=>{ 
-		    	  alert(res.data)
-		       } ,error=>{});
-
-	 
+		      }) 
 			},
 			getFile(event) {
 		        this.file = event.target.files[0];
