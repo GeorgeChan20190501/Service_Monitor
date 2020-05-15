@@ -25,3 +25,217 @@ function closetips(time){
 	$('#'+"divSlider"+time).css("display","none");
 }
 /*=======================alert自定义==结束=============================*/
+
+
+/*=======================日历自定义==开始=============================*/
+
+var date1=new Date();
+var candiv=null;
+document.addEventListener('click',hide);
+function ams_rl(obj){
+	if(candiv!=null)
+	document.getElementById(candiv).style.display='none';
+	canobj=obj.getAttribute('id');
+	candiv=obj.getAttribute('name');
+	candivbody=candiv+'body';
+	candivtoday=candiv+'today';
+	document.getElementById(candiv).innerHTML="<div class='canheader'><span class='iconfont icon-xiajiantou' id="+candiv+"'lastyear' onclick='lastyear()'></span><span class='iconfont icon-danjiantou' id='"+candiv+"lastmonth' onclick='lastmonth()'></span><span id='"+candiv+"today'></span><span class='iconfont icon-left' id='"+candiv+"nextmonth' onclick='nextmonth()'></span><span  id='"+candiv+"nextyear' class='iconfont icon-next_rf' onclick='nextyear()'></span></div>			<div id='"+candiv+"body' class='canbody'></div>			<div class='canfooter'><button class='btn' id='"+candiv+"clear' onclick='clear1()'>清空</button><button class='btn now' id='"+candiv+"now' onclick='now()'>现在</button><button class='btn' id='"+candiv+"ok' onclick='ok()'>确定</button></div>		";
+	hello(new Date());
+    window.event.stopPropagation();    
+}
+	
+function hide(){
+	document.getElementById(candiv).style.display='none';
+}
+
+	
+
+
+function hello(date2){
+	var date1=new Date();
+	var ss=date2.constructor.toString();
+	if(ss.indexOf('Date')>-1){
+		date1=date2;
+	}
+	 
+	var curryear= date1.getFullYear();
+	var currmonth= date1.getMonth()+1;
+	var currdate= date1.getDate();
+	var currday= date1.getDay();
+	//获取当月1号是周几，用来确定第一行1号的位置。 
+	var currfirstday=new Date(curryear,currmonth-1,1).getDay();
+	//alert(curryear+'年'+currmonth+'月1号是：周'+currfirstday);
+	
+	//以上基本数据准备好后，开始布局，6行7列
+	var lastmonth=currmonth-2;    //获取上个月的计算月
+	 
+	//根据当月1号是周几补全上月天数 
+	var differ=currfirstday-1;   //约定日历格式，第一列是周几。无非周日或者周一两种情况。这里默认为周一
+	if(currfirstday==0){
+		differ=6;
+	}
+	
+	//获取上个月最后一天日期
+	var lastmonthday=new Date(curryear,currmonth-1,0).getDate();
+	//本月最后一天日期，按真实月取
+	var thismonthday=new Date(curryear,currmonth,0).getDate();
+	var nextmonthday=new Date(curryear,currmonth+1,0).getDate();
+
+	
+	//定义数组，存放一个月的所有日期。
+	var alldate=new Array();
+	
+	//上月的日期
+	for(var i=0;i<differ;i++){
+		alldate[i]=lastmonthday;
+		lastmonthday--;
+	}
+
+	var alldatelength=alldate.length;
+	//上月排序
+	for(var i=0;i<alldatelength-1;i++){
+		for(var j=i+1;j<alldatelength;j++){
+			if(alldate[i]>alldate[j]){
+				var temp=0;
+				temp=alldate[i];
+				alldate[i]=alldate[j];
+				alldate[j]=temp;
+			}
+		}
+	}
+	
+	//下个月的日期
+	var nextcc=42-alldatelength-thismonthday;
+
+	var k=1;
+	for(var i=differ;i<thismonthday+differ;i++){
+		alldate[i]=k;
+		k++;
+	}
+	var f=1;
+	for(var i=differ+thismonthday;i<differ+thismonthday+nextcc;i++){
+		alldate[i]=f;
+		f++;
+	}
+	
+	//创建日历内容
+	var content="<table id='canlendar'><tr><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th></tr>";
+	if(currday==0){
+		currday=7;
+	}
+	var last1=-1;
+	var this1=0;
+	for(x in alldate){
+		if(x%7==0){
+			content+='<tr>'	
+		}
+		//给当前时间标注
+		if((x%7)==(currday-1)&&alldate[x]==currdate){
+			content+='<td class="active" onclick="getDate('+x+alldate[x]+','+this1+','+curryear+','+currmonth+','+alldate[x]+')" id="day'+x+alldate[x]+'" style="background:rgb(0,150,136);color:white;">'+alldate[x]+'</td>'
+		}
+		else{
+			if((alldate[x]-1>20&&x<7)||(x>28&&alldate[x]<15)){
+				if((x>28&&alldate[x]<15)){last1=1;}
+				content+='<td class="active" onclick="getDate('+x+alldate[x]+','+last1+','+curryear+','+currmonth+','+alldate[x]+')" id="day'+x+alldate[x]+'" style="color:rgb(215,215,215);">'+alldate[x]+'</td>';
+			}
+			else{
+				content+='<td  class="active" onclick="getDate('+x+alldate[x]+','+this1+','+curryear+','+currmonth+','+alldate[x]+')" id="day'+x+alldate[x]+'">'+alldate[x]+'</td>';
+			}	
+		}
+		if(x%7==6){
+			content+='</tr>'	
+		}
+	}
+	document.getElementById(candivtoday).innerHTML=curryear+'年 '+currmonth+'月';
+	document.getElementById(candivbody).innerHTML=content;
+	 
+	document.getElementById(candiv).style.display='block';
+}
+
+function nextmonth(){
+	var date=document.getElementById(candivtoday).innerText;
+	var year=date.substring(0,4);
+	var month=date.substring(6,date.length-1);
+	var nextmonth=month;
+	var currdate= date1.getDate();
+	window.event.stopPropagation();   
+	hello(new Date(year,month,currdate))
+}
+//last_month
+function lastmonth(){
+	var date=document.getElementById(candivtoday).innerText;
+	var year=date.substring(0,4);
+	var month=date.substring(6,date.length-1);
+	var lastmonth=month-2; 
+	var currdate= date1.getDate();
+	window.event.stopPropagation();   
+	hello(new Date(year,lastmonth,currdate))
+}
+//last_year
+function lastyear(){
+	var date=document.getElementById(candivtoday).innerText;
+	var year=date.substring(0,4)-1;
+	var month=date.substring(6,date.length-1);
+	var lastmonth=month-1; 
+	var currdate= date1.getDate();
+	window.event.stopPropagation();   
+	hello(new Date(year,lastmonth,currdate))
+}
+//next_year
+function nextyear(){
+	var date=document.getElementById(candivtoday).innerText;
+	var year=Number(date.substring(0,4))+1;
+	var month=date.substring(6,date.length-1);
+	var lastmonth=month-1; 
+	var currdate= date1.getDate();
+	window.event.stopPropagation();   
+	hello(new Date(year,lastmonth,currdate))
+}
+//next_year
+function now(){ 
+	var date = new Date();
+	document.getElementById(canobj).value=yyyy_mm_dd(date);
+	window.event.stopPropagation();   
+	hello(date)
+}
+//clear
+function clear1(){ 
+	document.getElementById(canobj).value='';
+	window.event.stopPropagation();   
+	return;
+}
+//ok
+function ok(){
+	document.getElementById(candiv).style.display='none';
+	return;
+}
+//获取标准格式日期
+function yyyy_mm_dd(date){
+	var curryear= date.getFullYear();
+	var currmonth= date.getMonth()+1;
+	var currdate= date.getDate();
+	if(currmonth<10){
+		currmonth='0'+currmonth;
+	}
+	if(currdate<10){
+		currdate='0'+currdate;
+	}
+	return curryear+'-'+currmonth+'-'+currdate;
+}
+//getDate
+function getDate(id,time,year,month,day){
+ 
+	month--;
+	if(time==-1){
+		month=month-1;
+	}
+	if(time==1){
+		month=month+1;
+	}		
+	var date = new Date(year,month,day);
+	document.getElementById(canobj).value=yyyy_mm_dd(date);
+	window.event.stopPropagation();   
+	hello(date);
+	return;
+}
+/*=======================日历自定义==结束=============================*/

@@ -29,9 +29,9 @@
 
 
 			<div class="row">
-				<div class="col-sm-3">
-					<div style="width: 120px; height: 25px; float:left">Date ：</div><input type="text" name="nodeCode" v-model="appConfigobj.appId"
-						style="width: 150px; height: 25px;" />
+				<div class="col-sm-3 gztcandiv">
+					<div style="width: 120px; height: 25px; float:left">Date ：</div><input type="text"   id='gztcan' name='candiv' onclick='ams_rl(this)' :value="appConfigobj.isDeleted"  v-model="appConfigobj.date"
+						style="width: 150px; height: 25px;" /><div id='candiv' class='gztcancontent'></div>
 				</div>
 
 				<div class="col-sm-3">
@@ -172,6 +172,10 @@
 			flag: false,
 			dataShow:[] ,  
 			url:'/fenyeQueryConfig' 
+		},
+		created(){
+			var data = new Date();
+			appConfigobj= { id: null, appId: '', appName: '', appDescrib: '', appOwner: '', ownerEmail: '', appMaintenance: '', maintenanceEmail: '', appUrl1: '', appUrl2: '', appUrl3: '',isDeleted: data }
 		},
 		methods: {
 			dataDisplay(dataShow){		this.dataShow=dataShow	},
