@@ -4,11 +4,14 @@
   <resultMap id="BaseResultMap" type="com.cognizant.ams.bean.SmEfforts">
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="workday" jdbcType="VARCHAR" property="workday" />
     <result column="tasktype" jdbcType="VARCHAR" property="tasktype" />
     <result column="eai_code" jdbcType="VARCHAR" property="eaiCode" />
+    <result column="appname" jdbcType="VARCHAR" property="appname" />
+    <result column="appower" jdbcType="VARCHAR" property="appower" />
     <result column="ticket_number" jdbcType="VARCHAR" property="ticketNumber" />
-    <result column="efforts_hours" jdbcType="DOUBLE" property="effortsHours" />
+    <result column="efforts_hours" jdbcType="VARCHAR" property="effortsHours" />
     <result column="create_time" jdbcType="VARCHAR" property="createTime" />
     <result column="chk" jdbcType="CHAR" property="chk" />
     <result column="chk1" jdbcType="CHAR" property="chk1" />
@@ -72,8 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, userid, workday, tasktype, eai_code, ticket_number, efforts_hours, create_time, 
-    chk, chk1
+    id, userid, username, workday, tasktype, eai_code, appname, appower, ticket_number, 
+    efforts_hours, create_time, chk, chk1
   </sql>
   <select id="selectByExample" parameterType="com.cognizant.ams.bean.SmEffortsExample" resultMap="BaseResultMap">
     select
@@ -96,13 +99,15 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cognizant.ams.bean.SmEfforts">
-    insert into sm_efforts (userid, workday, 
-      tasktype, eai_code, ticket_number, 
+    insert into sm_efforts ( userid, username, 
+      workday, tasktype, eai_code, 
+      appname, appower, ticket_number, 
       efforts_hours, create_time, chk, 
       chk1)
-    values (#{userid,jdbcType=VARCHAR}, #{workday,jdbcType=VARCHAR}, 
-      #{tasktype,jdbcType=VARCHAR}, #{eaiCode,jdbcType=VARCHAR}, #{ticketNumber,jdbcType=VARCHAR}, 
-      #{effortsHours,jdbcType=DOUBLE}, #{createTime,jdbcType=VARCHAR}, #{chk,jdbcType=CHAR}, 
+    values ( #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{workday,jdbcType=VARCHAR}, #{tasktype,jdbcType=VARCHAR}, #{eaiCode,jdbcType=VARCHAR}, 
+      #{appname,jdbcType=VARCHAR}, #{appower,jdbcType=VARCHAR}, #{ticketNumber,jdbcType=VARCHAR}, 
+      #{effortsHours,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, #{chk,jdbcType=CHAR}, 
       #{chk1,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cognizant.ams.bean.SmEfforts">
@@ -114,6 +119,9 @@
       <if test="userid != null">
         userid,
       </if>
+      <if test="username != null">
+        username,
+      </if>
       <if test="workday != null">
         workday,
       </if>
@@ -122,6 +130,12 @@
       </if>
       <if test="eaiCode != null">
         eai_code,
+      </if>
+      <if test="appname != null">
+        appname,
+      </if>
+      <if test="appower != null">
+        appower,
       </if>
       <if test="ticketNumber != null">
         ticket_number,
@@ -146,6 +160,9 @@
       <if test="userid != null">
         #{userid,jdbcType=VARCHAR},
       </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
       <if test="workday != null">
         #{workday,jdbcType=VARCHAR},
       </if>
@@ -155,11 +172,17 @@
       <if test="eaiCode != null">
         #{eaiCode,jdbcType=VARCHAR},
       </if>
+      <if test="appname != null">
+        #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="appower != null">
+        #{appower,jdbcType=VARCHAR},
+      </if>
       <if test="ticketNumber != null">
         #{ticketNumber,jdbcType=VARCHAR},
       </if>
       <if test="effortsHours != null">
-        #{effortsHours,jdbcType=DOUBLE},
+        #{effortsHours,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=VARCHAR},
@@ -187,6 +210,9 @@
       <if test="record.userid != null">
         userid = #{record.userid,jdbcType=VARCHAR},
       </if>
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
       <if test="record.workday != null">
         workday = #{record.workday,jdbcType=VARCHAR},
       </if>
@@ -196,11 +222,17 @@
       <if test="record.eaiCode != null">
         eai_code = #{record.eaiCode,jdbcType=VARCHAR},
       </if>
+      <if test="record.appname != null">
+        appname = #{record.appname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appower != null">
+        appower = #{record.appower,jdbcType=VARCHAR},
+      </if>
       <if test="record.ticketNumber != null">
         ticket_number = #{record.ticketNumber,jdbcType=VARCHAR},
       </if>
       <if test="record.effortsHours != null">
-        efforts_hours = #{record.effortsHours,jdbcType=DOUBLE},
+        efforts_hours = #{record.effortsHours,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=VARCHAR},
@@ -220,11 +252,14 @@
     update sm_efforts
     set id = #{record.id,jdbcType=INTEGER},
       userid = #{record.userid,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
       workday = #{record.workday,jdbcType=VARCHAR},
       tasktype = #{record.tasktype,jdbcType=VARCHAR},
       eai_code = #{record.eaiCode,jdbcType=VARCHAR},
+      appname = #{record.appname,jdbcType=VARCHAR},
+      appower = #{record.appower,jdbcType=VARCHAR},
       ticket_number = #{record.ticketNumber,jdbcType=VARCHAR},
-      efforts_hours = #{record.effortsHours,jdbcType=DOUBLE},
+      efforts_hours = #{record.effortsHours,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=VARCHAR},
       chk = #{record.chk,jdbcType=CHAR},
       chk1 = #{record.chk1,jdbcType=CHAR}

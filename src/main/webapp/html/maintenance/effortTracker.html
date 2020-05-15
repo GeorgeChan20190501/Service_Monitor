@@ -2,19 +2,19 @@
 <html>
 
 <head>
-	<title>应用监控配置</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/css/bootstrap-all.css">
-	<script src="/js/bootstrap-all.js"></script>
-	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
-	<script src="/js/page.js"></script>
-	<!-- 系统CSS或JS -->
-	<link rel="stylesheet" href="/css/system.css">
+<title>Effort</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap-all.css">
+<script src="/js/bootstrap-all.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+<script src="/js/page.js"></script>
+<!-- 系统CSS或JS -->
+<link rel="stylesheet" href="/css/system.css">
 
-	<style>
-	</style>
+<style>
+</style>
 </head>
 
 <body>
@@ -30,42 +30,53 @@
 
 			<div class="row">
 				<div class="col-sm-3 gztcandiv">
-					<div style="width: 120px; height: 25px; float:left">Date ：</div><input type="text"   id='gztcan' name='candiv' onclick='ams_rl(this)' :value="appConfigobj.isDeleted"  v-model="appConfigobj.date"
+					<div style="width: 80px; height: 25px; float:left">Date ：</div><input type="text"   id='gztcan' name='candiv' onclick='ams_rl(this)' v-model="effortObj.workday"
 						style="width: 150px; height: 25px;" /><div id='candiv' class='gztcancontent'></div>
 				</div>
 
-				<div class="col-sm-3">
-					<div style="width: 120px; height: 25px; float:left">Associate Name：</div><input type="text" name="parentNodeCode" v-model="appConfigobj.appName"
-						style="width: 150px; height: 25px;" />
 
-				</div>
-				<div class="col-sm-2">
-					<div style="width: 80px; height: 25px; float:left">Task Type：</div><input type="text" name="nodeName" v-model="appConfigobj.appDescrib"
-						style="width: 150px; height: 25px;" />
-				</div>
-					<div class="col-sm-3">
-					<div style="width: 130px; height: 25px; float:left">Application Name：</div><input type="text" name="childNum" v-model="appConfigobj.appOwner"
-						style="width: 150px; height: 25px;" />
 
-				</div>
-					
+
+
 			</div>
 			<div class="bh1"></div>
 			<div class="row">
-			<div class="col-sm-3">
-					<div style="width: 120px; height: 25px; float:left">Ticket Number：</div><input type="text" name="childNum" v-model="appConfigobj.ownerEmail"
-						style="width: 150px; height: 25px;" />
+				<div class="col-sm-3">
+					<div style="width: 80px; height: 25px; float: left">Task
+						Type：</div>
+					<select v-model="effortObj.tasktype" style="width: 270px; ">
+						<option value=""></option>
+						<option v-for="tasktype in tasktypeList" :value="tasktype.type">{{tasktype.type}}</option>
+					</select>
 				</div>
 				<div class="col-sm-3">
-					<div style="width: 120px; height: 25px; float:left">Hours：</div><input type="text" name="pageUrl" v-model="appConfigobj.appMaintenance"
+					<div style="width: 150px; height: 25px; float: left">Application
+						Name：</div>
+					<select v-model="effortObj.eaicode" style="width: 180px; ">
+						<option :selected="true" value=""></option>
+						<option v-for="app in appList" :value="app.ckey">
+							{{app.cval1}}</option>
+					</select>
+
+
+				</div>
+				<div class="col-sm-3">
+					<div style="width: 120px; height: 25px; float: left">Ticket
+						Number：</div>
+					<input type="text" name="childNum" v-model="effortObj.ticketnumber"
+						style="width: 150px; height: 25px;" />
+				</div>
+				<div class="col-sm-2">
+					<div style="width: 50px; height: 25px; float: left">Hours：</div>
+					<input type="text" name="pageUrl" v-model="effortObj.efforthours"
 						style="width: 150px; height: 25px;" />
 				</div>
 			</div>
 
 			<div class="row" style="padding: 15px;">
-				<button class="bg-primary mybtn" @click="query">查一下</button>
-				<button class="mybtn bg-primary" style="margin-left: 45px;" data-toggle="modal" data-target="#myModal"
-					@click="addConfig()">就这样</button>
+				<button class="bg-primary mybtn" @click="query">查询</button>
+				<button class="mybtn bg-primary" style="margin-left: 45px;"
+					data-toggle="modal" data-target="#myModal" @click="addConfig()">Effort提交</button>
 
 			</div>
 
@@ -79,9 +90,10 @@
 				<table class="table  table-bordered   table-sm">
 					<thead>
 						<tr>
-							<th width="50px;"><input type="checkbox" class=" batch checkbox" disabled /></th>
+							<th width="50px;"><input type="checkbox"
+								class=" batch checkbox" disabled /></th>
 							<th>AD Owner</th>
-							<th>Date </th>
+							<th>Date</th>
 							<th>Associate Name</th>
 							<th>Task Type</th>
 							<th>EAI Code</th>
@@ -93,35 +105,36 @@
 					</thead>
 					<tbody>
 						<tr v-for="item in dataShow">
-							<td width=" 50px;"><input type="checkbox" class="batch checkbox" @click=" chk(item.id,$event)"  />
-							</td>
+							<td width=" 50px;"><input type="checkbox"
+								class="batch checkbox" @click=" chk(item.id,$event)" /></td>
 							<td>{{item.id}}</td>
-							<td><input class="tableinput" :value="item.appId" v-model="item.appId"
-									:readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.appName" v-model="item.appName"
-									:readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.ownerEmail" v-model="item.ownerEmail"
-									:readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.appMaintenance" v-model="item.appMaintenance"
-									:readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.appUrl1" v-model="item.appUrl1"
-									:readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.appUrl2" v-model="item.appUrl2"
-									:readonly="status ? false : 'readonly'" /></td>
-							<td><input class="tableinput" :value="item.appUrl3" v-model="item.appUrl3"
-									:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.userid"
+								v-model="item.userid" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.tasktype"
+								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.tasktype"
+								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.tasktype"
+								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.tasktype"
+								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.tasktype"
+								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.tasktype"
+								v-model="item.tasktype" :readonly="status ? false : 'readonly'" /></td>
 							<td><button class="bg-danger table-btn" @click="change()">{{edit}}</button></td>
 						</tr>
 					</tbody>
 				</table>
 				<div class="row"></div>
-				<button data-toggle="modal" data-target="#myModal" class="bg-danger table-btn a-btn text-white"
+				<button data-toggle="modal" data-target="#myModal"
+					class="bg-danger table-btn a-btn text-white"
 					@click="deleteConfig()">删除此条</button>
-				<button class="bg-danger a-btn myleft-2 text-white" data-toggle="modal" data-target="#myModal"
-					@click="updateConfig()">我要修改</button>
+				<button class="bg-danger a-btn myleft-2 text-white"
+					data-toggle="modal" data-target="#myModal" @click="updateConfig()">我要修改</button>
 
 			</div>
-			<fenye v-bind:parentmsg="url"  @myfunc="dataDisplay"  ref="fenye"/>
+			<fenye v-bind:parentmsg="url" @myfunc="dataDisplay" ref="fenye" />
 		</div>
 
 		<!-- 模态框2 -->
@@ -134,17 +147,20 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<!-- 模态框主体 -->
-					<div class="modal-body">{{info2}}
-						<select id="username'" v-model="roleName" v-show="flag" style="width: 150px; height: 25px;">
+					<div class="modal-body">
+						{{info2}} <select id="username'" v-model="roleName" v-show="flag"
+							style="width: 150px; height: 25px;">
 							<option value="">请选择</option>
-							<option :value="item.roleName" v-for="item in role">{{ item.roleName }}</option>
-						</select></div>
+							<option :value="item.roleName" v-for="item in role">{{
+								item.roleName }}</option>
+						</select>
+					</div>
 					<!-- 模态框底部 -->
 					<div class="modal-footer">
-						<button class="btn btn-success btn-sm" data-dismiss="modal" id="modal-1"
-							@click="confirmbtn(info2)">确 认</button>
-						<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" @click="cancle()">取
-							消</button>
+						<button class="btn btn-success btn-sm" data-dismiss="modal"
+							id="modal-1" @click="confirmbtn(info2)">确 认</button>
+						<button type="button" class="btn btn-secondary btn-sm"
+							data-dismiss="modal" @click="cancle()">取 消</button>
 					</div>
 
 				</div>
@@ -158,7 +174,11 @@
 	var vm = new Vue({
 		el: '#container',
 		data: {
-			appConfigobj: { id: null, appId: '', appName: '', appDescrib: '', appOwner: '', ownerEmail: '', appMaintenance: '', maintenanceEmail: '', appUrl1: '', appUrl2: '', appUrl3: '',isDeleted:'' },
+			appList:[],
+			tasktypeList:[],
+			workday: '2020-05-20',
+			currUser:{usercode: 'likev', username: 'Kevin'},
+			effortObj: { id: null, userid: '', workday: '', eaicode:'',tasktype:'',ticketnumber:'',efforthours:'' },
 			info: [],
 			role: [],
 			roleName: '',
@@ -171,21 +191,44 @@
 			ids: [],
 			flag: false,
 			dataShow:[] ,  
-			url:'/fenyeQueryConfig' 
+			url:'/efforts/query'
 		},
-		created(){
-			var data = new Date();
-			appConfigobj= { id: null, appId: '', appName: '', appDescrib: '', appOwner: '', ownerEmail: '', appMaintenance: '', maintenanceEmail: '', appUrl1: '', appUrl2: '', appUrl3: '',isDeleted: data }
-		},
+		created() {
+			this.getAppInfo();
+			this.getType();
+ 		},
 		methods: {
+			getAppInfo(){
+				axios({
+					method: 'get',
+					url: '/efforts/applist',
+				}).then(res => {
+					console.log(res.data);
+					this.appList = res.data;
+				
+				}, error => {
+				});
+			},
+			getType(){
+				axios({
+					method: 'get',
+					url: '/json/tasktype.json',
+				}).then(res => {
+					console.log(res.data);
+					this.tasktypeList = res.data;
+					console.log(this.tasktypeList);
+					
+				}, error => {
+				});
+		},
 			dataDisplay(dataShow){		this.dataShow=dataShow	},
-			query() {	this.$refs.fenye.condition(this.appConfigobj); } ,
+			query() {	this.$refs.fenye.condition(this.currUser.usercode);}  ,
 			queryMenu() {
 				axios({
 					method: 'post',
 					url: '/queryMenu',
 					data: {
-						msg: this.appConfigobj
+						msg: this.effortObj
 					},
 				}).then(res => {
 					this.configs = res.data
@@ -194,20 +237,22 @@
 			},
 			 
 			addConfig() {
-				
-				if ((this.appConfigobj.appId == '' || this.appConfigobj.appId == null) || (this.appConfigobj.appName == '' || this.appConfigobj.appName == null) || (this.appConfigobj.appDescrib == '' || this.appConfigobj.appDescrib == null)|| (this.appConfigobj.appUrl1 == '' || this.appConfigobj.appUrl1 == null)|| (this.appConfigobj.appUrl2 == '' || this.appConfigobj.appUrl2 == null)|| (this.appConfigobj.appUrl3 == '' || this.appConfigobj.appUrl3 == null)
-					|| (this.appConfigobj.appOwner == '' || this.appConfigobj.appOwner == null) || (this.appConfigobj.ownerEmail == '' || this.appConfigobj.ownerEmail == null) || (this.appConfigobj.appMaintenance == '' || this.appConfigobj.appMaintenance == null) || (this.appConfigobj.maintenanceEmail == '' || this.appConfigobj.maintenanceEmail == null)) {
-					this.info2 = '添加菜单十要素必须同时填写!';
+				console.log("yyy"+this.effortObj);
+				if (
+					//(this.effortObj.workday == '' || this.effortObj.workday == null) || 
+						(this.effortObj.eaicode == '' || this.effortObj.eaicode == null) || 
+						(this.effortObj.tasktype == '' || this.effortObj.tasktype == null) || 
+						(this.effortObj.ticketnumber == '' || this.effortObj.ticketnumber == null) || 
+						(this.effortObj.efforthours == '' || this.effortObj.efforthours == null) ) {
+					this.info2 = '好像还有什么没填~';
 					return false;
 				}
 				axios({
 					method: 'put',
-					url: '/addConfig',
-					data: {
-						msg: this.appConfigobj
-					},
+					url: '/efforts/save',
+					data: this.effortObj,
 				}).then(res => {
-					this.info2 = res.data
+					if(res.data==1){ams_alert("已保存！")}
 				}, error => {
 				});
 			},
@@ -235,7 +280,7 @@
 					for (x in configs) {
 						for (y in checkGrp) {
 							if (configs[x].id == checkGrp[y]) {
-								//appConfigobj: { id: null, appId: '', appName: '', appDescrib: '', appOwner: '', ownerEmail: '', appMaintenance: '', maintenanceEmail: '', appUrl1: '', appUrl2: '', appUrl3: '' },
+								//effortObj: { id: null, appId: '', appName: '', appDescrib: '', appOwner: '', ownerEmail: '', appMaintenance: '', maintenanceEmail: '', appUrl1: '', appUrl2: '', appUrl3: '' },
 								var param = '{"id":"' + configs[x].id + '","appId":"' + configs[x].appId + '","appName":"' + configs[x].appName + '","appDescrib":"' + configs[x].appDescrib + '","appOwner":"' + configs[x].appOwner + '","ownerEmail":"' + configs[x].ownerEmail + '","appMaintenance":"' + configs[x].appMaintenance + '","maintenanceEmail":"' + configs[x].maintenanceEmail + '","appUrl1":"'+configs[x].appUrl1+'" ,"appUrl2":"'+configs[x].appUrl2+'","appUrl3":"'+configs[x].appUrl3+'","isDeleted":"'+configs[x].isDeleted+'"}'; 
 								myarr.push(param);
 							}

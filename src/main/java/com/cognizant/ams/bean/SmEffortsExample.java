@@ -234,6 +234,76 @@ public class SmEffortsExample {
             return (Criteria) this;
         }
 
+        public Criteria andUsernameIsNull() {
+            addCriterion("username is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameIsNotNull() {
+            addCriterion("username is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameEqualTo(String value) {
+            addCriterion("username =", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameNotEqualTo(String value) {
+            addCriterion("username <>", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameGreaterThan(String value) {
+            addCriterion("username >", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameGreaterThanOrEqualTo(String value) {
+            addCriterion("username >=", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameLessThan(String value) {
+            addCriterion("username <", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameLessThanOrEqualTo(String value) {
+            addCriterion("username <=", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameLike(String value) {
+            addCriterion("username like", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameNotLike(String value) {
+            addCriterion("username not like", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameIn(List<String> values) {
+            addCriterion("username in", values, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameNotIn(List<String> values) {
+            addCriterion("username not in", values, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameBetween(String value1, String value2) {
+            addCriterion("username between", value1, value2, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameNotBetween(String value1, String value2) {
+            addCriterion("username not between", value1, value2, "username");
+            return (Criteria) this;
+        }
+
         public Criteria andWorkdayIsNull() {
             addCriterion("workday is null");
             return (Criteria) this;
@@ -444,6 +514,146 @@ public class SmEffortsExample {
             return (Criteria) this;
         }
 
+        public Criteria andAppnameIsNull() {
+            addCriterion("appname is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameIsNotNull() {
+            addCriterion("appname is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameEqualTo(String value) {
+            addCriterion("appname =", value, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameNotEqualTo(String value) {
+            addCriterion("appname <>", value, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameGreaterThan(String value) {
+            addCriterion("appname >", value, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameGreaterThanOrEqualTo(String value) {
+            addCriterion("appname >=", value, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameLessThan(String value) {
+            addCriterion("appname <", value, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameLessThanOrEqualTo(String value) {
+            addCriterion("appname <=", value, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameLike(String value) {
+            addCriterion("appname like", value, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameNotLike(String value) {
+            addCriterion("appname not like", value, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameIn(List<String> values) {
+            addCriterion("appname in", values, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameNotIn(List<String> values) {
+            addCriterion("appname not in", values, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameBetween(String value1, String value2) {
+            addCriterion("appname between", value1, value2, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppnameNotBetween(String value1, String value2) {
+            addCriterion("appname not between", value1, value2, "appname");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerIsNull() {
+            addCriterion("appower is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerIsNotNull() {
+            addCriterion("appower is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerEqualTo(String value) {
+            addCriterion("appower =", value, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerNotEqualTo(String value) {
+            addCriterion("appower <>", value, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerGreaterThan(String value) {
+            addCriterion("appower >", value, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerGreaterThanOrEqualTo(String value) {
+            addCriterion("appower >=", value, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerLessThan(String value) {
+            addCriterion("appower <", value, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerLessThanOrEqualTo(String value) {
+            addCriterion("appower <=", value, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerLike(String value) {
+            addCriterion("appower like", value, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerNotLike(String value) {
+            addCriterion("appower not like", value, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerIn(List<String> values) {
+            addCriterion("appower in", values, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerNotIn(List<String> values) {
+            addCriterion("appower not in", values, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerBetween(String value1, String value2) {
+            addCriterion("appower between", value1, value2, "appower");
+            return (Criteria) this;
+        }
+
+        public Criteria andAppowerNotBetween(String value1, String value2) {
+            addCriterion("appower not between", value1, value2, "appower");
+            return (Criteria) this;
+        }
+
         public Criteria andTicketNumberIsNull() {
             addCriterion("ticket_number is null");
             return (Criteria) this;
@@ -524,52 +734,62 @@ public class SmEffortsExample {
             return (Criteria) this;
         }
 
-        public Criteria andEffortsHoursEqualTo(Double value) {
+        public Criteria andEffortsHoursEqualTo(String value) {
             addCriterion("efforts_hours =", value, "effortsHours");
             return (Criteria) this;
         }
 
-        public Criteria andEffortsHoursNotEqualTo(Double value) {
+        public Criteria andEffortsHoursNotEqualTo(String value) {
             addCriterion("efforts_hours <>", value, "effortsHours");
             return (Criteria) this;
         }
 
-        public Criteria andEffortsHoursGreaterThan(Double value) {
+        public Criteria andEffortsHoursGreaterThan(String value) {
             addCriterion("efforts_hours >", value, "effortsHours");
             return (Criteria) this;
         }
 
-        public Criteria andEffortsHoursGreaterThanOrEqualTo(Double value) {
+        public Criteria andEffortsHoursGreaterThanOrEqualTo(String value) {
             addCriterion("efforts_hours >=", value, "effortsHours");
             return (Criteria) this;
         }
 
-        public Criteria andEffortsHoursLessThan(Double value) {
+        public Criteria andEffortsHoursLessThan(String value) {
             addCriterion("efforts_hours <", value, "effortsHours");
             return (Criteria) this;
         }
 
-        public Criteria andEffortsHoursLessThanOrEqualTo(Double value) {
+        public Criteria andEffortsHoursLessThanOrEqualTo(String value) {
             addCriterion("efforts_hours <=", value, "effortsHours");
             return (Criteria) this;
         }
 
-        public Criteria andEffortsHoursIn(List<Double> values) {
+        public Criteria andEffortsHoursLike(String value) {
+            addCriterion("efforts_hours like", value, "effortsHours");
+            return (Criteria) this;
+        }
+
+        public Criteria andEffortsHoursNotLike(String value) {
+            addCriterion("efforts_hours not like", value, "effortsHours");
+            return (Criteria) this;
+        }
+
+        public Criteria andEffortsHoursIn(List<String> values) {
             addCriterion("efforts_hours in", values, "effortsHours");
             return (Criteria) this;
         }
 
-        public Criteria andEffortsHoursNotIn(List<Double> values) {
+        public Criteria andEffortsHoursNotIn(List<String> values) {
             addCriterion("efforts_hours not in", values, "effortsHours");
             return (Criteria) this;
         }
 
-        public Criteria andEffortsHoursBetween(Double value1, Double value2) {
+        public Criteria andEffortsHoursBetween(String value1, String value2) {
             addCriterion("efforts_hours between", value1, value2, "effortsHours");
             return (Criteria) this;
         }
 
-        public Criteria andEffortsHoursNotBetween(Double value1, Double value2) {
+        public Criteria andEffortsHoursNotBetween(String value1, String value2) {
             addCriterion("efforts_hours not between", value1, value2, "effortsHours");
             return (Criteria) this;
         }

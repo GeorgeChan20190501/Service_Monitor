@@ -57,7 +57,19 @@ public class EffortService {
 		return result;
 	}
 	
-	
+	/**
+	 * 根据用户和工作日查询effort
+	 * @param workday
+	 * @param usercode
+	 * @return
+	 */
+	public List<SmEfforts> queryEffortsByUser(String usercode){
+		effortsExample=new SmEffortsExample();
+		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
+	   criteria.andUseridEqualTo(usercode);
+	   List<SmEfforts> effList= effortMapper.selectByExample(effortsExample);
+	   return effList;
+	}
 	/**
 	 * 根据用户和工作日查询effort
 	 * @param workday
@@ -94,10 +106,23 @@ public class EffortService {
 	 * @param enddate
 	 * @return
 	 */
-	public List<SmEfforts> queryAllEfforts(String startdate, String enddate){
+	public List<SmEfforts> queryAllEffortsByDate(String startdate, String enddate){
 		effortsExample=new SmEffortsExample();
 		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
 	   criteria.andWorkdayBetween(startdate, enddate);
+	   List<SmEfforts> effList= effortMapper.selectByExample(effortsExample);
+	   return effList;
+	}
+	
+	/**
+	 * 按所有user的effort
+	 * @param startdate
+	 * @param enddate
+	 * @return
+	 */
+	public List<SmEfforts> queryAllEfforts(){
+		effortsExample=new SmEffortsExample();
+		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
 	   List<SmEfforts> effList= effortMapper.selectByExample(effortsExample);
 	   return effList;
 	}
@@ -107,6 +132,13 @@ public class EffortService {
 		SmConfigExample.Criteria criteria=smConfigExample.createCriteria();
 		   criteria.andTypeEqualTo("applist");
 		return smConfigMapper.selectByExample(smConfigExample);
+	}
+	public SmConfig queryAppConfigbyEaicode(String eaicode) {
+		smConfigExample=new SmConfigExample();
+		SmConfigExample.Criteria criteria=smConfigExample.createCriteria();
+		   criteria.andTypeEqualTo("applist");
+		   criteria.andCkeyEqualTo(eaicode);
+		return smConfigMapper.selectByExample(smConfigExample).get(0);
 	}
  
 }

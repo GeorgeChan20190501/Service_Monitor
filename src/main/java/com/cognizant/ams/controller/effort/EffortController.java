@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,7 +33,7 @@ public class EffortController {
 	@Autowired
 	private AppConfigService appConfigService;
 	
-	@PostMapping("/save")
+	@PutMapping("/save")
 	public int  saveEfforts(@RequestBody String effortJson) {
 		System.out.println("开始保存effort===" + effortJson);
 
@@ -44,6 +45,13 @@ public class EffortController {
 			effort.setTicketNumber(json.getString("ticketnumber"));
 			effort.setEffortsHours(json.getString("efforthours"));	
 			effort.setUserid(json.getString("userid"));
+			//插入关联数据
+			SmConfig   temp= effortService.queryAppConfigbyEaicode(effort.getEaiCode());
+			
+			effort.setAppname(temp.getCval1());
+			effort.setAppower(temp.getCval2());
+			//TODO 获取当前登陆用户
+			effort.setUsername(json.getString("userid"));
 			int result= effortService.save(effort);
 			
 			return result;
@@ -59,7 +67,18 @@ public class EffortController {
 	return applists;
 	}
 	
+	@PostMapping("/query")
+	public List<SmEfforts> queryEffortByUser() {
+		//TODO session 获取
+		String usercode="likev";
+		System.out.println(usercode+"查询用户所有effort");
+			return effortService.queryEffortsByUser(usercode) ;
+	}
 	
+	@GetMapping("/allefforts")
+	public List<SmEfforts> queryEffortAll() {
+		return effortService.queryAllEfforts();
+	}
 	
 	
 	

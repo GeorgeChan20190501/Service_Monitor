@@ -5,11 +5,17 @@ public class SmEfforts {
 
     private String userid;
 
+    private String username;
+
     private String workday;
 
     private String tasktype;
 
     private String eaiCode;
+
+    private String appname;
+
+    private String appower;
 
     private String ticketNumber;
 
@@ -37,6 +43,14 @@ public class SmEfforts {
         this.userid = userid == null ? null : userid.trim();
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
+
     public String getWorkday() {
         return workday;
     }
@@ -61,6 +75,22 @@ public class SmEfforts {
         this.eaiCode = eaiCode == null ? null : eaiCode.trim();
     }
 
+    public String getAppname() {
+        return appname;
+    }
+
+    public void setAppname(String appname) {
+        this.appname = appname == null ? null : appname.trim();
+    }
+
+    public String getAppower() {
+        return appower;
+    }
+
+    public void setAppower(String appower) {
+        this.appower = appower == null ? null : appower.trim();
+    }
+
     public String getTicketNumber() {
         return ticketNumber;
     }
@@ -73,8 +103,8 @@ public class SmEfforts {
         return effortsHours;
     }
 
-    public void setEffortsHours(String string) {
-        this.effortsHours = string;
+    public void setEffortsHours(String effortsHours) {
+        this.effortsHours = effortsHours == null ? null : effortsHours.trim();
     }
 
     public String getCreateTime() {

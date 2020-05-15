@@ -127,8 +127,8 @@ function hello(date2){
 	var this1=0;
 	for(x in alldate){
 		if(x%7==0){
-			content+='<tr>'	
-		}
+			   content+='<tr ondblclick="ok()">' 
+			  }
 		//给当前时间标注
 		if((x%7)==(currday-1)&&alldate[x]==currdate){
 			content+='<td class="active" onclick="getDate('+x+alldate[x]+','+this1+','+curryear+','+currmonth+','+alldate[x]+')" id="day'+x+alldate[x]+'" style="background:rgb(0,150,136);color:white;">'+alldate[x]+'</td>'
