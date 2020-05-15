@@ -1,3 +1,13 @@
+.mybtn1{
+	border:0;
+	outline:none;
+	width:65px;
+	height:30px;
+	padding:0;
+	position:absolute;
+	right:65px;
+	color:white;
+}
 .pos{
 	margin-top:10px;
 }
