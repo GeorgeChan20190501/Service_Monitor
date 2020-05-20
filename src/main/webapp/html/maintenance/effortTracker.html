@@ -28,16 +28,40 @@
 		<div class="bh2"></div>
 		<div class="bg-content">
 
-
 			<div class="row">
-				<!-- <div class="col-sm-3 gztcandiv">
-					<div style="width: 80px; height: 25px; float:left">Date ：</div><input type="text"   id='gztcan' name='candiv' onclick='ams_rl(this)' v-model="effortObj.workday"
-						style="width: 150px; height: 25px;" /><div id='candiv' class='gztcancontent'></div>
-				</div> -->
-				<div class="col-sm-3 gztcandiv">
-					<div style="width: 80px; height: 25px; float:left">Date ：</div><input type="date"  name='candiv' v-model="effortObj.workday"
+				<div class="col-sm-3 ">
+					<div style="width: 80px; height: 25px; float: left">Effort
+						Ower</div>
+					<select v-model="currUser.usercode" style="width: 200px;">
+						<option :selected="true" value=""></option>
+						<option v-for="user in useroption" :value="user.usercode">
+							{{user.username}}</option>
+					</select>
+				</div>
+
+				<div class="col-sm-3 ">
+					<div style="width: 115px; height: 25px; float: left">Start
+						Workdate</div>
+					<input type="date" name='candiv' v-model="startworkday"
 						style="width: 150px; height: 25px;" />
-				</div> 
+				</div>
+
+				<div class="col-sm-3 ">
+					<div style="width: 100px; height: 25px; float: left">End
+						Workdate</div>
+					<input type="date" name='candiv' v-model="endworkday"
+						style="width: 150px; height: 25px;" />
+				</div>
+			</div>
+<div class="bh2"></div>
+<div class="bh2"></div>
+<div style="border: 2px solid rgb(222,226,230) ;padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px">
+			<div class="row" >
+				<div class="col-sm-3">
+					<div style="width: 80px; height: 25px; float: left">Date</div>
+					<input type="date" name='candiv' v-model="effortObj.workday"
+						style="width: 200px; height: 25px;" />
+				</div>
 
 
 
@@ -47,17 +71,16 @@
 			<div class="bh1"></div>
 			<div class="row">
 				<div class="col-sm-3">
-					<div style="width: 80px; height: 25px; float: left">Task
-						Type：</div>
-					<select v-model="effortObj.tasktype" style="width: 270px; ">
+					<div style="width: 80px; height: 25px; float: left">Task Type</div>
+					<select v-model="effortObj.tasktype" style="width: 200px;">
 						<option value=""></option>
 						<option v-for="tasktype in tasktypeList" :value="tasktype.type">{{tasktype.type}}</option>
 					</select>
 				</div>
 				<div class="col-sm-3">
-					<div style="width: 150px; height: 25px; float: left">Application
-						Name：</div>
-					<select v-model="effortObj.eaicode" style="width: 180px; ">
+					<div style="width: 115px; height: 25px; float: left">Application
+						Name</div>
+					<select v-model="effortObj.eaicode" style="width: 150px;">
 						<option :selected="true" value=""></option>
 						<option v-for="app in appList" :value="app.ckey">
 							{{app.cval1}}</option>
@@ -66,30 +89,37 @@
 
 				</div>
 				<div class="col-sm-3">
-					<div style="width: 120px; height: 25px; float: left">Ticket
-						Number：</div>
+					<div style="width: 100px; height: 25px; float: left">Ticket
+						Number</div>
 					<input type="text" name="childNum" v-model="effortObj.ticketnumber"
 						style="width: 150px; height: 25px;" />
 				</div>
 				<div class="col-sm-2">
-					<div style="width: 50px; height: 25px; float: left">Hours：</div>
+					<div style="width: 50px; height: 25px; float: left">Hours</div>
 					<input type="text" name="pageUrl" v-model="effortObj.efforthours"
 						style="width: 150px; height: 25px;" />
 				</div>
 			</div>
-
+</div>
 			<div class="row" style="padding: 15px;">
-				<button class="bg-primary mybtn" @click="query">查询</button>
+
+				<button class="mybtn bg-primary" style="margin-left: 15px;"
+					@click="addConfig()">保存</button>
 				<button class="mybtn bg-primary" style="margin-left: 45px;"
-				@click="addConfig()">Effort提交</button>
+					@click="query">查询</button>
 
 			</div>
+
 
 		</div>
 		<div class="bh5"></div>
 
 		<div class="bg-content">
-			<div>Effort Tracker 结果： <button class="bg-primary mybtn1 iconfont  icon-daochu"  @click="download()"></button></div>
+			<div>
+				Effort Tracker 结果：
+				<button class="bg-primary mybtn1 iconfont  icon-daochu"
+					@click="download"></button>
+			</div>
 			<div class="bh2"></div>
 			<div>
 				<table class="table  table-bordered   table-sm">
@@ -97,7 +127,7 @@
 						<tr>
 							<th width="50px;"><input type="checkbox"
 								class=" batch checkbox" disabled /></th>
-								<th>Effort ID</th>
+							<th>Effort ID</th>
 							<th>AD Owner</th>
 							<th>Date</th>
 							<th>Associate Name</th>
@@ -113,7 +143,7 @@
 						<tr v-for="item in dataShow">
 							<td width=" 50px;"><input type="checkbox"
 								class="batch checkbox" @click=" chk(item.id,$event)" /></td>
-							<td>{{item.id}}</td>	
+							<td>{{item.id}}</td>
 							<td><input class="tableinput" :value="item.appower"
 								v-model="item.appower" :readonly="status ? false : 'readonly'" /></td>
 							<td><input class="tableinput" :value="item.workday"
@@ -127,9 +157,11 @@
 							<td><input class="tableinput" :value="item.appname"
 								v-model="item.appname" :readonly="status ? false : 'readonly'" /></td>
 							<td><input class="tableinput" :value="item.ticketNumber"
-								v-model="item.ticketNumber" :readonly="status ? false : 'readonly'" /></td>
-								<td><input class="tableinput" :value="item.effortsHours"
-								v-model="item.effortsHours" :readonly="status ? false : 'readonly'" /></td>
+								v-model="item.ticketNumber"
+								:readonly="status ? false : 'readonly'" /></td>
+							<td><input class="tableinput" :value="item.effortsHours"
+								v-model="item.effortsHours"
+								:readonly="status ? false : 'readonly'" /></td>
 							<td><button class="bg-danger table-btn" @click="change()">{{edit}}</button></td>
 						</tr>
 					</tbody>
@@ -145,35 +177,7 @@
 			<fenye v-bind:parentmsg="url" @myfunc="dataDisplay" ref="fenye" />
 		</div>
 
-		<!-- 模态框2 -->
-		<div class="modal fade myalert" id="myModal">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					<!-- 模态框头部 -->
-					<div class="modal-header">
-						<span class="modal-title">系统提示：</span>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<!-- 模态框主体 -->
-					<div class="modal-body">
-						{{info2}} <select id="username'" v-model="roleName" v-show="flag"
-							style="width: 150px; height: 25px;">
-							<option value="">请选择</option>
-							<option :value="item.roleName" v-for="item in role">{{
-								item.roleName }}</option>
-						</select>
-					</div>
-					<!-- 模态框底部 -->
-					<div class="modal-footer">
-						<button class="btn btn-success btn-sm" data-dismiss="modal"
-							id="modal-1" @click="confirmbtn(info2)">确 认</button>
-						<button type="button" class="btn btn-secondary btn-sm"
-							data-dismiss="modal" @click="cancle()">取 消</button>
-					</div>
 
-				</div>
-			</div>
-		</div>
 
 	</div>
 	<div id="ss"></div>
@@ -189,7 +193,6 @@
 			effortObj: { id: null, userid: '', username:'', appower: '', appname: '', workday: '', eaicode:'',tasktype:'',ticketnumber:'',efforthours:'' },
 			info: [],
 			role: [],
-			roleName: '',
 			status: false,
 			check: true,
 			edit: '启用编辑',
@@ -200,12 +203,17 @@
 			flag: false,
 			dataShow:[],
 			allEfforts:[],
-			url:'/efforts/query'
+			exportObj: {ADOwer: '' ,Date: '',AssociateName: '',TaskType: '',EAICode: '',ApplicationName: '',TicketNumber: '',Hours: ''},
+			url:'/efforts/query',
+			startworkday: '',
+			endworkday:  '',
+			useroption : []
 		},
 		created() {
 			this.getAppInfo();
 			this.getType();
 			this.queryEffort();
+			this.getUsers()
  		},
 		methods: {
 			queryEffort(){
@@ -213,30 +221,82 @@
 					method: 'post',
 					url: "/efforts/query",
 					data: {
-						msg:this.currUser.usercode
+						startworkday: this.startworkday,
+						endworkday: this.endworkday,
+						usercode: this.currUser.usercode
 					},
 				}).then(res => {
-					  this.allEfforts = res.data.list;
-		
+					this.allEfforts=[];
+					res.data.list.forEach((item,index)=>{
+						this.allEfforts.push({"AD Ower": item.appower ,"Date":  item.workday,"Associate Name": item.username ,"Task Type": item.tasktype ,"EAI Code": item.eaiCode
+							,"Application Name": item.appname ,"Ticket Number":item.ticketNumber ,"Hours":item.effortsHours});
+						});
+					log("导出：--》")
+					log(this.allEfforts);
 				}, error => {
-					console.log(error);
+					log(error);
 				})
 			},
 			download(){
-				console.log("start ...");
-				console.log(this.allEfforts)
-				var filename="Effort_"+this.currUser.usercode
+				log("start ...");
+				log(this.allEfforts)
+				var filename="Effort_"+this.currUser.username+"_"+this.newdate();
 				exportExcel(this.allEfforts,filename);
 				ams_alert("下载成功！");
+			},
+			exportExcel(){
+				axios({
+					method: 'post',
+					url: "/efforts/export",
+					data: {
+						startworkday: this.startworkday,
+						endworkday:this.endworkday,
+						usercode:this.currUser.usercode
+					},
+				}).then(res => {
+					ams_alert("下载成功");					  
+
+				}, error => {
+					log(error);
+				})
+			},
+			newdate(){
+		        var date = new Date();
+		        var YYYY = date.getFullYear();
+		        var MM = date.getMonth() + 1;
+		        var DD = date.getDate();
+		        var hh = date.getHours();
+		        var mm = date.getMinutes();
+		        var ss = date.getSeconds();
+
+		        MM = MM < 10 ? ('0' + MM) : MM;
+		        DD = DD < 10 ? ('0' + DD) : DD;
+		        hh = hh < 10 ? ('0' + hh) : hh;
+		        mm = mm < 10 ? ('0' + mm) : mm;
+		        ss = ss < 10 ? ('0' + ss) : ss;
+
+		        return YYYY + MM  + DD + hh + mm + ss+"";
 			},
 			getAppInfo(){
 				axios({
 					method: 'get',
 					url: '/efforts/applist',
 				}).then(res => {
-					console.log(res.data);
+					log(res.data);
 					this.appList = res.data;
 				
+				}, error => {
+				});
+			},
+			getUsers(){
+				axios({
+					method: 'get',
+					url: '/json/useroption.json',
+				}).then(res => {
+					log(res.data);
+					this.useroption = res.data;
+					log(this.useroption);
+					
 				}, error => {
 				});
 			},
@@ -245,15 +305,18 @@
 					method: 'get',
 					url: '/json/tasktype.json',
 				}).then(res => {
-					console.log(res.data);
+					log(res.data);
 					this.tasktypeList = res.data;
-					console.log(this.tasktypeList);
+					log(this.tasktypeList);
 					
 				}, error => {
 				});
 		},
-			dataDisplay(dataShow){	 this.dataShow=dataShow	},
-			query() {	this.$refs.fenye.condition(this.currUser.usercode);}  ,
+			dataDisplay(dataShow){	 this.dataShow=dataShow;},
+			query() {	
+				this.$refs.fenye.condition(this.currUser.usercode);
+			    this.queryEffort();
+			    },
 		
 			 
 			addConfig() {
@@ -372,8 +435,8 @@
  * JS报表导出插件
  */
 function exportExcel(JSONData, FileName, title, filter) {
-	console.log("开始导出effort报表");
-	console.log(JSONData);
+	log("开始导出effort报表");
+	log(JSONData);
     if (!JSONData) return;
     //转化json为object
     var arrData = typeof JSONData != "object" ? JSON.parse(JSONData) : JSONData;
@@ -382,11 +445,11 @@ function exportExcel(JSONData, FileName, title, filter) {
     var row = "<tr>";
     if (title) { //使用标题项
       for (var i in title) {
-        row += "<th align='center'>" + title[i] + "</th>";
+        row += "<th align='left'>" + title[i] + "</th>";
       }
     } else {//不使用标题项
       for (var i in arrData[0]) {
-        row += "<th align='center'>" + i + "</th>";
+        row += "<th align='left'>" + i + "</th>";
       }
     }
     excel += row + "</tr>";
@@ -402,7 +465,7 @@ function exportExcel(JSONData, FileName, title, filter) {
           }
         } else {
           var value = arrData[i][index] == null ? "" : arrData[i][index];
-          row += "<td align='center'>" + value + "</td>";
+          row += "<td align='left'>" + value + "</td>";
         }
       }
       excel += row + "</tr>";
