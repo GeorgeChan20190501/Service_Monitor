@@ -83,7 +83,7 @@
 							<td>{{item.wipTime}}</td>
 							<td>{{item.pendingTime}}</td>
 							<td>{{item.resolvedTime}}</td>
-							<td :style="{color: item.slaFlag=='达标'? 'green' :   item.slaFlag=='0-3天内未解决'? 'CornflowerBlue' : item.slaFlag=='3-5天内未解决'? 'blue' : item.slaFlag=='5-8天内未解决'? 'Tomato' :'red'  }">{{item.slaFlag}}</td>
+							<td :style="{color: item.slaFlag=='达标'? 'green' :   item.slaFlag=='0-3天内未解决'? 'CornflowerBlue' : item.slaFlag=='4-6内天未解决'? 'blue' : item.slaFlag=='7-10内天未解决'? 'Tomato' :'red'  }">{{item.slaFlag}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -282,7 +282,7 @@
 		          }
 		        }
 		      axios.post("/upload", formData, config).then(function (res) {
-		        		console(res.data)
+		        		alert(res.data)
 		      }) 
 			},
 			getFile(event) {

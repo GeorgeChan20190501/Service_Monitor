@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cognizant.ams.bean.SmConfig;
 import com.cognizant.ams.bean.SmSn;
+import com.cognizant.ams.dao.SmConfigMapper;
 import com.cognizant.ams.dao.SmSnMapper;
 
 @Service
@@ -13,6 +15,8 @@ public class SnService {
 
 	@Autowired
 	private SmSnMapper smSnMapper;
+	@Autowired
+	private SmConfigMapper smConfigMapper;
 	
 	 public void saveOrUpdateSN(List<SmSn> snList) {
 		 //首先根据Ticket编号取数据库查找是否已经记录过，如有直接更新。
@@ -44,8 +48,13 @@ public class SnService {
 	 }
 
 	public List<SmSn> queryFenyeSN(SmSn smSntlist) {
-		// TODO Auto-generated method stub
 		return smSnMapper.queryFenyeSN(smSntlist);
+	}
+	
+	public List<SmConfig> getSLAStandard() {
+		SmConfig smConfig =new SmConfig();
+		smConfig.setType("sla");
+		return smConfigMapper.getSLAStandard(smConfig);
 	}
  
 }

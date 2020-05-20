@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.alibaba.fastjson.JSONArray;
+import com.cognizant.ams.bean.SmConfig;
 import com.cognizant.ams.bean.SmSn;
 import com.cognizant.ams.bean.common.JsonReqObject;
 import com.cognizant.ams.common.ExcelUtils;
 import com.cognizant.ams.common.utils.DateFormatUtils;
+import com.cognizant.ams.common.utils.ExpressPattern;
 import com.cognizant.ams.service.SnService;
 
 @RestController
@@ -48,17 +50,22 @@ public class ExcleController {
 	public boolean analysisFile(MultipartHttpServletRequest mreq) {
 		List<Map> maps = null;
 		List<SmSn> snList = new ArrayList<SmSn>();
+		List<SmConfig> slaList=snService.getSLAStandard();
 		SmSn smSn = null;
 		
 		try {
 			maps = ExcelUtils.analysisFile(mreq);
+			int i =0;
 			for (Map map : maps) {
+				System.out.println("=========================="+i++);
 				smSn = new SmSn();
 				@SuppressWarnings("unchecked")
 				Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
-				String pendingTime = "";
+				int reso=0;
 				String state = "";
 				String com = "";
+				String reason = "";
+				String message="";
 				while (it.hasNext()) {
 					Map.Entry<String, String> entry = it.next();
 
@@ -83,105 +90,127 @@ public class ExcleController {
 					if (entry.getKey().equals("Caller")) {
 						smSn.setCaller(entry.getValue());
 					}
-					if (entry.getKey().equals("Work notes")) {
-						String workNotes = entry.getValue();
-						System.out.println("workNotes" + workNotes);
-						String createTime = workNotes.substring(workNotes.lastIndexOf(" - ") - 19,
-								workNotes.lastIndexOf(" - "));
-						String wipTime = workNotes.substring(0, workNotes.lastIndexOf(createTime));
-						if (wipTime.contains(" - ")) {
-							wipTime = wipTime.substring(wipTime.lastIndexOf(" - ") - 19, wipTime.lastIndexOf(" - "));
-							String wipDiff = DateFormatUtils.dateDiff(createTime, wipTime) + "分钟";
+					if (entry.getKey().equals("Work notes")) {    //提取分配时间和响应时间
+						message = entry.getValue();
+						//System.out.println("workNotes==" + message);
+						if (message!=null&&!message.equals("")) {
+
+						String createTime = ExpressPattern.assignTime(message);
+						String wipTime = ExpressPattern.wipTime(message);
+						if (!wipTime.equals("")) {
+							//String wipDiff = DateFormatUtils.dateDiff(createTime, wipTime) + "分钟";
+							String wipDiff = DateFormatUtils.workDateDiff(createTime, wipTime) + "分钟";
 							smSn.setWipTime(wipDiff);
-						} else {
-							int a = Integer.parseInt(DateFormatUtils.dateDiff(DateFormatUtils.getDateHM(), createTime));
-
-							if (a > 0 && a <= 30) {
-								smSn.setSlaFlag("0-30分钟内未响应");
-							}
-
-							if (a > 30 && a <= 60) {
-								smSn.setSlaFlag("30-60分钟内未响应");
-							}
-							if (a > 60 && a <= 90) {
-								smSn.setSlaFlag("60-90分钟内未响应");
-							}
-
-							if (a > 90 && a <= 120) {
-								smSn.setSlaFlag("90-120分钟内未响应");
-							}
-							if (a > 120) {
-								smSn.setSlaFlag("响应超时");
-							}
+						} 
+						smSn.setCreateTime(createTime);
 						}
-						pendingTime = workNotes.substring(workNotes.indexOf(" - ") - 19, workNotes.indexOf(" - "));
-
-						smSn.setCreateTime(DateFormatUtils.formatAP(createTime));
 					}
 
 					if (entry.getKey().equals("Incident state")) {
 						state = entry.getValue();
-						
 						smSn.setIncidentState(state);
-						int a = Integer.parseInt(
-								DateFormatUtils.dateDiff(smSn.getCreateTime(), DateFormatUtils.getDateHM()));
-						if (state.equals("Pending")) {
-							smSn.setPendingTime(DateFormatUtils.formatAP(pendingTime));
-							if (a > 0 && a < 4320) {
-								smSn.setSlaFlag("0-3天内未解决");
-							}
-							if (a > 4320 && a < 7200) {
-								smSn.setSlaFlag("3-5天内未解决");
-							}
-							if (a > 7200 && a < 11520) {
-								smSn.setSlaFlag("5-8天内未解决");
-							}
-							if (a > 11520 && a < 21600) {
-								smSn.setSlaFlag("8-15天内未解决");
-							}
-							if (a > 21600) {
-								smSn.setSlaFlag("超15天未解决");
-							}
-						}
-						if (state.equals("Work in progress")&&(smSn.getWipTime()==null||smSn.getWipTime()
-								.equals(""))) {
-							smSn.setSlaFlag(a+"分钟未响应");
-						}
-						
-						if (state.equals("Work in progress")&&smSn.getWipTime()!=null&&!smSn.getWipTime()
-								.equals("")) {
-							if (a<480) {
-								
-								smSn.setSlaFlag("剩余"+a+"分钟解决时间");
-							}
-							else {
-								smSn.setSlaFlag("解决超时");
-							}
-							
-						}
-
 					}
 					if (entry.getKey().equals("Comments and Work notes")) {
 						 com = entry.getValue();
 					}
-					if (!state.equals("")&&!com.equals("")) {
+					if (entry.getKey().equals("Pending reason")) {
+						reason = entry.getValue();
+					}
+					//等待所有的字段获取完毕，统一处理。===============================
+					if (!state.equals("")&&!com.equals("")&&!message.equals("")) {
 						String resolveDiff = null;
-						String closeTime = com.substring(com.indexOf(" - ") - 19, com.indexOf(" - "));
-						
-						if (smSn.getIncidentState().equals("Resolved")) {
-							smSn.setResolvedTime(DateFormatUtils.formatAP(closeTime));
-							if (smSn.getPendingTime() != null && !smSn.getPendingTime().equals("")) {
-								resolveDiff = DateFormatUtils.dateDiff(smSn.getPendingTime(), smSn.getCreateTime());
-							} else {
-								resolveDiff = DateFormatUtils.dateDiff(closeTime, smSn.getCreateTime());
+						String pendingTime = ExpressPattern.pedingTime(com);
+						//System.out.println(smSn.getCreateTime());
+						//System.out.println(DateFormatUtils.getDateMH());
+						int a = Integer.parseInt(DateFormatUtils.workDateDiff(smSn.getCreateTime(), DateFormatUtils.getDateMH()));  //工单建立多久了
+						//当IT没有填写worknote时候就需要计算  未响应的时间
+						int resp=0;
+						//根据工单类型来判断响应标准时间。
+						for (SmConfig smConfig : slaList) {
+								if (smSn.getTicketNo().contains(smConfig.getCkey())&&smSn.getPriority().equals(smConfig.getCval1())) {
+									resp=Integer.parseInt(smConfig.getCval2());
+									reso=Integer.parseInt(smConfig.getCval3());
+								}
+						}
+						String closeTime = ExpressPattern.ResolvedTime(com);
+						if (state.equals("Work in progress")&&(smSn.getWipTime()==null||smSn.getWipTime().equals(""))) {
+							
+							if (a <= resp) {
+								smSn.setSlaFlag("最晚响应时间是："+DateFormatUtils.nextWorkDate(DateFormatUtils.getDateMH(), (resp-a)+""));
 							}
-							int resolveDiff1 = Integer.parseInt(resolveDiff);
-							if (resolveDiff1 < 480) {
-								smSn.setSlaFlag("达标");
-							} else {
-								smSn.setSlaFlag("不达标");
+							
+							if (a > resp) {
+								smSn.setSlaFlag("响应超时");
 							}
 						}
+						if (state.equals("Work in progress")&&(smSn.getWipTime()!=null&&!smSn.getWipTime().equals(""))) {
+							
+							if (a <= reso) {
+								smSn.setSlaFlag("最晚解决时间是："+DateFormatUtils.nextWorkDate(DateFormatUtils.getDateMH(), (reso-a)+""));
+							}
+							if (a > reso) {
+								smSn.setSlaFlag("解决超时");
+							}
+						}
+						
+						if (state.equals("Pending")) {
+							
+							smSn.setPendingTime(pendingTime);
+							
+							if (a>0 && a<= 1440) {
+								smSn.setSlaFlag("0-3天内未解决");
+							}
+							else if (a>1440 && a<= 2880) {
+								smSn.setSlaFlag("4-6内天未解决");
+							}
+							else if (a>2880 && a<= 4800) {
+								smSn.setSlaFlag("7-10内天未解决");
+							}
+							else if (a>4800&& a<= 7200) {
+								smSn.setSlaFlag("11-15内天未解决");
+							}
+							else {
+								smSn.setSlaFlag("超15天未解决");
+							}
+						}
+						
+						if (smSn.getIncidentState().equals("Resolved")) {
+							smSn.setResolvedTime(closeTime);
+							message =com.toLowerCase();
+							if (!reason.equals("")) {
+								if(message.contains("pending")) {
+									pendingTime=ExpressPattern.resolvedPedingTime(message,com);
+									smSn.setPendingTime(pendingTime);
+									resolveDiff = DateFormatUtils.workDateDiff(pendingTime,closeTime );
+									System.out.println("解决时间中，找到pendingTime");
+								}
+								else {
+									resolveDiff="500";
+								}
+								
+							}
+							else if(smSn.getResolvedTime() != null && !smSn.getResolvedTime().equals("")) {
+								resolveDiff = DateFormatUtils.workDateDiff(smSn.getCreateTime(),closeTime );
+							}
+							else {
+								resolveDiff = "481";
+							}
+							int resolveDiff1 = Integer.parseInt(resolveDiff);
+							
+							if (resolveDiff1 <= reso) {
+								smSn.setSlaFlag("达标");
+							} else {
+								if (resolveDiff1==500) {
+									smSn.setSlaFlag("不合格(pending时worknote必须包含pending关键字)");
+								}else {
+									smSn.setSlaFlag("不达标");
+								}
+								
+							}
+						}
+						
+						
+						
 					}
 
 					

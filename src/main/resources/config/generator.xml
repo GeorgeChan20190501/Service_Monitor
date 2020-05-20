@@ -47,7 +47,7 @@
         <!-- <table schema=""  tableName="sm_applist"/>  -->
        <!--  <table schema=""  tableName="sm_result"/>  -->
        <!-- <table schema=""  tableName="sm_config"/> -->
-       <table schema=""  tableName="sm_sn"/>
-       
+       <!--  <table schema=""  tableName="sm_sn"/> -->
+       <table schema=""  tableName="sm_worktime"/>
 	</context>
 </generatorConfiguration>

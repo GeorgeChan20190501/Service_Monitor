@@ -9,9 +9,9 @@ public class DBConn {
 	public static Connection getConn() {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			String url="jdbc:sqlserver://localhost:1433;DatabaseName=George";
-			String username="sa";
-			String password="f10011116";
+			String url="jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv";
+			String username="TestEnv";
+			String password="TestEnv";
 			connection=DriverManager.getConnection(url,username,password);
 		} catch (Exception e) {
 			e.printStackTrace();

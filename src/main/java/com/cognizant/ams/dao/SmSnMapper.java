@@ -3,8 +3,10 @@ package com.cognizant.ams.dao;
 import com.cognizant.ams.bean.SmSn;
 import com.cognizant.ams.bean.SmSnExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface SmSnMapper {
 	long countByExample(SmSnExample example);
 

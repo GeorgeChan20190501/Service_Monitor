@@ -266,6 +266,29 @@
 			select * from sm_config where type='scheduler'
   </select>
   
+  <select id="getSLAStandard"  parameterType="com.cognizant.ams.bean.SmConfig"  resultMap="BaseResultMap">
+  		
+		select * from sm_config
+		<where>
+					<if test="type != null  and type !='' ">
+       					  and type = #{type}
+     			    </if>
+     			    <if test="ckey != null  and ckey !='' ">
+       					  and ckey = #{ckey}
+     			    </if>
+     			    <if test="cval1 != null  and cval1 !='' ">
+       					  and cval1 = #{cval1}
+     			    </if>
+     			    <if test="cval2 != null  and cval2 !='' ">
+       					  and cval2 = #{cval2}
+     			    </if>
+     			    <if test="cval3 != null  and cval3 !='' ">
+       					  and cval3 = #{cval3}
+     			    </if>
+		</where>
+  </select>
+  
+  
   
   
 </mapper>

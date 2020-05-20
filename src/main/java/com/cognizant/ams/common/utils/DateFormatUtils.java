@@ -2,16 +2,73 @@ package com.cognizant.ams.common.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
+
 public class DateFormatUtils {
+	
+	public static String nextWorkDate(String date,String mins) {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		DateCal cal=new DateCal();
+		Date date2;
+		Date diff = null;
+		double minutes=Double.parseDouble(mins);
+		double hours=minutes / 60;
+		try {
+			date2 = simpleDateFormat.parse(date);
+			diff=cal.getPluseHourDate(date2,hours);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return simpleDateFormat.format(diff);
+	}
+	
+	public static String workDateDiff(String startDate,String endDate) {
+		Calendar cal_start = transCanlendar(startDate);
+		Calendar cal_end = transCanlendar(endDate);
+		DateCal cal=new DateCal();
+		Long diff=cal.getDayMiLLI(cal_start,cal_end);
+		String diff1=diff/(1000*60)+"";
+		return diff1;
+	}
+	
+	public static Calendar transCanlendar(String date) {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date date1;
+		Calendar calendar = null;
+		if (date.equals("")||date==null) {
+			return calendar;
+		}
+		try {
+			date1 = simpleDateFormat.parse(date);
+			calendar = Calendar.getInstance();
+			calendar.setTime(date1);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return calendar;
+	}
+	public static String fromCalendarToDate(Calendar calendar) {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date date =calendar.getTime();
+		String date1 = simpleDateFormat.format(date);
+		return date1;
+	}
+	public static String fromCalendarToDateMMDD(Calendar calendar) {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd");
+		Date date =calendar.getTime();
+		String date1 = simpleDateFormat.format(date);
+		return date1;
+	}
+	
 	public static String getSTDCNDate() {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = simpleDateFormat.format(new Date());
 		return date;
 	}
-	public static String getDateHM() {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm");
+	public static String getDateMH() {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String date = simpleDateFormat.format(new Date());
 		return date;
 	}
@@ -21,8 +78,8 @@ public class DateFormatUtils {
 		String diff = null;
 		Long date11;
 		try {
-			date11 = df.parse(formatAP(date1)).getTime();
-			Long date22 = df.parse(formatAP(date2)).getTime();
+			date11 = df.parse(formatAM(date1)).getTime();
+			Long date22 = df.parse(formatAM(date2)).getTime();
 			diff = (date22 - date11) / 1000 / 60 + "";
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -31,7 +88,7 @@ public class DateFormatUtils {
 		return diff;
 	}
 
-	public static String formatAP(String date) {
+	public static String formatAM(String date) {
 		if (date.contains("AM")) {
 			date = date.substring(0, date.indexOf("AM")).trim();
 		}
@@ -76,11 +133,22 @@ public class DateFormatUtils {
 				break;
 			}
 		}
+		SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy HH:mm");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date date2;
+		try {
+			 date2=df.parse(date);
+			 date=simpleDateFormat.format(date2);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		return date;
 	}
+	
 
 	public static void main(String[] args) {
-		dateDiff("2020-05-09 11:53 AM", "2020-05-09 05:53 PM");
+		//dateDiff("2020-05-09 11:53 AM", "2020-05-09 05:53 PM");
+		System.out.println(nextWorkDate("2020-05-22 17:53", "8"));
 	}
 
 }

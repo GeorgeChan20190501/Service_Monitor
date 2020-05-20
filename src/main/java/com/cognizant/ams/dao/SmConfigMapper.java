@@ -27,4 +27,6 @@ public interface SmConfigMapper {
 	List<SmConfig> getEmailConfigInfo();
 
 	List<SmConfig> getScheduleConfigInfo();
+
+	List<SmConfig>  getSLAStandard(SmConfig smConfig);
 }

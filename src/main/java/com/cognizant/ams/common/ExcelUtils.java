@@ -44,7 +44,7 @@ public class ExcelUtils {
         } else {
             //获取所有的工作表的的数量
             int numOfSheet = workbook.getNumberOfSheets ();
-            System.out.println (numOfSheet + "--->numOfSheet");
+            System.out.println ("多少个sheet="+numOfSheet);
             List<Map> mapList = new ArrayList<> ();
             //遍历表
             for (int i = 0; i < numOfSheet; i++) {

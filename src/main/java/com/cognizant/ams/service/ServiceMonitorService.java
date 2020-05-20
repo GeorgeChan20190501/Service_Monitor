@@ -75,5 +75,6 @@ public class ServiceMonitorService {
 		SmConfig smConfig=list.get(0);
 		return smConfig.getCval1();
 	}
+	
 
 }
