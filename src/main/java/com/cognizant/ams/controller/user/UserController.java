@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONArray;
 import com.cognizant.ams.bean.Organization;
+import com.cognizant.ams.bean.SysMenu;
 import com.cognizant.ams.bean.SysRole;
 import com.cognizant.ams.bean.SysUser;
 import com.cognizant.ams.bean.common.JsonReqObject;
@@ -48,7 +49,10 @@ public class UserController {
 	@PostMapping("/queryUser")
 	public Map<String, Object> queryUser(@RequestBody String param) {
 		System.out.println("查询用户参数===" + param);
-		SysUser sysUser = JSONArray.parseObject(param, SysUser.class);
+		
+		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
+		String jsonParam=jsonReqObject.getMsg();
+		SysUser sysUser = JSONArray.parseObject(jsonParam, SysUser.class);
 		// 查询用户
 		List<SysUser> list = userService.queryUser(sysUser);
 		System.out.println("总条数为===" + list.size());

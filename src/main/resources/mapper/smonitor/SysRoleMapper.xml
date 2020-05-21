@@ -279,4 +279,12 @@
   			
   </select>
   
+     <delete id='deleteUserRole'  parameterType='list'>
+  				delete from sys_role_menu  where role_code in
+  				<foreach collection="list" item="item" separator=","   open="("  close=")">
+  							#{item}
+  				</foreach>
+  </delete>
+  
+  
 </mapper>

@@ -240,7 +240,7 @@ var vm=new Vue({
 				}).then(resrm=>{ 			 
 					ams_alert(resrm.data);
 					this.users=[];
-					this.queryUser();
+					this.query();
 				} ,error=>{				
 				}); 
 
@@ -258,7 +258,7 @@ var vm=new Vue({
 					ams_alert(resrm.data);
 					this.users=[];
 					this.flag=false;
-					this.queryUser();
+					this.query();
 					
 				} ,error=>{				
 				}); 
@@ -266,7 +266,7 @@ var vm=new Vue({
 		  }
 		  if(info.indexOf('修改用户')!=-1){
 			  var ids=this.ids;
-			  var arr=this.user1;
+			  var arr=this.dataShow;
 			  var myarr=[];
 		  	  for(x in arr){
 		  		  for(y in ids){
@@ -286,7 +286,7 @@ var vm=new Vue({
 					ams_alert(resrm.data);
 					this.users=[];
 					this.flag=false;
-					this.queryUser();
+					this.query();
 					
 				} ,error=>{				
 				}); 

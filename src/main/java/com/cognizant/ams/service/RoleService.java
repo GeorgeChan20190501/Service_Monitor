@@ -111,4 +111,8 @@ public class RoleService {
 		
 	}
 
+	public void deleteUserRole(List<String> listId) {
+		sysRoleMapper.deleteUserRole(listId);
+	}
+
 }

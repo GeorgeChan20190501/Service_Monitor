@@ -2,8 +2,10 @@ package com.cognizant.ams.controller.role;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +17,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.cognizant.ams.bean.SysRole;
 import com.cognizant.ams.bean.SysRoleMenu;
 import com.cognizant.ams.bean.common.JsonReqObject;
-import com.cognizant.ams.common.PageHelper;
 import com.cognizant.ams.service.RoleService;
 
 @RestController
@@ -113,6 +114,8 @@ public class RoleController {
 		String msg1[] = jsonReqObject.getMsg1().replace("[\"", "").replace("\"]", "").replace("\",\"", ";").split(";");
 		System.out.println(msg1);
 		List<SysRoleMenu>  list =new ArrayList<SysRoleMenu>(); 
+		Set<String>  set =new HashSet<String>(); 
+		
 		SysRoleMenu sysRoleMenu;
 		 //组装role_menu
 		for (String nodecode : msg1) {    //遍历选中的菜单
@@ -123,9 +126,12 @@ public class RoleController {
 					sysRoleMenu.setNodeCode(nodecode);
 					sysRoleMenu.setRoleCode(rolecode);
 					list.add(sysRoleMenu);
+					set.add(rolecode);
 				}
 			}
 		try {
+			List<String>  rolelist =new ArrayList<String>(set); 
+			roleService.deleteUserRole(rolelist);
 			roleService.roleGrant(list);
 		} catch (Exception e) {
 			return "操作异常";

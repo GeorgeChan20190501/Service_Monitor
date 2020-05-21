@@ -232,10 +232,10 @@
 				and id = #{id}
 			</if>
 			<if test="appId != null  and appId !='' ">
-				and app_id = #{appId}
+				and app_id like  concat(concat('%',#{appId}),'%')  
 			</if>
 			 <if test="appName != null  and appName !='' ">
-				and app_name = #{appName}
+				and app_name like  concat(concat('%',#{appName}),'%')  
 			</if>
 		</where>
 		order by create_time desc

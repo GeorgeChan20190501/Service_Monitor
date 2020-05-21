@@ -42,5 +42,7 @@ public interface SysRoleMapper {
 	String[] getRoleCode(List<String> listId);
 
 	void roleGrant(List<SysRoleMenu> list);
+
+	void deleteUserRole(List<String> listId);
     
 }

@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			<div class="row" style="padding: 15px;">
-				<button class="bg-primary mybtn" @click="fenye(1)">查询角色</button>
+				<button class="bg-primary mybtn" @click="query()">查询角色</button>
 				<button class="mybtn bg-primary" style="margin-left: 45px;" data-toggle="modal" data-target="#myModal"
 					@click="addRole()">新增角色</button>
 				<button class="mybtn bg-danger" style="margin-left: 45px;" @click="grant()">角色授权</button>
@@ -192,6 +192,8 @@
 				}).then(res => {
 					ams_alert( res.data);
 					this.checkGrp = [];
+					this.showResult = true;
+					this.query();
 				}, error => {
 				});
 			},
@@ -298,7 +300,8 @@
 						msg: this.roleobj
 					},
 				}).then(res => {
-					this.info2 = res.data
+					this.info2 = res.data;
+					this.query();
 				}, error => {
 				});
 			},
@@ -313,14 +316,14 @@
 					}).then(resrm => {
 						ams_alert(resrm.data);
 						this.checkGrp = [];
-						this.fenye(this.currentPage);
+						this.query();
 					}, error => {
 					});
 				}
 
 				if (info.indexOf('确定修改记录') != -1) {
 					var checkGrp = this.checkGrp;
-					var Roles = this.Roles;
+					var Roles = this.dataShow;
 					var myarr = [];
 					for (x in Roles) {
 						for (y in checkGrp) {
@@ -340,7 +343,7 @@
 						ams_alert(resrm.data);
 						this.checkGrp = [];
 						this.flag = false;
-						this.fenye(this.currentPage);
+						this.query();
 
 					}, error => {
 					});

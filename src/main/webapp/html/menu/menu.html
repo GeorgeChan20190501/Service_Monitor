@@ -211,7 +211,8 @@
 						msg: this.menuobj
 					},
 				}).then(res => {
-					this.info2=res.data	
+					this.info2=res.data	;
+					this.query();
 				}, error => {
 				});
 			},
@@ -226,14 +227,14 @@
 					}).then(resrm => {
 						ams_alert(resrm.data);
 						this.checkGrp = [];
-						this.fenye(this.currentPage);
+						this.query();
 					}, error => {
 					});
 				}
 
 				if (info.indexOf('确定修改记录') != -1) {
 					var checkGrp = this.checkGrp;
-					var menus = this.menus;
+					var menus = this.dataShow;
 					var myarr = [];
 					for (x in menus) {
 						for (y in checkGrp) {
@@ -253,7 +254,7 @@
 						ams_alert(resrm.data);
 						this.checkGrp = [];
 						this.flag = false;
-						this.fenye(this.currentPage);
+						this.query();
 
 					}, error => {
 					});
