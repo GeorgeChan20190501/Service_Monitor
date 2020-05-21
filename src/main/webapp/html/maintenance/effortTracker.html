@@ -177,7 +177,29 @@
 			<fenye v-bind:parentmsg="url" @myfunc="dataDisplay" ref="fenye" />
 		</div>
 
+	<!-- 模态框 -->
+	<div class="modal fade myalert" id="myModal">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<!-- 模态框头部 -->
+				<div class="modal-header">
+					<span class="modal-title">系统提示：</span>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- 模态框主体 -->
+				<div class="modal-body">{{info2}}
+				<!-- 模态框底部 -->
+				<div class="modal-footer">
+					<button class="btn btn-success btn-sm" data-dismiss="modal" id="modal-1"
+						@click="confirmbtn(info2)">确 认</button>
+					<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" @click="cancle()">取
+						消</button>
+				</div>
 
+			</div>
+		</div>
+	</div>
+		</div>
 
 	</div>
 	<div id="ss"></div>

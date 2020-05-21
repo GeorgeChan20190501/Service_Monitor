@@ -2,8 +2,6 @@ package com.cognizant.ams.dao;
 
 import com.cognizant.ams.bean.SmEfforts;
 import com.cognizant.ams.bean.SmEffortsExample;
-import com.cognizant.ams.bean.SysRole;
-
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

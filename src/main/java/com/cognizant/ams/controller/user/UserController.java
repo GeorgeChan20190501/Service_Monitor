@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONArray;
 import com.cognizant.ams.bean.Organization;
-import com.cognizant.ams.bean.SysMenu;
 import com.cognizant.ams.bean.SysRole;
 import com.cognizant.ams.bean.SysUser;
 import com.cognizant.ams.bean.common.JsonReqObject;

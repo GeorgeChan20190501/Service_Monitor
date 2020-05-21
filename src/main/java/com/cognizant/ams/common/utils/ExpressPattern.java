@@ -39,12 +39,14 @@ public class ExpressPattern
    }
     public static void main(String[] args) {
 		
-		  String message = "\"05-11-2020 02:43 PM - Guangyong Li (Work notes)\r\n" +
-		  "逻辑确认\r\n" + "\r\n" + "05-11-2020 11:42 AM - Guangyong Li (Work notes)\r\n" +
-		  "pending\r\n" + "\r\n" + "05-11-2020 11:23 AM - jingya gao (Work notes)\r\n" +
-		  "请协助处理，用户表示主管即是系统所有者\r\n" + "\r\n" +
-		  "05-11-2020 09:43 AM - Cylee Cao (Work notes)\r\n" + "请联系用户提供签字\r\n" + "\r\n"
-		  + "\"\r\n" + ""; 
+		/*
+		 * String message = "\"05-11-2020 02:43 PM - Guangyong Li (Work notes)\r\n" +
+		 * "逻辑确认\r\n" + "\r\n" + "05-11-2020 11:42 AM - Guangyong Li (Work notes)\r\n" +
+		 * "pending\r\n" + "\r\n" + "05-11-2020 11:23 AM - jingya gao (Work notes)\r\n"
+		 * + "请协助处理，用户表示主管即是系统所有者\r\n" + "\r\n" +
+		 * "05-11-2020 09:43 AM - Cylee Cao (Work notes)\r\n" + "请联系用户提供签字\r\n" + "\r\n"
+		 * + "\"\r\n" + "";
+		 */
 			/*
 			 * assignTime(message); wipTime(message); pedingTime(message);
 			 * ResolvedTime(message);

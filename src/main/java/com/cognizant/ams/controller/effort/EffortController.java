@@ -1,18 +1,9 @@
 package com.cognizant.ams.controller.effort;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.xml.stream.events.EndDocument;
-
-import org.apache.poi.util.StringUtil;
-import org.mybatis.generator.codegen.ibatis2.dao.elements.AbstractDAOElementGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,19 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.cognizant.ams.service.*;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.cognizant.ams.bean.SmApplist;
 import com.cognizant.ams.bean.SmConfig;
 import com.cognizant.ams.bean.SmEfforts;
-import com.cognizant.ams.bean.SysRole;
 import com.cognizant.ams.bean.common.JsonReqObject;
-import com.cognizant.ams.common.ExcelUtils;
 import com.cognizant.ams.service.EffortService;
 import com.mchange.v2.lang.StringUtils;
 
@@ -43,8 +28,6 @@ public class EffortController {
 	@Autowired
 	private EffortService effortService;
 
-	@Autowired
-	private AppConfigService appConfigService;
 
 	@PutMapping("/save")
 	public int saveEfforts(@RequestBody String effortJson) {
@@ -85,8 +68,8 @@ public class EffortController {
 	}
 
 	@PostMapping("/query")
-	public Map queryEffortByUser(String startworkdy, String endworkday, String usercode) {
-		Map map = new HashMap<String, Object>();
+	public Map<String, Object> queryEffortByUser(String startworkdy, String endworkday, String usercode) {
+		Map<String, Object> map = new HashMap<String, Object>();
 
 		// TODO session 获取
 		usercode = "likev";

@@ -1,22 +1,17 @@
 package com.cognizant.ams.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import com.cognizant.ams.bean.SmConfig;
 import com.cognizant.ams.bean.SmConfigExample;
 import com.cognizant.ams.bean.SmEfforts;
 import com.cognizant.ams.bean.SmEffortsExample;
-import com.cognizant.ams.bean.SmSn;
-import com.cognizant.ams.bean.SysMenuExample;
 import com.cognizant.ams.dao.SmConfigMapper;
 import com.cognizant.ams.dao.SmEffortsMapper;
-import com.cognizant.ams.dao.SmSnMapper;
 
+@SuppressWarnings("deprecation")
 @Service
 public class EffortService {
 
@@ -34,6 +29,8 @@ public class EffortService {
 	 * @param effort
 	 * @return
 	 */
+
+	@SuppressWarnings("unused")
 	public int save(SmEfforts effort) {
 		effort.setCreateTime(new Date().toLocaleString());
 		effortsExample=new SmEffortsExample();
@@ -58,7 +55,7 @@ public class EffortService {
 	 * @param effort
 	 * @return
 	 */
-	public int delete(List  efforts) {
+	public int delete(List<String>  efforts) {
 	    int result=effortMapper.deleteEffort(efforts);
 		return result;
 	}
@@ -126,6 +123,7 @@ public class EffortService {
 	 * @param enddate
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	public List<SmEfforts> queryAllEfforts(){
 		effortsExample=new SmEffortsExample();
 		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
