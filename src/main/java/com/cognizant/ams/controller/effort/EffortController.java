@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,12 +34,14 @@ public class EffortController {
 	@Autowired
 	private EffortService effortService;
 
+	private static String loginUsercode;
 
 	@PutMapping("/save")
 	public int saveEfforts(@RequestBody String effortJson) {
 		System.out.println("开始保存effort===" + effortJson);
 
 		JSONObject json = JSON.parseObject(effortJson);
+		System.out.println(effortJson);
 		SmEfforts effort = new SmEfforts();
 		effort.setWorkday(json.getString("workday"));
 		effort.setEaiCode(json.getString("eaicode"));
@@ -48,10 +56,10 @@ public class EffortController {
 		effort.setAppower(temp.getCval2());
 		// TODO 获取当前登陆用户
 		effort.setUserid(json.getString("userid"));
-		effort.setUsername(json.getString("userid"));
+		effort.setUsername(json.getString("username"));
 
-		effort.setUserid("likev");
-		effort.setUsername("Kevin");
+//		effort.setUserid("likev");
+//		effort.setUsername("Kevin");
 
 		int result = effortService.save(effort);
 		return result;
@@ -68,28 +76,59 @@ public class EffortController {
 	}
 
 	@PostMapping("/query")
-	public Map<String, Object> queryEffortByUser(String startworkdy, String endworkday, String usercode) {
-		Map<String, Object> map = new HashMap<String, Object>();
-
-		// TODO session 获取
-		usercode = "likev";
-		if (!StringUtils.nonEmptyString(usercode) || usercode.equals("ams")) {
-			// 获取团队Efforts
-		} else {
-			// 获取个人Effort
-			System.out.println(usercode + "查询用户所有effort");
-			   List<SmEfforts> effortList=  effortService.queryEffortsByUser(usercode);	   
-				map.put("list", effortList);
+	public Map<String, Object> queryEffortByUser(@RequestBody String param) {
+		System.out.println("@@@传入JSON"+param);
+		String usercode="";
+		String startworkdy="";
+		String endworkday="";
+		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
+		String jsonParam = jsonReqObject.getMsg();
+		if (Strings.isEmpty(jsonParam)) {
+			JSONObject object=JSONObject.parseObject(param);
+			 usercode=object.getString("usercode");
+			 startworkdy=object.getString("startworkday");
+			 endworkday=object.getString("endworkday");
+		}else {
+			JSONObject object=JSONObject.parseObject(jsonParam);
+			usercode=object.getString("usercode");
+			 startworkdy=object.getString("startworkday");
+			 endworkday=object.getString("endworkday");
 		}
-		return map;
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		// 页面加载时查询
+		System.out.println("#########EFFORT查询：usercode==="+usercode+"startworkdy==="+startworkdy+"endworkday==="+endworkday);
+		if (Strings.isEmpty(usercode)) {//传入usercode为空
+			
+			if (!loginUsercode.equals("SYSTEM")) {// 普通用户
+				List<SmEfforts> effortList = effortService.queryEffortsByUser(loginUsercode);
+				map.put("list", effortList);
+				return map;
+			} else {// admin用户
+				List<SmEfforts> effortList = effortService.queryAllEfforts();
+				map.put("list", effortList);
+				return map;
+			}
+
+		} else {//传入usercode为不为空（页面查询）
+			System.out.println("&&&&&&&&&&&进来了");
+			if (usercode.equals("ams")) {
+
+				// 获取团队Efforts
+				List<SmEfforts> effortList = effortService.queryAllEffortsByDate(startworkdy, endworkday);
+				map.put("list", effortList);
+				return map;
+			} else {
+				System.out.println();
+				// 获取个人Effort
+				System.out.println(usercode + "查询所有effort");
+				List<SmEfforts> effortList = effortService.queryEfforts(startworkdy, endworkday, usercode);
+				map.put("list", effortList);
+				return map;
+			}
+
+		}
 	}
-	
-	
-
-	
-
-
-	
 
 	@GetMapping("/allefforts")
 	public List<SmEfforts> queryEffortAll() {
@@ -131,6 +170,15 @@ public class EffortController {
 		System.out.println(list);
 		int result = effortService.delete(list);
 		return "删除成功" + result + "条！";
+	}
+
+	@GetMapping("/loginuser")
+	public String getSessionUser(HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		loginUsercode = (String) session.getAttribute("username");
+		System.out.println("获取Session用户：" + loginUsercode);
+
+		return loginUsercode;
 	}
 
 }

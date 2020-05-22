@@ -32,7 +32,7 @@
 				<div class="col-sm-3 ">
 					<div style="width: 80px; height: 25px; float: left">Effort
 						Ower</div>
-					<select v-model="currUser.usercode" style="width: 200px;">
+					<select id="user" v-model="currUser.usercode"  :disabled="currUser.usercode!='SYSTEM'? 'disabled': false" style="width: 200px;">
 						<option :selected="true" value=""></option>
 						<option v-for="user in useroption" :value="user.usercode">
 							{{user.username}}</option>
@@ -53,54 +53,57 @@
 						style="width: 150px; height: 25px;" />
 				</div>
 			</div>
-<div class="bh2"></div>
-<div class="bh2"></div>
-<div style="border: 2px solid rgb(222,226,230) ;padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px">
-			<div class="row" >
-				<div class="col-sm-3">
-					<div style="width: 80px; height: 25px; float: left">Date</div>
-					<input type="date" name='candiv' v-model="effortObj.workday"
-						style="width: 200px; height: 25px;" />
+			<div class="bh2"></div>
+			<div class="bh2"></div>
+			<div
+				 style="border: 2px solid rgb(222, 226, 230); padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+				<div class="row">
+					<div class="col-sm-3">
+						<div style="width: 80px; height: 25px; float: left">Date</div>
+						<input :disabled="currUser.usercode=='SYSTEM'? 'disabled': false"  type="date" name='candiv' v-model="effortObj.workday"
+							style="width: 200px; height: 25px;" />
+					</div>
+
+
+
+
+
 				</div>
+				<div class="bh1"></div>
+				<div class="row">
+					<div class="col-sm-3">
+						<div style="width: 80px; height: 25px; float: left">Task
+							Type</div>
+						<select :disabled="currUser.usercode=='SYSTEM'? 'disabled': false"  v-model="effortObj.tasktype" style="width: 200px;">
+							<option value=""></option>
+							<option v-for="tasktype in tasktypeList" :value="tasktype.type">{{tasktype.type}}</option>
+						</select>
+					</div>
+					<div class="col-sm-3">
+						<div style="width: 115px; height: 25px; float: left">Application
+							Name</div>
+						<select :disabled="currUser.usercode=='SYSTEM'? 'disabled': false"  v-model="effortObj.eaicode" style="width: 150px;">
+							<option :selected="true" value=""></option>
+							<option v-for="app in appList" :value="app.ckey">
+								{{app.cval1}}</option>
+						</select>
 
 
-
-
-
+					</div>
+					<div class="col-sm-3">
+						<div style="width: 100px; height: 25px; float: left">Ticket
+							Number</div>
+						<input  :disabled="currUser.usercode=='SYSTEM'? 'disabled': false"  type="text" name="childNum"
+							v-model="effortObj.ticketnumber"
+							style="width: 150px; height: 25px;" />
+					</div>
+					<div class="col-sm-2">
+						<div  style="width: 50px; height: 25px; float: left">Hours</div>
+						<input :disabled="currUser.usercode=='SYSTEM'? 'disabled': false"  type="text" name="pageUrl" v-model="effortObj.efforthours"
+							style="width: 150px; height: 25px;" />
+					</div>
+				</div>
 			</div>
-			<div class="bh1"></div>
-			<div class="row">
-				<div class="col-sm-3">
-					<div style="width: 80px; height: 25px; float: left">Task Type</div>
-					<select v-model="effortObj.tasktype" style="width: 200px;">
-						<option value=""></option>
-						<option v-for="tasktype in tasktypeList" :value="tasktype.type">{{tasktype.type}}</option>
-					</select>
-				</div>
-				<div class="col-sm-3">
-					<div style="width: 115px; height: 25px; float: left">Application
-						Name</div>
-					<select v-model="effortObj.eaicode" style="width: 150px;">
-						<option :selected="true" value=""></option>
-						<option v-for="app in appList" :value="app.ckey">
-							{{app.cval1}}</option>
-					</select>
-
-
-				</div>
-				<div class="col-sm-3">
-					<div style="width: 100px; height: 25px; float: left">Ticket
-						Number</div>
-					<input type="text" name="childNum" v-model="effortObj.ticketnumber"
-						style="width: 150px; height: 25px;" />
-				</div>
-				<div class="col-sm-2">
-					<div style="width: 50px; height: 25px; float: left">Hours</div>
-					<input type="text" name="pageUrl" v-model="effortObj.efforthours"
-						style="width: 150px; height: 25px;" />
-				</div>
-			</div>
-</div>
 			<div class="row" style="padding: 15px;">
 
 				<button class="mybtn bg-primary" style="margin-left: 15px;"
@@ -177,28 +180,29 @@
 			<fenye v-bind:parentmsg="url" @myfunc="dataDisplay" ref="fenye" />
 		</div>
 
-	<!-- 模态框 -->
-	<div class="modal fade myalert" id="myModal">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<!-- 模态框头部 -->
-				<div class="modal-header">
-					<span class="modal-title">系统提示：</span>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<!-- 模态框主体 -->
-				<div class="modal-body">{{info2}}
-				<!-- 模态框底部 -->
-				<div class="modal-footer">
-					<button class="btn btn-success btn-sm" data-dismiss="modal" id="modal-1"
-						@click="confirmbtn(info2)">确 认</button>
-					<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" @click="cancle()">取
-						消</button>
-				</div>
+		<!-- 模态框 -->
+		<div class="modal fade myalert" id="myModal">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<!-- 模态框头部 -->
+					<div class="modal-header">
+						<span class="modal-title">系统提示：</span>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<!-- 模态框主体 -->
+					<div class="modal-body">
+						{{info2}}
+						<!-- 模态框底部 -->
+						<div class="modal-footer">
+							<button class="btn btn-success btn-sm" data-dismiss="modal"
+								id="modal-1" @click="confirmbtn(info2)">确 认</button>
+							<button type="button" class="btn btn-secondary btn-sm"
+								data-dismiss="modal" @click="cancle()">取 消</button>
+						</div>
 
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
 		</div>
 
 	</div>
@@ -211,7 +215,7 @@
 			appList:[],
 			tasktypeList:[],
 			workday: '2020-05-20',
-			currUser:{usercode: 'likev', username: 'Kevin'},
+			currUser:{usercode: '', username: ''},
 			effortObj: { id: null, userid: '', username:'', appower: '', appname: '', workday: '', eaicode:'',tasktype:'',ticketnumber:'',efforthours:'' },
 			info: [],
 			role: [],
@@ -229,13 +233,16 @@
 			url:'/efforts/query',
 			startworkday: '',
 			endworkday:  '',
-			useroption : []
+			useroption : [],
+			condition: {usercode:'',startworkday:'', endworkday:''}
 		},
 		created() {
 			this.getAppInfo();
 			this.getType();
 			this.queryEffort();
-			this.getUsers()
+			this.getUsers();
+			this.getCurrUser();
+			
  		},
 		methods: {
 			queryEffort(){
@@ -322,6 +329,21 @@
 				}, error => {
 				});
 			},
+			getCurrUser(){
+				axios({
+					method: 'get',
+					url: '/efforts/loginuser',
+				}).then(res => {
+					log(res.data);
+					this.currUser.usercode = res.data;
+					this.useroption.forEach((item,index)=>{
+						if(item.usercode.toLowerCase()==this.currUser.usercode.toLowerCase()){
+							this.currUser.username=item.username;
+						}
+					})
+				}, error => {
+				});
+			},
 			getType(){
 				axios({
 					method: 'get',
@@ -336,12 +358,23 @@
 		},
 			dataDisplay(dataShow){	 this.dataShow=dataShow;},
 			query() {	
-				this.$refs.fenye.condition(this.currUser.usercode);
+				this.condition.usercode=this.currUser.usercode;
+				this.condition.startworkday=this.startworkday;
+				this.condition.endworkday=this.endworkday;
+				this.$refs.fenye.condition(this.condition);
 			    this.queryEffort();
 			    },
 		
 			 
 			addConfig() {
+			    	this.effortObj.userid=this.currUser.usercode;
+					this.effortObj.username=this.currUser.username;
+					
+			    	if(this.currUser.usercode=='SYSTEM'){
+						ams_alert('管理员无法填写Effort ! ');
+						return false;
+					}	
+			    	
 				if (
 					   (this.effortObj.workday == '' || this.effortObj.workday == null) || 
 						(this.effortObj.eaicode == '' || this.effortObj.eaicode == null) || 
