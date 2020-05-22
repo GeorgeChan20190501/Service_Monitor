@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cognizant.ams.dao.SmFunMapper">
+  <resultMap id="BaseResultMap" type="com.cognizant.ams.bean.SmFun">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="fkey" jdbcType="VARCHAR" property="fkey" />
+    <result column="fval1" jdbcType="CHAR" property="fval1" />
+    <result column="fval2" jdbcType="CHAR" property="fval2" />
+    <result column="fval3" jdbcType="CHAR" property="fval3" />
+    <result column="fval4" jdbcType="CHAR" property="fval4" />
+    <result column="fval5" jdbcType="CHAR" property="fval5" />
+    <result column="fval6" jdbcType="CHAR" property="fval6" />
+    <result column="fval7" jdbcType="CHAR" property="fval7" />
+    <result column="fval8" jdbcType="VARCHAR" property="fval8" />
+    <result column="fval9" jdbcType="VARCHAR" property="fval9" />
+    <result column="fval10" jdbcType="VARCHAR" property="fval10" />
+    <result column="create_time" jdbcType="CHAR" property="createTime" />
+    <result column="chk" jdbcType="CHAR" property="chk" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, type, fkey, fval1, fval2, fval3, fval4, fval5, fval6, fval7, fval8, fval9, fval10, 
+    create_time, chk
+  </sql>
+  <select id="selectByExample" parameterType="com.cognizant.ams.bean.SmFunExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sm_fun
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.cognizant.ams.bean.SmFunExample">
+    delete from sm_fun
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cognizant.ams.bean.SmFun">
+    insert into sm_fun (id, type, fkey, 
+      fval1, fval2, fval3, fval4, 
+      fval5, fval6, fval7, fval8, 
+      fval9, fval10, create_time, 
+      chk)
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{fkey,jdbcType=VARCHAR}, 
+      #{fval1,jdbcType=CHAR}, #{fval2,jdbcType=CHAR}, #{fval3,jdbcType=CHAR}, #{fval4,jdbcType=CHAR}, 
+      #{fval5,jdbcType=CHAR}, #{fval6,jdbcType=CHAR}, #{fval7,jdbcType=CHAR}, #{fval8,jdbcType=VARCHAR}, 
+      #{fval9,jdbcType=VARCHAR}, #{fval10,jdbcType=VARCHAR}, #{createTime,jdbcType=CHAR}, 
+      #{chk,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cognizant.ams.bean.SmFun">
+    insert into sm_fun
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="fkey != null">
+        fkey,
+      </if>
+      <if test="fval1 != null">
+        fval1,
+      </if>
+      <if test="fval2 != null">
+        fval2,
+      </if>
+      <if test="fval3 != null">
+        fval3,
+      </if>
+      <if test="fval4 != null">
+        fval4,
+      </if>
+      <if test="fval5 != null">
+        fval5,
+      </if>
+      <if test="fval6 != null">
+        fval6,
+      </if>
+      <if test="fval7 != null">
+        fval7,
+      </if>
+      <if test="fval8 != null">
+        fval8,
+      </if>
+      <if test="fval9 != null">
+        fval9,
+      </if>
+      <if test="fval10 != null">
+        fval10,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="chk != null">
+        chk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="fkey != null">
+        #{fkey,jdbcType=VARCHAR},
+      </if>
+      <if test="fval1 != null">
+        #{fval1,jdbcType=CHAR},
+      </if>
+      <if test="fval2 != null">
+        #{fval2,jdbcType=CHAR},
+      </if>
+      <if test="fval3 != null">
+        #{fval3,jdbcType=CHAR},
+      </if>
+      <if test="fval4 != null">
+        #{fval4,jdbcType=CHAR},
+      </if>
+      <if test="fval5 != null">
+        #{fval5,jdbcType=CHAR},
+      </if>
+      <if test="fval6 != null">
+        #{fval6,jdbcType=CHAR},
+      </if>
+      <if test="fval7 != null">
+        #{fval7,jdbcType=CHAR},
+      </if>
+      <if test="fval8 != null">
+        #{fval8,jdbcType=VARCHAR},
+      </if>
+      <if test="fval9 != null">
+        #{fval9,jdbcType=VARCHAR},
+      </if>
+      <if test="fval10 != null">
+        #{fval10,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=CHAR},
+      </if>
+      <if test="chk != null">
+        #{chk,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cognizant.ams.bean.SmFunExample" resultType="java.lang.Long">
+    select count(*) from sm_fun
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sm_fun
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fkey != null">
+        fkey = #{record.fkey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fval1 != null">
+        fval1 = #{record.fval1,jdbcType=CHAR},
+      </if>
+      <if test="record.fval2 != null">
+        fval2 = #{record.fval2,jdbcType=CHAR},
+      </if>
+      <if test="record.fval3 != null">
+        fval3 = #{record.fval3,jdbcType=CHAR},
+      </if>
+      <if test="record.fval4 != null">
+        fval4 = #{record.fval4,jdbcType=CHAR},
+      </if>
+      <if test="record.fval5 != null">
+        fval5 = #{record.fval5,jdbcType=CHAR},
+      </if>
+      <if test="record.fval6 != null">
+        fval6 = #{record.fval6,jdbcType=CHAR},
+      </if>
+      <if test="record.fval7 != null">
+        fval7 = #{record.fval7,jdbcType=CHAR},
+      </if>
+      <if test="record.fval8 != null">
+        fval8 = #{record.fval8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fval9 != null">
+        fval9 = #{record.fval9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fval10 != null">
+        fval10 = #{record.fval10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=CHAR},
+      </if>
+      <if test="record.chk != null">
+        chk = #{record.chk,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sm_fun
+    set id = #{record.id,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=VARCHAR},
+      fkey = #{record.fkey,jdbcType=VARCHAR},
+      fval1 = #{record.fval1,jdbcType=CHAR},
+      fval2 = #{record.fval2,jdbcType=CHAR},
+      fval3 = #{record.fval3,jdbcType=CHAR},
+      fval4 = #{record.fval4,jdbcType=CHAR},
+      fval5 = #{record.fval5,jdbcType=CHAR},
+      fval6 = #{record.fval6,jdbcType=CHAR},
+      fval7 = #{record.fval7,jdbcType=CHAR},
+      fval8 = #{record.fval8,jdbcType=VARCHAR},
+      fval9 = #{record.fval9,jdbcType=VARCHAR},
+      fval10 = #{record.fval10,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=CHAR},
+      chk = #{record.chk,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+    <select id="getPrePeriod" parameterType="com.cognizant.ams.bean.SmFun" resultMap="BaseResultMap">
+		select * from sm_fun
+		<where>
+			<if test="fkey != null  and fkey !='' ">
+				and fkey = #{fkey}
+			</if>
+			<if test="type != null  and type !='' ">
+				and type = #{type}
+			</if>
+			<if test="fval8 != null  and fval8 !='' ">
+				and fval8 = #{fval8}
+			</if>
+		</where>
+		order by fkey desc
+	</select>
+	
+	
+  <select id='touzhu' parameterType='list' >
+  		<foreach collection="list" item="smFun"  open=""  close=""  separator=";" >		
+				    insert into sm_fun values('DLT',#{smFun.fkey},#{smFun.fval1},#{smFun.fval2},#{smFun.fval3},#{smFun.fval4},#{smFun.fval5},#{smFun.fval6},#{smFun.fval7},#{smFun.fval8},'','',(select CONVERT(varchar(100), GETDATE(), 120)) ,'false' ); 
+		</foreach>
+  </select>
+	
+  
+</mapper>

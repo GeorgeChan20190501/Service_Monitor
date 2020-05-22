@@ -1,3 +1,77 @@
+.overline{
+	width:100%;
+	height:5px;
+	border-top:2px solid rgb(222,226,230);
+	
+	
+}
+
+.disa{
+	display:inline-block;
+	width:26px;
+	height:26px;
+	border-radius:50%;
+	text-align:center;
+	background: rgb(236,87,80);
+	color:white;
+	line-height:25px;
+	font-size:14px;
+	filter:grayscale(100%);
+	user-select:none;
+	cursor: not-allowed;
+	pointer-events:none;
+}
+ 
+.myleft{
+	margin-left:5px;
+	margin-bottom:5px;
+}
+.touzhu{
+	border:2px solid rgb(222,226,230);
+	width:100%;
+	padding:10px;
+	margin-left:0px;
+}
+.tzz{	
+	padding-top:30px;
+	float:left;
+}
+.tzy{
+	position:relative;
+	border-left:1px solid rgb(222,226,230);
+	padding:10px;
+}
+.redball{
+	display:inline-block;
+	width:26px;
+	height:26px;
+	border-radius:50%;
+	text-align:center;
+	background: rgb(236,87,80);
+	color:white;
+	line-height:25px;
+	font-size:14px;
+	cursor:pointer;
+}
+.blueball{
+	display:inline-block;
+	width:26px;
+	height:26px;
+	border-radius:50%;
+	text-align:center;
+	background: rgb(51,166,255);
+	color:white;
+	line-height:26px;
+	font-size:14px;
+	cursor:pointer;
+}
+.w2{
+	margin-left:30px;
+}
+.w3{
+	margin-left:36px;
+}
+
 .mybtn1{
 	border:0;
 	outline:none;
@@ -185,7 +259,9 @@ body {
 .mybtn:hover {
 	background-color: #0061a0;
 }
-
+.bh05{
+	margin-top:10px;
+}
 .bh3 {
 	height: 30px;
 	width: 100%;

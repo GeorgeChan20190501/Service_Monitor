@@ -30,4 +30,27 @@ function closetips(time){
 function log(message){
 console.log(message);
 }
-/*=======================alert自定义==结束=============================*/
+/*=======================console自定义==结束=============================*/
+
+/*=======================sort自定义==开始=============================*/
+function mpsort(arr){
+	 var length= arr.length;
+	 for(var i=0;i<length-1;i++){
+		 for(var j=i+1;j<length;j++){
+			 var temp = 0;
+			 if(arr[i]>arr[j]){
+				 temp=arr[i];
+				 arr[i]=arr[j];
+				 arr[j]=temp;
+			 }
+		 }
+	 }
+	 return arr;
+}
+/*=======================sort自定义==结束=============================*/
+
+/*=======================随机数自定义==开始=============================*/
+function random(n){
+	 return Math.ceil(Math.random()*n);
+}
+/*=======================随机数自定义==结束=============================*/

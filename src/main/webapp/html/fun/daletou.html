@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>AMS 大乐透</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap-all.css">
+<script src="/js/bootstrap-all.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+<script src="/js/page.js"></script>
+<!-- 系统CSS或JS -->
+<link rel="stylesheet" href="/css/system.css">
+
+<style>
+</style>
+</head>
+
+<body>
+	<div id="container">
+		<div class="row">
+			<div class="col-3">
+				<h4>AMS 大乐透</h4>
+			</div>
+		</div>
+		<div class="bh2"></div>
+		<div class="bg-content">
+
+
+			<div class="row">
+				<div class="col-sm-6">
+					<span>当前期开奖结果：</span> <span class="redball">{{currentObj.fval1}}</span>
+					<span class="redball">{{currentObj.fval2}}</span> <span
+						class="redball">{{currentObj.fval3}}</span> <span class="redball">{{currentObj.fval4}}</span>
+					<span class="redball">{{currentObj.fval5}}</span> <span
+						class="blueball w2">{{currentObj.fval6}}</span> <span
+						class="blueball">{{currentObj.fval7}}</span>
+				</div>
+				<div class="col-sm-6">
+					往期查询：<select v-model='formObj.fkey'
+						style='width: 160px; height: 25px;'>
+						<option value="">请选择</option>
+						<option :value="item" v-for="item in selectResults">{{
+							item }}</option>
+					</select>
+					<span style="position: absolute; right: 60px" >我的积分：<span style="color:red">{{jifen}}</span></span>
+				</div>
+			</div>
+			<div class="row" style="padding: 15px;">
+				<button class="bg-primary mybtn" @click="query()">查一下</button>
+				<button class="mybtn bg-danger" style="margin-left: 45px;"
+					@click="buy()">投一个</button>
+			</div>
+
+		</div>
+		<div class="bh5"></div>
+
+		<div class="bg-content" v-if="showResult">
+			<div>往期结果：</div>
+			<div class="bh2"></div>
+			<div>
+				<table class="table  table-bordered   table-sm">
+					<thead>
+						<tr>
+							<th width="50px;"><input type="checkbox"
+								class=" batch checkbox" @click="getSelected()" /></th>
+							<th>历史期号</th>
+							<th>开奖结果</th>
+							<th>开奖时间</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="item in dataShow">
+							<td width=" 50px;"><input type="checkbox"
+								class="batch checkbox" @click=" chk(item.id,$event)"
+								v-model="item.chk" /></td>
+							<td><input class="tableinput" :value="item.roleCode"
+								v-model="item.fkey" :readonly="status ? false : 'readonly'" /></td>
+							<td><span class="redball">{{item.fval1}}</span> <span
+								class="redball">{{item.fval2}}</span> <span class="redball">{{item.fval3}}</span>
+								<span class="redball">{{item.fval4}}</span> <span
+								class="redball">{{item.fval5}}</span> <span class="blueball w2">{{item.fval6}}</span>
+								<span class="blueball">{{item.fval7}}</span></td>
+							<td>{{item.createTime}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row"></div>
+
+			</div>
+			<!-- 分页模板（修改URL及参数） -->
+			<fenye v-bind:parentmsg="url" @myfunc="dataDisplay" ref="fenye" />
+		</div>
+
+		<div class="bg-content" v-else="showResult">
+			<div>
+				欢迎投注：
+			</div>
+			<div class="bh2"></div>
+			<div class="touzhu  row" >
+				<div class="tzz  col-sm-6" >
+					<div class="row">
+						<div class="col-sm-12">
+							<span>当前注：</span> 
+							<span :class="['redball' ,'myleft',index==0 ? 'w3' : '']" v-for ='(item,index) in pre'  @click="dec5(index,item)">{{item}}</span>
+							 <span :class="['blueball' ,'myleft',index==0 ? 'w2' : '']" v-for ='(item,index) in post'  @click="dec2(index,item)">{{item}}</span>
+							 <button class="bg-success table-btn" style="position: relative; left: 50px" v-show="flag" @click="addAll()">我看着挺像</button>
+						</div>
+					</div>
+					
+					<div class="bh5"></div>
+					<div class="overline"></div>
+					
+					<div class="row bh05"   v-for ='(item,index) in hasAll' >
+						<div class="col-sm-12">
+							<span>已投注{{index+1}}：</span> 
+							<span  :class="[index1<5 ? 'redball' : 'blueball' ,'myleft',index1==0 | index1==5 ? 'w2' : '']"   v-for ='(item1,index1) in item' >{{item1}}</span>
+							<button class="bg-warning table-btn" style="position: relative; left: 120px ;" @click="del(item)">这个不行</button> 
+						</div>
+					</div>
+						<div v-show="hasAll.length>0? true : false">
+							<button v-show="hasAll.length>1? true : false" class="bg-success table-btn" style="position: absolute; right: 100px ;bottom:8px" @click="clean()">都不咋滴</button>
+						 	<button class="bg-success table-btn" style="position: absolute; right: 20px ;bottom:8px" @click="ok()">就这样了</button>
+						</div>
+				</div>
+				<div class="tzy  col-sm-6 ">
+					<div class="row bh05">
+						<div class="col-sm-6">
+							<span>选号范围：</span>
+						</div>
+					</div>
+					<div class="bh2"></div>
+					<div class="row bh05">
+						<div class="col-sm-2 ">
+							<span style="margin-left:10xp;">前区号：</span>
+						</div>
+						<div class="col-sm-10 ">
+							
+							<span :class="['myleft',  pre.indexOf(index+1)!=-1 ? 'disa' : 'redball' ]"  v-for="(n,index) in 35"  @click="aaa(n,index)" > {{n}} </span>
+
+						</div>
+					</div>
+					<div class="bh1"></div>
+						<div class="row bh05">
+						<div class="col-sm-2 ">
+							<span style="margin-left:10xp;">后区号：</span>
+						</div>
+						<div class="col-sm-10 ">
+							<span :class="['myleft',  post.indexOf(index+1)!=-1 ? 'disa' : 'blueball' ]"  v-for="(n,index) in 12"  @click="bbb(n,index)" > {{n}} </span>
+						</div>
+					</div>
+					<div class="bh5"></div>
+					<div class="row">
+						<div class="col-sm-6 ">
+						</div>
+						<div class="col-sm-6 ">
+							   <button class="bg-primary table-btn" style="position: relative; left: 30px" @click="ranone()">机选一注</button>
+							   <button class="bg-primary table-btn" style="position: relative; left: 60px" @click="ranfive()">机选五注</button>
+						</div>
+					</div>
+					<div class="bh1"> </div>
+				</div>
+			</div>
+			<div class="bh4"> </div>
+		</div>
+
+		<!-- 模态框 -->
+		<div class="modal fade myalert" id="myModal">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<!-- 模态框头部 -->
+					<div class="modal-header">
+						<span class="modal-title">系统提示：</span>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<!-- 模态框主体 -->
+					<div class="modal-body">
+						{{info2}}
+						<!-- 模态框底部 -->
+						<div class="modal-footer">
+							<button class="btn btn-success btn-sm" data-dismiss="modal"
+								id="modal-1" @click="confirmbtn(info2)">确 认</button>
+							<button type="button" class="btn btn-secondary btn-sm"
+								data-dismiss="modal" @click="cancle()">取 消</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div id="ss"></div>
+</body>
+<script>
+	var vm = new Vue({
+		el: '#container',
+		data: {
+			jifen:1000,
+			selectResults:[],
+			formObj: { id: null, fkey: '',fval1:'',fval2:'',fval3:'',fval4:'',fval5:'',fval6:'',fval7:'',chk:''},
+			currentPeriod:0,
+			status: false,
+			check: true,
+			activeClass:-1,
+			activeClass1:-1,
+			hasAll:[],
+			pre:[],
+		    post:[],
+			edit: '启用编辑',
+			info2: '',
+			currentObj:'',
+			checkGrp: [],
+			ids: [],
+			showResult: true,
+			flag: false,
+			dataShow:[] ,  
+			url:'/getPrePeriod'
+
+		},
+	
+		
+		created(){
+			this.queryPeriod();
+		},
+		methods: {
+			ok(){
+				var length = this.hasAll.length;
+				var cost = length*100;
+				if(this.jifen<cost){
+					ams_alert("老铁，你只有"+this.jifen+",赶紧充值！")
+					return ;
+				}
+				axios({
+					method: 'post',
+					url: '/touzhu',
+					data: {
+						msg: this.hasAll,
+					    msg1:this.currentPeriod,
+					    msg2:localStorage.username
+					}
+				}).then(res => {
+					this.hasAll=[];
+					ams_alert( res.data+"本次消耗积分："+cost);
+					this.jifen-=cost;
+				}, error => {
+				});
+			},
+			clean(){
+				this.hasAll=[];
+			},
+			del(item){
+				this.hasAll.splice(this.hasAll.indexOf(item),1);
+			},
+			ranone(){
+				this.pre=[];
+				this.post=[];
+				while(this.pre.length<5){
+					 var temp=random(35);
+					 if(this.pre.indexOf(temp)==-1){
+						 this.pre.push(temp)
+					 }
+				 }
+				while(this.post.length<2){
+					 var temp=random(12);
+					 if(this.post.indexOf(temp)==-1){
+						 this.post.push(temp);
+					 }
+				 }
+				mpsort(this.pre);
+				mpsort(this.post);
+				this.addAll();
+			},
+			ranfive(){
+				this.hasAll=[];
+				for(var i=0;i<5;i++){
+					this.ranone();
+				}
+			},
+			addAll(){
+				var temp=[] ;
+				this.pre.forEach(item => {
+					temp.push(item);
+				})
+				this.post.forEach(item => {
+					temp.push(item);
+				})
+				if(this.hasAll.length<5){
+					this.hasAll.push(temp);
+				}
+				else{
+					ams_alert('老铁，最多投五注不同的！')
+					return false;
+				}
+				this.pre=[];
+				this.post=[];
+				this.flag=false;
+				console.log(this.hasAll)
+			},
+			aaa(n,index){
+				
+				if(this.pre.length<5)
+					this.pre.push(n)
+				else{
+					ams_alert('前区只能选5个！')
+					return;
+				}
+				this.activeClass=index;
+				if(this.pre.length==5&&this.post.length==2){
+					this.flag=true;
+				}
+				mpsort(this.pre);
+				 
+			},
+			bbb(n,index){
+			
+				if(this.post.length<2)
+				this.post.push(n)
+				else{
+					ams_alert('后区只能选2个！')
+					return;
+				}
+				if(this.pre.length==5&&this.post.length==2){
+					this.flag=true;
+				}
+				this.activeClass1=index;
+				mpsort(this.post);
+			},
+			dec5(index,item){
+				this.pre.splice(this.pre.indexOf(item),1);
+				this.flag=false;
+			},
+			dec2(index,item){
+				this.post.splice(this.post.indexOf(item),1);
+				this.flag=false;
+			},
+			queryPeriod(){
+				axios({
+					method: 'post',
+					url: '/getPrePeriod',
+					data: {
+						msg:this.formObj
+					},
+				}).then(res => {
+					    var formObj= res.data.list;
+						formObj.forEach(item => {
+							item.chk = false;
+							//alert("item.fkey"+item.fkey+"===this.currentPeriod"+this.currentPeriod)
+							if (item.fkey > this.currentPeriod) {
+								this.currentPeriod=item.fkey;
+							}
+							this.selectResults.push(item.fkey);
+						});
+						formObj.forEach(item => {
+							if (item.fkey == this.currentPeriod) {
+								this.currentObj=item;
+							}
+						})
+						log(this.currentObj);
+					  log("=========="+this.selectResults)
+				}, error => {
+					
+				})
+			},
+			query() {	this.showResult = true; this.$refs.fenye.condition(this.formObj); }  ,
+			dataDisplay(dataShow){		this.dataShow=dataShow	},
+			roleGrant(){
+				axios({
+					method: 'post',
+					url: '/roleGrant',
+					data: {
+						msg: this.checkGrp,
+						msg1: this.roleMenus
+					}
+				}).then(res => {
+					ams_alert( res.data);
+					this.checkGrp = [];
+					this.showResult = true;
+					this.query();
+				}, error => {
+				});
+			},
+			isAllc(aaa, chk) {
+				if (chk) {
+					this.roleMenus.push(aaa);
+					this.menus.forEach(item => {
+						if (item.parentNodeCode == aaa) {
+							item.chk = true;
+							this.roleMenus.push(item.nodeCode);
+						}
+					})
+				}
+				else{
+					this.roleMenus.splice(this.roleMenus.indexOf(aaa),1);
+					
+					this.menus.forEach(item => {
+					if (item.parentNodeCode == aaa) {
+						item.chk = false;
+						this.roleMenus.splice(this.roleMenus.indexOf(item.nodeCode),1);
+					}})
+				}
+				 
+				//alert("即将为用户："+this.checkGrp+"添加"+this.roleMenus+"节点");
+			},
+			notAllc(nodeP, nodecode, parentcode, chk) {
+				if (chk) {
+				this.parentMenus.forEach(item => {
+						if (item.nodeCode == parentcode) {
+							item.chk = true;
+							this.roleMenus.push(parentcode);
+						}
+				})
+				this.roleMenus.push(nodecode);
+			  }
+				if (!chk) {
+					var count = 0;
+					this.menus.forEach(item => {
+						if (item.parentNodeCode == nodeP) {
+							if (item.chk != false) {
+								count++;
+							}
+						}
+					})
+					if (count == 0) {
+						this.parentMenus.forEach(item => {
+								if (item.nodeCode == parentcode) {
+									item.chk = false;
+								}
+						})
+					}
+					this.roleMenus.splice(this.roleMenus.indexOf(nodecode),1);
+				}
+					//alert("即将为用户："+this.checkGrp+"添加"+this.roleMenus+"节点");
+			}
+			,
+			buy() {
+				this.showResult = false;
+			},
+			 
+			addRole() {
+				if ((this.roleobj.roleCode == '' || this.roleobj.roleCode == null) || (this.roleobj.roleName == '' || this.roleobj.roleName == null)) {
+					this.info2 = '添加角色二要素必须同时填写!';
+					return false;
+				}
+				axios({
+					method: 'put',
+					url: '/addRole',
+					data: {
+						msg: this.roleobj
+					},
+				}).then(res => {
+					this.info2 = res.data;
+					this.query();
+				}, error => {
+				});
+			},
+			confirmbtn(info) {
+				if (info.indexOf('确定要删除所选记录吗') != -1) {
+					axios({
+						method: 'delete',
+						url: '/deleteRole',
+						data: {
+							msg: this.checkGrp
+						},
+					}).then(resrm => {
+						ams_alert(resrm.data);
+						this.checkGrp = [];
+						this.query();
+					}, error => {
+					});
+				}
+
+				 
+				return;
+			},
+			chk(id, e) {
+				if (e.target.checked) {
+					this.checkGrp.push(id);
+				}
+				else {
+					this.checkGrp.splice(this.checkGrp.indexOf(id), 1);
+				}
+			},
+			deleteRole() {
+				if (this.checkGrp == '') {
+					this.info2 = "请先选择要操作的记录";
+					return;
+				}
+				this.info2 = "确定要删除所选记录吗：{" + this.checkGrp + "}";
+			},
+
+			cancle() {
+				this.flag = false;
+			},
+			updateRole() {
+				if (this.checkGrp == '') {
+					this.info2 = "请先选择要操作的记录";
+					return false;
+				}
+				this.info2 = "确定修改记录：{" + this.checkGrp + "}";
+			},
+			change() {
+				this.status = !this.status;
+				if (this.status == true) {
+					this.edit = '关闭编辑';
+				}
+				else {
+					this.edit = '启用编辑';
+				}
+			}
+
+		}
+	})
+
+</script>
+
+</html>

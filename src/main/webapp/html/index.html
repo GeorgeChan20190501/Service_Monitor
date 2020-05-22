@@ -65,4 +65,23 @@
 		</div>
 	</div>
 </body>
+<script th:inline="javascript">
+var msg = [[${username}]];
+console.log(msg);
+session();
+function session()
+{
+	if(typeof(Storage)!=="undefined")
+	{
+		
+		localStorage.username=msg;
+		
+		 
+	}
+	else
+	{
+		document.getElementById("result").innerHTML="抱歉，您的浏览器不支持 web 存储";
+	}
+}
+</script>
 </html>

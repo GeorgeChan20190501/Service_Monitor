@@ -48,6 +48,6 @@
        <!--  <table schema=""  tableName="sm_result"/>  -->
        <!-- <table schema=""  tableName="sm_config"/> -->
        <!--  <table schema=""  tableName="sm_sn"/> -->
-       <table schema=""  tableName="sm_worktime"/>
+       <table schema=""  tableName="sm_fun"/>
 	</context>
 </generatorConfiguration>
