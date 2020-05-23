@@ -54,3 +54,30 @@ function random(n){
 	 return Math.ceil(Math.random()*n);
 }
 /*=======================随机数自定义==结束=============================*/
+
+/*=======================日期格式化==开始=============================*/
+function stdData(date){
+	var curryear= date.getFullYear();
+	var currmonth= date.getMonth()+1;
+	var currdate= date.getDate();
+	var hour = date.getHours();
+	var min = date.getMinutes();
+	var sec = date.getSeconds();
+	if(currmonth<10){
+		currmonth='0'+currmonth;
+	}
+	if(currdate<10){
+		currdate='0'+currdate;
+	}
+	if(hour<10){
+		hour='0'+hour;
+	}
+	if(min<10){
+		min='0'+min;
+	}
+	if(sec<10){
+		sec='0'+sec;
+	}
+	return curryear+'-'+currmonth+'-'+currdate+" "+hour+":"+min+":"+sec ;
+}
+/*=======================日期格式化==结束=============================*/

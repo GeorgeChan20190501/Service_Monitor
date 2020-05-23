@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cognizant.ams.bean.SysMenu;
+import com.cognizant.ams.service.FunService;
 import com.cognizant.ams.service.LogonService;
 import com.cognizant.ams.service.MenuService;
 
@@ -24,6 +25,9 @@ public class LogonController {
 	private LogonService logonService;	
 	@Autowired
 	private MenuService menuService;
+	
+	@Autowired
+	private FunService funService;
 	
 	@PostMapping("/logon")
 	@ResponseBody
@@ -47,7 +51,8 @@ public class LogonController {
 				return new ModelAndView("redirect:/logon.html");
 			}
 			System.out.println("验证通过,开始拉取用户菜单");
- 
+			//每日登录成功，赠送积分
+			funService.loginJiFen(username);
 			    List<SysMenu> list =menuService.getUserMenu(username);
 				ModelAndView modelAndView=new ModelAndView("index");
 				modelAndView.addObject("username", username);

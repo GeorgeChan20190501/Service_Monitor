@@ -23,4 +23,6 @@ public interface SmFunMapper {
 	List<SmFun> getPrePeriod(SmFun smFun);
 
 	void touzhu(List<SmFun> list);
+
+	void kaiJiang(SmFun smFun);
 }

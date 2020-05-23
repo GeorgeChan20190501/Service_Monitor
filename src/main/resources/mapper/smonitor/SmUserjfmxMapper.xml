@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cognizant.ams.dao.SmUserjfmxMapper">
+  <resultMap id="BaseResultMap" type="com.cognizant.ams.bean.SmUserjfmx">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="total_val" jdbcType="VARCHAR" property="totalVal" />
+    <result column="op_type" jdbcType="VARCHAR" property="opType" />
+    <result column="op_val" jdbcType="VARCHAR" property="opVal" />
+    <result column="bak1" jdbcType="VARCHAR" property="bak1" />
+    <result column="bak2" jdbcType="VARCHAR" property="bak2" />
+    <result column="update_time" jdbcType="CHAR" property="updateTime" />
+    <result column="create_time" jdbcType="CHAR" property="createTime" />
+    <result column="chk" jdbcType="CHAR" property="chk" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, account, total_val, op_type, op_val, bak1, bak2, update_time, create_time, chk
+  </sql>
+  <select id="selectByExample" parameterType="com.cognizant.ams.bean.SmUserjfmxExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sm_userjfmx
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.cognizant.ams.bean.SmUserjfmxExample">
+    delete from sm_userjfmx
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cognizant.ams.bean.SmUserjfmx">
+    insert into sm_userjfmx (id, account, total_val, 
+      op_type, op_val, bak1, 
+      bak2, update_time, create_time, 
+      chk)
+    values (#{id,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{totalVal,jdbcType=VARCHAR}, 
+      #{opType,jdbcType=VARCHAR}, #{opVal,jdbcType=VARCHAR}, #{bak1,jdbcType=VARCHAR}, 
+      #{bak2,jdbcType=VARCHAR}, #{updateTime,jdbcType=CHAR}, #{createTime,jdbcType=CHAR}, 
+      #{chk,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cognizant.ams.bean.SmUserjfmx">
+    insert into sm_userjfmx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="totalVal != null">
+        total_val,
+      </if>
+      <if test="opType != null">
+        op_type,
+      </if>
+      <if test="opVal != null">
+        op_val,
+      </if>
+      <if test="bak1 != null">
+        bak1,
+      </if>
+      <if test="bak2 != null">
+        bak2,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="chk != null">
+        chk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="totalVal != null">
+        #{totalVal,jdbcType=VARCHAR},
+      </if>
+      <if test="opType != null">
+        #{opType,jdbcType=VARCHAR},
+      </if>
+      <if test="opVal != null">
+        #{opVal,jdbcType=VARCHAR},
+      </if>
+      <if test="bak1 != null">
+        #{bak1,jdbcType=VARCHAR},
+      </if>
+      <if test="bak2 != null">
+        #{bak2,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=CHAR},
+      </if>
+      <if test="chk != null">
+        #{chk,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cognizant.ams.bean.SmUserjfmxExample" resultType="java.lang.Long">
+    select count(*) from sm_userjfmx
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sm_userjfmx
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.account != null">
+        account = #{record.account,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalVal != null">
+        total_val = #{record.totalVal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opType != null">
+        op_type = #{record.opType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opVal != null">
+        op_val = #{record.opVal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak1 != null">
+        bak1 = #{record.bak1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak2 != null">
+        bak2 = #{record.bak2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=CHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=CHAR},
+      </if>
+      <if test="record.chk != null">
+        chk = #{record.chk,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sm_userjfmx
+    set id = #{record.id,jdbcType=INTEGER},
+      account = #{record.account,jdbcType=VARCHAR},
+      total_val = #{record.totalVal,jdbcType=VARCHAR},
+      op_type = #{record.opType,jdbcType=VARCHAR},
+      op_val = #{record.opVal,jdbcType=VARCHAR},
+      bak1 = #{record.bak1,jdbcType=VARCHAR},
+      bak2 = #{record.bak2,jdbcType=VARCHAR},
+      update_time = #{record.updateTime,jdbcType=CHAR},
+      create_time = #{record.createTime,jdbcType=CHAR},
+      chk = #{record.chk,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <insert id="addJiFenRecord"  parameterType="com.cognizant.ams.bean.SmUserjfmx">
+  			insert into sm_userjfmx values(#{account},#{totalVal},#{opType},#{opVal},'','',(select CONVERT(varchar(100), GETDATE(), 120)) ,(select CONVERT(varchar(100), GETDATE(), 120)),'false');
+  </insert>
+  
+  
+  	<select id="jiFenMXQuery"  parameterType="com.cognizant.ams.bean.SmUserjfmx"   resultMap="BaseResultMap">
+		select * from sm_userjfmx
+		<where>
+			<if test="account != null  and account !='' ">
+				and account = #{account}
+			</if>
+			<if test="totalVal != null  and totalVal !='' ">
+				and total_val = #{totalVal}
+			</if>
+			<if test="opType != null  and opType !='' ">
+				and op_type = #{opType}
+			</if>
+			<if test="opVal != null  and opVal !='' ">
+				and op_val = #{opVal}
+			</if>
+			<if test="createTime != null  and createTime !='' ">
+				and create_time like '%'+#{createTime}+'%'
+			</if>
+		</where>
+	</select>
+</mapper>

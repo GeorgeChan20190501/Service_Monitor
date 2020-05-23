@@ -14,179 +14,57 @@
 <link rel="stylesheet" href="/css/system.css">
 
 <style>
+	.dialog{
+		position:absolute;
+		color:black;
+		width:500px;height:300px;
+		background:white;
+		z-index:2;
+		text-align:center;
+		transform:translateX(-50%);
+		display:inline-block;
+		margin-top:8%;
+		
+		
+	}
+ 
 </style>
 </head>
 
 <body>
-	<div id="container">
-
-
-		<table class="table  table-bordered   table-sm">
-			<tr>
-				<th>姓名</th>
-				<th>年龄</th>
-				<th>学历</th>
-				<th>电话</th>
-				<th>毕业院校</th>
-			</tr>
-			<tr v-for="(item, index) in dataShow">
-				<td>{{ item.name }}</td>
-				<td>{{ item.age }}</td>
-				<td>{{ item.edu }}</td>
-				<td>{{ item.phone }}</td>
-				<td>{{ item.school }}</td>
-			</tr>
-		</table>
-
-
-		
-	
-	<fenye v-bind:parentmsg="listArray"  @funct="check"></fenye>
-
-  
-		
-		
+	<div id="container" >
+			<button @click="fff">点击</button>
+			<div id="dia" ref="hhh" style="display:none;position:relative;text-align:center; background:rgb(128,128,128);" >
+			<div style="z-index:1;display:inline-block;text-align:center;width:100%;height:500px;border:2px solid gray;opacity:0.99">
+							<div class="dialog">
+											模态框头部
+										<button @click="ddd">关闭</button>
+							</div>
+			</div>		
+ 			</div>
 	</div>
-
-
-
-
 
 
 <div id="ss"></div>
 </body>
 <script>
 	 
-
+	function fff(){
+		 document.getElementById('dia').style.display='block'
+	 }
+	function ddd(){
+		 document.getElementById('dia').style.display='none'
+	 }
 
 	var vm = new Vue({
 		el: '#container',
 		data: {
 			
-
-			
-
-			listArray:[
-		          {
-		              'name':'赵*',
-		              'age':'21',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'河南农业大学'
-		          },
-		          {
-		              'name':'钱*',
-		              'age':'22',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'郑州大学'
-		          },
-		          {
-		              'name':'王*',
-		              'age':'23',
-		              'edu':'大专',
-		              'phone':'188****888888',
-		              'school':'河南工业大学'
-		          },
-		          {
-		              'name':'张*',
-		              'age':'25',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'河南农业大学'
-		          },
-		          {
-		              'name':'刘*',
-		              'age':'21',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'河南理工大学'
-		          } ,  {
-		              'name':'赵*',
-		              'age':'21',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'河南农业大学'
-		          },
-		          {
-		              'name':'钱*',
-		              'age':'22',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'郑州大学'
-		          },
-		          {
-		              'name':'王*',
-		              'age':'23',
-		              'edu':'大专',
-		              'phone':'188****888888',
-		              'school':'河南工业大学'
-		          },
-		          {
-		              'name':'张*',
-		              'age':'25',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'河南农业大学'
-		          },
-		          {
-		              'name':'刘*',
-		              'age':'21',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'河南理工大学'
-		          } ,
-		          {
-		              'name':'赵*',
-		              'age':'21',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'河南农业大学'
-		          },
-		          {
-		              'name':'钱*',
-		              'age':'22',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'郑州大学'
-		          },
-		          {
-		              'name':'王*',
-		              'age':'23',
-		              'edu':'大专',
-		              'phone':'188****888888',
-		              'school':'河南工业大学'
-		          },
-		          {
-		              'name':'张*',
-		              'age':'25',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'河南农业大学'
-		          },
-		          {
-		              'name':'刘*',
-		              'age':'21',
-		              'edu':'本科',
-		              'phone':'188****888888',
-		              'school':'河南理工大学'
-		          } 
-		        ],
-	 
-		        dataShow:[]
-		 
-			 
 		},
-		
 		 methods:{
-				check(aa){
-					this.dataShow=aa
-				}
+			 
 		 }
-
-		
 	})
-
 </script>
 
 </html>

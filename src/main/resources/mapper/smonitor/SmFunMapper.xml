@@ -308,11 +308,15 @@
 	</select>
 	
 	
-  <select id='touzhu' parameterType='list' >
+  <select id='touzhu'  parameterType='list' >
   		<foreach collection="list" item="smFun"  open=""  close=""  separator=";" >		
 				    insert into sm_fun values('DLT',#{smFun.fkey},#{smFun.fval1},#{smFun.fval2},#{smFun.fval3},#{smFun.fval4},#{smFun.fval5},#{smFun.fval6},#{smFun.fval7},#{smFun.fval8},'','',(select CONVERT(varchar(100), GETDATE(), 120)) ,'false' ); 
 		</foreach>
   </select>
-	
   
+  <insert id="kaiJiang"   parameterType="com.cognizant.ams.bean.SmFun" >
+  			update sm_fun set fval1=#{fval1},fval2=#{fval2},fval3=#{fval3},fval4=#{fval4},	fval5=#{fval5},fval6=#{fval6},fval7=#{fval7},create_time=(select CONVERT(varchar(100), GETDATE(), 120)) where fkey=(select max(fkey) from sm_fun where fval8='sys' );
+  			insert into sm_fun values('DLT',(select max(fkey)+1 from sm_fun where fval8='sys' ),'','','','','','','','sys','','','' ,'false' ); 
+  </insert>
+	
 </mapper>

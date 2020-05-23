@@ -39,7 +39,7 @@
 						</select>
 					</div>
 						<div class="col-sm-2">
-						分公司： <select  v-model='userobj.orgname'
+						分公司： <select  v-model='userobj.branch'
 							style='width: 160px; height: 25px;' >
 							<option value="">请选择</option>
 							<option :value="item.orgname"  v-for="item in info" >{{ item.orgname }}</option>
@@ -152,7 +152,7 @@
 var vm=new Vue({
   el: '#container',
   data : {
-	  userobj:{account:'',roleName:'',orgname:''},
+	  userobj:{account:'',roleName:'',branch:''},
       info: [],
       role:[],
       account:'',
@@ -191,7 +191,7 @@ var vm=new Vue({
 	  query() {	this.$refs.fenye.condition(this.userobj); }  ,
 	  
 	  addUser(){
-		  if((this.account==''||this.account==null)||(this.roleName==''||this.roleName==null)||(this.orgname==''||this.orgname==null)){
+		  if((this.userobj.account==''||this.userobj.account==null)||(this.userobj.roleName==''||this.userobj.roleName==null)||(this.userobj.branch==''||this.userobj.branch==null)){
 				this.info2='添加用户三要素必须同时填写!';
 				return false;
 			}  
@@ -199,9 +199,7 @@ var vm=new Vue({
 			  method: 'put',           
 			  url: '/addUser',  
 			  data: {		
-				  account:this.account,
-			      roleName:this.roleName,
-			      branch: this.orgname
+						msg:this.userobj
 			  },
 			}).then(res=>{ 			
 				this.info2=res.data				 

@@ -4,6 +4,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cognizant.ams.bean.SmUserjf;
+import com.cognizant.ams.bean.SmUserjfmx;
 import com.cognizant.ams.bean.SysRole;
 import com.cognizant.ams.bean.SysUser;
 import com.cognizant.ams.bean.SysUserExample;
@@ -20,6 +22,8 @@ public class UserService {
 	@Autowired
 	private SysRoleMapper sysRoleMapper;
 	
+	@Autowired
+	private FunService funService;
 
 	public List<SysUser> queryUser(SysUser sysUser) {
 		List<SysUser> ldusers = sysUserMapper.getUser(sysUser);
@@ -59,6 +63,19 @@ public class UserService {
 
 	public void updateUser(List<SysUser> userlist) {
 		sysUserMapper.updateUser(userlist);
+	}
+
+	public void addJiFen(SysUser sysUser) {
+		SmUserjfmx smUserjfmx =new SmUserjfmx();
+		smUserjfmx.setAccount(sysUser.getAccount());
+		smUserjfmx.setTotalVal("1000");
+		smUserjfmx.setOpType("注册");
+		smUserjfmx.setOpVal("+1000");
+		funService.addJiFenRecord(smUserjfmx);
+		SmUserjf smUserjf =new SmUserjf();
+		smUserjf.setAccount(sysUser.getAccount());
+		smUserjf.setTotalVal("1000");
+		funService.addJiFen(smUserjf);
 	}
  
 }

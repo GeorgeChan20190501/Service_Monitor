@@ -70,10 +70,9 @@ public class ServiceMonitorService {
 		return smConfigMapper.getEmailConfigInfo();
 	}
 	
-	public String getScheduleConfigInfo() {
+	public List<SmConfig> getScheduleConfigInfo() {
 		List<SmConfig> list =smConfigMapper.getScheduleConfigInfo();
-		SmConfig smConfig=list.get(0);
-		return smConfig.getCval1();
+		return list;
 	}
 	
 

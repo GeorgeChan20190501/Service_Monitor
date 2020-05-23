@@ -48,9 +48,15 @@
 				</div>
 			</div>
 			<div class="row" style="padding: 15px;">
+				<div class="col-sm-9">
 				<button class="bg-primary mybtn" @click="query()">查一下</button>
 				<button class="mybtn bg-danger" style="margin-left: 45px;"
 					@click="buy()">投一个</button>
+				<button class="mybtn bg-danger " data-toggle="modal" data-target="#myModal"  style="margin-left: 45px;">我的生涯</button>
+				</div>
+				<div class="col-sm-3">
+							<div style="margin-top:50px;"><span style="line-height:30px">下期开奖时间：2020-05-24 09:30:00</span></div>
+				</div>
 			</div>
 
 		</div>
@@ -77,11 +83,12 @@
 								v-model="item.chk" /></td>
 							<td><input class="tableinput" :value="item.roleCode"
 								v-model="item.fkey" :readonly="status ? false : 'readonly'" /></td>
-							<td><span class="redball">{{item.fval1}}</span> <span
+							<td> <span v-if="item.fval1!=''"><span class="redball">{{item.fval1}}</span> <span
 								class="redball">{{item.fval2}}</span> <span class="redball">{{item.fval3}}</span>
 								<span class="redball">{{item.fval4}}</span> <span
 								class="redball">{{item.fval5}}</span> <span class="blueball w2">{{item.fval6}}</span>
-								<span class="blueball">{{item.fval7}}</span></td>
+								<span class="blueball">{{item.fval7}}</span></span>
+							</td>
 							<td>{{item.createTime}}</td>
 						</tr>
 					</tbody>
@@ -113,15 +120,21 @@
 					<div class="overline"></div>
 					
 					<div class="row bh05"   v-for ='(item,index) in hasAll' >
-						<div class="col-sm-12">
+						<div class="col-sm-9">
 							<span>已投注{{index+1}}：</span> 
 							<span  :class="[index1<5 ? 'redball' : 'blueball' ,'myleft',index1==0 | index1==5 ? 'w2' : '']"   v-for ='(item1,index1) in item' >{{item1}}</span>
-							<button class="bg-warning table-btn" style="position: relative; left: 120px ;" @click="del(item)">这个不行</button> 
+						</div>
+						<div class="col-sm-3">
+							<button class="bg-warning table-btn" @click="del(item)">删除</button> 
 						</div>
 					</div>
-						<div v-show="hasAll.length>0? true : false">
-							<button v-show="hasAll.length>1? true : false" class="bg-success table-btn" style="position: absolute; right: 100px ;bottom:8px" @click="clean()">都不咋滴</button>
-						 	<button class="bg-success table-btn" style="position: absolute; right: 20px ;bottom:8px" @click="ok()">就这样了</button>
+					<div class="bh3" ></div>
+					<div  class="row bh05" >
+						<div class="col-sm-7"></div>
+						<div v-show="hasAll.length>0? true : false"  class="col-sm-5">
+							<button v-show="hasAll.length>1? true : false" class="bg-success table-btn" @click="clean()">都不咋滴</button>
+						 	<button class="bg-success table-btn"   @click="ok()">就这样了</button>
+						</div>
 						</div>
 				</div>
 				<div class="tzy  col-sm-6 ">
@@ -166,29 +179,60 @@
 		</div>
 
 		<!-- 模态框 -->
-		<div class="modal fade myalert" id="myModal">
-			<div class="modal-dialog modal-sm">
+		<div class="modal fade " id="myModal" >
+			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<!-- 模态框头部 -->
 					<div class="modal-header">
-						<span class="modal-title">系统提示：</span>
+						<span class="modal-title">我的生涯：</span>
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<!-- 模态框主体 -->
 					<div class="modal-body">
-						{{info2}}
-						<!-- 模态框底部 -->
-						<div class="modal-footer">
-							<button class="btn btn-success btn-sm" data-dismiss="modal"
-								id="modal-1" @click="confirmbtn(info2)">确 认</button>
-							<button type="button" class="btn btn-secondary btn-sm"
-								data-dismiss="modal" @click="cancle()">取 消</button>
-						</div>
-
+						<table class="table  table-bordered   table-sm">
+								<thead>
+									<tr>
+												<th>历史期号</th>
+												<th>开奖结果</th>
+												<th>我的当期</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr v-for="item in dataShow">
+											<td><input class="tableinput" :value="item.roleCode"
+												v-model="item.fkey" :readonly="status ? false : 'readonly'" /></td>
+											<td><span v-if="item.fval1!=''"><span class="redball">{{item.fval1}}</span> <span
+												class="redball">{{item.fval2}}</span> <span class="redball">{{item.fval3}}</span>
+												<span class="redball">{{item.fval4}}</span> <span
+												class="redball">{{item.fval5}}</span> <span class="blueball w2">{{item.fval6}}</span>
+														<span class="blueball">{{item.fval7}}</span></td>
+													</span>	
+											<td>
+											    <p  v-for="item1 in shengyaval"  v-if="item1.fkey==item.fkey">
+											    		<span class="redball">{{item1.fval1}}</span> <span
+												class="redball">{{item1.fval2}}</span> <span class="redball">{{item1.fval3}}</span>
+												<span class="redball">{{item1.fval4}}</span> <span
+												class="redball">{{item1.fval5}}</span> <span class="blueball w2">{{item1.fval6}}</span>
+												<span class="blueball">{{item1.fval7}}</span>
+											    </p>
+											</td>	
+											
+										</tr>
+								</tbody>
+						</table>
 					</div>
+					
+					<!-- 模态框底部 -->
+					<div class="modal-footer">
+							<button class="btn btn-success btn-sm" data-dismiss="modal">确 认</button>
+					</div>
+					
 				</div>
 			</div>
 		</div>
+		
+		
+		
 	</div>
 
 
@@ -200,7 +244,8 @@
 	var vm = new Vue({
 		el: '#container',
 		data: {
-			jifen:1000,
+			time:'',
+			jifen:0,
 			selectResults:[],
 			formObj: { id: null, fkey: '',fval1:'',fval2:'',fval3:'',fval4:'',fval5:'',fval6:'',fval7:'',chk:''},
 			currentPeriod:0,
@@ -219,22 +264,49 @@
 			showResult: true,
 			flag: false,
 			dataShow:[] ,  
+			shengyaval:[],
 			url:'/getPrePeriod'
 
 		},
 	
 		
 		created(){
+			this.nextTime();
 			this.queryPeriod();
+			this.queryJF();
+			this.shengya();
 		},
 		methods: {
+			shengya(){
+				axios({
+					method: 'post',
+					url: '/shengya',
+					data: {
+					    msg:localStorage.username
+					}
+				}).then(res => {
+					
+					this.shengyaval=res.data.list;
+				}, error => {
+				});
+			},
+			nextTime(){
+				var curdate=new Date();
+				if(curdate.getHours()>9){
+					curdate.setDate(curdate.getDate()+1);
+				}
+				var  date =stdData(curdate);
+				var date1 =date.substring(0,10)+" 09:30:00";
+				this.time=date1;
+			},
 			ok(){
 				var length = this.hasAll.length;
 				var cost = length*100;
 				if(this.jifen<cost){
-					ams_alert("老铁，你只有"+this.jifen+",赶紧充值！")
+					ams_alert("老铁，你只有"+this.jifen+"积分,赶紧充值！")
 					return ;
 				}
+				this.jifen-=cost;
 				axios({
 					method: 'post',
 					url: '/touzhu',
@@ -245,8 +317,8 @@
 					}
 				}).then(res => {
 					this.hasAll=[];
-					ams_alert( res.data+"本次消耗积分："+cost);
-					this.jifen-=cost;
+					//清理积分
+					this.costJF(res.data,cost);
 				}, error => {
 				});
 			},
@@ -338,6 +410,35 @@
 				this.post.splice(this.post.indexOf(item),1);
 				this.flag=false;
 			},
+			costJF(msg,cost){
+				axios({
+					method: 'post',
+					url: '/costUserJF',
+					data: {
+						msg:localStorage.username,
+						msg1:cost
+					},
+				}).then(res => {
+					    this.jifen= res.data;//剩余积分
+					    ams_alert( msg+"消耗积分："+cost);
+				}, error => {
+					
+				})
+			},
+			queryJF(){
+				axios({
+					method: 'post',
+					url: '/getUserJF',
+					data: {
+						msg:localStorage.username
+					},
+				}).then(res => {
+					    this.jifen= res.data;
+						log(this.jifen);
+				}, error => {
+					
+				})
+			},
 			queryPeriod(){
 				axios({
 					method: 'post',
@@ -356,7 +457,7 @@
 							this.selectResults.push(item.fkey);
 						});
 						formObj.forEach(item => {
-							if (item.fkey == this.currentPeriod) {
+							if (item.fkey == (this.currentPeriod-1)) {
 								this.currentObj=item;
 							}
 						})

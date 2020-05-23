@@ -7,11 +7,14 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONArray;
 import com.cognizant.ams.bean.SmFun;
+import com.cognizant.ams.bean.SmUserjf;
+import com.cognizant.ams.bean.SmUserjfmx;
 import com.cognizant.ams.bean.common.JsonReqObject;
 import com.cognizant.ams.service.FunService;
 
@@ -87,6 +90,23 @@ public class FunController {
 	 * roleService.roleGrant(list); } catch (Exception e) { return "操作异常"; } return
 	 * "角色授权成功"; }
 	 */
+	
+	
+	
+	@PostMapping("/shengya")
+	public Map<String, Object> shengya(@RequestBody String param) {
+		System.out.println("预查询shengya参数===" + param);
+		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
+		String jsonParam = jsonReqObject.getMsg();
+		SmFun smFun = new SmFun();
+		smFun.setType("DLT");
+		smFun.setFval8(jsonParam);
+		List<SmFun> list = funService.getPrePeriod(smFun);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		return map;
+	}	
+		
 	@PostMapping("/getPrePeriod")
 	public Map<String, Object> getPrePeriod(@RequestBody String param) {
 		System.out.println("预查询参数===" + param);
@@ -102,6 +122,50 @@ public class FunController {
 		map.put("list", list);
 		return map;
 	}
+	
+	@PostMapping("/costUserJF")
+	@Transactional(rollbackFor =  Exception.class)
+	public String costUserJF(@RequestBody String param) {
+		System.out.println("消费积分参数===" + param);
+		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
+		String username = jsonReqObject.getMsg();
+		String cost = jsonReqObject.getMsg1();
+		SmUserjf smUserjf =new SmUserjf();
+		
+		//查询剩余积分
+		smUserjf.setAccount(username);
+		List<SmUserjf> list = funService.getUserJF(smUserjf);
+		String sy=list.get(0).getTotalVal();
+		String syNew = Integer.parseInt(sy)-Integer.parseInt(cost)+"";
+		smUserjf.setTotalVal(syNew);
+		SmUserjfmx smUserjfmx =new SmUserjfmx();
+		smUserjfmx.setAccount(username);
+		//('SYSTEM','1000','注册','+1000'
+		smUserjfmx.setTotalVal(syNew);
+		smUserjfmx.setOpType("消费");
+		smUserjfmx.setOpVal("-"+cost);
+		//update smUserjf
+		funService.updateJiFen(smUserjf);
+		//add smUserjfmx
+		funService.addJiFenRecord(smUserjfmx);
+		
+		return syNew;
+	}
+	@PostMapping("/getUserJF")
+	public String getUserJF(@RequestBody String param) {
+		System.out.println("预查询积分参数===" + param);
+		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
+		String username = jsonReqObject.getMsg();
+		SmUserjf smUserjf =new SmUserjf();
+		smUserjf.setAccount(username);
+		List<SmUserjf> list = funService.getUserJF(smUserjf);
+		if (list.size()>0) {
+			return list.get(0).getTotalVal();
+		}
+		return "0";
+	}
+	
+	
 	
 	@PostMapping("/touzhu")
 	public String touzhu(@RequestBody String param,HttpServletRequest request) {

@@ -28,9 +28,8 @@ public class ServiceMonitorScheduler {
 	String subjectFail="";
 	String tail="";
 	String subjectSuccess="";
-	public  void SMonitorScheduler() {
+	public  void run() {
 		//获取邮箱配置信息
-		
 		List<SmConfig>smConfiglist=serviceMonitorService.getEmailConfigInfo();
 		for (SmConfig smConfig : smConfiglist) {
 			if(smConfig.getCkey().equals("subjectFail")) {

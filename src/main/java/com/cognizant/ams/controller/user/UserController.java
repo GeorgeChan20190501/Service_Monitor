@@ -25,6 +25,7 @@ public class UserController {
 
 	@Autowired
 	private ComlistService comlistService;
+	
 
 	@Autowired
 	private UserService userService;
@@ -62,7 +63,9 @@ public class UserController {
 
 	@PutMapping("/addUser")
 	public String addUser(@RequestBody String param) {
-		SysUser sysUser = JSONArray.parseObject(param, SysUser.class);
+		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
+		String jsonParam = jsonReqObject.getMsg();
+		SysUser sysUser = JSONArray.parseObject(jsonParam, SysUser.class);
 		List<SysUser> userlist = userService.queryUserByAccount(sysUser);
 		if (userlist.size() > 0) {
 			return "用户已经存在，请更换其他的账号";
@@ -84,8 +87,11 @@ public class UserController {
 			}
 			sysUser.setDescribtion(sysUser.getBranch() + baranchname);
 			userService.addUser(sysUser);
+			userService.addJiFen(sysUser);
+			
 			return "用户添加成功!";
 		} catch (Exception e) {
+			e.printStackTrace();
 			return "用户添加异常";
 		}
 	}
