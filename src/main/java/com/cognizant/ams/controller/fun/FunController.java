@@ -172,7 +172,7 @@ public class FunController {
 		System.out.println("投注参数===" + param);
 		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
 		String jsonParam = jsonReqObject.getMsg();
-		int currentPeriod = Integer.parseInt(jsonReqObject.getMsg1())+1;
+		int currentPeriod = Integer.parseInt(jsonReqObject.getMsg1());
 		String username = jsonReqObject.getMsg2();
 		String touzhu [] =jsonParam.replace("[[", "[").replace("]]", "]").replace("],[", "];[").split(";"); 
 		SmFun smFun =null;

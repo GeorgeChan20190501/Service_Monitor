@@ -9,3 +9,20 @@
 
 提示：为了提升体验分页显示不超过100页，本程序规定最大页数99页。默认每页显示5条数据
 
+
+Thymeleaf 不在resource时候的打包。
+由于springboot规定，模板文件必须在resources下，所以打包时，先打jar，并修改静态文件存放路径
+ <resources>
+        <resource>
+                <directory>src/main/webapp</directory>  
+                <targetPath>META-INF/resources</targetPath>    // 包webapp下的文件先放到META-INF/resources
+                <includes>
+                    <include>**/**</include>
+                </includes>
+         </resource>
+     </resources>
+     
+ 保存打包后的resource文件 ，去掉上述配置后重新打包，并剪切resouce下，除了logon.html的入口文件到BOOT-INF 下。其中模板文件放到class根目录。html/index
+ 其他静态文件放到class/static中即可。
+     
+
