@@ -185,18 +185,18 @@ public class FunService {
 				
 				//五等奖：乱2+大小    直2         1赔30
 				if ((countx==2&&county==1)||  ((benqi.contains(zhi21)||benqi.contains(zhi22)||benqi.contains(zhi23))&&county==0)) {  
-					jifenopt(account, "PLC五等奖派奖", (100*20)+"");
+					jifenopt(account, "PLC五等奖派奖", (100*30)+"");
 					continue;
 				}
 				
-				//六等奖：乱2+   直1+大小                1赔5
+				//六等奖：乱2+   直1+大小                1赔6
 				
 				if ((countx==2&&county==0)||  ((smFun.getFval1().equals(smFun2.getFval1())|| smFun.getFval2().equals(smFun2.getFval2()) || smFun.getFval3().equals(smFun2.getFval3()))&&county==0)) {  
 					jifenopt(account, "PLC六等奖派奖", (100*6)+"");
 					continue;
 				}
 				
-				//乱1+大小							    1赔付2
+				//乱1+大小							    1赔付3
 				if ((countx==1&&county==1)) {  
 					jifenopt(account, "PLC七等奖派奖", (100*3)+"");
 					continue;
