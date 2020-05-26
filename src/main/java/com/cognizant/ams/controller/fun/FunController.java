@@ -92,6 +92,19 @@ public class FunController {
 	 */
 	
 	
+	@PostMapping("/shengyaplc")
+	public Map<String, Object> shengyaplc(@RequestBody String param) {
+		System.out.println("预查询shengya参数===" + param);
+		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
+		String jsonParam = jsonReqObject.getMsg();
+		SmFun smFun = new SmFun();
+		smFun.setType("PLC");
+		smFun.setFval8(jsonParam);
+		List<SmFun> list = funService.getPrePeriod(smFun);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		return map;
+	}	
 	
 	@PostMapping("/shengya")
 	public Map<String, Object> shengya(@RequestBody String param) {
@@ -116,7 +129,20 @@ public class FunController {
 		smFun.setType("DLT");
 		smFun.setFval8("sys");
 		List<SmFun> list = funService.getPrePeriod(smFun);
-
+		// 上述拿到完整list，现在进行分页返回当前页面数据。 System.out.println("总条数为===" + Rolelist.size());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		return map;
+	}
+	@PostMapping("/getPLCPrePeriod")
+	public Map<String, Object> getPLCPrePeriod(@RequestBody String param) {
+		System.out.println("预查询参数===" + param);
+		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
+		String jsonParam = jsonReqObject.getMsg();
+		SmFun smFun = JSONArray.parseObject(jsonParam, SmFun.class);
+		smFun.setType("PLC");
+		smFun.setFval8("sys");
+		List<SmFun> list = funService.getPrePeriod(smFun);
 		// 上述拿到完整list，现在进行分页返回当前页面数据。 System.out.println("总条数为===" + Rolelist.size());
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
@@ -203,6 +229,48 @@ public class FunController {
 					smFun.setFval7(haoma[6]);
 				}
 			}
+			smFun.setType("DLT");
+			smFun.setFkey(currentPeriod+"");
+			smFun.setFval8(username);
+			list.add(smFun);
+		}
+		try {
+			funService.touzhu(list);
+			return "投注成功！";
+		} catch (Exception e) {
+			return "投注异常！";
+		}
+	}
+	
+
+	@PostMapping("/touzhuPLC")
+	public String touzhuPLC(@RequestBody String param,HttpServletRequest request) {
+		System.out.println("投注参数===" + param);
+		JsonReqObject jsonReqObject = JSONArray.parseObject(param, JsonReqObject.class);
+		String jsonParam = jsonReqObject.getMsg();
+		int currentPeriod = Integer.parseInt(jsonReqObject.getMsg1());
+		String username = jsonReqObject.getMsg2();
+		String touzhu [] =jsonParam.replace("[[", "[").replace("]]", "]").replace("],[", "];[").split(";"); 
+		SmFun smFun =null;
+		List<SmFun> list =new ArrayList<SmFun>();
+		for (String tz : touzhu) {
+			smFun=new SmFun();
+			String haoma [] =tz.replace("[", "").replace("]", "").split(",");
+			for (int i=0;i<haoma.length;i++) {
+				if (i==0) {
+					smFun.setFval1(haoma[0]);
+				}
+				if (i==1) {
+					smFun.setFval2(haoma[1]);
+				}
+				if (i==2) {
+					smFun.setFval3(haoma[2]);
+				}
+				if (i==3) {
+					smFun.setFval9(haoma[3].replace("\"", ""));
+				}	 
+			}
+			smFun.setType("PLC");
 			smFun.setFkey(currentPeriod+"");
 			smFun.setFval8(username);
 			list.add(smFun);

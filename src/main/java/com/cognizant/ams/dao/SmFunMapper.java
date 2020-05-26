@@ -25,4 +25,6 @@ public interface SmFunMapper {
 	void touzhu(List<SmFun> list);
 
 	void kaiJiang(SmFun smFun);
+
+	String getQiHao(String string);
 }

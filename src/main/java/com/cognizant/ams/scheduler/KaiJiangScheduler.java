@@ -97,6 +97,7 @@ public class KaiJiangScheduler {
 			}
 		}
 		smFun.setFval8("sys");
+		smFun.setType("DLT");
 		funService.kaiJiang(smFun);
 		System.out.println("开奖执行成功");
 	}

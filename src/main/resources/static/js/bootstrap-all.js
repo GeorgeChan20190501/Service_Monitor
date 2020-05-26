@@ -81,3 +81,78 @@ function stdData(date){
 	return curryear+'-'+currmonth+'-'+currdate+" "+hour+":"+min+":"+sec ;
 }
 /*=======================日期格式化==结束=============================*/
+
+function filterTime(time) {
+    //  补0
+    let filterZero = (i) => {
+        return i < 10 ? `0${i}` : i
+    }
+    let [t1, t2, t3, t4, t5] = [
+        new Date(time).getFullYear(),
+        filterZero(new Date(time).getMonth() + 1),
+        filterZero(new Date(time).getDate()),
+        filterZero(new Date(time).getHours()),
+        filterZero(new Date(time).getMinutes()),
+    ]
+    console.log(`默认日期：${t1}-${t2}-${t3} ${t4}:${t5}`);
+
+    filterRang()
+    function filterRang() {
+        //  分钟取整运算
+        let i = parseInt(t5)
+        if (i >= 0 && i <= 10) {
+            t5 = 10
+        } else if (i >= 11 && i <= 20) {
+            t5 = 20
+        } else if (i >= 21 && i <= 30) {
+            t5 = 30
+        } else if (i >= 31 && i <= 40) {
+            t5 = 40
+        } else if (i >= 41 && i <= 50) {
+            t5 = 50
+        } else {
+            // 小时进位 
+            t5 = `00`
+            t4 = parseInt(t4) + 1
+            filterHours(t4)
+        }
+    }
+    function filterHours(i) {
+        i = parseInt(i)
+        // 现在是24小时制，可修改为12小时制
+        if (i >= 0 && i < 24) {
+            t4 = filterZero(i)
+        } else {
+            // 天数进位 
+            t4 = `00`
+            t3 = parseInt(t3) + 1
+            filterDay(t3)
+        }
+    }
+    function filterDay(i) {
+        //  获取当月有多少天
+        let nowMD = parseInt(new Date(t1, t2, 0).getDate())
+
+        i = parseInt(i)
+        if (i >= 0 && i <= nowMD) {
+            t3 = filterZero(i)
+        } else {
+            // 月份进位 
+            t3 = `01`
+            t2 = parseInt(t2) + 1
+            filterMonth(t2)
+        }
+    }
+    function filterMonth(i) {
+        i = parseInt(i)
+        if (i >= 0 && i <= 12) {
+            t2 = filterZero(i)
+        } else {
+            // 年进位 
+            t2 = `01`
+            t1 = parseInt(t1) + 1
+        }
+    }
+    console.log(`${t1}-${t2}-${t3} ${t4}:${t5}`);
+    return `${t1}-${t2}-${t3} ${t4}:${t5}`;
+}

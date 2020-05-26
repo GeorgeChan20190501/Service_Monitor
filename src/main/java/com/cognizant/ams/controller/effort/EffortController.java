@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +22,6 @@ import com.cognizant.ams.bean.SmConfig;
 import com.cognizant.ams.bean.SmEfforts;
 import com.cognizant.ams.bean.common.JsonReqObject;
 import com.cognizant.ams.service.EffortService;
-import com.mchange.v2.lang.StringUtils;
 
 @RequestMapping("/efforts")
 @RestController

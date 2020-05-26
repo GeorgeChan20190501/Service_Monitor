@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>AMS 大乐透</title>
+<title>AMS 排列彩</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/bootstrap-all.css">
@@ -21,7 +21,7 @@
 	<div id="container">
 		<div class="row">
 			<div class="col-3">
-				<h4>AMS 大乐透</h4>
+				<h4>AMS 排列彩</h4>
 			</div>
 		</div>
 		<div class="bh2"></div>
@@ -32,10 +32,10 @@
 				<div class="col-sm-6">
 					<span>当前期开奖结果：</span> <span class="redball">{{currentObj.fval1}}</span>
 					<span class="redball">{{currentObj.fval2}}</span> <span
-						class="redball">{{currentObj.fval3}}</span> <span class="redball">{{currentObj.fval4}}</span>
-					<span class="redball">{{currentObj.fval5}}</span> <span
-						class="blueball w2">{{currentObj.fval6}}</span> <span
-						class="blueball">{{currentObj.fval7}}</span>
+						class="redball">{{currentObj.fval3}}</span> 
+						<span
+						class="blueball w2">{{currentObj.fval9}}</span> 
+						
 				</div>
 				<div class="col-sm-6">
 					往期查询：<select v-model='formObj.fkey'
@@ -48,13 +48,13 @@
 				</div>
 			</div>
 			<div class="row" style="padding: 15px;">
-				<div class="col-sm-9">
+				<div class="col-sm-10">
 				<button class="bg-primary mybtn" @click="query()">查一下</button>
 				<button class="mybtn bg-danger" style="margin-left: 45px;"
 					@click="buy()">投一个</button>
 				<button class="mybtn bg-danger " data-toggle="modal" data-target="#myModal"  style="margin-left: 45px;">我的生涯</button>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-sm-2">
 							<div style="margin-top:50px;"><span style="line-height:30px">下期开奖时间：{{time}}</span></div>
 				</div>
 			</div>
@@ -85,9 +85,8 @@
 								v-model="item.fkey" :readonly="status ? false : 'readonly'" /></td>
 							<td> <span v-if="item.fval1!=''"><span class="redball">{{item.fval1}}</span> <span
 								class="redball">{{item.fval2}}</span> <span class="redball">{{item.fval3}}</span>
-								<span class="redball">{{item.fval4}}</span> <span
-								class="redball">{{item.fval5}}</span> <span class="blueball w2">{{item.fval6}}</span>
-								<span class="blueball">{{item.fval7}}</span></span>
+								<span
+						class="blueball w2">{{item.fval9}}</span> 
 							</td>
 							<td>{{item.createTime}}</td>
 						</tr>
@@ -122,7 +121,7 @@
 					<div class="row bh05"   v-for ='(item,index) in hasAll' >
 						<div class="col-sm-9">
 							<span>已投注{{index+1}}：</span> 
-							<span  :class="[index1<5 ? 'redball' : 'blueball' ,'myleft',index1==0 | index1==5 ? 'w2' : '']"   v-for ='(item1,index1) in item' >{{item1}}</span>
+							<span  :class="[index1<3 ? 'redball' : 'blueball' ,'myleft',index1==0 | index1==3 ? 'w2' : '']"   v-for ='(item1,index1) in item' >{{item1}}</span>
 						</div>
 						<div class="col-sm-3">
 							<button class="bg-warning table-btn" @click="del(item)">删除</button> 
@@ -140,27 +139,27 @@
 				<div class="tzy  col-sm-6 ">
 					<div class="row bh05">
 						<div class="col-sm-6">
-							<span>选号范围：</span>
+							<span>投注范围：</span>
 						</div>
 					</div>
 					<div class="bh2"></div>
 					<div class="row bh05">
 						<div class="col-sm-2 ">
-							<span style="margin-left:10xp;">前区号：</span>
+							<span style="margin-left:10xp;">选号：</span>
 						</div>
 						<div class="col-sm-10 ">
 							
-							<span :class="['myleft',  pre.indexOf(index+1)!=-1 ? 'disa' : 'redball' ]"  v-for="(n,index) in 35"  @click="aaa(n,index)" > {{n}} </span>
+							<span :class="['myleft',  pre.indexOf(n-1)!=-1 ? 'disa' : 'redball' ]"  v-for="(n,index) in 10"  @click="aaa(n-1,index)" > {{n-1}} </span>
 
 						</div>
 					</div>
 					<div class="bh1"></div>
 						<div class="row bh05">
 						<div class="col-sm-2 ">
-							<span style="margin-left:10xp;">后区号：</span>
+							<span style="margin-left:10xp;">大小：</span>
 						</div>
 						<div class="col-sm-10 ">
-							<span :class="['myleft',  post.indexOf(index+1)!=-1 ? 'disa' : 'blueball' ]"  v-for="(n,index) in 12"  @click="bbb(n,index)" > {{n}} </span>
+							<span :class="['myleft',  post.indexOf(n)!=-1 ? 'disa' : 'blueball' ]"  v-for="(n,index) in 2"  @click="bbb(n)"  >{{n | format()}}</span>
 						</div>
 					</div>
 					<div class="bh5"></div>
@@ -203,17 +202,14 @@
 												v-model="item.fkey" :readonly="status ? false : 'readonly'" /></td>
 											<td><span v-if="item.fval1!=''"><span class="redball">{{item.fval1}}</span> <span
 												class="redball">{{item.fval2}}</span> <span class="redball">{{item.fval3}}</span>
-												<span class="redball">{{item.fval4}}</span> <span
-												class="redball">{{item.fval5}}</span> <span class="blueball w2">{{item.fval6}}</span>
-														<span class="blueball">{{item.fval7}}</span></td>
-													</span>	
+														<span
+												class="blueball w2">{{item.fval9}}</span> 
 											<td>
 											    <p  v-for="item1 in shengyaval"  v-if="item1.fkey==item.fkey">
 											    		<span class="redball">{{item1.fval1}}</span> <span
 												class="redball">{{item1.fval2}}</span> <span class="redball">{{item1.fval3}}</span>
-												<span class="redball">{{item1.fval4}}</span> <span
-												class="redball">{{item1.fval5}}</span> <span class="blueball w2">{{item1.fval6}}</span>
-												<span class="blueball">{{item1.fval7}}</span>
+														<span
+												class="blueball w2">{{item1.fval9}}</span> 
 											    </p>
 											</td>	
 											
@@ -265,10 +261,19 @@
 			flag: false,
 			dataShow:[] ,  
 			shengyaval:[],
-			url:'/getPrePeriod'
+			url:'/getPLCPrePeriod'
 
 		},
-	
+	filters:{
+		format(temp){
+			 if(temp=='1'){
+				 return '小'
+			 }
+			 else{
+				 return '大'
+			 }
+		}
+	},
 		
 		created(){
 			this.nextTime();
@@ -280,28 +285,23 @@
 			shengya(){
 				axios({
 					method: 'post',
-					url: '/shengya',
+					url: '/shengyaplc',
 					data: {
 					    msg:localStorage.username
 					}
 				}).then(res => {
-					
 					this.shengyaval=res.data.list;
 				}, error => {
 				});
 			},
 			nextTime(){
 				var curdate=new Date();
-				if(curdate.getHours()>9 && curdate.getMinutes()>30){
-					curdate.setDate(curdate.getDate()+1);
-				}
-				var  date =stdData(curdate);
-				var date1 =date.substring(0,10)+" 09:30:00";
-				this.time=date1;
+				var  date =filterTime(curdate)
+				this.time=date;
 			},
 			ok(){
 				var length = this.hasAll.length;
-				var cost = length*100;
+				var cost = length*200;
 				if(this.jifen<cost){
 					ams_alert("老铁，你只有"+this.jifen+"积分,赶紧充值！")
 					return ;
@@ -309,7 +309,7 @@
 				this.jifen-=cost;
 				axios({
 					method: 'post',
-					url: '/touzhu',
+					url: '/touzhuPLC',
 					data: {
 						msg: this.hasAll,
 					    msg1:this.currentPeriod,
@@ -331,20 +331,26 @@
 			ranone(){
 				this.pre=[];
 				this.post=[];
-				while(this.pre.length<5){
-					 var temp=random(35);
+				while(this.pre.length<3){
+					 var temp=random(10);
 					 if(this.pre.indexOf(temp)==-1){
-						 this.pre.push(temp)
+						 this.pre.push(temp-1)
 					 }
 				 }
-				while(this.post.length<2){
-					 var temp=random(12);
+				while(this.post.length<1){
+					 var temp=random(2);
 					 if(this.post.indexOf(temp)==-1){
+						 if(temp=='1'){
+							 temp='小'
+						 }
+						 else{
+							 temp='大'
+						 }
 						 this.post.push(temp);
 					 }
 				 }
-				mpsort(this.pre);
-				mpsort(this.post);
+				//mpsort(this.pre);
+				//mpsort(this.post);
 				this.addAll();
 			},
 			ranfive(){
@@ -375,32 +381,39 @@
 			},
 			aaa(n,index){
 				
-				if(this.pre.length<5)
+				if(this.pre.length<3)
 					this.pre.push(n)
 				else{
-					ams_alert('前区只能选5个！')
+					ams_alert('只能选3个！')
 					return;
 				}
 				this.activeClass=index;
-				if(this.pre.length==5&&this.post.length==2){
+				if(this.pre.length==3&&this.post.length==1){
 					this.flag=true;
 				}
-				mpsort(this.pre);
+				//mpsort(this.pre);
 				 
 			},
-			bbb(n,index){
-			
-				if(this.post.length<2)
+			bbb(n){
+				
+				if(n==1){
+					n='小';
+				}
+				if(n==2){
+					n= "大";
+				}
+				
+				if(this.post.length<1)
 				this.post.push(n)
 				else{
-					ams_alert('后区只能选2个！')
+					ams_alert('只能选1个！')
 					return;
 				}
-				if(this.pre.length==5&&this.post.length==2){
+				if(this.pre.length==3&&this.post.length==1){
 					this.flag=true;
 				}
-				this.activeClass1=index;
-				mpsort(this.post);
+				//this.activeClass1=index;
+				//mpsort(this.post);
 			},
 			dec5(index,item){
 				this.pre.splice(this.pre.indexOf(item),1);
@@ -442,7 +455,7 @@
 			queryPeriod(){
 				axios({
 					method: 'post',
-					url: '/getPrePeriod',
+					url: '/getPLCPrePeriod',
 					data: {
 						msg:this.formObj
 					},
@@ -462,7 +475,7 @@
 							}
 						})
 						log(this.currentObj);
-					  log("=========="+this.selectResults)
+					    log("=========="+this.selectResults)
 				}, error => {
 					
 				})

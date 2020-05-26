@@ -83,11 +83,11 @@ public class ExcleController {
 						smSn.setAppName(entry.getValue());
 					}
 
-					if (entry.getKey().equals("Assigned to")) {
+					if (entry.getKey().equals("Assigned to") ) {
 						smSn.setAssignTo(entry.getValue());
 					}
 
-					if (entry.getKey().equals("Caller")) {
+					if (entry.getKey().equals("Caller") || entry.getKey().equals("Requested for")) {
 						smSn.setCaller(entry.getValue());
 					}
 					if (entry.getKey().equals("Work notes")) {    //提取分配时间和响应时间
@@ -110,7 +110,7 @@ public class ExcleController {
 						state = entry.getValue();
 						smSn.setIncidentState(state);
 					}
-					if (entry.getKey().equals("Comments and Work notes")) {
+					if (entry.getKey().equals("Comments and Work notes") || entry.getKey().equals("Additional comments") ) {
 						 com = entry.getValue();
 					}
 					if (entry.getKey().equals("Pending reason")) {
@@ -119,6 +119,9 @@ public class ExcleController {
 					//等待所有的字段获取完毕，统一处理。===============================
 					if (!state.equals("")&&!com.equals("")&&!message.equals("")) {
 						String resolveDiff = null;
+						if (smSn.getTicketNo().contains("TASK")) {
+							com = message;
+						}
 						String pendingTime = ExpressPattern.pedingTime(com);
 						//System.out.println(smSn.getCreateTime());
 						//System.out.println(DateFormatUtils.getDateMH());
@@ -178,7 +181,7 @@ public class ExcleController {
 							smSn.setResolvedTime(closeTime);
 							message =com.toLowerCase();
 							if (!reason.equals("")) {
-								if(message.contains("pending")) {
+								if(message.contains("pen")) {
 									pendingTime=ExpressPattern.resolvedPedingTime(message,com);
 									smSn.setPendingTime(pendingTime);
 									resolveDiff = DateFormatUtils.workDateDiff(pendingTime,closeTime );
@@ -208,11 +211,8 @@ public class ExcleController {
 								
 							}
 						}
-						
-						
-						
+					
 					}
-
 					
 				}
 				
