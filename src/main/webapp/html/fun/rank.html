@@ -149,7 +149,7 @@
 						</div>
 						<div class="col-sm-10 ">
 							
-							<span :class="['myleft',  pre.indexOf(n-1)!=-1 ? 'disa' : 'redball' ]"  v-for="(n,index) in 10"  @click="aaa(n-1,index)" > {{n-1}} </span>
+							<span :class="['myleft', 'redball' ]"  v-for="(n,index) in 10"  @click="aaa(n-1,index)" > {{n-1}} </span>
 
 						</div>
 					</div>
@@ -210,6 +210,8 @@
 												class="redball">{{item1.fval2}}</span> <span class="redball">{{item1.fval3}}</span>
 														<span
 												class="blueball w2">{{item1.fval9}}</span> 
+													<span
+												class="w2">{{item1.fval10}}</span> 
 											    </p>
 											</td>	
 											

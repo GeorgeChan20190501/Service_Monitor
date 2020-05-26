@@ -157,35 +157,45 @@ public class FunService {
 					++county;
 				}
 				
-				System.out.println("中了"+countx+"个号,大小中了："+county);
+				System.out.println(smFun.getFkey()+"中了"+countx+"个号, 猜大小中了："+county);
 				
 				if (zhi3.equals(benqiz)&&county==1) {  //直3+大小
 					//判断是否一等奖。1赔500
 					jifenopt(account, "PLC一等奖派奖", (100*500)+"");
+					smFun2.setFval10("PLC一等奖派奖");
+					updatePaiJiang(smFun2);
 					continue;
 				}
 				 //二等奖   直3    1赔400
 				if (zhi3.equals(benqiz)&&county==0) { 
-					jifenopt(account, "PLC二等奖派奖", (100*400)+"");
+					jifenopt(account, "PLC二等奖派奖", (100*300)+"");
+					smFun2.setFval10("PLC二等奖派奖");
+					updatePaiJiang(smFun2);
 					continue;
 				}
 				
 				//三等将。乱三+大小     1赔 200
 				if (!zhi3.equals(benqiz)&&countx==3&&county==1) {  
-					jifenopt(account, "PLC三等奖派奖", (100*200)+"");
+					jifenopt(account, "PLC三等奖派奖", (100*150)+"");
+					smFun2.setFval10("PLC三等奖派奖");
+					updatePaiJiang(smFun2);
 					continue;
 				}
 				
 				
 				//四等奖：直2+大小 或 乱三    1赔100  
 				if (((benqi.contains(zhi21)||benqi.contains(zhi22)||benqi.contains(zhi23))&&county==1)|| (countx==3&&county==0)) {  
-					jifenopt(account, "PLC四等奖派奖", (100*100)+"");
+					jifenopt(account, "PLC四等奖派奖", (100*60)+"");
+					smFun2.setFval10("PLC四等奖派奖");
+					updatePaiJiang(smFun2);
 					continue;
 				}
 				
 				//五等奖：乱2+大小    直2         1赔30
 				if ((countx==2&&county==1)||  ((benqi.contains(zhi21)||benqi.contains(zhi22)||benqi.contains(zhi23))&&county==0)) {  
-					jifenopt(account, "PLC五等奖派奖", (100*30)+"");
+					jifenopt(account, "PLC五等奖派奖", (100*20)+"");
+					smFun2.setFval10("PLC五等奖派奖");
+					updatePaiJiang(smFun2);
 					continue;
 				}
 				
@@ -193,12 +203,16 @@ public class FunService {
 				
 				if ((countx==2&&county==0)||  ((smFun.getFval1().equals(smFun2.getFval1())|| smFun.getFval2().equals(smFun2.getFval2()) || smFun.getFval3().equals(smFun2.getFval3()))&&county==0)) {  
 					jifenopt(account, "PLC六等奖派奖", (100*6)+"");
+					smFun2.setFval10("PLC六等奖派奖");
+					updatePaiJiang(smFun2);
 					continue;
 				}
 				
 				//乱1+大小							    1赔付3
 				if ((countx==1&&county==1)) {  
 					jifenopt(account, "PLC七等奖派奖", (100*3)+"");
+					smFun2.setFval10("PLC七等奖派奖");
+					updatePaiJiang(smFun2);
 					continue;
 				}
 				
@@ -206,17 +220,26 @@ public class FunService {
 				
 				if ((countx==0&&county==1)) {  
 					jifenopt(account, "PLC八等奖派奖", (220)+"");
+					smFun2.setFval10("PLC八等奖派奖");
+					updatePaiJiang(smFun2);
 					continue;
 				}
 				//乱1                                        1配0.5
 				if ((countx==1&&county==0)) {  
 					jifenopt(account, "PLC九等奖派奖", (50)+"");
+					smFun2.setFval10("PLC九等奖派奖");
+					updatePaiJiang(smFun2);
 					continue;
 				}
 			  }
 			}
 		}
 	}
+
+	private void updatePaiJiang(SmFun smFun2) {
+		smFunMapper.updatePaiJiang(smFun2);
+	}
+
 
 	public void jifenopt(String username,String opration,String jiangValue) {
 		SmUserjfmx smUserjfmx = new SmUserjfmx();
@@ -238,5 +261,12 @@ public class FunService {
 				addJiFenRecord(smUserjfmx);
 				updateJiFen(smUserjf);
 		}
-	
+	public static void main(String[] args) {
+		if("1,2,6,小".contains("大")) {
+			System.out.println("中");
+		}
+		else {
+			System.out.println("不中");
+		}
+	}
 }

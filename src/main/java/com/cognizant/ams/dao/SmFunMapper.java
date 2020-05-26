@@ -27,4 +27,6 @@ public interface SmFunMapper {
 	void kaiJiang(SmFun smFun);
 
 	String getQiHao(String string);
+
+	void updatePaiJiang(SmFun smFun2);
 }

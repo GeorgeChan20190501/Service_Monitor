@@ -322,5 +322,9 @@
   			update sm_fun set fval1=#{fval1},fval2=#{fval2},fval3=#{fval3},fval4=#{fval4},	fval5=#{fval5},fval6=#{fval6},fval7=#{fval7},fval9=#{fval9},create_time=(select CONVERT(varchar(100), GETDATE(), 120)) where fkey=(select max(fkey) from sm_fun where fval8='sys' and type=#{type} ) and fval8='sys' and type=#{type};
   			insert into sm_fun values( #{type},(select max(fkey)+1 from sm_fun where fval8='sys' and type=#{type}),'','','','','','','','sys','','','' ,'false' ); 
   </insert>
+  
+  <update id="updatePaiJiang"   parameterType="com.cognizant.ams.bean.SmFun" >
+  				update sm_fun set fval10 = #{fval10} where fval8 = #{fval8} and fkey=#{fkey} and fval1=#{fval1} and fval2=#{fval2} and fval3=#{fval3} and type=#{type}
+  </update>
 	
 </mapper>
