@@ -42,8 +42,7 @@ public class ServiceMonitorService {
 					ccUser=smConfig.getCval4();
 				}
 			}
-			int subLength=ccUser.indexOf(toUser)+toUser.length()+1;
-			ccUser=ccUser.substring(0,ccUser.indexOf(toUser))+ccUser.substring(subLength<=ccUser.length()?subLength:subLength-1,ccUser.length());
+		    ccUser=getCcUser(toUser,ccUser);
 			InternetAddress[] internetAddressTo = new InternetAddress().parse(toUser);
 			InternetAddress[] internetAddressCC = new InternetAddress().parse(ccUser);
 			helper.setFrom(from);
@@ -74,6 +73,25 @@ public class ServiceMonitorService {
 		List<SmConfig> list =smConfigMapper.getScheduleConfigInfo();
 		return list;
 	}
-	
+	public static void main(String[] args) {
+		String ccUser="george.chan@metlife.com,kevin.li@metlife.com,327052186@qq.com";
+		String toUser="327052186@qq.com";
+		String string=new ServiceMonitorService().getCcUser(toUser,ccUser);
+		  
+		System.out.println(string);
+	}
+	public String getCcUser(String toUser,String ccUser) {
+		 int cL=ccUser.length();
+		  int tL=toUser.length();
+		  int pos =  ccUser.indexOf(toUser);
+		  int subL= pos+tL+1;  //截取的起始位置
+		  if (subL>=cL) {
+			  ccUser=ccUser.substring(0,pos-1);
+		  }	 
+		  else {
+			  ccUser=ccUser.substring(0,pos)+ccUser.substring(subL,cL);
+		  } 
+		 return ccUser;
+	}
 
 }

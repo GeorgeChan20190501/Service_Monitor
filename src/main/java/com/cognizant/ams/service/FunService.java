@@ -1,11 +1,13 @@
 package com.cognizant.ams.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cognizant.ams.bean.SmFun;
 import com.cognizant.ams.bean.SmUserjf;
 import com.cognizant.ams.bean.SmUserjfmx;
+import com.cognizant.ams.common.utils.CommonUtils;
 import com.cognizant.ams.common.utils.DateFormatUtils;
 import com.cognizant.ams.dao.SmFunMapper;
 import com.cognizant.ams.dao.SmUserjfMapper;
@@ -121,8 +123,6 @@ public class FunService {
 
 	public void duijiang(SmFun smFun) {
 		//先获取本次开奖结果。 2.获取本期所有投注  3.判断是否中奖，4.按奖项新增积分
-		String benqiz= smFun.getFval1()+"," +smFun.getFval2()+"," +smFun.getFval3();
-		String benqi= smFun.getFval1()+"," +smFun.getFval2()+"," +smFun.getFval3()+"," +smFun.getFval9();
 		SmFun smFunduijiang = new SmFun();
 		//获取系统开奖的期号。
 		String qiString=smFunMapper.getQiHao("PLC");
@@ -131,108 +131,12 @@ public class FunService {
 		List<SmFun> list =  getPrePeriod(smFunduijiang);	  //当前期
 		System.out.println("投了多少注："+(list.size()-1));
 		if (list.size()>0) {
-			for (SmFun smFun2 : list) {
-				
-				String zhi3= smFun2.getFval1()+"," +smFun2.getFval2()+"," +smFun2.getFval3();
-				String zhi21= smFun2.getFval1()+"," +smFun2.getFval2();
-				String zhi22= smFun2.getFval1()+"," +smFun2.getFval3();
-				String zhi23= smFun2.getFval2()+"," +smFun2.getFval3();
-				String account =smFun2.getFval8();
-				
-				int countx = 0;
-				int county = 0;
-				
-				if (!smFun2.getFval8().equals("sys")) {  //非系统开奖才能兑奖
-					System.out.println("当前投注："+zhi3+smFun2.getFval9()+"=====系统开奖=="+benqi);
-				if(benqi.contains(smFun2.getFval1())) {
-					++countx;
-				}
-				if(benqi.contains(smFun2.getFval2())) {
-					++countx;
-				}
-				if(benqi.contains(smFun2.getFval3())) {
-					++countx;
-				}
-				if(benqi.contains(smFun2.getFval9())) {
-					++county;
-				}
-				
-				System.out.println(smFun.getFkey()+"中了"+countx+"个号, 猜大小中了："+county);
-				
-				if (zhi3.equals(benqiz)&&county==1) {  //直3+大小
-					//判断是否一等奖。1赔500
-					jifenopt(account, "PLC一等奖派奖", (100*500)+"");
-					smFun2.setFval10("PLC一等奖派奖");
-					updatePaiJiang(smFun2);
-					continue;
-				}
-				 //二等奖   直3    1赔400
-				if (zhi3.equals(benqiz)&&county==0) { 
-					jifenopt(account, "PLC二等奖派奖", (100*300)+"");
-					smFun2.setFval10("PLC二等奖派奖");
-					updatePaiJiang(smFun2);
-					continue;
-				}
-				
-				//三等将。乱三+大小     1赔 200
-				if (!zhi3.equals(benqiz)&&countx==3&&county==1) {  
-					jifenopt(account, "PLC三等奖派奖", (100*150)+"");
-					smFun2.setFval10("PLC三等奖派奖");
-					updatePaiJiang(smFun2);
-					continue;
-				}
-				
-				
-				//四等奖：直2+大小 或 乱三    1赔100  
-				if (((benqi.contains(zhi21)||benqi.contains(zhi22)||benqi.contains(zhi23))&&county==1)|| (countx==3&&county==0)) {  
-					jifenopt(account, "PLC四等奖派奖", (100*60)+"");
-					smFun2.setFval10("PLC四等奖派奖");
-					updatePaiJiang(smFun2);
-					continue;
-				}
-				
-				//五等奖：乱2+大小    直2         1赔30
-				if ((countx==2&&county==1)||  ((benqi.contains(zhi21)||benqi.contains(zhi22)||benqi.contains(zhi23))&&county==0)) {  
-					jifenopt(account, "PLC五等奖派奖", (100*20)+"");
-					smFun2.setFval10("PLC五等奖派奖");
-					updatePaiJiang(smFun2);
-					continue;
-				}
-				
-				//六等奖：乱2+   直1+大小                1赔6
-				
-				if ((countx==2&&county==0)||  ((smFun.getFval1().equals(smFun2.getFval1())|| smFun.getFval2().equals(smFun2.getFval2()) || smFun.getFval3().equals(smFun2.getFval3()))&&county==0)) {  
-					jifenopt(account, "PLC六等奖派奖", (100*6)+"");
-					smFun2.setFval10("PLC六等奖派奖");
-					updatePaiJiang(smFun2);
-					continue;
-				}
-				
-				//乱1+大小							    1赔付3
-				if ((countx==1&&county==1)) {  
-					jifenopt(account, "PLC七等奖派奖", (100*3)+"");
-					smFun2.setFval10("PLC七等奖派奖");
-					updatePaiJiang(smFun2);
-					continue;
-				}
-				
-				//七等奖  大小                          1赔1.2
-				
-				if ((countx==0&&county==1)) {  
-					jifenopt(account, "PLC八等奖派奖", (220)+"");
-					smFun2.setFval10("PLC八等奖派奖");
-					updatePaiJiang(smFun2);
-					continue;
-				}
-				//乱1                                        1配0.5
-				if ((countx==1&&county==0)) {  
-					jifenopt(account, "PLC九等奖派奖", (50)+"");
-					smFun2.setFval10("PLC九等奖派奖");
-					updatePaiJiang(smFun2);
-					continue;
+			for (SmFun sm : list) {
+				if (!sm.getFval8().equals("sys")) {
+					String string =sortp(smFun,sm);
+					System.out.println("开奖是："+smFun.getFval1()+","+smFun.getFval2()+","+smFun.getFval3()+","+smFun.getFval9()+" == 投注是："+sm.getFval1()+","+sm.getFval2()+","+sm.getFval3()+","+sm.getFval9()+"====="+string);
 				}
 			  }
-			}
 		}
 	}
 
@@ -261,12 +165,133 @@ public class FunService {
 				addJiFenRecord(smUserjfmx);
 				updateJiFen(smUserjf);
 		}
+	
+	public static void duijiangTest() {
+		//先获取本次开奖结果。 2.获取本期所有投注  3.判断是否中奖，4.按奖项新增积分
+		SmFun smFun =new SmFun();
+		smFun.setFval1("1"); smFun.setFval2("5");  smFun.setFval3("8"); smFun.setFval9("小"); 
+		//获取系统开奖的期号。
+		List<SmFun> list =  new ArrayList<SmFun>();	  //当前期
+		SmFun smFun1 =new SmFun();
+		smFun1.setFval1("1"); smFun1.setFval2("0");  smFun1.setFval3("0"); smFun1.setFval9("大");  list.add(smFun1);
+		
+		SmFun smFun2 =new SmFun();
+		smFun2.setFval1("0"); smFun2.setFval2("5");  smFun2.setFval3("2"); smFun2.setFval9("大");  list.add(smFun2);
+		
+		SmFun smFun3 =new SmFun();
+		smFun3.setFval1("0"); smFun3.setFval2("2");  smFun3.setFval3("8"); smFun3.setFval9("大");  list.add(smFun3);
+		
+		SmFun smFun4 =new SmFun();
+		smFun4.setFval1("4"); smFun4.setFval2("0");  smFun4.setFval3("2"); smFun4.setFval9("小");  list.add(smFun4);
+		
+		SmFun smFun5 =new SmFun();
+		smFun5.setFval1("2"); smFun5.setFval2("0");  smFun5.setFval3("9"); smFun5.setFval9("小");  list.add(smFun5);
+		
+		SmFun smFun6 =new SmFun();
+		smFun6.setFval1("0"); smFun6.setFval2("6");  smFun6.setFval3("4"); smFun6.setFval9("小");  list.add(smFun6);
+		
+		SmFun smFun7 =new SmFun();
+		smFun7.setFval1("0"); smFun7.setFval2("6");  smFun7.setFval3("9"); smFun7.setFval9("小");  list.add(smFun7);
+		
+		SmFun smFun8 =new SmFun();
+		smFun8.setFval1("9"); smFun8.setFval2("2");  smFun8.setFval3("0"); smFun8.setFval9("小");  list.add(smFun8);
+		
+		System.out.println("投了多少注："+(list.size()));
+		/*
+		 * if (list.size()>0) { for (SmFun sm : list) { String string =sortp(smFun,sm);
+		 * System.out.println("开奖是："+smFun.getFval1()+","+smFun.getFval2()+","+smFun.
+		 * getFval3()+","+smFun.getFval9()+" == 投注是："+sm.getFval1()+","+sm.getFval2()+
+		 * ","+sm.getFval3()+","+sm.getFval9()+"====="+string); } }
+		 */
+		
+	}
+	
+	public  String sortp(SmFun jiang,SmFun tou) {
+		String account = tou.getFval8();
+		int jiang1 [] =new int[3];
+		int tou1 [] =   new int[3];
+		String jball1 =jiang.getFval1();
+		jiang1[0]=Integer.parseInt(jball1);
+		String jball2 =jiang.getFval2();
+		jiang1[1]=Integer.parseInt(jball2);
+		String jball3 =jiang.getFval3();
+		jiang1[2]=Integer.parseInt(jball3);
+		String jball9 =jiang.getFval9();
+	
+		
+		String tball1 =tou.getFval1();
+		tou1[0]=Integer.parseInt(tball1);
+		String tball2 =tou.getFval2();
+		tou1[1]=Integer.parseInt(tball2);
+		String tball3 =tou.getFval3();
+		tou1[2]=Integer.parseInt(tball3);
+		String tball9 =tou.getFval9();
+		
+		String jiang2 = jball1+""+jball2+""+jball3;
+		boolean daxiao=jball9.equals(tball9);
+		int zhi=CommonUtils.zhi(jiang1,tou1);
+		int mix =CommonUtils.mix(jiang2, tou1);
+		
+		if (zhi==3&&daxiao) {  //一等奖    直3+1大小     1:500     1/2000
+			jifenopt(account, "PLC一等奖派奖", "100000");
+			tou.setFval10("PLC一等奖派奖");
+			updatePaiJiang(tou);
+			return "PLC一等奖派奖";
+		}
+		
+		if (zhi==3&&(!daxiao)) {  //二等奖    直3+0大小  1:300     1/1000
+			jifenopt(account, "PLC二等奖派奖", "80000");
+			tou.setFval10("PLC二等奖派奖");
+			updatePaiJiang(tou);
+			return "PLC二等奖派奖";
+		}
+		
+		if (zhi!=3&&mix==3&&daxiao) {  //三等奖    乱3+1大小  1:200         3/1000    0.3%
+			jifenopt(account, "PLC三等奖派奖", "45000");
+			tou.setFval10("PLC三等奖派奖");
+			updatePaiJiang(tou);
+			return "PLC三等奖派奖";
+		}
+		if (mix==3&&zhi!=3 &&(!daxiao) ) {// 乱3+0  0.6%     和值：0.6%
+			jifenopt(account, "PLC四等奖派奖", "10000");
+			tou.setFval10("PLC四等奖派奖");
+			updatePaiJiang(tou);
+			return "PLC四等奖派奖";
+		}
+
+		
+		if ((zhi==2&&daxiao) || (zhi==2 && (!daxiao)) ) {		//直2+1  1.35%  或者  直接2+0     2.7%      和值：4%
+			jifenopt(account, "PLC五等奖派奖", "4000");
+			tou.setFval10("PLC五等奖派奖");
+			updatePaiJiang(tou);
+			return "PLC五等奖派奖";
+		}
+		
+		
+		
+		 if ((mix==2&&daxiao&&zhi!=2)) { 						//乱2+1  8.1%     或者        和值：8.1%
+			 	jifenopt(account, "PLC六等奖派奖", "600");
+				tou.setFval10("PLC六等奖派奖");
+				updatePaiJiang(tou);
+				return "PLC六等奖派奖";
+		 }
+		 
+	
+		 if ( zhi==1 && daxiao) { 	// 直接1+1        和值：12.1%
+			 jifenopt(account, "PLC七等奖派奖", "100");
+				tou.setFval10("PLC七等奖派奖");
+				updatePaiJiang(tou);
+			 return "PLC七等奖派奖";
+		 }
+		 
+ 
+		
+		return "";
+
+		 
+		
+	}
 	public static void main(String[] args) {
-		if("1,2,6,小".contains("大")) {
-			System.out.println("中");
-		}
-		else {
-			System.out.println("不中");
-		}
+		//duijiangTest();
 	}
 }

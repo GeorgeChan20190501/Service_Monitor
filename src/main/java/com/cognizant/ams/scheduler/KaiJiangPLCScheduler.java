@@ -22,7 +22,7 @@ public class KaiJiangPLCScheduler {
 		String daxiao="大";
 		int arr9[] = new int[10];
 		while (set9.size() < 3) {
-			int a = (int) Math.ceil(Math.random() * 10);
+			int a = (int) Math.ceil(Math.random() * 9);
 			set9.add(a);
 		}
 		int a = (int) Math.ceil(Math.random() * 2);
@@ -58,6 +58,7 @@ public class KaiJiangPLCScheduler {
 	}
 
 	public static void main(String[] args) throws Exception {
-		new KaiJiangPLCScheduler().run();
+		//new KaiJiangPLCScheduler().run();
+		System.out.println(Math.ceil(Math.random() * 9));
 	}
 }
