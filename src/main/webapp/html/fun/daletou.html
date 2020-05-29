@@ -179,8 +179,8 @@
 		</div>
 
 		<!-- 模态框 -->
-		<div class="modal fade " id="myModal" >
-			<div class="modal-dialog modal-lg">
+		<div class="modal fade  bs-example-modal-lg" id="myModal" >
+			<div class="modal-dialog modal-lg"    >
 				<div class="modal-content">
 					<!-- 模态框头部 -->
 					<div class="modal-header">
@@ -189,18 +189,17 @@
 					</div>
 					<!-- 模态框主体 -->
 					<div class="modal-body">
-						<table class="table  table-bordered   table-sm">
+						<table class="table  table-bordered ">
 								<thead>
 									<tr>
-												<th>历史期号</th>
+												<th style="width:90px; ">历史期号</th>
 												<th>开奖结果</th>
 												<th>我的当期</th>
 									</tr>
 								</thead>
 								<tbody>
 										<tr v-for="item in dataShow">
-											<td><input class="tableinput" :value="item.roleCode"
-												v-model="item.fkey" :readonly="status ? false : 'readonly'" /></td>
+											<td style="width:90px;">{{item.fkey}}</td>
 											<td><span v-if="item.fval1!=''"><span class="redball">{{item.fval1}}</span> <span
 												class="redball">{{item.fval2}}</span> <span class="redball">{{item.fval3}}</span>
 												<span class="redball">{{item.fval4}}</span> <span
@@ -214,6 +213,8 @@
 												<span class="redball">{{item1.fval4}}</span> <span
 												class="redball">{{item1.fval5}}</span> <span class="blueball w2">{{item1.fval6}}</span>
 												<span class="blueball">{{item1.fval7}}</span>
+												<span
+												class="w2">{{item1.fval10}}</span> 
 											    </p>
 											</td>	
 											
@@ -301,7 +302,7 @@
 			},
 			ok(){
 				var length = this.hasAll.length;
-				var cost = length*100;
+				var cost = length*200;
 				if(this.jifen<cost){
 					ams_alert("老铁，你只有"+this.jifen+"积分,赶紧充值！")
 					return ;

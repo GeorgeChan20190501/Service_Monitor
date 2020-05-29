@@ -100,8 +100,11 @@ public class KaiJiangScheduler {
 		smFun.setType("DLT");
 		funService.kaiJiang(smFun);
 		System.out.println("开奖执行成功");
+		System.out.println("开始自动兑奖");
+		//先获取本次开奖结果。 2.获取本期所有投注  3.判断是否中奖，4.按奖项新增积分
+		funService.duijiangDLT(smFun);
+		System.out.println("自动兑奖完成");
 	}
-
 	public static void main(String[] args) throws Exception {
 		new KaiJiangScheduler().run();
 	}

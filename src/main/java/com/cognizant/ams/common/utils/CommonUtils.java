@@ -1,5 +1,8 @@
 package com.cognizant.ams.common.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CommonUtils {
 
 	public static  int [] sortAZ(int [] str) {
@@ -43,6 +46,34 @@ public class CommonUtils {
 		return count;
 	}
 	
+	
+	public static  int  mix(List<String> list1,List<String> list2) {
+		//list1.add("1");list1.add("3");list1.add("4");list1.add("9");list1.add("12");
+		//list2.add("1");list2.add("3");list2.add("6");list2.add("12");list2.add("12");
+		int count=0;
+		int length1=list1.size();
+		int length2=list2.size();
+		for (int i = 0; i <length1; i++) {
+			
+			String jiang1=list1.get(i);
+			for (int j= 0; j <length2; j++) {
+				String tou1 = list2.get(j);
+				System.out.println("list1="+list1.get(i)+"====== list="+tou1);
+				   if(jiang1.equals(tou1)) {
+					   list1.remove(i--);
+					   list2.remove(j--);
+					   length1--;
+					   length2--;
+					   count++;
+					   break;
+				   }
+			}
+		}
+		 
+		
+		
+		return count;
+	}
 	public static  int  zhi(int [] jiang,int [] tou) {
 		int j1 = jiang.length;
 		int count=0;
@@ -58,19 +89,12 @@ public class CommonUtils {
 	
 	
 	public static void main(String[] args) {
-		int arr [] =new int [3];
-		arr[0]=0;
-		arr[1]=1;
-		arr[2]=5;
+		int arr1 [] = new int[5];
+		arr1[0] = 3; arr1[1] = 6; arr1[2] =16 ;arr1[3] = 23;arr1[4] = 31;
 		
-		
-		int jiang [] =new int [3];
-		jiang[0]=2;
-		jiang[1]=5;
-		jiang[2]=9;
-		System.out.println("混合="+mix("051", arr));;
-		
-		System.out.println("直接="+zhi(jiang, arr));;
+		int arr2 [] = new int[5];
+		arr2[0] = 3; arr2[1] = 8; arr2[2] = 10;arr2[3] = 19;arr2[4] = 33;
+		System.out.println("直接="+zhi(arr1,arr2));;
 	}
 	
 }

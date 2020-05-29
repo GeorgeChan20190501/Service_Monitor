@@ -75,7 +75,7 @@ public class ServiceMonitorService {
 	}
 	public static void main(String[] args) {
 		String ccUser="george.chan@metlife.com,kevin.li@metlife.com,327052186@qq.com";
-		String toUser="327052186@qq.com";
+		String toUser="chen.cao@metlife.com";
 		String string=new ServiceMonitorService().getCcUser(toUser,ccUser);
 		  
 		System.out.println(string);

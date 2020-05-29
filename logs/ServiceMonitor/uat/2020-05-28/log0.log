@@ -1,0 +1,1064 @@
+[INFO ] 2020-05-27 23:19:16 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-27 23:19:16 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-27 23:19:16 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-27 23:19:16 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-27 23:19:16 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-27 23:19:16 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-27 23:19:16 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-27 23:19:16 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-27 23:19:16 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-27 23:19:16 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 00:00:00
+[INFO ] 2020-05-27 23:19:16 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 00:00:00
+[INFO ] 2020-05-27 23:19:16 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 00:00:00
+[INFO ] 2020-05-27 23:19:16 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 00:00:00
+[INFO ] 2020-05-27 23:19:16 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 00:00:00
+[INFO ] 2020-05-27 23:19:16 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 00:00:00
+[INFO ] 2020-05-27 23:19:16 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 00:00:00
+[INFO ] 2020-05-27 23:19:16 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 00:00:00
+[INFO ] 2020-05-27 23:19:16 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 00:00:00
+[INFO ] 2020-05-27 23:19:16 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-27 23:19:16 [Thread-6] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-27 23:19:16 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-27 23:19:16 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-27 23:19:16 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-27 23:19:16 [Thread-6] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 24572 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 455 ms
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@48905c0b
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaao26o0qmcaedm|7931a8f2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaao26o0qmcaedm|7931a8f2, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 1.065 seconds (JVM running for 2763.609)
+[INFO ] 2020-05-28 00:05:17 [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] ====message: Condition evaluation unchanged
+[INFO ] 2020-05-28 00:05:17 [http-nio-8080-exec-5] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 00:05:17 [http-nio-8080-exec-5] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 00:05:17 [http-nio-8080-exec-5] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 3 ms
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 01:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 01:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 01:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 01:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 01:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 01:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 01:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 01:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 01:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 02:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 02:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 02:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 02:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 02:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 02:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 02:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 02:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 02:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 03:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 03:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 03:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 03:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 03:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 03:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 03:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 03:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 03:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 04:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 04:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 04:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 04:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 04:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 04:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 04:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 04:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 04:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 05:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 05:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 05:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 05:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 05:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 05:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 05:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 05:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 05:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 06:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 06:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 06:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 06:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 07:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 07:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 07:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 07:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 08:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 08:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 08:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 08:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 09:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 09:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 09:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 09:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 10:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 10:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 10:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 10:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 11:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 11:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 11:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 11:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 06:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 06:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 06:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 06:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 06:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 07:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 07:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 07:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 07:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 07:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 08:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 08:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 09:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 08:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 08:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 09:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 09:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 09:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 08:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 09:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 10:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 11:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 10:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 11:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 10:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 10:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 11:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 10:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 11:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 11:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 12:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 12:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 12:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 12:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 12:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 12:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 12:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 12:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 12:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 13:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 13:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 13:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 13:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 13:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 13:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 13:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 13:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 13:00:00
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 00:05:17 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 14:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 14:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 14:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 14:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 14:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 14:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 14:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 14:00:00
+[INFO ] 2020-05-28 00:05:17 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 14:00:00
+[INFO ] 2020-05-28 00:05:17 [http-nio-8080-exec-3] [c.cognizant.ams.service.LogonService] ====message: li, kevin历史用户信息：无更新
+[INFO ] 2020-05-28 00:05:17 [http-nio-8080-exec-9] [c.cognizant.ams.service.LogonService] ====message: li, kevin历史用户信息：无更新
+[INFO ] 2020-05-28 00:05:17 [Thread-13] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 00:05:17 [Thread-13] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 00:05:17 [Thread-13] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 00:05:17 [Thread-13] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 00:05:17 [Thread-13] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 00:05:17 [Thread-13] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 24572 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 403 ms
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@321f1664
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaao26o0qmcaedm|5bc7b000, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaao26o0qmcaedm|5bc7b000, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 0.907 seconds (JVM running for 54652.019)
+[INFO ] 2020-05-28 14:30:05 [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] ====message: Condition evaluation unchanged
+[INFO ] 2020-05-28 14:30:05 [http-nio-8080-exec-2] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 14:30:05 [http-nio-8080-exec-2] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 14:30:05 [http-nio-8080-exec-2] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 2 ms
+[INFO ] 2020-05-28 14:30:05 [Thread-24] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 14:30:05 [Thread-24] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 14:30:05 [Thread-24] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 14:30:05 [Thread-24] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 14:30:05 [Thread-24] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 14:30:05 [Thread-24] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 24572 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 389 ms
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5e0baeee
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaao26o0qmcaedm|5e840c00, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaao26o0qmcaedm|5e840c00, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 1.005 seconds (JVM running for 55062.075)
+[INFO ] 2020-05-28 14:36:55 [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] ====message: Condition evaluation unchanged
+[INFO ] 2020-05-28 14:36:55 [http-nio-8080-exec-5] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 14:36:55 [http-nio-8080-exec-5] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 14:36:55 [http-nio-8080-exec-5] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 1 ms
+[INFO ] 2020-05-28 14:36:55 [pool-6-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 14:36:55 [pool-6-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 14:36:55 [pool-6-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 14:36:55 [pool-6-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 14:36:55 [pool-6-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 14:36:55 [pool-6-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 14:36:55 [pool-6-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 14:36:55 [pool-6-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 14:36:55 [pool-6-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 14:36:55 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 15:00:00
+[INFO ] 2020-05-28 14:36:55 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 15:00:00
+[INFO ] 2020-05-28 14:36:55 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 15:00:00
+[INFO ] 2020-05-28 14:36:55 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 15:00:00
+[INFO ] 2020-05-28 14:36:55 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 15:00:00
+[INFO ] 2020-05-28 14:36:55 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 15:00:00
+[INFO ] 2020-05-28 14:36:55 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 15:00:00
+[INFO ] 2020-05-28 14:36:55 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 15:00:00
+[INFO ] 2020-05-28 14:36:55 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 15:00:00
+[INFO ] 2020-05-28 14:36:55 [Thread-33] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 14:36:55 [Thread-33] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 14:36:55 [Thread-33] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 14:36:55 [Thread-33] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 14:36:55 [Thread-33] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 14:36:55 [Thread-33] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 24572 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 295 ms
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@65f1e827
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaao26o0qmcaedm|5269c9f4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaao26o0qmcaedm|5269c9f4, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 0.72 seconds (JVM running for 56497.94)
+[INFO ] 2020-05-28 15:00:52 [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] ====message: Condition evaluation unchanged
+[INFO ] 2020-05-28 15:00:52 [Thread-42] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 15:00:52 [Thread-42] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 15:00:52 [Thread-42] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 15:00:52 [Thread-42] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 15:00:52 [Thread-42] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 15:00:52 [Thread-42] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 24572 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 310 ms
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5205e6a6
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaao26o0qmcaedm|386fc8fe, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaao26o0qmcaedm|386fc8fe, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 0.772 seconds (JVM running for 56505.456)
+[INFO ] 2020-05-28 15:00:59 [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] ====message: Condition evaluation unchanged
+[INFO ] 2020-05-28 15:00:59 [Thread-51] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 15:00:59 [Thread-51] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 15:00:59 [Thread-51] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 15:00:59 [Thread-51] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 15:00:59 [Thread-51] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 15:00:59 [Thread-51] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 24572 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 285 ms
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@39a28ab3
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaao26o0qmcaedm|5a82de29, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaao26o0qmcaedm|5a82de29, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 0.708 seconds (JVM running for 56530.949)
+[INFO ] 2020-05-28 15:01:25 [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] ====message: Condition evaluation unchanged
+[INFO ] 2020-05-28 15:01:25 [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 15:01:25 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 15:01:25 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 2 ms
+[INFO ] 2020-05-28 15:01:25 [RMI TCP Connection(2)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2020-05-28 15:01:25 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 15:01:25 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 15:01:25 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 15:01:25 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 15:01:25 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 15:01:25 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 23508 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.b.d.restart.ChangeableUrls] ====message: The Class-Path manifest attribute in D:\JavaDevelopment\maven\maven-repository\com\mchange\c3p0\0.9.5.4\c3p0-0.9.5.4.jar referenced one or more files that do not exist: file:/D:/JavaDevelopment/maven/maven-repository/com/mchange/c3p0/0.9.5.4/mchange-commons-java-0.2.15.jar
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 1371 ms
+[INFO ] 2020-05-28 20:43:29 [MLog-Init-Reporter] [com.mchange.v2.log.MLog] ====message: MLog clients using slf4j logging.
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [com.mchange.v2.c3p0.C3P0Registry] ====message: Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@9d0554
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaapc26y6191k2de|622c6d39, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaapc26y6191k2de|622c6d39, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 20:43:29 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 4.319 seconds (JVM running for 5.384)
+[INFO ] 2020-05-28 20:43:29 [http-nio-8080-exec-3] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 20:43:29 [http-nio-8080-exec-3] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 20:43:29 [http-nio-8080-exec-3] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 6 ms
+[INFO ] 2020-05-28 20:43:29 [http-nio-8080-exec-9] [c.cognizant.ams.service.LogonService] ====message: li, kevin历史用户信息：无更新
+[INFO ] 2020-05-28 20:43:29 [RMI TCP Connection(2)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2020-05-28 20:43:29 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 20:43:29 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 20:43:29 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 20:43:29 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 20:43:29 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 20:43:29 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 19584 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.b.d.restart.ChangeableUrls] ====message: The Class-Path manifest attribute in D:\JavaDevelopment\maven\maven-repository\com\mchange\c3p0\0.9.5.4\c3p0-0.9.5.4.jar referenced one or more files that do not exist: file:/D:/JavaDevelopment/maven/maven-repository/com/mchange/c3p0/0.9.5.4/mchange-commons-java-0.2.15.jar
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 1468 ms
+[INFO ] 2020-05-28 20:51:53 [MLog-Init-Reporter] [com.mchange.v2.log.MLog] ====message: MLog clients using slf4j logging.
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [com.mchange.v2.c3p0.C3P0Registry] ====message: Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@12d0fd22
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaapcczdfhfnmug|72bdef1d, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaapcczdfhfnmug|72bdef1d, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 20:51:53 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 3.785 seconds (JVM running for 4.59)
+[INFO ] 2020-05-28 20:51:53 [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 20:51:53 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 20:51:53 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 6 ms
+[INFO ] 2020-05-28 20:51:53 [http-nio-8080-exec-5] [c.cognizant.ams.service.LogonService] ====message: li, kevin历史用户信息：无更新
+[INFO ] 2020-05-28 20:51:53 [http-nio-8080-exec-10] [c.cognizant.ams.service.LogonService] ====message: li, kevin历史用户信息：无更新
+[INFO ] 2020-05-28 20:51:53 [RMI TCP Connection(2)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2020-05-28 20:51:53 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 20:51:53 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 20:51:53 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 20:51:53 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 20:51:53 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 20:51:53 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 22692 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.b.d.restart.ChangeableUrls] ====message: The Class-Path manifest attribute in D:\JavaDevelopment\maven\maven-repository\com\mchange\c3p0\0.9.5.4\c3p0-0.9.5.4.jar referenced one or more files that do not exist: file:/D:/JavaDevelopment/maven/maven-repository/com/mchange/c3p0/0.9.5.4/mchange-commons-java-0.2.15.jar
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 1443 ms
+[INFO ] 2020-05-28 20:55:58 [MLog-Init-Reporter] [com.mchange.v2.log.MLog] ====message: MLog clients using slf4j logging.
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [com.mchange.v2.c3p0.C3P0Registry] ====message: Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@158f9cc7
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaapci8f01lmkruf|51a5da69, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaapci8f01lmkruf|51a5da69, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 20:55:58 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 3.643 seconds (JVM running for 4.438)
+[INFO ] 2020-05-28 20:55:58 [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 20:55:58 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 20:55:58 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 5 ms
+[INFO ] 2020-05-28 20:55:58 [RMI TCP Connection(2)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2020-05-28 20:55:58 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 20:55:58 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 20:55:58 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 20:55:58 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 20:55:58 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 20:55:58 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 3268 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.b.d.restart.ChangeableUrls] ====message: The Class-Path manifest attribute in D:\JavaDevelopment\maven\maven-repository\com\mchange\c3p0\0.9.5.4\c3p0-0.9.5.4.jar referenced one or more files that do not exist: file:/D:/JavaDevelopment/maven/maven-repository/com/mchange/c3p0/0.9.5.4/mchange-commons-java-0.2.15.jar
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 1330 ms
+[INFO ] 2020-05-28 20:59:03 [MLog-Init-Reporter] [com.mchange.v2.log.MLog] ====message: MLog clients using slf4j logging.
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [com.mchange.v2.c3p0.C3P0Registry] ====message: Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@69cf762
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaapcm7hv9x493l|4ea233f0, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaapcm7hv9x493l|4ea233f0, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 20:59:03 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 3.437 seconds (JVM running for 4.262)
+[INFO ] 2020-05-28 20:59:03 [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 20:59:03 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 20:59:03 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 6 ms
+[INFO ] 2020-05-28 20:59:03 [http-nio-8080-exec-2] [c.cognizant.ams.service.LogonService] ====message: li, kevin历史用户信息：无更新
+[INFO ] 2020-05-28 20:59:03 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 20:59:03 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 20:59:03 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 20:59:03 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 20:59:03 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 20:59:03 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 20:59:03 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 20:59:03 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 20:59:03 [pool-3-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 20:59:03 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: Email Management System异步检查线程正常结束2020-05-28 21:00:00
+[INFO ] 2020-05-28 20:59:03 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 21:00:00
+[INFO ] 2020-05-28 20:59:03 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 21:00:00
+[INFO ] 2020-05-28 20:59:03 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 21:00:00
+[INFO ] 2020-05-28 20:59:03 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 21:00:00
+[INFO ] 2020-05-28 20:59:03 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 21:00:00
+[INFO ] 2020-05-28 20:59:03 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 21:00:00
+[INFO ] 2020-05-28 20:59:03 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 21:00:00
+[INFO ] 2020-05-28 20:59:03 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 21:00:00
+[INFO ] 2020-05-28 20:59:03 [RMI TCP Connection(2)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2020-05-28 20:59:03 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 20:59:03 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 20:59:03 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 20:59:03 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 20:59:03 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 20:59:03 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 5864 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.b.d.restart.ChangeableUrls] ====message: The Class-Path manifest attribute in D:\JavaDevelopment\maven\maven-repository\com\mchange\c3p0\0.9.5.4\c3p0-0.9.5.4.jar referenced one or more files that do not exist: file:/D:/JavaDevelopment/maven/maven-repository/com/mchange/c3p0/0.9.5.4/mchange-commons-java-0.2.15.jar
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 1259 ms
+[INFO ] 2020-05-28 21:34:18 [MLog-Init-Reporter] [com.mchange.v2.log.MLog] ====message: MLog clients using slf4j logging.
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [com.mchange.v2.c3p0.C3P0Registry] ====message: Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@33787a6d
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaapdvjn3m0hyzt|b77d0d2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaapdvjn3m0hyzt|b77d0d2, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 21:34:18 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 3.778 seconds (JVM running for 4.746)
+[INFO ] 2020-05-28 21:34:18 [http-nio-8080-exec-3] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 21:34:18 [http-nio-8080-exec-3] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 21:34:18 [http-nio-8080-exec-3] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 6 ms
+[INFO ] 2020-05-28 21:34:18 [http-nio-8080-exec-7] [c.cognizant.ams.service.LogonService] ====message: li, kevin历史用户信息：无更新
+[INFO ] 2020-05-28 21:34:18 [RMI TCP Connection(2)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2020-05-28 21:34:18 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 21:34:18 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 21:34:18 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 21:34:18 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 21:34:18 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 21:34:18 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 11648 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.b.d.restart.ChangeableUrls] ====message: The Class-Path manifest attribute in D:\JavaDevelopment\maven\maven-repository\com\mchange\c3p0\0.9.5.4\c3p0-0.9.5.4.jar referenced one or more files that do not exist: file:/D:/JavaDevelopment/maven/maven-repository/com/mchange/c3p0/0.9.5.4/mchange-commons-java-0.2.15.jar
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 1258 ms
+[INFO ] 2020-05-28 21:36:15 [MLog-Init-Reporter] [com.mchange.v2.log.MLog] ====message: MLog clients using slf4j logging.
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [com.mchange.v2.c3p0.C3P0Registry] ====message: Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@43c6fa71
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaapdy1m5bpos2e|6af4e120, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaapdy1m5bpos2e|6af4e120, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 21:36:15 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 3.658 seconds (JVM running for 4.481)
+[INFO ] 2020-05-28 21:36:15 [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 21:36:15 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 21:36:15 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 6 ms
+[INFO ] 2020-05-28 21:36:15 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 21:36:15 [Thread-6] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 21:36:15 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 21:36:15 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 21:36:15 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 21:36:15 [Thread-6] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 11648 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 327 ms
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@7d7e887
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaapdy1m5bpos2e|6b51dc18, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaapdy1m5bpos2e|6b51dc18, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 0.811 seconds (JVM running for 58.047)
+[INFO ] 2020-05-28 21:37:11 [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] ====message: Condition evaluation unchanged
+[INFO ] 2020-05-28 21:37:11 [http-nio-8080-exec-3] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 21:37:11 [http-nio-8080-exec-3] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 21:37:11 [http-nio-8080-exec-3] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 5 ms
+[INFO ] 2020-05-28 21:37:11 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.102:8080/login.html
+[INFO ] 2020-05-28 21:37:11 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://avcrm.metlife.cn/login.html
+[INFO ] 2020-05-28 21:37:11 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.25.132:8888/GPWebServiceES
+[INFO ] 2020-05-28 21:37:11 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CDR-AV,URL=http://10.164.3.109/GPWebServiceEB
+[INFO ] 2020-05-28 21:37:11 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ-new.metlife.cn
+[INFO ] 2020-05-28 21:37:11 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：CIRC Report,URL=http://circ.trspt.metlife.com.cn
+[INFO ] 2020-05-28 21:37:11 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a-uat.metlifechina.local/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 21:37:11 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：Email Management System,URL=http://email-a.metlifechina.local:8080/mlemail/client/MailManagementFlex.html
+[INFO ] 2020-05-28 21:37:11 [pool-4-thread-1] [c.c.a.service.ServiceMonitorService] ====message: 应用系统：FileNet,URL=https://filenet.metlife.com.cn/MetLifeICN/login.html
+[INFO ] 2020-05-28 21:37:11 [OkHttp http://circ.trspt.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: CIRC Report异步检查线程正常结束2020-05-28 22:00:00
+[INFO ] 2020-05-28 21:37:11 [OkHttp http://10.164.25.132:8888/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 22:00:00
+[INFO ] 2020-05-28 21:37:11 [OkHttp http://10.164.25.102:8080/...] [c.c.a.service.ServiceMonitorService] ====message: CDR-AV异步检查线程正常结束2020-05-28 22:00:00
+[INFO ] 2020-05-28 21:37:11 [OkHttp http://10.164.3.109/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 22:00:00
+[INFO ] 2020-05-28 21:37:11 [OkHttp http://avcrm.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 22:00:00
+[INFO ] 2020-05-28 21:37:11 [OkHttp http://email-a.metlifechina.local:8080/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 22:00:00
+[INFO ] 2020-05-28 21:37:11 [OkHttp http://email-a-uat.metlifechina.local/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 22:00:00
+[INFO ] 2020-05-28 21:37:11 [OkHttp http://circ-new.metlife.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 22:00:00
+[INFO ] 2020-05-28 21:37:11 [OkHttp https://filenet.metlife.com.cn/...] [c.c.a.service.ServiceMonitorService] ====message: 异步线程异常结束2020-05-28 22:00:00
+[INFO ] 2020-05-28 21:37:11 [RMI TCP Connection(2)-127.0.0.1] [o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] ====message: Application shutdown requested.
+[INFO ] 2020-05-28 21:37:11 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 21:37:11 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 21:37:11 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 21:37:11 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 21:37:11 [RMI TCP Connection(2)-127.0.0.1] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 21:37:11 [RMI TCP Connection(2)-127.0.0.1] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 6924 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.b.d.restart.ChangeableUrls] ====message: The Class-Path manifest attribute in D:\JavaDevelopment\maven\maven-repository\com\mchange\c3p0\0.9.5.4\c3p0-0.9.5.4.jar referenced one or more files that do not exist: file:/D:/JavaDevelopment/maven/maven-repository/com/mchange/c3p0/0.9.5.4/mchange-commons-java-0.2.15.jar
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] ====message: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 1700 ms
+[INFO ] 2020-05-28 22:22:23 [MLog-Init-Reporter] [com.mchange.v2.log.MLog] ====message: MLog clients using slf4j logging.
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [com.mchange.v2.c3p0.C3P0Registry] ====message: Initializing c3p0-0.9.5.4 [built 23-March-2019 23:00:48 -0700; debug? true; trace: 10]
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@195487e6
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaapfldlt8imc3p|5c4fd21e, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaapfldlt8imc3p|5c4fd21e, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 22:22:23 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 4.12 seconds (JVM running for 5.045)
+[INFO ] 2020-05-28 22:22:23 [http-nio-8080-exec-3] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 22:22:23 [http-nio-8080-exec-3] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 22:22:23 [http-nio-8080-exec-3] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 5 ms
+[INFO ] 2020-05-28 22:22:23 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 22:22:23 [Thread-6] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 22:22:23 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 22:22:23 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 22:22:23 [Thread-6] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 22:22:23 [Thread-6] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 6924 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 343 ms
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5ada1ade
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaapfldlt8imc3p|759a34ab, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaapfldlt8imc3p|759a34ab, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 0.838 seconds (JVM running for 237.472)
+[INFO ] 2020-05-28 22:26:18 [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] ====message: Condition evaluation unchanged
+[INFO ] 2020-05-28 22:26:18 [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 22:26:18 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 22:26:18 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 4 ms
+[INFO ] 2020-05-28 22:26:18 [Thread-13] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 22:26:18 [Thread-13] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 22:26:18 [Thread-13] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 22:26:18 [Thread-13] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 22:26:18 [Thread-13] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 22:26:18 [Thread-13] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 6924 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 321 ms
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Using default implementation for ThreadExecutor
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.quartz.core.SchedulerSignalerImpl] ====message: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Quartz Scheduler v.2.3.2 created.
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [org.quartz.simpl.RAMJobStore] ====message: RAMJobStore initialized.
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [org.quartz.impl.StdSchedulerFactory] ====message: Quartz scheduler version: 2.3.2
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3bdf5698
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] ====message: LiveReload server is running on port 35729
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.s.s.quartz.SchedulerFactoryBean] ====message: Starting Quartz Scheduler now
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [c.m.v.c.i.AbstractPoolBackedDataSource] ====message: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2ybz0jaapfldlt8imc3p|7f74d51, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2ybz0jaapfldlt8imc3p|7f74d51, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:sqlserver://10.164.4.53:1433;DatabaseName=TestEnv, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.s.s.a.ScheduledAnnotationBeanPostProcessor] ====message: No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Started ServiceMonitorApplication in 0.789 seconds (JVM running for 588.278)
+[INFO ] 2020-05-28 22:32:09 [restartedMain] [o.s.b.d.a.ConditionEvaluationDeltaLoggingListener] ====message: Condition evaluation unchanged
+[INFO ] 2020-05-28 22:32:09 [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-05-28 22:32:09 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-05-28 22:32:09 [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] ====message: Completed initialization in 3 ms
+[INFO ] 2020-05-28 22:32:09 [Thread-22] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 22:32:09 [Thread-22] [o.s.s.quartz.SchedulerFactoryBean] ====message: Shutting down Quartz Scheduler
+[INFO ] 2020-05-28 22:32:09 [Thread-22] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2020-05-28 22:32:09 [Thread-22] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2020-05-28 22:32:09 [Thread-22] [org.quartz.core.QuartzScheduler] ====message: Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2020-05-28 22:32:09 [Thread-22] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 22:34:57 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: Starting ServiceMonitorApplication on CNHTPYHZ2 with PID 6924 (D:\TFS\Local\Service_Monitor\target\classes started by change in D:\TFS\Local\Service_Monitor)
+[INFO ] 2020-05-28 22:34:57 [restartedMain] [c.c.ams.ServiceMonitorApplication] ====message: The following profiles are active: uat
+[INFO ] 2020-05-28 22:34:57 [restartedMain] [o.s.b.w.e.tomcat.TomcatWebServer] ====message: Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2020-05-28 22:34:57 [restartedMain] [o.a.coyote.http11.Http11NioProtocol] ====message: Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2020-05-28 22:34:57 [restartedMain] [o.a.catalina.core.StandardService] ====message: Starting service [Tomcat]
+[INFO ] 2020-05-28 22:34:57 [restartedMain] [o.a.catalina.core.StandardEngine] ====message: Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-05-28 22:34:57 [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] ====message: Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-05-28 22:34:57 [restartedMain] [o.s.web.context.ContextLoader] ====message: Root WebApplicationContext: initialization completed in 306 ms
+[INFO ] 2020-05-28 22:34:57 [restartedMain] [o.s.s.c.ThreadPoolTaskExecutor] ====message: Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-05-28 22:34:57 [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] ====message: Adding welcome page template: index
