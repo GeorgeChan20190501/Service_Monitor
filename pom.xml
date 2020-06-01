@@ -13,7 +13,7 @@
 	<artifactId>ServiceMonitor</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Service_Monotor</name>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<description>ServiceMonitor project for Spring Boot</description>
 
 	<properties>

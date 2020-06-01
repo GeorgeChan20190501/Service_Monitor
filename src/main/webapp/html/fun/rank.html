@@ -298,8 +298,17 @@
 			},
 			nextTime(){
 				var curdate=new Date();
-				var  date =filterTime(curdate)
-				this.time=date;
+				var min =curdate.getMinutes();
+				var hour =curdate.getHours();
+				if(min<30){
+					curdate.setMinutes(30);
+				}
+				if(min>=30){
+					curdate.setMinutes(0);
+					curdate.setHours(hour+1);
+				}
+				var nextTime =stdData(curdate).substring(0,16) ;
+				this.time=nextTime;
 			},
 			ok(){
 				var length = this.hasAll.length;

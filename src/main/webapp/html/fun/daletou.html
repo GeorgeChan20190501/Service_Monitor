@@ -48,13 +48,13 @@
 				</div>
 			</div>
 			<div class="row" style="padding: 15px;">
-				<div class="col-sm-9">
+				<div class="col-sm-10">
 				<button class="bg-primary mybtn" @click="query()">查一下</button>
 				<button class="mybtn bg-danger" style="margin-left: 45px;"
 					@click="buy()">投一个</button>
 				<button class="mybtn bg-danger " data-toggle="modal" data-target="#myModal"  style="margin-left: 45px;">我的生涯</button>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-sm-2">
 							<div style="margin-top:50px;"><span style="line-height:30px">下期开奖时间：{{time}}</span></div>
 				</div>
 			</div>
@@ -293,12 +293,34 @@
 			},
 			nextTime(){
 				var curdate=new Date();
-				if(curdate.getHours()>9 && curdate.getMinutes()>30){
-					curdate.setDate(curdate.getDate()+1);
+				var min =curdate.getMinutes();
+				var hour =curdate.getHours();
+				if(hour<9){
+					curdate.setHours(9);
+					curdate.setMinutes(0);
 				}
-				var  date =stdData(curdate);
-				var date1 =date.substring(0,10)+" 09:30:00";
-				this.time=date1;
+				if(hour<12 && hour >=9){
+					
+					curdate.setHours(12);
+					curdate.setMinutes(0);
+				}
+				if(hour<15 && hour >=12){
+					
+					curdate.setHours(15);
+					curdate.setMinutes(0);
+				}
+				if(hour<18 && hour >=15){
+					
+					curdate.setHours(15);
+					curdate.setMinutes(0);
+				}
+				if(hour<21 && hour >=18){
+					
+					curdate.setHours(21);
+					curdate.setMinutes(0);
+				}
+				var nextTime =stdData(curdate).substring(0,16) ;
+				this.time=nextTime;
 			},
 			ok(){
 				var length = this.hasAll.length;
