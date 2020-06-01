@@ -110,7 +110,10 @@
 					@click="addConfig()">保存</button>
 				<button class="mybtn bg-primary" style="margin-left: 45px;"
 					@click="query">查询</button>
-
+				<form> 
+						<button  id="filebtn" style="margin-left: 45px;" class="bg-primary mybtn iconfont  icon-ziyuanxcx"  ><input  type="file" name="file"  @change="getFile($event)"><span style="font-size:10px; margin-left:5px;">{{fileName | format }}</span></button>
+						<button  style="margin-left: 45px;"  class="bg-primary mybtn"  type="submit" @click="upload()">上传</button>
+				</form>
 			</div>
 
 
@@ -124,8 +127,8 @@
 					@click="download"></button>
 			</div>
 			<div class="bh2"></div>
-			<div style="width:80%">
-				<table class="table   table-bordered   table-sm"  style="position:relative">
+			<div>
+				<table class="table   table-bordered   table-sm" >
 					<thead>
 						<tr>
 							<th width="50px;"><input type="checkbox"
@@ -221,6 +224,7 @@
 			role: [],
 			status: false,
 			check: true,
+			fileName:'',
 			edit: '启用编辑',
 			info2: '',
 			configs: [],
@@ -235,6 +239,15 @@
 			endworkday:  '',
 			useroption : [],
 			condition: {usercode:'',startworkday:'', endworkday:''}
+		},
+		filters:{
+			format(data){
+				if(data!=null && data!=''){
+					data=data.substring(0,1)+".."+data.substring(data.length-4,data.length);
+					
+				}
+				return data;
+			}
 		},
 		created() {
 			this.getAppInfo();
@@ -479,7 +492,25 @@
 				else {
 					this.edit = '启用编辑';
 				}
-			}
+			},
+			upload(event){
+				
+		        let formData = new FormData();
+		        formData.append('file', this.file);
+		        let config = {
+		          headers: {
+		            'Content-Type': 'multipart/form-data'
+		          }
+		        }
+		      axios.post("/uploadEffort", formData, config).then(function (res) {
+		        		alert(res.data)
+		      }) 
+			},
+			getFile(event) {
+		        this.file = event.target.files[0];
+		        this.fileName=this.file.name;
+		        
+		      },
 
 		}
 	})
