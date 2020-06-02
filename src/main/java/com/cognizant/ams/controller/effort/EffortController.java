@@ -27,11 +27,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.cognizant.ams.bean.SmConfig;
 import com.cognizant.ams.bean.SmEfforts;
 import com.cognizant.ams.bean.SmSn;
+import com.cognizant.ams.bean.SysUser;
 import com.cognizant.ams.bean.common.JsonReqObject;
 import com.cognizant.ams.common.ExcelUtils;
 import com.cognizant.ams.common.utils.DateFormatUtils;
 import com.cognizant.ams.common.utils.ExpressPattern;
 import com.cognizant.ams.service.EffortService;
+import com.cognizant.ams.service.UserService;
 
 @RequestMapping("/efforts")
 @RestController
@@ -39,10 +41,13 @@ public class EffortController {
 
 	@Autowired
 	private EffortService effortService;
+	
+	@Autowired
+	private UserService userService;
 
 	private static String loginUsercode;
 
-	private static String message="";
+	private static String message = "";
 
 	@PutMapping("/save")
 	public int saveEfforts(@RequestBody String effortJson) {
@@ -229,7 +234,7 @@ public class EffortController {
 			int startindex = fileName.indexOf("_");
 			int endindex = fileName.indexOf(".");
 			if (endindex - startindex != 7) {
-				message = "uplaod format error!  eq:  Effort Tracker George_202006";
+				message = "Effort格式有误！  例如:  Effort Tracker George_202006";
 				return false;
 			}
 			String YearMonth = fileName.substring(startindex + 1, startindex + 7);
@@ -290,44 +295,51 @@ public class EffortController {
 
 					// 关联数据插入
 					// 插入关联数据
-					String  eaiString=effort.getEaiCode();
-					if (null!=eaiString&&effort.getEaiCode().indexOf(".") != -1) {
-						effort.setEaiCode(effort.getEaiCode().substring(0, effort.getEaiCode().indexOf(".")));// qu
-																												// xiaoshudian
+					if (Strings.isNotBlank(effort.getEaiCode())) {
+						String eaiString = effort.getEaiCode();
+						if (null != eaiString && effort.getEaiCode().indexOf(".") != -1) {
+							effort.setEaiCode(effort.getEaiCode().substring(0, effort.getEaiCode().indexOf(".")));// qu
+																													// xiaoshudian
+						}
+
+						SmConfig temp = effortService.queryAppConfig("applist", effort.getEaiCode(), "");
+
+						effort.setAppname(temp.getCval1());
+						effort.setAppower(temp.getCval2());
 					}
 
-					SmConfig temp = effortService.queryAppConfig("applist", effort.getEaiCode(), "");
-
-					effort.setAppname(temp.getCval1());
-					effort.setAppower(temp.getCval2());
 					// userid 匹配
-					SmConfig temp1 = effortService.queryAppConfig("effortuserlist", "", effortUser);
 
-					effort.setUserid(temp1.getCkey());
-					if (Strings.isNotBlank(temp1.getCkey())) {
-						effortUserid = temp1.getCkey();
+					effort.setUserid(loginUsercode);
+					SysUser sysUser=new SysUser();
+					sysUser.setAccount(loginUsercode);
+					List<SysUser> users= userService.queryUser(sysUser);
+					if (users != null&&users.size()>0) {
+						String username=users.get(0).getUsername();
+						effort.setUsername(username);
 					}
 				}
 
 			}
 			// 遍历结束
-for (SmEfforts smEfforts : effortList) {
-	double temphours=0;
-	for (SmEfforts smEfforts2 : effortList) {
-		if (smEfforts2.getWorkday().equals(smEfforts.getWorkday())&&smEfforts2.getUserid().equals(smEfforts.getUserid())) {
-			temphours+=Double.parseDouble((smEfforts2.getEffortsHours()));
-		}
-	}
-	if (temphours<8.0||temphours>12.0) {
-		message=message+smEfforts.getWorkday()+"的时长不符合要求</br>";
-		
-	}
-	
-}
+			for (SmEfforts smEfforts : effortList) {
+				double temphours = 0;
+				for (SmEfforts smEfforts2 : effortList) {
+					if (smEfforts2.getWorkday().equals(smEfforts.getWorkday())
+							&& smEfforts2.getUserid().equals(smEfforts.getUserid())) {
+						temphours += Double.parseDouble((smEfforts2.getEffortsHours()));
+					}
+				}
+				if (temphours < 8.0 || temphours > 12.0) {
+					message = message + smEfforts.getWorkday() + "的时长不符合要求</br>";
+
+				}
+
+			}
 			if (Strings.isNotBlank(message)) {
 				return false;
 			}
-			
+
 			// TODO 获取当月小时数,开始时间，结束时间
 			int workday = Integer.parseInt(effortService.queryAppConfig("monthhourslist", YearMonth, "").getCval3());
 			String starttime = effortService.queryAppConfig("monthhourslist", YearMonth, "").getCval1();
@@ -337,7 +349,7 @@ for (SmEfforts smEfforts : effortList) {
 				return false;
 			}
 			System.out.println(effortList);
-			int delresult = effortService.deleteEffortsByDate(effortUserid, starttime, endtime);
+			int delresult = effortService.deleteEffortsByDate(loginUsercode, starttime, endtime);
 			System.out.println(effortUser + "删除effort" + delresult);
 			int insert = effortService.saveOrUpdateEffort(effortList);
 			System.out.println(effortUser + "新增effort" + insert);

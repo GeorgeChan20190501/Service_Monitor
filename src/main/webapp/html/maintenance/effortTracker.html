@@ -112,7 +112,7 @@
 					@click="query">查询</button>
 				<form> 
 						<button  id="filebtn" style="margin-left: 45px;" class="bg-primary mybtn iconfont  icon-ziyuanxcx"  ><input  type="file" name="file"  @change="getFile($event)"><span style="font-size:10px; margin-left:5px;">{{fileName | format }}</span></button>
-						<button  style="margin-left: 45px;"  class="bg-primary mybtn"  type="button" @click="upload">上传</button>
+						<button  style="margin-left: 45px;"  class="bg-primary mybtn"  type="button" @click="upload">上传</button><span style="color:red">请选择当前登陆用户Effort进行导入</span>
 				</form>
 			</div>
 
@@ -497,6 +497,7 @@
 				}
 			},
 			upload(event){
+				
 		        let formData = new FormData();
 		        formData.append('file', this.file);
 		        formData.append("startworkday",this.startworkday);
@@ -510,6 +511,7 @@
 		        			alert(res.data);
   	
 		      }) 
+				
 			},
 			getFile(event) {
 		        this.file = event.target.files[0];
