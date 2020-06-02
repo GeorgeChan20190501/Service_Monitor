@@ -32,7 +32,7 @@
 				<div class="col-sm-3 ">
 					<div style="width: 80px; height: 25px; float: left">Effort
 						Ower</div>
-					<select id="user" v-model="currUser.usercode"  :disabled="currUser.usercode!='SYSTEM'? 'disabled': false" style="width: 200px;">
+					<select id="user" v-model="currUser.usercode"  :disabled="userclass!='SYSTEM'? 'disabled': false" style="width: 200px;">
 						<option :selected="true" value=""></option>
 						<option v-for="user in useroption" :value="user.usercode">
 							{{user.username}}</option>
@@ -60,7 +60,7 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<div style="width: 80px; height: 25px; float: left">Date</div>
-						<input :disabled="currUser.usercode=='SYSTEM'? 'disabled': false"  type="date" name='candiv' v-model="effortObj.workday"
+						<input :disabled="userclass=='SYSTEM'? 'disabled': false"  type="date" name='candiv' v-model="effortObj.workday"
 							style="width: 200px; height: 25px;" />
 					</div>
 
@@ -74,7 +74,7 @@
 					<div class="col-sm-3">
 						<div style="width: 80px; height: 25px; float: left">Task
 							Type</div>
-						<select :disabled="currUser.usercode=='SYSTEM'? 'disabled': false"  v-model="effortObj.tasktype" style="width: 200px;">
+						<select :disabled="userclass=='SYSTEM'? 'disabled': false"  v-model="effortObj.tasktype" style="width: 200px;">
 							<option value=""></option>
 							<option v-for="tasktype in tasktypeList" :value="tasktype.type">{{tasktype.type}}</option>
 						</select>
@@ -82,7 +82,7 @@
 					<div class="col-sm-3">
 						<div style="width: 115px; height: 25px; float: left">Application
 							Name</div>
-						<select :disabled="currUser.usercode=='SYSTEM'? 'disabled': false"  v-model="effortObj.eaicode" style="width: 150px;">
+						<select :disabled="userclass=='SYSTEM'? 'disabled': false"  v-model="effortObj.eaicode" style="width: 150px;">
 							<option :selected="true" value=""></option>
 							<option v-for="app in appList" :value="app.ckey">
 								{{app.cval1}}</option>
@@ -93,13 +93,13 @@
 					<div class="col-sm-3">
 						<div style="width: 100px; height: 25px; float: left">Ticket
 							Number</div>
-						<input  :disabled="currUser.usercode=='SYSTEM'? 'disabled': false"  type="text" name="childNum"
+						<input  :disabled="userclass=='SYSTEM'? 'disabled': false"  type="text" name="childNum"
 							v-model="effortObj.ticketnumber"
 							style="width: 150px; height: 25px;" />
 					</div>
 					<div class="col-sm-2">
 						<div  style="width: 50px; height: 25px; float: left">Hours</div>
-						<input :disabled="currUser.usercode=='SYSTEM'? 'disabled': false"  type="text" name="pageUrl" v-model="effortObj.efforthours"
+						<input :disabled="userclass=='SYSTEM'? 'disabled': false"  type="text" name="pageUrl" v-model="effortObj.efforthours"
 							style="width: 150px; height: 25px;" />
 					</div>
 				</div>
@@ -112,7 +112,7 @@
 					@click="query">查询</button>
 				<form> 
 						<button  id="filebtn" style="margin-left: 45px;" class="bg-primary mybtn iconfont  icon-ziyuanxcx"  ><input  type="file" name="file"  @change="getFile($event)"><span style="font-size:10px; margin-left:5px;">{{fileName | format }}</span></button>
-						<button  style="margin-left: 45px;"  class="bg-primary mybtn"  type="submit" @click="upload()">上传</button>
+						<button  style="margin-left: 45px;"  class="bg-primary mybtn"  type="button" @click="upload">上传</button>
 				</form>
 			</div>
 
@@ -224,6 +224,7 @@
 			role: [],
 			status: false,
 			check: true,
+			file: '',
 			fileName:'',
 			edit: '启用编辑',
 			info2: '',
@@ -238,6 +239,7 @@
 			startworkday: '',
 			endworkday:  '',
 			useroption : [],
+			userclass:'',
 			condition: {usercode:'',startworkday:'', endworkday:''}
 		},
 		filters:{
@@ -349,6 +351,7 @@
 				}).then(res => {
 					log(res.data);
 					this.currUser.usercode = res.data;
+					this.userclass=res.data;
 					this.useroption.forEach((item,index)=>{
 						if(item.usercode.toLowerCase()==this.currUser.usercode.toLowerCase()){
 							this.currUser.username=item.username;
@@ -494,16 +497,18 @@
 				}
 			},
 			upload(event){
-				
 		        let formData = new FormData();
 		        formData.append('file', this.file);
+		        formData.append("startworkday",this.startworkday);
+		        formData.append("endworkday",this.endworkday);
 		        let config = {
 		          headers: {
 		            'Content-Type': 'multipart/form-data'
 		          }
 		        }
-		      axios.post("/uploadEffort", formData, config).then(function (res) {
-		        		alert(res.data)
+		      axios.post("/efforts/upload", formData, config).then(function (res) {
+		        			alert(res.data);
+  	
 		      }) 
 			},
 			getFile(event) {

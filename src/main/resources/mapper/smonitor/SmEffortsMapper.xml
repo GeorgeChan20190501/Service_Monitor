@@ -292,5 +292,10 @@
       chk1 = #{record.chk1,jdbcType=CHAR} where id = #{record.id}
 		</foreach>
   </update>
-  
+    <insert id='saveOrUpdateEffort' parameterType='list'  >
+  		<foreach collection="list" item="effort"  open=""  close=""  separator=";" >		
+					insert into sm_efforts values(#{effort.userid},#{effort.username},#{effort.workday},#{effort.tasktype},#{effort.eaiCode},#{effort.appname},#{effort.appower},#{effort.ticketNumber},#{effort.effortsHours},#{effort.createTime},'false','');
+		</foreach>
+  </insert>
+
 </mapper>

@@ -23,4 +23,6 @@ public interface SmEffortsMapper {
     int deleteEffort(List<String> list);
 
  	int updateEffort(List<SmEfforts> list);
+
+	int saveOrUpdateEffort(List<SmEfforts> effortList);
 }

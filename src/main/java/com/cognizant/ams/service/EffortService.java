@@ -2,8 +2,12 @@ package com.cognizant.ams.service;
 
 import java.util.Date;
 import java.util.List;
+
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.cognizant.ams.bean.SmConfig;
 import com.cognizant.ams.bean.SmConfigExample;
 import com.cognizant.ams.bean.SmEfforts;
@@ -137,12 +141,45 @@ public class EffortService {
 		   criteria.andTypeEqualTo("applist");
 		return smConfigMapper.selectByExample(smConfigExample);
 	}
-	public SmConfig queryAppConfigbyEaicode(String eaicode) {
+	/**
+	 * 查询配置，根据key找value或者根据value找key
+	 * @param type
+	 * @param key
+	 * @param val
+	 * @return
+	 */
+	public SmConfig queryAppConfig(String type, String key,String val) {
 		smConfigExample=new SmConfigExample();
 		SmConfigExample.Criteria criteria=smConfigExample.createCriteria();
-		   criteria.andTypeEqualTo("applist");
-		   criteria.andCkeyEqualTo(eaicode);
+		   criteria.andTypeEqualTo(type);
+		   if (Strings.isNotBlank(key)) {
+			   criteria.andCkeyEqualTo(key);
+		}
+		   if (Strings.isNotBlank(val)) {
+			   criteria.andCval1EqualTo(val);
+			}
+		
+		   
 		return smConfigMapper.selectByExample(smConfigExample).get(0);
+	}
+
+	public int saveOrUpdateEffort(List<SmEfforts> effortList) {
+		int result=effortMapper.saveOrUpdateEffort(effortList);
+		return result;
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int deleteEffortsByDate(String effortUser, String starttime, String endtime) {
+		int result=0;
+		effortsExample=new SmEffortsExample();
+		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
+		criteria.andUseridEqualTo(effortUser);
+	   criteria.andWorkdayBetween(starttime, endtime);
+	   effortMapper.deleteByExample(effortsExample);
+		return result;
+	
+		
 	}
  
 }
