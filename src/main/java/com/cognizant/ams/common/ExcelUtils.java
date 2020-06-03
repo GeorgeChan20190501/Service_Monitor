@@ -175,7 +175,7 @@ public class ExcelUtils {
     @SuppressWarnings("deprecation")
 	private static String getCellVal(Cell cell) {
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd"); //日期格式yyyy-mm-dd
-        DecimalFormat df = new DecimalFormat("0");
+        DecimalFormat df = new DecimalFormat("0.0");
         String val;
         switch (cell.getCellType()) {
             case Cell.CELL_TYPE_NUMERIC:

@@ -283,7 +283,7 @@ public class EffortController {
 				if (null != effort) {
 					if (Strings.isNotBlank(effort.getTicketNumber())) {
 						if (Strings.isNotBlank(effort.getEffortsHours()) && Strings.isNotBlank(effort.getEaiCode())) {
-							monthhours += Integer.parseInt(effort.getEffortsHours());
+							monthhours += Double.parseDouble(effort.getEffortsHours());
 							effortList.add(effort);
 						} else {
 							System.out.println("Hours,Eaicode不能为空");
@@ -291,6 +291,15 @@ public class EffortController {
 							return false;
 						}
 
+					}
+					
+					if (Strings.isNotBlank(effort.getWorkday())) {
+						String date=effort.getWorkday();
+						String celldatem=date.substring(0,4).concat(date.substring(5,7));
+						if (!YearMonth.equals(celldatem)) {
+							message="包含非"+YearMonth+"的Effort数据！请删除后导入";
+							return false;
+						}
 					}
 
 					// 关联数据插入
@@ -323,16 +332,15 @@ public class EffortController {
 			}
 			// 遍历结束
 			for (SmEfforts smEfforts : effortList) {
-				double temphours = 0;
+				double temphours = 0.0;
 				for (SmEfforts smEfforts2 : effortList) {
-					if (smEfforts2.getWorkday().equals(smEfforts.getWorkday())
-							&& smEfforts2.getUserid().equals(smEfforts.getUserid())) {
+					if (smEfforts2.getWorkday().equals(smEfforts.getWorkday())) {
 						temphours += Double.parseDouble((smEfforts2.getEffortsHours()));
 					}
 				}
 				if (temphours < 8.0 || temphours > 12.0) {
-					message = message + smEfforts.getWorkday() + "的时长不符合要求</br>";
-
+					message = message + smEfforts.getWorkday() + "的时长不符合要求；";
+				
 				}
 
 			}
@@ -367,7 +375,9 @@ public class EffortController {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("10281".substring(0, "10281".indexOf(".")));
+		String date="2020-02-03";
+		String celldatem=date.substring(0,4).concat(date.substring(5,7));
+		System.out.println(celldatem);
 	}
 
 }
