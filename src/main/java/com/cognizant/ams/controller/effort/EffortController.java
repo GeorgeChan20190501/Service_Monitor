@@ -370,10 +370,6 @@ public class EffortController {
 							effort.setTasktype("Production - Service Management (DP / DR / UC)");
 							System.out.println("&&&&&===" + effort.getTicketNumber());
 						}
-						if (effort.getTicketNumber().toUpperCase().contains("TASK")) {
-							effort.setTasktype("Production - Minor Enhancements (CR)");
-							System.out.println("&&&&&===" + effort.getTicketNumber());
-						}
 						if (effort.getTicketNumber().toUpperCase().contains("PRB")
 								|| effort.getTicketNumber().toUpperCase().contains("PTASK")) {
 							effort.setTasktype("Production - Problem Management (IAP)");
