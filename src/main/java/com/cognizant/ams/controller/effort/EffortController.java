@@ -65,11 +65,10 @@ public class EffortController {
 
 		// 插入关联数据
 		List<SmConfig> temp = effortService.queryAppConfig("applist", effort.getEaiCode(), "");
-if (null!=temp&&temp.size()>0) {
-	effort.setAppname(temp.get(0).getCval1());
-	effort.setAppower(temp.get(0).getCval2());
-}
-
+		if (null != temp && temp.size() > 0) {
+			effort.setAppname(temp.get(0).getCval1());
+			effort.setAppower(temp.get(0).getCval2());
+		}
 
 		// TODO 获取当前登陆用户
 		effort.setUserid(json.getString("userid"));
@@ -208,12 +207,13 @@ if (null!=temp&&temp.size()>0) {
 	}
 
 	@PostMapping("/upload")
-	public String doUpload(HttpServletRequest request,String effortuser,String  startworkday,String endworkday) throws IOException {
-		message="";//重置
-System.out.println("&&"+effortuser);
-System.out.println("&&"+startworkday);
-System.out.println("&&"+endworkday);
-this.effortuser=effortuser;
+	public String doUpload(HttpServletRequest request, String effortuser, String startworkday, String endworkday)
+			throws IOException {
+		message = "";// 重置
+		System.out.println("&&" + effortuser);
+		System.out.println("&&" + startworkday);
+		System.out.println("&&" + endworkday);
+		this.effortuser = effortuser;
 		MultipartHttpServletRequest mreq = null;
 		if (request instanceof MultipartHttpServletRequest) {
 			mreq = (MultipartHttpServletRequest) request;
@@ -328,23 +328,23 @@ this.effortuser=effortuser;
 						}
 
 						List<SmConfig> temp = effortService.queryAppConfig("applist", effort.getEaiCode(), "");
-if (null!=temp&&temp.size()>0) {
-	effort.setAppname(temp.get(0).getCval1());
-	effort.setAppower(temp.get(0).getCval2());
-}else {
-	message="包含未配置的EAICODE: "+effort.getEaiCode();
-	return false;
-}
-						
+						if (null != temp && temp.size() > 0) {
+							effort.setAppname(temp.get(0).getCval1());
+							effort.setAppower(temp.get(0).getCval2());
+						} else {
+							message = "包含未配置的EAICODE: " + effort.getEaiCode();
+							return false;
+						}
+
 					}
 
 					// userid 匹配
 					if ("SYSTEM".equals(loginUsercode)) {
-						
+
 					} else {
-						effortuser=loginUsercode;
+						effortuser = loginUsercode;
 					}
-					
+
 					effort.setUserid(effortuser);
 					SysUser sysUser = new SysUser();
 					sysUser.setAccount(effortuser);
@@ -356,31 +356,28 @@ if (null!=temp&&temp.size()>0) {
 					if (Strings.isBlank(effort.getUsername())) {// 未登陆用户选择账号作为effortower
 						effort.setUsername(effortuser);
 					}
-					
-					//tasktype 统一
+
+					// tasktype 统一
 					if (Strings.isNotBlank(effort.getTicketNumber())) {
-						if (effort.getTicketNumber().toUpperCase().contains("INC")  ) {
+						if (effort.getTicketNumber().toUpperCase().contains("INC")) {
 							effort.setTasktype("Production - Incident Management (AP)");
-							System.out.println("&&&&&==="+effort.getTicketNumber());
+							System.out.println("&&&&&===" + effort.getTicketNumber());
 						}
 						if (effort.getTicketNumber().toUpperCase().contains("TASK")) {
 							effort.setTasktype("Production - Service Management (DP / DR / UC)");
-							System.out.println("&&&&&==="+effort.getTicketNumber());
+							System.out.println("&&&&&===" + effort.getTicketNumber());
 						}
 						if (effort.getTicketNumber().toUpperCase().contains("TASK")) {
 							effort.setTasktype("Production - Minor Enhancements (CR)");
-							System.out.println("&&&&&==="+effort.getTicketNumber());
+							System.out.println("&&&&&===" + effort.getTicketNumber());
 						}
-						if (effort.getTicketNumber().toUpperCase().contains("PRB")||effort.getTicketNumber().toUpperCase().contains("PTASK")) {
+						if (effort.getTicketNumber().toUpperCase().contains("PRB")
+								|| effort.getTicketNumber().toUpperCase().contains("PTASK")) {
 							effort.setTasktype("Production - Problem Management (IAP)");
-							System.out.println("&&&&&==="+effort.getTicketNumber());
+							System.out.println("&&&&&===" + effort.getTicketNumber());
 						}
 					}
-					
-					
-					
 
-					
 				}
 
 			}
@@ -400,7 +397,7 @@ if (null!=temp&&temp.size()>0) {
 					isworkday = false;
 				}
 
-				if (isworkday && (temphours < 8.0 || temphours > 12.0)) {
+				if (isworkday && (temphours < 8.0 || temphours > 24.0)) {
 					message = message + smEfforts.getWorkday() + "的时长不符合要求；";
 
 				}
@@ -411,19 +408,19 @@ if (null!=temp&&temp.size()>0) {
 			}
 
 			// TODO 获取当月小时数,开始时间，结束时间
-			int workday =0;
-			String starttime ="";
-			String endtime ="";
-			List<SmConfig> configs=effortService.queryAppConfig("monthhourslist", YearMonth, "");
-			if (null!=configs&&configs.size()>0) {
-				 workday = Integer.parseInt(configs.get(0).getCval3());
-				 starttime = configs.get(0).getCval1();
-				 endtime = configs.get(0).getCval2();
-			}else {
-				message="本月effort工时未配置！";
+			int workday = 0;
+			String starttime = "";
+			String endtime = "";
+			List<SmConfig> configs = effortService.queryAppConfig("monthhourslist", YearMonth, "");
+			if (null != configs && configs.size() > 0) {
+				workday = Integer.parseInt(configs.get(0).getCval3());
+				starttime = configs.get(0).getCval1();
+				endtime = configs.get(0).getCval2();
+			} else {
+				message = "本月effort工时未配置！";
 				return false;
 			}
-			
+
 			if (monthhours < workday * 8) {
 				message = "工时不足" + workday * 8 + "小时";
 				return false;
