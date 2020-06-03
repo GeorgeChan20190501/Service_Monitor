@@ -162,7 +162,10 @@ public class ExcelUtils {
                                continue;
                            }
                            String res = getCellVal(row.getCell (k));
-                           rowMap.put (headName.get (k), res);
+                           if (k<8) {
+                        	   rowMap.put (headName.get (k), res);
+						}
+                          
                        }
                        mapList.add (rowMap);
                    }
