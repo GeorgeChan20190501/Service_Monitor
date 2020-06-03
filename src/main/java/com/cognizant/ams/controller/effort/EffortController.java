@@ -257,6 +257,9 @@ public class EffortController {
 
 			int i = 0;
 			for (Map map : maps) {
+				if (null==map) {
+					continue;
+				}
 				System.out.println("==========================" + i++);
 				effort = new SmEfforts();
 				@SuppressWarnings("unchecked")
