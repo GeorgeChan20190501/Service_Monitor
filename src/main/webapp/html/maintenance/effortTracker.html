@@ -34,8 +34,8 @@
 						Ower</div>
 					<select id="user" v-model="currUser.usercode"  :disabled="userclass!='SYSTEM'? 'disabled': false" style="width: 200px;">
 						<option :selected="true" value=""></option>
-						<option v-for="user in useroption" :value="user.usercode">
-							{{user.username}}</option>
+						<option v-for="user in useroption" :value="user.account">
+							{{user.account}}</option>
 					</select>
 				</div>
 
@@ -335,7 +335,7 @@
 			getUsers(){
 				axios({
 					method: 'get',
-					url: '/json/useroption.json',
+					url: '/efforts/users',
 				}).then(res => {
 					log(res.data);
 					this.useroption = res.data;
@@ -353,8 +353,8 @@
 					this.currUser.usercode = res.data;
 					this.userclass=res.data;
 					this.useroption.forEach((item,index)=>{
-						if(item.usercode.toLowerCase()==this.currUser.usercode.toLowerCase()){
-							this.currUser.username=item.username;
+						if((item.usercode).toLowerCase()==this.currUser.usercode.toLowerCase()){
+							this.currUser.username=item.account;
 						}
 					})
 				}, error => {
@@ -500,6 +500,7 @@
 				
 		        let formData = new FormData();
 		        formData.append('file', this.file);
+		        formData.append("effortuser",this.currUser.usercode);
 		        formData.append("startworkday",this.startworkday);
 		        formData.append("endworkday",this.endworkday);
 		        let config = {

@@ -49,6 +49,23 @@ public class DateFormatUtils {
 		}
 		return calendar;
 	}
+	public static Calendar transCanlendar1(String date) {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date date1;
+		Calendar calendar = null;
+		if (date.equals("")||date==null) {
+			return calendar;
+		}
+		try {
+			date1 = simpleDateFormat.parse(date);
+			calendar = Calendar.getInstance();
+			calendar.setTime(date1);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return calendar;
+	}
+	
 	public static String fromCalendarToDate(Calendar calendar) {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date date =calendar.getTime();

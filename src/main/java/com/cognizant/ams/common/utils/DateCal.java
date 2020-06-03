@@ -18,7 +18,7 @@ public class DateCal {
 	 static String overtimeDay="";
 	 //思路：1-任意时间，先计算截至日是否未工作日。如果不是工作日，往后累加到工作日9点开始计算。即起始时间必为工作日或加班日,如果是工作时间，直接取
     //            2-计算两个时间的工作日时长，不包括节假日，周末，18：00（前一个工作日）- 9：00（后一个工作日）
-	public String getHoliday(String year) {
+	public static String getHoliday(String year) {
 		//System.out.println("yearGlobal==="+yearGlobal+"year==="+year);
 		if (yearGlobal.equals(year)) {
 			//System.out.println("直接取值"+holiday);
@@ -38,7 +38,7 @@ public class DateCal {
 		}
 		return holiday;
 	}
-	public String overtimeDay(String year) {
+	public static String overtimeDay(String year) {
 		PreparedStatement ps;
 		//System.out.println("yearGlobal==="+yearGlobal+"year==="+year);
 		if (yearGlobal.equals(year)) {
@@ -80,7 +80,7 @@ public class DateCal {
 	
 
 	// 判断是否是法定节假日
-	private boolean isHodliDays(Calendar d1) {
+	public static boolean isHodliDays(Calendar d1) {
 		/*
 		 * 关于法定节假日，这里还有一个问题需要提前考虑下 例如：
 		 * 国庆10月1号到10月7号，那10月8号正式上班，但是如果10月8号是周日，在计算的时候，也会不考虑进去。这就比较尴尬。
@@ -99,7 +99,7 @@ public class DateCal {
 	}
 
 	// 判断是否是加班日
-	private boolean isPlusDay(Calendar d1) {
+	public static boolean isPlusDay(Calendar d1) {
 		//String str = String.valueOf(d1.get(Calendar.MONTH) + 1) + "-" + String.valueOf(d1.get(Calendar.DAY_OF_MONTH));
 		String date = DateFormatUtils.fromCalendarToDateMMDD(d1);
 		String year =  String.valueOf(d1.get(Calendar.YEAR));
@@ -110,7 +110,7 @@ public class DateCal {
 	}
 
 	// 判断是否是周末
-	private boolean isWeek(Calendar d1) {
+	public static boolean isWeek(Calendar d1) {
 		if (d1.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || d1.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
 			return true;
 		}

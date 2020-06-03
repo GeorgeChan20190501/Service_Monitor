@@ -148,7 +148,7 @@ public class EffortService {
 	 * @param val
 	 * @return
 	 */
-	public SmConfig queryAppConfig(String type, String key,String val) {
+	public List<SmConfig> queryAppConfig(String type, String key,String val) {
 		smConfigExample=new SmConfigExample();
 		SmConfigExample.Criteria criteria=smConfigExample.createCriteria();
 		   criteria.andTypeEqualTo(type);
@@ -158,9 +158,9 @@ public class EffortService {
 		   if (Strings.isNotBlank(val)) {
 			   criteria.andCval1EqualTo(val);
 			}
-		
+		List<SmConfig>   configs=smConfigMapper.selectByExample(smConfigExample);
 		   
-		return smConfigMapper.selectByExample(smConfigExample).get(0);
+		return configs;
 	}
 
 	public int saveOrUpdateEffort(List<SmEfforts> effortList) {

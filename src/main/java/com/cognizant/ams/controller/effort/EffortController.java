@@ -2,11 +2,11 @@ package com.cognizant.ams.controller.effort;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,18 +20,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.thymeleaf.util.StringUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.cognizant.ams.bean.SmConfig;
 import com.cognizant.ams.bean.SmEfforts;
-import com.cognizant.ams.bean.SmSn;
 import com.cognizant.ams.bean.SysUser;
 import com.cognizant.ams.bean.common.JsonReqObject;
 import com.cognizant.ams.common.ExcelUtils;
+import com.cognizant.ams.common.utils.DateCal;
 import com.cognizant.ams.common.utils.DateFormatUtils;
-import com.cognizant.ams.common.utils.ExpressPattern;
+
 import com.cognizant.ams.service.EffortService;
 import com.cognizant.ams.service.UserService;
 
@@ -41,12 +42,12 @@ public class EffortController {
 
 	@Autowired
 	private EffortService effortService;
-	
+
 	@Autowired
 	private UserService userService;
 
 	private static String loginUsercode;
-
+	private static String effortuser;
 	private static String message = "";
 
 	@PutMapping("/save")
@@ -63,10 +64,13 @@ public class EffortController {
 		effort.setEffortsHours(json.getString("efforthours"));
 
 		// 插入关联数据
-		SmConfig temp = effortService.queryAppConfig("applist", effort.getEaiCode(), "");
+		List<SmConfig> temp = effortService.queryAppConfig("applist", effort.getEaiCode(), "");
+if (null!=temp&&temp.size()>0) {
+	effort.setAppname(temp.get(0).getCval1());
+	effort.setAppower(temp.get(0).getCval2());
+}
 
-		effort.setAppname(temp.getCval1());
-		effort.setAppower(temp.getCval2());
+
 		// TODO 获取当前登陆用户
 		effort.setUserid(json.getString("userid"));
 		effort.setUsername(json.getString("username"));
@@ -195,9 +199,21 @@ public class EffortController {
 		return loginUsercode;
 	}
 
-	@PostMapping("/upload")
-	public String doUpload(HttpServletRequest request) throws IOException {
+	@GetMapping("/users")
+	public List<SysUser> queryUserAll() {
 
+		List<SysUser> list = userService.getusers();
+		System.out.println("总条数为===" + list.size());
+		return list;
+	}
+
+	@PostMapping("/upload")
+	public String doUpload(HttpServletRequest request,String effortuser,String  startworkday,String endworkday) throws IOException {
+		message="";//重置
+System.out.println("&&"+effortuser);
+System.out.println("&&"+startworkday);
+System.out.println("&&"+endworkday);
+this.effortuser=effortuser;
 		MultipartHttpServletRequest mreq = null;
 		if (request instanceof MultipartHttpServletRequest) {
 			mreq = (MultipartHttpServletRequest) request;
@@ -292,12 +308,12 @@ public class EffortController {
 						}
 
 					}
-					
+
 					if (Strings.isNotBlank(effort.getWorkday())) {
-						String date=effort.getWorkday();
-						String celldatem=date.substring(0,4).concat(date.substring(5,7));
+						String date = effort.getWorkday();
+						String celldatem = date.substring(0, 4).concat(date.substring(5, 7));
 						if (!YearMonth.equals(celldatem)) {
-							message="包含非"+YearMonth+"的Effort数据！请删除后导入";
+							message = "包含非" + YearMonth + "的Effort数据！请删除后导入";
 							return false;
 						}
 					}
@@ -311,22 +327,60 @@ public class EffortController {
 																													// xiaoshudian
 						}
 
-						SmConfig temp = effortService.queryAppConfig("applist", effort.getEaiCode(), "");
-
-						effort.setAppname(temp.getCval1());
-						effort.setAppower(temp.getCval2());
+						List<SmConfig> temp = effortService.queryAppConfig("applist", effort.getEaiCode(), "");
+if (null!=temp&&temp.size()>0) {
+	effort.setAppname(temp.get(0).getCval1());
+	effort.setAppower(temp.get(0).getCval2());
+}else {
+	message="包含未配置的EAICODE: "+effort.getEaiCode();
+	return false;
+}
+						
 					}
 
 					// userid 匹配
-
-					effort.setUserid(loginUsercode);
-					SysUser sysUser=new SysUser();
-					sysUser.setAccount(loginUsercode);
-					List<SysUser> users= userService.queryUser(sysUser);
-					if (users != null&&users.size()>0) {
-						String username=users.get(0).getUsername();
+					if ("SYSTEM".equals(loginUsercode)) {
+						
+					} else {
+						effortuser=loginUsercode;
+					}
+					
+					effort.setUserid(effortuser);
+					SysUser sysUser = new SysUser();
+					sysUser.setAccount(effortuser);
+					List<SysUser> users = userService.queryUser(sysUser);
+					if (users != null && users.size() > 0) {
+						String username = users.get(0).getUsername();
 						effort.setUsername(username);
 					}
+					if (Strings.isBlank(effort.getUsername())) {// 未登陆用户选择账号作为effortower
+						effort.setUsername(effortuser);
+					}
+					
+					//tasktype 统一
+					if (Strings.isNotBlank(effort.getTicketNumber())) {
+						if (effort.getTicketNumber().toUpperCase().contains("INC")  ) {
+							effort.setTasktype("Production - Incident Management (AP)");
+							System.out.println("&&&&&==="+effort.getTicketNumber());
+						}
+						if (effort.getTicketNumber().toUpperCase().contains("TASK")) {
+							effort.setTasktype("Production - Service Management (DP / DR / UC)");
+							System.out.println("&&&&&==="+effort.getTicketNumber());
+						}
+						if (effort.getTicketNumber().toUpperCase().contains("TASK")) {
+							effort.setTasktype("Production - Minor Enhancements (CR)");
+							System.out.println("&&&&&==="+effort.getTicketNumber());
+						}
+						if (effort.getTicketNumber().toUpperCase().contains("PRB")||effort.getTicketNumber().toUpperCase().contains("PTASK")) {
+							effort.setTasktype("Production - Problem Management (IAP)");
+							System.out.println("&&&&&==="+effort.getTicketNumber());
+						}
+					}
+					
+					
+					
+
+					
 				}
 
 			}
@@ -334,13 +388,21 @@ public class EffortController {
 			for (SmEfforts smEfforts : effortList) {
 				double temphours = 0.0;
 				for (SmEfforts smEfforts2 : effortList) {
+					//
 					if (smEfforts2.getWorkday().equals(smEfforts.getWorkday())) {
 						temphours += Double.parseDouble((smEfforts2.getEffortsHours()));
 					}
 				}
-				if (temphours < 8.0 || temphours > 12.0) {
+				boolean isworkday = true;
+				Calendar calendar = DateFormatUtils.transCanlendar1(smEfforts.getWorkday());
+
+				if ((DateCal.isHodliDays(calendar) || DateCal.isWeek(calendar)) && !(DateCal.isPlusDay(calendar))) {
+					isworkday = false;
+				}
+
+				if (isworkday && (temphours < 8.0 || temphours > 12.0)) {
 					message = message + smEfforts.getWorkday() + "的时长不符合要求；";
-				
+
 				}
 
 			}
@@ -349,18 +411,28 @@ public class EffortController {
 			}
 
 			// TODO 获取当月小时数,开始时间，结束时间
-			int workday = Integer.parseInt(effortService.queryAppConfig("monthhourslist", YearMonth, "").getCval3());
-			String starttime = effortService.queryAppConfig("monthhourslist", YearMonth, "").getCval1();
-			String endtime = effortService.queryAppConfig("monthhourslist", YearMonth, "").getCval2();
+			int workday =0;
+			String starttime ="";
+			String endtime ="";
+			List<SmConfig> configs=effortService.queryAppConfig("monthhourslist", YearMonth, "");
+			if (null!=configs&&configs.size()>0) {
+				 workday = Integer.parseInt(configs.get(0).getCval3());
+				 starttime = configs.get(0).getCval1();
+				 endtime = configs.get(0).getCval2();
+			}else {
+				message="本月effort工时未配置！";
+				return false;
+			}
+			
 			if (monthhours < workday * 8) {
 				message = "工时不足" + workday * 8 + "小时";
 				return false;
 			}
 			System.out.println(effortList);
-			int delresult = effortService.deleteEffortsByDate(loginUsercode, starttime, endtime);
-			System.out.println(effortUser + "删除effort" + delresult);
+			int delresult = effortService.deleteEffortsByDate(effortuser, starttime, endtime);
+			System.out.println(effortuser + "删除effort" + delresult);
 			int insert = effortService.saveOrUpdateEffort(effortList);
-			System.out.println(effortUser + "新增effort" + insert);
+			System.out.println(effortuser + "新增effort" + insert);
 
 		} catch (Exception e) {
 
@@ -375,9 +447,10 @@ public class EffortController {
 	}
 
 	public static void main(String[] args) {
-		String date="2020-02-03";
-		String celldatem=date.substring(0,4).concat(date.substring(5,7));
+		String date = "2020-02-03";
+		String celldatem = date.substring(0, 4).concat(date.substring(5, 7));
 		System.out.println(celldatem);
+		System.out.println();
 	}
 
 }

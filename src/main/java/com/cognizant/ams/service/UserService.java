@@ -29,6 +29,11 @@ public class UserService {
 		List<SysUser> ldusers = sysUserMapper.getUser(sysUser);
 		return ldusers;
 	}
+	
+	public List<SysUser> getusers() {
+		List<SysUser> ldusers = sysUserMapper.selectByExample(null);
+		return ldusers;
+	}
 
 	public void addUser(SysUser sysUser) {
 		sysUserMapper.addUser( sysUser) ;
