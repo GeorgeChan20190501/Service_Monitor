@@ -240,7 +240,7 @@ public class EffortController {
 		List<SmEfforts> effortList = new ArrayList<SmEfforts>();
 
 		SmEfforts effort = null;
-		int monthhours = 0;
+		Double monthhours = 0.0;
 		String effortUser = null;
 		String effortUserid = null;
 		try {
@@ -257,10 +257,10 @@ public class EffortController {
 
 			int i = 0;
 			for (Map map : maps) {
-				if (null==map) {
+				if (null == map) {
 					continue;
 				}
-				System.out.println("==========================" + i++);
+				System.out.println("==========================ff" + i++);
 				effort = new SmEfforts();
 				@SuppressWarnings("unchecked")
 				Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
@@ -300,16 +300,44 @@ public class EffortController {
 
 				}
 				if (null != effort) {
-					if (Strings.isNotBlank(effort.getTicketNumber())) {
-						if (Strings.isNotBlank(effort.getEffortsHours()) && Strings.isNotBlank(effort.getEaiCode())) {
-							monthhours += Double.parseDouble(effort.getEffortsHours());
-							effortList.add(effort);
-						} else {
-							System.out.println("Hours,Eaicode不能为空");
-							message = "Hours,Eaicode不能为空";
-							return false;
-						}
+					if (Strings.isNotBlank(effort.getTicketNumber())) {//有effort内容时
+						if (!"Management".equals(effort.getTasktype())) {//非Management类  需要填内容，应用code，工时
+							if (Strings.isNotBlank(effort.getEffortsHours())
+									&& Strings.isNotBlank(effort.getEaiCode())) {
+								System.out.println("------gg" + effort.getEffortsHours());
+								monthhours += Double.parseDouble(effort.getEffortsHours());
+								effortList.add(effort);
 
+							} else {
+								System.out.println("Hours,Eaicode不能为空");
+								message = "Hours,Eaicode不能为空";
+								return false;
+							}
+						} else {//Management类  需要填内容，其他可不填
+							if (Strings.isNotBlank(effort.getEffortsHours())) {
+								System.out.println("------gg" + effort.getEffortsHours());
+								monthhours += Double.parseDouble(effort.getEffortsHours());
+								effortList.add(effort);
+
+							} else {
+								System.out.println("Hours不能为空");
+								message = "Hours不能为空";
+								return false;
+							}
+						}
+					} else {// 请假 管理 可不填effort内容
+						if ("Vacation".equals(effort.getTasktype()) ) {//请假 eai，内容均可不填
+							if (Strings.isNotBlank(effort.getEffortsHours())) {
+								System.out.println("------gg" + effort.getEffortsHours());
+								monthhours += Double.parseDouble(effort.getEffortsHours());
+								effortList.add(effort);
+
+							} else {
+								System.out.println("Hours不能为空");
+								message = "Hours不能为空";
+								return false;
+							}
+						}
 					}
 
 					if (Strings.isNotBlank(effort.getWorkday())) {
@@ -354,9 +382,14 @@ public class EffortController {
 					List<SysUser> users = userService.queryUser(sysUser);
 					if (users != null && users.size() > 0) {
 						String username = users.get(0).getUsername();
-						effort.setUsername(username);
+						if (null!=username&&username.equals("")) {
+							effort.setUsername(username);
+						}else {
+							effort.setUsername(effortuser);
+						}
+						
 					}
-					if (Strings.isBlank(effort.getUsername())) {// 未登陆用户选择账号作为effortower
+					else {// 未登陆用户选择账号作为effortower
 						effort.setUsername(effortuser);
 					}
 
@@ -419,7 +452,7 @@ public class EffortController {
 				message = "本月effort工时未配置！";
 				return false;
 			}
-
+			System.out.println("effort行数====" + effortList.size());
 			if (monthhours < workday * 8) {
 				message = "工时不足" + workday * 8 + "小时";
 				return false;
@@ -446,7 +479,7 @@ public class EffortController {
 		String date = "2020-02-03";
 		String celldatem = date.substring(0, 4).concat(date.substring(5, 7));
 		System.out.println(celldatem);
-		System.out.println();
+		System.out.println( Strings.isNotBlank(null));
 	}
 
 }
