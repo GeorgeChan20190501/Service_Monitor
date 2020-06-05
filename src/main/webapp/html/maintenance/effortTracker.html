@@ -257,6 +257,8 @@
 			this.queryEffort();
 			this.getUsers();
 			this.getCurrUser();
+			let date=this.newdate();
+			this.effortObj.workday=date.substring(0,4)+"-"+date.substring(4,6)+"-"+date.substring(6,8);
 			
  		},
 		methods: {
