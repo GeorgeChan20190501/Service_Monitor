@@ -72,8 +72,22 @@ public class EffortController {
 
 		// TODO 获取当前登陆用户
 		effort.setUserid(json.getString("userid"));
-		effort.setUsername(json.getString("username"));
-
+		
+		//更新ID的用户名为最新username
+		SysUser sysUser=new SysUser();
+		sysUser.setAccount(json.getString("userid"));
+		List<SysUser> users = userService.queryUser(sysUser);
+		if (users != null && users.size() > 0) {
+			String username = users.get(0).getUsername();
+			if (Strings.isNotBlank(username)) {
+				effort.setUsername(username);
+			}else {
+				effort.setUsername(loginUsercode);
+			}
+			
+		}
+		
+		
 //		effort.setUserid("likev");
 //		effort.setUsername("Kevin");
 
@@ -382,7 +396,7 @@ public class EffortController {
 					List<SysUser> users = userService.queryUser(sysUser);
 					if (users != null && users.size() > 0) {
 						String username = users.get(0).getUsername();
-						if (null!=username&&username.equals("")) {
+						if (Strings.isNotBlank(username)) {
 							effort.setUsername(username);
 						}else {
 							effort.setUsername(effortuser);

@@ -132,7 +132,7 @@
 					<thead>
 						<tr>
 							<th width="50px;"><input type="checkbox"
-								class=" batch checkbox" disabled /></th>
+								class=" batch checkbox"  v-model="isAll" /></th>
 							<th>Effort ID</th>
 							<th>AD Owner</th>
 							<th>Date</th>
@@ -148,7 +148,7 @@
 					<tbody>
 						<tr v-for="item in dataShow">
 							<td width=" 50px;"><input type="checkbox"
-								class="batch checkbox" @click=" chk(item.id,$event)" /></td>
+								class="batch checkbox"  @click="chk(item.id, event)"   v-model='item.chk'/></td>
 							<td>{{item.id}}</td>
 							<td><input class="tableinput" :value="item.appower"
 								v-model="item.appower" :readonly="status ? false : 'readonly'" /></td>
@@ -240,7 +240,7 @@
 			endworkday:  '',
 			useroption : [],
 			userclass:'',
-			condition: {usercode:'',startworkday:'', endworkday:''}
+			condition: {usercode:'',startworkday:'', endworkday:''},
 		},
 		filters:{
 			format(data){
@@ -259,8 +259,33 @@
 			this.getCurrUser();
 			let date=this.newdate();
 			this.effortObj.workday=date.substring(0,4)+"-"+date.substring(4,6)+"-"+date.substring(6,8);
+			this.startworkday=this.effortObj.workday;
+			this.endworkday=this.effortObj.workday;
 			
  		},
+ 		computed: {
+			isAll: {
+				 get: function () { 
+					return this.dataShow.every(item => item.chk);
+				},
+				 set: function (value) { 
+					 this.checkGrp=[];
+					this.dataShow.forEach(item => {
+						item.chk = value;
+						if (value) {
+							this.checkGrp.push(item.id);
+						}
+						else {
+							this.checkGrp.splice(this.checkGrp.indexOf(item.id), 1);
+						}
+						
+						
+					})
+				}
+			}
+		}
+		,
+ 		
 		methods: {
 			queryEffort(){
 				axios({
@@ -374,7 +399,12 @@
 				}, error => {
 				});
 		},
-			dataDisplay(dataShow){	 this.dataShow=dataShow;},
+			dataDisplay(dataShow){	 
+			this.dataShow=dataShow;
+			this.dataShow.forEach(item => {
+				item.chk = false;
+			})
+		},
 			query() {	
 				this.condition.usercode=this.currUser.usercode;
 				this.condition.startworkday=this.startworkday;
@@ -408,9 +438,11 @@
 					data: this.effortObj,
 				}).then(res => {
 					if(res.data==1){
-						this.query();
-						ams_alert("已保存！");
 						
+						ams_alert("已保存！");
+						this.startworkday=this.effortObj.workday;
+						this.endworkday=this.effortObj.workday;
+						this.query();
 						
 					}
 				}, error => {
