@@ -74,6 +74,7 @@ public class EffortService {
 		effortsExample=new SmEffortsExample();
 		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
 	   criteria.andUseridEqualTo(usercode);
+	   effortsExample.setOrderByClause(" userid asc,workday desc,tasktype");
 	   List<SmEfforts> effList= effortMapper.selectByExample(effortsExample);
 	   return effList;
 	}
@@ -88,6 +89,7 @@ public class EffortService {
 		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
 	   criteria.andWorkdayEqualTo(workday);
 	   criteria.andUseridEqualTo(usercode);
+	   effortsExample.setOrderByClause(" userid asc,workday desc,tasktype");
 	   List<SmEfforts> effList= effortMapper.selectByExample(effortsExample);
 	   return effList;
 	}
@@ -104,6 +106,7 @@ public class EffortService {
 		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
 	   criteria.andWorkdayBetween(startdate, enddate);
 	   criteria.andUseridEqualTo(usercode);
+	   effortsExample.setOrderByClause(" userid asc,workday desc,tasktype");
 	   List<SmEfforts> effList= effortMapper.selectByExample(effortsExample);
 	   return effList;
 	}
@@ -117,6 +120,7 @@ public class EffortService {
 		effortsExample=new SmEffortsExample();
 		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
 	   criteria.andWorkdayBetween(startdate, enddate);
+	   effortsExample.setOrderByClause(" userid asc,workday desc,tasktype");
 	   List<SmEfforts> effList= effortMapper.selectByExample(effortsExample);
 	   return effList;
 	}
@@ -131,6 +135,7 @@ public class EffortService {
 	public List<SmEfforts> queryAllEfforts(){
 		effortsExample=new SmEffortsExample();
 		SmEffortsExample.Criteria criteria=effortsExample.createCriteria();
+		effortsExample.setOrderByClause(" userid asc,workday desc,tasktype");
 	   List<SmEfforts> effList= effortMapper.selectByExample(effortsExample);
 	   return effList;
 	}
