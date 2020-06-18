@@ -408,21 +408,21 @@ public class EffortController {
 					}
 
 					// tasktype 统一
-					if (Strings.isNotBlank(effort.getTicketNumber())) {
-						if (effort.getTicketNumber().toUpperCase().contains("INC")) {
-							effort.setTasktype("Production - Incident Management (AP)");
-							System.out.println("&&&&&===" + effort.getTicketNumber());
-						}
-						if (effort.getTicketNumber().toUpperCase().contains("TASK")) {
-							effort.setTasktype("Production - Service Management (DP / DR / UC)");
-							System.out.println("&&&&&===" + effort.getTicketNumber());
-						}
-						if (effort.getTicketNumber().toUpperCase().contains("PRB")
-								|| effort.getTicketNumber().toUpperCase().contains("PTASK")) {
-							effort.setTasktype("Production - Problem Management (IAP)");
-							System.out.println("&&&&&===" + effort.getTicketNumber());
-						}
-					}
+//					if (Strings.isNotBlank(effort.getTicketNumber())) {
+//						if (effort.getTicketNumber().toUpperCase().contains("INC")) {
+//							effort.setTasktype("Production - Incident Management (AP)");
+//							System.out.println("&&&&&===" + effort.getTicketNumber());
+//						}
+//						if (effort.getTicketNumber().toUpperCase().contains("TASK")) {
+//							effort.setTasktype("Production - Service Management (DP / DR / UC)");
+//							System.out.println("&&&&&===" + effort.getTicketNumber());
+//						}
+//						if (effort.getTicketNumber().toUpperCase().contains("PRB")
+//								|| effort.getTicketNumber().toUpperCase().contains("PTASK")) {
+//							effort.setTasktype("Production - Problem Management (IAP)");
+//							System.out.println("&&&&&===" + effort.getTicketNumber());
+//						}
+//					}
 
 				}
 
