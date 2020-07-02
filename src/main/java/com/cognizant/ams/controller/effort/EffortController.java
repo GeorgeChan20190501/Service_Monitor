@@ -46,12 +46,12 @@ public class EffortController {
 	@Autowired
 	private UserService userService;
 
-	private static String loginUsercode;
-	private static String effortuser;
 	private static String message = "";
 
 	@PutMapping("/save")
-	public int saveEfforts(@RequestBody String effortJson) {
+	public int saveEfforts(@RequestBody String effortJson, HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		String	loginUsercode = (String) session.getAttribute("username");
 		System.out.println("开始保存effort===" + effortJson);
 
 		JSONObject json = JSON.parseObject(effortJson);
@@ -106,7 +106,9 @@ public class EffortController {
 	}
 
 	@PostMapping("/query")
-	public Map<String, Object> queryEffortByUser(@RequestBody String param) {
+	public Map<String, Object> queryEffortByUser(@RequestBody String param,HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		String	loginUsercode = (String) session.getAttribute("username");
 		System.out.println("@@@传入JSON" + param);
 		String usercode = "";
 		String startworkdy = "";
@@ -206,15 +208,16 @@ public class EffortController {
 	@GetMapping("/loginuser")
 	public String getSessionUser(HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
-		loginUsercode = (String) session.getAttribute("username");
+		String	loginUsercode = (String) session.getAttribute("username");
 		System.out.println("获取Session用户：" + loginUsercode);
 
 		return loginUsercode;
 	}
+	
+
 
 	@GetMapping("/users")
 	public List<SysUser> queryUserAll() {
-
 		List<SysUser> list = userService.getusers();
 		System.out.println("总条数为===" + list.size());
 		return list;
@@ -227,7 +230,7 @@ public class EffortController {
 		System.out.println("&&" + effortuser);
 		System.out.println("&&" + startworkday);
 		System.out.println("&&" + endworkday);
-		this.effortuser = effortuser;
+
 		MultipartHttpServletRequest mreq = null;
 		if (request instanceof MultipartHttpServletRequest) {
 			mreq = (MultipartHttpServletRequest) request;
@@ -235,7 +238,7 @@ public class EffortController {
 			return "请上传excle格式文件!";
 		}
 		try {
-			boolean flag = analysisFile(mreq);
+			boolean flag = analysisFile(mreq,request);
 			if (!flag) {
 				if (Strings.isNotBlank(message)) {
 					return message;
@@ -249,7 +252,10 @@ public class EffortController {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public boolean analysisFile(MultipartHttpServletRequest mreq) {
+	public boolean analysisFile(MultipartHttpServletRequest mreq,HttpServletRequest request) {
+		String effortuser="";
+		HttpSession session = request.getSession(true);
+		String	loginUsercode = (String) session.getAttribute("username");
 		List<Map> maps = null;
 		List<SmEfforts> effortList = new ArrayList<SmEfforts>();
 
@@ -315,7 +321,7 @@ public class EffortController {
 				}
 				if (null != effort) {
 					if (Strings.isNotBlank(effort.getTicketNumber())) {//有effort内容时
-						if (!"Management".equals(effort.getTasktype())) {//非Management类  需要填内容，应用code，工时
+						if ((!"Management".equals(effort.getTasktype()))&&(!"Vacation".equals(effort.getTasktype())) ) {//非Management类  需要填内容，应用code，工时
 							if (Strings.isNotBlank(effort.getEffortsHours())
 									&& Strings.isNotBlank(effort.getEaiCode())) {
 								System.out.println("------gg" + effort.getEffortsHours());
@@ -324,7 +330,7 @@ public class EffortController {
 
 							} else {
 								System.out.println("Hours,Eaicode不能为空");
-								message = "Hours,Eaicode不能为空";
+								message = effort.getWorkday()+"Hours,Eaicode不能为空";
 								return false;
 							}
 						} else {//Management类  需要填内容，其他可不填
@@ -335,7 +341,7 @@ public class EffortController {
 
 							} else {
 								System.out.println("Hours不能为空");
-								message = "Hours不能为空";
+								message =effort.getWorkday()+ "Hours不能为空";
 								return false;
 							}
 						}
@@ -348,7 +354,7 @@ public class EffortController {
 
 							} else {
 								System.out.println("Hours不能为空");
-								message = "Hours不能为空";
+								message = effort.getWorkday()+"Hours不能为空";
 								return false;
 							}
 						}
@@ -444,7 +450,7 @@ public class EffortController {
 				}
 
 				if (isworkday && (temphours < 8.0 || temphours > 24.0)) {
-					message = message + smEfforts.getWorkday() + "的时长不符合要求；";
+					message = message +smEfforts.getWorkday() +smEfforts.getTicketNumber() + "的时长不符合要求；";
 
 				}
 
@@ -468,7 +474,7 @@ public class EffortController {
 			}
 			System.out.println("effort行数====" + effortList.size());
 			if (monthhours < workday * 8) {
-				message = "工时不足" + workday * 8 + "小时";
+				message = "本月总工时不足" + workday * 8 + "小时";
 				return false;
 			}
 			System.out.println(effortList);
